@@ -269,7 +269,6 @@ namespace nutritionoffice.Controllers
                 }
                 ViewBag.Customer = measurement.Customer;
                 IQueryable<Customer> companycustomers = db.Customers.Where(r => r.CompanyID == CompID);
-                ViewBag.CustomerID = new SelectList(companycustomers, "id", "LastName", measurement.CustomerID);
                 return View(measurement);
             }
             catch (Exception ex)
@@ -294,7 +293,7 @@ namespace nutritionoffice.Controllers
                     await db.SaveChangesAsync();
                     return RedirectToAction("Details", "Customers", new { id = measurement.CustomerID });
                 }
-                ViewBag.CustomerID = new SelectList(db.Customers, "id", "LastName", measurement.CustomerID);
+                ViewBag.Customer =await db.Customers.FindAsync(measurement.CustomerID);
                 return View(measurement);
             }
             catch (Exception ex)

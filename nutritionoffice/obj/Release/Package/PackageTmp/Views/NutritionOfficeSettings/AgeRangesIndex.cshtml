@@ -1,0 +1,39 @@
+﻿@model IEnumerable<nutritionoffice.Models.AgeRange>
+
+@{
+    ViewBag.Title = "AgeRangesIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AgeRangesIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AgeRangeCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAge)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToAge)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "AgeRangeEdit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "AgeRangeDelete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

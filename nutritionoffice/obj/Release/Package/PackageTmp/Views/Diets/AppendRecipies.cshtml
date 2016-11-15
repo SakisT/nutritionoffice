@@ -1,0 +1,39 @@
+﻿@model IEnumerable<nutritionoffice.Models.Recipe>
+
+<input type="hidden" id="currentguids" value="@ViewBag.CurrentRecipes" />
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Ομάδα</th>
+            <th>Συνταγή</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelitem => item.RecipeCategory.Name)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Name)</td>
+                    <td>
+                        <a href="javascript:void[0]" onclick="removerecipeforemail('@item.FileGuid')" class="btn btn-danger">-</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>@Html.DropDownList("RecipeGroupID", null, htmlAttributes: new { @class = "form-control" })</td>
+            <td>@Html.DropDownList("RecipeID", null, htmlAttributes: new { @class = "form-control", @id="newrecipeguid" })</td>
+            <td>
+                <a href="javascript:void[0]" class="btn btn-success" onclick="addnewrecipeforemail()"> + </a>
+            </td>
+        </tr>
+    </tfoot>
+
+</table>

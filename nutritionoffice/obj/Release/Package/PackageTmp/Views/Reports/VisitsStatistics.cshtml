@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "VisitsStatistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Resource.VisitsStatistics</h2>
+
+@using (Html.BeginForm("VisitsInPeriod", "Reports", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label(Resource.From)
+                @*@Html.TextBox("fromdate", (DateTime)ViewBag.FromDate, "{0:dd/MM/yyyy}", htmlAttributes: new { @class = "form-control datepicker" })*@
+                <input type="text" name="fromdate" class="form-control datepicker" value="@((DateTime)ViewBag.FromDate)" style="background-color:#fcfbad" />
+            </div>
+
+            <div class="col-md-2">
+                @Html.Label(Resource.to)
+                @*@Html.TextBox("todate", DateTime.Today.AddMonths(-1), "{0:dd/MM/yyyy}", htmlAttributes: new { @class = "form-control datepicker" })*@
+                <input type="text" name="todate" class="form-control datepicker" value="@(DateTime.Today.AddMonths(-1))" style="background-color:#fcfbad" />
+            </div>
+            
+            <div class="col-md-2">
+                @Html.Label("Sex")
+                @Html.DropDownList("sexid",EnumHelper.GetSelectList(typeof(nutritionoffice.Models.Customer.sex)),"Select Sex", htmlAttributes:new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-2">
+                @Html.Label("Age")
+               @Html.DropDownList("agerangeid", (SelectList)ViewBag.AgeRanges, "All Ages", htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <label>@Resource.TargetGroups</label>
+                @Html.DropDownList("targetgroupid", (SelectList)ViewBag.TargetGroupID, "All Target Groups", htmlAttributes: new { @class = "form-control" })
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-warning">@Resource.Create</button>
+    </div>
+}
+
+<br />
+

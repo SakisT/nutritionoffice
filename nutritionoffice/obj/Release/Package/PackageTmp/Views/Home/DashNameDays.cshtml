@@ -1,0 +1,295 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.DashData.NameDaysView>
+
+<style>
+    .table-nameday > tbody tr td {
+        font-size: 0.8em;
+    }
+
+    .table-birthday > tbody tr td {
+        font-size: 0.8em;
+    }
+
+    .table-nameday {
+        box-shadow: #ffd800 2px 2px 5px;
+    }
+
+    .table-birthday {
+        box-shadow: #fc93dd 2px 2px 5px;
+    }
+
+    h4 {
+        font: normal 16px verdana;
+        color: #808080;
+        text-shadow: 2px 2px 3px #808080;
+    }
+
+    .calendar-day {
+        font: normal 14px tahoma;
+        color: #0014b1;
+        text-shadow: 1px 1px 3px #808080;
+    }
+
+    .namedaynames {
+        font-size: 0.9em;
+        font-weight: 100;
+        margin-top: -10px;
+        color: #016500;
+    }
+
+
+</style>
+
+@if (Model.Count() != 0)
+{
+    <ul>
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="form-group">
+                        <div class="col-md-4 calendar-day">@string.Format($"{@Resource.Today}, {DateTime.Today:dddd d/M/yyyy}")</div>
+                        <div class="col-md-8" style="word-wrap:break-word;">
+                            @Html.Label(string.Join(",", Model.FirstOrDefault().NameDay.HeadNames.ToArray()), htmlAttributes: new { @class = "namedaynames" })
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--Γιορτάζουν σήμερα-->
+                            @if (Model.FirstOrDefault().NameDayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesNameDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-nameday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.NameDayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.FirstOrDefault().NameDayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <!-- Έχουν γεννέθλια σήμερα -->
+                            @if (Model.FirstOrDefault().BirthdayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesBirthDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-birthday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.BirthdayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.FirstOrDefault().BirthdayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="form-group">
+                        <div class="col-md-4 calendar-day">@string.Format($"{@Resource.Tomorrow}, {DateTime.Today.AddDays(1):dddd d/M/yyyy}")</div>
+                        <div class="col-md-8" style="word-wrap:break-word;">
+                            @Html.Label(string.Join(",", Model.Skip(1).FirstOrDefault().NameDay.HeadNames.ToArray()), htmlAttributes: new { @class = "namedaynames" })
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--Γιορτάζουν σήμερα-->
+                            @if (Model.Skip(1).FirstOrDefault().NameDayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesNameDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-nameday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.NameDayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.Skip(1).FirstOrDefault().NameDayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <!-- Έχουν γεννέθλια σήμερα -->
+                            @if (Model.Skip(1).FirstOrDefault().BirthdayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesBirthDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-birthday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.BirthdayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.Skip(1).FirstOrDefault().BirthdayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="form-group">
+                        <div class="col-md-4 calendar-day">@string.Format($"{@Resource.DayAfterTomorrow}, {DateTime.Today.AddDays(2):dddd d/M/yyyy}")</div>
+                        <div class="col-md-8" style="word-wrap:break-word;">
+                            @Html.Label(string.Join(",", Model.Skip(2).FirstOrDefault().NameDay.HeadNames.ToArray()), htmlAttributes: new { @class = "namedaynames" })
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--Γιορτάζουν σήμερα-->
+                            @if (Model.Skip(2).FirstOrDefault().NameDayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesNameDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-nameday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.NameDayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.Skip(2).FirstOrDefault().NameDayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <!-- Έχουν γεννέθλια σήμερα -->
+                            @if (Model.Skip(2).FirstOrDefault().BirthdayCustomers.Count() == 0)
+                            {
+                                <h4>@Resource.NoOnesBirthDay</h4>
+                            }
+                            else
+                            {
+                                <table class="table table-condensed table-birthday">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="text-align:center"><h4>@Resource.BirthdayCustomers</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-pencil" title="@Resource.CreateNewReminder"> </span></th>
+                                            <th>@Resource.Customer</th>
+                                            <th>@Resource.LastReminder</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var customer in Model.Skip(2).FirstOrDefault().BirthdayCustomers)
+                                        {
+                                            var lastreminder = customer.Reminders.OrderByDescending(r => r.OnDate).FirstOrDefault();
+                                            <tr>
+                                                <td><a href="@Url.Action("Create","Reminders",new { CustomerID=customer.id,Message=Resource.BestWishesForYourNameDay})"><span class="glyphicon glyphicon-plus" title="@Resource.CreateNewReminder"></span> </a></td>
+                                                <td>@Html.ActionLink(customer.FullName, "Details", "Customers", new { id = customer.id }, htmlAttributes: new { @target = "_blank", data_toggle = "tooltip", title = Resource.CustomersControlPanel })</td>
+                                                <td>@Html.DisplayFor(modelitem => lastreminder, "ReminderStatus", new { DisplayDateTime = true, DisplayMessage = true, DisplayLink = true })</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+}
+

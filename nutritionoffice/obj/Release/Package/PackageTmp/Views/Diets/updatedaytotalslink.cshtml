@@ -1,0 +1,17 @@
+﻿@model nutritionoffice.ViewModels.dailytotals
+@{
+    if (Model != null )
+    {
+        <p class="text-left">
+           @string.Format($"{Resource.Energy} {Model.MinKalories:N2} - {Model.MaxKalories:N2}, {Resource.Calcium} {Model.MinCalcium:N2} - {Model.MaxCalcium:N2}, {Resource.Carbohydrates} {Model.MinCarbohydrates:N2} - {Model.MaxCarbohydrates:N2}") <br />
+            @string.Format($"{Resource.Protein} {Model.MinProtein:N2} - {Model.MaxProtein:N2}, { Resource.Iron} { Model.MinIron:N2} - { Model.MaxIron:N2}")
+        </p>
+    }
+    else
+    {
+        <p>
+            Ημερήσια σύνολα
+        </p>
+    }
+}
+

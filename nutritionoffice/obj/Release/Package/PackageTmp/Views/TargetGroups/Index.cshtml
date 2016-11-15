@@ -1,0 +1,33 @@
+﻿@model IEnumerable<nutritionoffice.Models.TargetGroup>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resource.TargetGroups</h2>
+
+<p>
+    <a href="@Url.Action("Create")">@Resource.CreateNewTargetGroup <span class="glyphicon glyphicon-plus" title="@Resource.CreateNewTargetGroup"></span></a>
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.IsActive)</th>
+        <th>@Html.DisplayNameFor(model => model.Notes)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Edit", new { id=item.id })" ><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+            <a href="@Url.Action("ListGroupCustomerToSendReminder", new { id=item.id })"><span class="glyphicon glyphicon-envelope" title="@Resource.CreateBulkReminder"></span></a>
+        </td>
+        <td>@Html.ActionLink(item.Name,"Index","Customers", new { TargetGroupID = item.id},null)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+    </tr>
+}
+
+</table>

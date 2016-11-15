@@ -1,0 +1,44 @@
+﻿@model nutritionoffice.Models.DietDailyMeal
+<style>
+    .group {
+        border: solid #665e98 1px;
+        border-radius: 5px;
+        padding: 2px 2px 0px 4px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+</style>
+
+<div>
+    @if (Model.DietDetails != null)
+    {
+        var groups = Model.DietDetails.OrderBy(r => r.Group).GroupBy(r => r.Group).ToArray();
+        foreach (var item in groups)
+        {
+            int groupindex = Array.IndexOf(groups, item);
+            <div class="group">
+                @foreach (var detail in item)
+                {
+                    @Html.Partial("SingleDietDetail", detail)
+                    <hr />
+                }
+
+            </div>
+            if (groups.Count() > 1 && groupindex < groups.Count()-1)
+            {
+                <div class="row text-muted">
+                    <div class="col-xs-5"></div>
+                    <div class="col-xs-2">ή</div>
+                    <div class="col-xs-5"></div>
+                </div>
+            }
+
+        }
+    }
+</div>
+<a href="javascript:void(0)" onclick="showfooddialog(@Model.id,@Model.DayIndex,@Model.MealIndex,0,0,'', 0,'',0)"><span class="glyphicon glyphicon-plus"> </span></a>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

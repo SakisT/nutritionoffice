@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<nutritionoffice.Models.Customer>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.HelpFile =Href( "~/HelpFiles/CustomersHelp.html");
+}
+
+<h2>@Resource.CustomersList</h2>
+
+<p>
+    <a href="@Url.Action("Create", new { TargetGroupID = ViewBag.TargetGroupID })">@Resource.CreateNewCustomer</span></a>
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th></th>
+        <th>@Html.DisplayName(Resource.Surname)</th>
+        <th>@Html.DisplayName(Resource.Firstname)</th>
+        <th>@Html.DisplayName(Resource.TargetGroupID)</th>
+        <th>@Html.DisplayName(Resource.Age)</th>
+        <th>@Html.DisplayName(Resource.Sex)</th>
+        <th>@Html.DisplayName(Resource.Remarks)</th>
+    </tr>
+@foreach (var item in Model) {
+    int Age = DateTime.Today.Year - item.BirthDate.Year;
+    string title = string.Format($"{Resource.Birthday}:{item.BirthDate.ToShortDateString()}");
+    string LastName = item.LastName;
+    <tr>
+        <td><a href="@Url.Action("Edit", new { id=item.id })"><span class="glyphicon glyphicon-edit" title="@Resource.EditCustomerDetails"></span></a></td>
+        <td>
+            @if (item.Appointments.Count()==0 && item.Diets.Count() == 0 && item.Measurements.Count() == 0 && item.Reminders.Count() == 0)
+            {
+                <a href="@Url.Action("Delete", new { id=item.id })"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+            }
+        </td>
+        <td>@Html.ActionLink(LastName, "Details", new { id = item.id },htmlAttributes: new { })</td>
+        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+        <td>@Html.DisplayFor(modelItem => item.TargetGroup.Name)</td>
+        <td>@Html.DisplayFor(modelItem => Age, new { title=item.BirthDate.ToShortDateString()})</td>
+        <td>@Html.DisplayFor(modelItem => item.Sex)</td>
+        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+    </tr>
+}
+</table>
+<br />
+@Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @Resource.of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, TargetGroupID=ViewBag.TargetGroupID }))

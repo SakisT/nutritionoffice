@@ -1,0 +1,110 @@
+﻿@model nutritionoffice.Models.Measurement
+
+<style>
+    th{
+        text-align:center;
+    }
+
+    td{
+        text-align:right;
+    }
+</style>
+
+<div style="transform:scale(1)">
+    <table class="table table-condensed table-bordered" style="font-size:0.7em">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(modelitem=>modelitem.Height)</th>
+                <th>@Html.DisplayNameFor(modelitem => modelitem.Weight)</th>
+                <th colspan="3" style="background-color:#ffd800">@Html.DisplayFor(modelitem => modelitem.JP7.Name)</th>
+                <th colspan="3" style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.JP3.Name)</th>
+                <th colspan="3" style="background-color:#eab6b6">@Html.DisplayFor(modelitem => modelitem.Pa3.Name)</th>
+                <th colspan="3" style="background-color:#c3c5f8">@Html.DisplayFor(modelitem => modelitem.L3.Name)</th>
+                <th colspan="3" style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.Quote3.Name)</th>
+                <th colspan="3" style="background-color:#eaeb86">@Html.DisplayFor(modelitem => modelitem.FS4.Name)</th>
+                <th colspan="3" style="background-color:#65bfcb">@Html.DisplayFor(modelitem => modelitem.S2.Name)</th>
+                <th colspan="3" style="background-color:#98c8fc">@Html.DisplayFor(modelitem => modelitem.P9.Name)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(modelitem => modelitem.Height)</td>
+                <td>@Html.DisplayFor(modelitem => modelitem.Weight)</td>
+
+                <td style="background-color:#ffd800">@Html.DisplayFor(modelitem => modelitem.JP7.SumOfSkinFolds)</td>
+                <td style="background-color:#ffd800">@Html.DisplayFor(modelitem => modelitem.JP7.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#ffd800">@Html.DisplayFor(modelitem =>modelitem.JP7.BodyFat,"_double", new { Decimals=2 })</td>
+
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.JP3.SumOfSkinFolds)</td>
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.JP3.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.JP3.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#eab6b6">@Html.DisplayFor(modelitem => modelitem.Pa3.SumOfSkinFolds)</td>
+                <td style="background-color:#eab6b6">@Html.DisplayFor(modelitem => modelitem.Pa3.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#eab6b6">@Html.DisplayFor(modelitem => modelitem.Pa3.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#c3c5f8">@Html.DisplayFor(modelitem => modelitem.L3.SumOfSkinFolds)</td>
+                <td style="background-color:#c3c5f8">@Html.DisplayFor(modelitem => modelitem.L3.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#c3c5f8">@Html.DisplayFor(modelitem => modelitem.L3.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.Quote3.SumOfSkinFolds)</td>
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.Quote3.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#b6ff00">@Html.DisplayFor(modelitem => modelitem.Quote3.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#eaeb86">@Html.DisplayFor(modelitem => modelitem.FS4.SumOfSkinFolds)</td>
+                <td style="background-color:#eaeb86">@Html.DisplayFor(modelitem => modelitem.FS4.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#eaeb86">@Html.DisplayFor(modelitem => modelitem.FS4.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#65bfcb">@Html.DisplayFor(modelitem => modelitem.S2.SumOfSkinFolds)</td>
+                <td style="background-color:#65bfcb">@Html.DisplayFor(modelitem => modelitem.S2.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#65bfcb">@Html.DisplayFor(modelitem => modelitem.S2.BodyFat, "_double", new { Decimals = 2 })</td>
+
+                <td style="background-color:#98c8fc">@Html.DisplayFor(modelitem => modelitem.P9.SumOfSkinFolds)</td>
+                <td style="background-color:#98c8fc">@Html.DisplayFor(modelitem => modelitem.P9.BodyDensity, "_double", new { Decimals = 2 })</td>
+                <td style="background-color:#98c8fc">@Html.DisplayFor(modelitem => modelitem.P9.BodyFat, "_double", new { Decimals = 2 })</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <div class="row">
+            <div class="col-md-4">
+                <table class="table table-condensed table-bordered even-odd-table">
+                    <!-- style="width:35%"-->
+                    <thead style="background-color:#f59cfc">
+                        <tr>
+                            <th width="80%">Μέτρηση</th>
+                            <th width="19%">Τιμή</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Resource.AverageBodyFat</td>
+                            <td>@string.Format($"{Model.AverageBodyFat:p1}")</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource.STDEVBodyFat</td>
+                            <td>@string.Format($"{Model.STDEVBodyFat:p1}")</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource.MedianBodyFat</td>
+                            <td>@string.Format($"{Model.MedianBodyFat:p1}")</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource.FatWeightRelation</td>
+                            <td>@string.Format($"{Model.FatWeightRelation:n1}lb")</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource.LeanWeight</td>
+                            <td>@string.Format($"{Model.LeanWeight:n1}lb")</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="@Url.Action("PrintOut",new { id=Model.id,filetype="WORD"})" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> @Resource.PrintableVersion</a>
+            </div>
+            <div class="col-md-8">
+                <canvas id="BMICanvas" width="600" height="420" style="fill:#f6fed6" customerid="@Model.CustomerID" sex="girl" data-link="@Url.Action("GetBMIData","Measurements")"></canvas>
+            </div>
+        </div>
+    </p>
+    
+</div>

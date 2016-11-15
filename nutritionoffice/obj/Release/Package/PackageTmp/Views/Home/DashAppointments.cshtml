@@ -1,0 +1,41 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.DashData.AppointmentsView>
+@{
+    DateTime AppointmentsDate = DateTime.Today.AddDays((int)ViewData["appointmentsdateoffset"]);
+}
+@*<div class="form-group">
+        <a style="font-size:1.5em" href="#">@string.Format("{0} {1}: {2:dddd d/M/yyyy}", Resource.Appointments, Resource.ofdate, AppointmentsDate)</a>
+        <div class="col-md-4 pull-right">
+            <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=(int)ViewData["appointmentsdateoffset"]-1})"><span class="glyphicon glyphicon-backward"></span> </a> &nbsp;&nbsp;
+            <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=0})"><span class="glyphicon glyphicon-stop"></span> </a> &nbsp;&nbsp;
+            <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=(int)ViewData["appointmentsdateoffset"]+1})"><span class="glyphicon glyphicon-forward"></span> </a>
+        </div>
+    </div>*@
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>@Resource.Customer</th>
+            <th width="20%">@Resource.Time</th>
+            <th>@Resource.Remarks</th>
+            <th colspan="2" class="text-center" width="20%">@Resource.Reminder</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            DateTime Now = nutritionoffice.Classes.SharedClass.Now();
+            foreach (var item in Model)
+            {
+                string backcolor = (item.Appointment.Date < DateTime.Today) ? "rgba(240, 248, 252, 0.47)" : (item.Appointment.Date > Now.Date) ? "#c0fca7" : (item.Appointment.FromTime.TimeOfDay < Now.TimeOfDay) ? "rgba(240, 248, 252, 0.47)" : "#c0fca7";
+
+                <tr style="background-color:@backcolor">
+                    <td>@Html.ActionLink(item.Customer.FullName, "Details", "Customers", new { id = item.Customer.id }, htmlAttributes: new { target = "_blank", data_toggle="tooltip", title=Resource.CustomersControlPanel })</td>
+                    <td>@Html.ActionLink(string.Format("{0:HH:mm}", item.Appointment.FromTime), "Edit", "Appointments", new { id = item.Appointment.id }, htmlAttributes: new { target = "_blank", data_toggle = "tooltip", title = Resource.DisplayAndEditAppointmentsData })</td>
+                    <td>@Html.DisplayFor(modelitem => item.Appointment.Notes)</td>
+                    <td>@Html.ActionLink(string.Format("{0:ddd d/M/yyyy HH:mm}", item.LastReminder.OnDate), "Edit", "Reminders", new { id = item.LastReminder.id }, htmlAttributes: new { target = "_blank", data_toggle = "tooltip", title = Resource.DisplayRemindersData })</td>
+                    <td>@Html.DisplayFor(modelitem => item.LastReminder, "ReminderStatus")</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

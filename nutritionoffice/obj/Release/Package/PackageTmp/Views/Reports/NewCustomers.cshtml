@@ -1,0 +1,80 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.selectablecustomer>
+
+@{
+    ViewBag.Title = "NewCustomers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string FromDate = string.Format("{0:d/M/yyyy}", (DateTime)ViewBag.FromDate);
+    string ToDate = string.Format("{0:d/M/yyyy}", (DateTime)ViewBag.ToDate);
+}
+<style>
+    td {
+        text-align: right;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <div class="row">
+            <div class="col-xs-3">
+                <h2>New Customers</h2>
+            </div>
+            <div class="col-xs-9" style="margin-top:20px;">
+                From Date : <input type="text" value="@FromDate" name="fromdate" id="fromdate" class="form-control datepicker" style="width:100px;" /> |
+                To Date : <input type="text" value="@ToDate" name="todate" id="todate" class="form-control datepicker" style="width:100px;" /> |
+                <button type="submit" class="btn btn-info">GO</button> |
+                @*@Html.ActionLink("PDF", "Measurements", new { fromdate = (DateTime)ViewBag.FromDate, todate = (DateTime)ViewBag.ToDate, print = true }, htmlAttributes: new { @class = "btn btn-danger", id = "fromdatepicker" }) |
+                    @Html.ActionLink("Excel", "Measurements", new { fromdate = (DateTime)ViewBag.FromDate, todate = (DateTime)ViewBag.ToDate, print = true, filetype = "Excel" }, htmlAttributes: new { @class = "btn btn-success", id = "todatepicker" })*@
+            </div>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("ListGroupCustomerToSendReminder", "TargetGroups"))
+{
+    int Counter = -1;
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>@Html.DisplayNameFor(model => model.customer.FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.customer.BirthDate)</th>
+                <th>@Html.DisplayNameFor(model => model.customer.Phone)</th>
+                <th>@Html.DisplayNameFor(model => model.customer.Mobile)</th>
+                <th>@Html.DisplayNameFor(model => model.customer.email)</th>
+                <th>@Html.DisplayNameFor(model => model.customer.Facebook)</th>
+                <th>Crete / Edit</th>
+            </tr>
+
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            Counter += 1;
+            string tooltip = item.customer.Notes;
+            @Html.Hidden("groupcustomers[" + Counter + "].customer.TargetGroupID", item.customer.TargetGroupID)
+            @Html.Hidden("groupcustomers[" + Counter + "].customer.LastName", item.customer.LastName)
+            @Html.Hidden("groupcustomers[" + Counter + "].customer.FirstName", item.customer.FirstName)
+            @Html.Hidden("groupcustomers[" + Counter + "].customer.Mobile", item.customer.Mobile)
+            @Html.Hidden("groupcustomers[" + Counter + "].customer.email", item.customer.email)
+
+            <tr>
+                <td>@Html.Hidden("groupcustomers[" + Counter + "].customer.id", item.customer.id)</td>
+                <td>@Html.CheckBox("groupcustomers[" + Counter + "].IsSelected", item.IsSelected)</td>
+                <td style="text-align:left" title="@tooltip">@Html.ActionLink(item.customer.FullName, "Edit", "Customers", new { id = item.customer.id }, null)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.BirthDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.Phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.Mobile)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.email)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.Facebook)</td>
+                <td>@Html.DisplayFor(modelItem => item.customer.CreatedOn, "_Shortdate") @Html.DisplayFor(modelItem => item.customer.EditedOn, "_Shortdate") </td>
+            </tr>
+
+        }
+
+    </table>
+    <div class="col-xs-9" style="margin-top:20px;">
+        <button type="submit" class="btn btn-info">Αποστολή email</button>
+    </div>
+}
+

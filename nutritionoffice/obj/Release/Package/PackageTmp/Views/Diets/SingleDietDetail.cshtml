@@ -1,0 +1,47 @@
+﻿@model nutritionoffice.Models.DietDetail
+
+@{
+    if (Model != null)
+    {
+        int mealid = Model.DietDailyMealID;
+        int dayindex = Model.DietDailyMeal.DayIndex;
+        int mealindex = Model.DietDailyMeal.MealIndex;
+        int foodid = Model.FoodID;
+        int dietdetailid = Model.ID;
+        string foodname = Model.Food.GreekName;
+        decimal mealquantity = Model.Quantity;
+        string mealquantitytype = Model.QuantityType;
+        int groupindex = Model.Group;
+        string ToolTipText = new nutritionoffice.ViewModels.dailytotals().GetSingleMealData(Model.ID);
+
+        <div class="hidden">
+            <table class="table tooltipcustomdata">
+                <tbody>
+                    <tr>
+                        <td>Test 1</td>
+                        <td>Test 2</td>
+                        <td>Tes t3</td>
+                        <td>Test 4</td>
+                    </tr>
+                    <tr>
+                        <td>Test 5</td>
+                        <td>Test 6</td>
+                        <td>Test 7</td>
+                        <td>Test 8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        //System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("en-US");
+        string mealquantitytext = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, $"{Model.Quantity:N2}");
+        string linktext = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, $"{Model.Quantity:N2} {Model.QuantityType} {Model.Food.GreekName}").Replace(System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator + "00", "");
+        <div style="font-size:0.8em">
+            <a href="javascript:void(0)" onclick="removeitemfrommeal(@dietdetailid,@mealid, @dayindex, @mealindex)"><span class="glyphicon glyphicon-remove-circle"> </span></a> <a href="javascript:void(0)" class="singledietitemclass" data-toggle="customtooltip" title="@ToolTipText" onclick="showfooddialog(@mealid, @dayindex, @mealindex, @foodid, @dietdetailid,'@foodname', @mealquantity,'@mealquantitytype',@groupindex )">@linktext</a>
+            @*<a href="javascript:void(0)" onclick="removeitemfrommeal(@dietdetailid,@mealid, @dayindex, @mealindex)"><span class="glyphicon glyphicon-remove-circle"> </span></a> <a href="javascript:void(0)" class="singledietitemclass" title="@ToolTipText" onclick="showfooddialog(@mealid, @dayindex, @mealindex, @foodid, @dietdetailid,'@foodname', @mealquantity,'@mealquantitytype',@groupindex )">@linktext</a>*@
+        </div>
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

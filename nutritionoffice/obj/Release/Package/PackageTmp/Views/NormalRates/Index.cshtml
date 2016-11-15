@@ -1,0 +1,86 @@
+﻿@model IEnumerable<nutritionoffice.Models.NormalRates>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValueUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit",new { id = item.id })"><span class="glyphicon glyphicon-edit"></span> </a> |
+                <a href="@Url.Action("Delete",new { id = item.id })"><span class="glyphicon glyphicon-remove-circle"></span> </a>
+            </td>
+            <td>
+                @EnumHelper.GetSelectList(type: typeof(nutritionoffice.Models.NormalRates.ValueType), value: item.Type).Where(r => r.Selected).FirstOrDefault().Text
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValueUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                <div style="padding:8px;background-color:@item.Color">
+
+                </div>
+            </td>
+
+        </tr>
+    }
+
+</table>

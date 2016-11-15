@@ -1,0 +1,83 @@
+﻿@model nutritionoffice.ViewModels.DashData
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<img src="data:image/png;base64,@ViewBag.PieData" alt="tets" width="1000" height="400" />*@
+
+
+
+
+@*<script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+<div id="SkypeButton_Call_sakis_tsolos_1" style="float:right">
+    <script type="text/javascript">
+ Skype.ui({
+ "name": "dropdown",
+ "element": "SkypeButton_Call_sakis_tsolos_1",
+ "participants": ["sakis_tsolos"]
+ });
+    </script>
+</div>*@
+
+
+<div class="jumbotron">
+    @if (ViewBag.Logo != null)
+    {
+        string imageBase64 = Convert.ToBase64String((byte[])ViewBag.Logo);
+        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" style="width:100%" />
+    }
+    else
+    {
+        <img src="https://nutritionoffice.blob.core.windows.net/files/homepage.jpg" style="width:100%" />
+    }
+</div>
+@if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)) && (int)ViewBag.CompanyID > 0)
+{
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div style="font-size:1.2em;color:blueviolet;text-shadow:1px 1px 1px #808080;">
+                @string.Format("{0} {1}  :  {2:dddd, d/M/yyyy}", Resource.Appointments, Resource.ofdate, DateTime.Today.AddDays((int)ViewData["appointmentsdateoffset"]))
+            <div class="col-md-4 pull-right">
+                <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=(int)ViewData["appointmentsdateoffset"]-1})"><span class="glyphicon glyphicon-backward" style="color:forestgreen;text-shadow:3px 3px 4px #808080" title="@Resource.PreviousDay"></span> </a> &nbsp;&nbsp;
+                <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=0})"><span class="glyphicon glyphicon-stop" style="color:blueviolet;text-shadow:3px 3px 4px #808080" title="@Resource.Today"></span> </a> &nbsp;&nbsp;
+                <a href="@Url.Action("Index","Home",new { appointmentsdateoffset=(int)ViewData["appointmentsdateoffset"]+1})"><span class="glyphicon glyphicon-forward" style="color:forestgreen;text-shadow:3px 3px 4px #808080" title="@Resource.NextDay"></span> </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        @(Html.Partial("DashAppointments", model: Model.Appointments))
+    </div>
+</div>
+
+    <a href="#celebationspanel" data-toggle="collapse">Γιορτάζουν</a>
+    <div id="celebationspanel" class="panel-collapse collapse">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="form-group">
+                    <div class="col-md-3" style="font-size:1.2em;color:blueviolet;text-shadow:1px 1px 1px #808080;">
+                        Γιορτάζουν
+                    </div>
+                    <div class="col-md-2 pull-right" style="font-size:0.8em">
+                        Πηγή: <a href="http://www.eortologio.gr/" target="_blank">eortologio.gr</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-body">
+                @(Html.Partial("DashNameDays", model: Model.CelebratingCustomers))
+            </div>
+        </div>
+    </div>
+    
+}
+<p></p>
+
+@*
+    <a href="javascript:void[0]" class="btn btn-info" id="btncreatebmi">BMI</a>
+    <canvas id="BMICanvas" width="400"  height="600" style="fill:#ffd800" customerid="332" sex="boy" data-link="@Url.Action("GetBMIData","Measurements")"></canvas>
+
+     <div>
+        @{Html.RenderPartial("BMIPartial");}
+    </div>
+*@

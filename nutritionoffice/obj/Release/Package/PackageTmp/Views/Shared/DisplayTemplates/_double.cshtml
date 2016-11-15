@@ -1,0 +1,7 @@
+﻿@model double?
+    @if (Model.HasValue)
+    {
+        int decimals = (ViewBag.Decimals == null) ? 4 : (int)ViewBag.Decimals;
+        string f = "N" + decimals;
+        <p>@string.Format("{0:" + f + "}",Model.Value)</p>
+    }

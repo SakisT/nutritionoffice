@@ -1,0 +1,91 @@
+﻿@model nutritionoffice.Models.NormalRates
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NormalRates</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

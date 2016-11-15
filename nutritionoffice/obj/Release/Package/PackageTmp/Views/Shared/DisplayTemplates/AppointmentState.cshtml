@@ -1,0 +1,17 @@
+﻿@model nutritionoffice.Models.Appointment.AppointmentState
+    @switch (Model)
+    {
+        case nutritionoffice.Models.Appointment.AppointmentState.Canceled:
+            <span>Ακυρωμένο</span> 
+            break;
+        case nutritionoffice.Models.Appointment.AppointmentState.Completed:
+            <span>Ολοκληρωμένο</span>
+            break;
+        case nutritionoffice.Models.Appointment.AppointmentState.Postpone:
+            <span>Από αναβολή</span>
+            break;
+        default:
+            <span>Ενεργό</span>
+            break;
+    }
+

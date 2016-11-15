@@ -1,0 +1,198 @@
+﻿@model nutritionoffice.Models.Diet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] mealnames = new string[] { Resource.Breakfast, Resource.Snack, Resource.Lunch, Resource.Snack, Resource.Dinner };
+    string[] headermealcolors = new string[] { "#b6ff00", "#ecfaca", "#b4adef", "#ffdffc", "#f192e9" };
+    string[] bodymealcolors = new string[] { "#d7fc7c", "#f3f9e1", "#d6d3f4", "#fcecfb", "#f5c5f1" };
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading"><h4>@Html.ActionLink(Model.Customer.FullName, "Details", "Customers", new { id = Model.CustomerID }, null)</h4></div>
+    <div class="panel-body">
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.StartDate, null, htmlAttributes: new { @class = "control-label" }) : @Html.DisplayFor(modelitem => modelitem.StartDate) &nbsp;&nbsp;&nbsp;
+                @Html.LabelFor(model => model.Type, null, htmlAttributes: new { @class = "control-label" }) : @EnumHelper.GetSelectList(type: typeof(nutritionoffice.Models.Diet.DietType), value: Model.Type).Where(r => r.Selected).FirstOrDefault().Text
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-6">
+                        @Html.ExportTo("PrintOut", "Diets", new { id = Model.ID, email = false })
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void[0]" class="btn btn-warning" id="emaildiet"><span class="glyphicon glyphicon-envelope"></span> email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<a href="@Url.Action("PrintOut",new { id=Model.ID,email=false, filetype="WORD"})" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> @Resource.Print</a> |*@
+@for (int dayindex = 1; dayindex < 8; ++dayindex)
+{
+    string dayheaderid = string.Format($"day-{dayindex}");
+    <div style="margin-bottom:unset;box-shadow:10px 10px 5px #888888;border:solid #4cff00 1px;border-radius:5px;margin-bottom:20px;background-color:#ffe2bb">
+        <table class="table table-condensed">
+            <thead style="border-radius:5px;">
+                <tr>
+                    <th>@string.Format($"{Resource.Day} {dayindex}")</th>
+                    <!--Εδώ μπαίνει το σύνολο των θερμίδων κλπ -->
+                    <th colspan="4" style="text-align:center">
+                        <div id="@dayheaderid">
+                            @Html.Partial("updatedaytotalslink", new nutritionoffice.ViewModels.dailytotals(Model.ID, dayindex))
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    @for (int mealindex = 0; mealindex < 5; ++mealindex)
+                        {
+                            nutritionoffice.Models.DietDailyMeal meal = Model.DietDailyMeals.Where(r => r.DayIndex == dayindex && r.MealIndex == mealindex).First();
+
+                        <th width="19%" style="text-align:center;background-color:@headermealcolors[mealindex]">
+                            <div class="btn-group btn-group-xs">
+                                <button type="button" class="btn btn-info fixedwidth150">@mealnames[mealindex]</button>
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <!--DropDown με τις επιλογές αντιγραφής στις επόμενες ημέρες-->
+                                <ul class="dropdown-menu">
+                                    <li><a class="copymeal" href="@Url.Action("CopyMeal",new { id=meal.id, today=-1 })">Αντιγραφή σε όλες τις ημέρες</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    @for (int i = 1; i < 8; ++i)
+                                        {
+                                            if (i != dayindex)
+                                            {
+                                        <li><a class="copymeal" dayindex="@i" mealindex="@mealindex" mealid="@meal.id" href="@Url.Action("CopyMeal",new { id=meal.id, today=i })">@string.Format($"Αντιγραφή στη {i} ημέρα")</a></li>
+                                            }
+                                        }
+                                </ul>
+                            </div>
+                        </th>
+                        }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @for (int mealindex = 0; mealindex < 5; ++mealindex)
+                        {
+                            nutritionoffice.Models.DietDailyMeal meal = Model.DietDailyMeals.Where(r => r.DayIndex == dayindex && r.MealIndex == mealindex).FirstOrDefault();
+                            string dailymealid = string.Format($"mealid-{dayindex}-{mealindex}");
+                        <td width="19%" style="background-color:@bodymealcolors[mealindex]">
+                            <div id="@dailymealid">
+                                <!--Τα διάφορα τρόφιμα της ημέρας-->
+                                @Html.Partial("SingleDateMeal", meal)
+                            </div>
+                        </td>
+                        }
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    @for (int mealindex = 0; mealindex < 5; ++mealindex)
+                        {
+                            nutritionoffice.Models.DietDailyMeal meal = Model.DietDailyMeals.Where(r => r.DayIndex == dayindex && r.MealIndex == mealindex).FirstOrDefault();
+                            string Notes = (meal.Notes == null) ? " " : meal.Notes.Trim();
+                            string noteid = string.Format($"note-{dayindex}-{mealindex}");
+                        <td width="19%" style="background-color:@headermealcolors[mealindex]">
+                            <div>
+                                <!--Τα σχάλια του Meal-->
+                                <textarea rows="1" id="@noteid" class="form-control" style="background-color:#faffb7;font-size:0.9em" onclick="readnotes(@meal.id,@mealindex,@dayindex)" title="@Notes.Trim()">@Notes</textarea>
+                            </div>
+                        </td>
+                        }
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+}
+
+<div class="well">
+    <textarea class="form-control"></textarea>
+</div>
+
+<!--  D i a l o g   F o r m   style="transform:scale(0.7);" -->
+<div>
+    <div id="sendbymaildialog" data-link="@Url.Action("PrintOut",new { id=Model.ID,email=true})">
+        <div class="panel panel-warning">
+            <div class="panel-heading">@Resource.SendEmail</div>
+            <div class="panel-body">
+                @using (Html.BeginForm("PrintOut", "Diets", new { id = Model.ID, email = true, filetype = "IMAGE" }))
+            {
+                    @Html.Hidden("message.CompanyID", Model.Customer.CompanyID)
+                    <section>
+                        <article>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="recipientemailaddress">@Resource.RecipientsEmail</span>
+                                @Html.TextBox("message.Recipient", Model.Customer.email, htmlAttributes: new { @class = "form-control", aria_describedby = "recipientemailaddress" })
+                            </div>
+                        </article>
+                        <article>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="dietemailsubject">@Resource.MessageSubject</span>
+                                @Html.TextBox("message.Subject", "Δίαιτα", htmlAttributes: new { @class = "form-control", aria_describedby = "dietemailsubject" })
+                            </div>
+                        </article>
+                        <article>
+                            <header class="text-muted">@Resource.MessageBody</header>
+                            @Html.TextArea("message.MessageBody", Resource.WeSendYouYourDiet, htmlAttributes: new { @class = "form-control" })
+                        </article>
+                        <article>
+                            <header>Attachments</header>
+                            @Html.Hidden("message.Attatchments", "", htmlAttributes: new { @id = "finalattachments" })
+                            <div class="panel-body">
+                                <div id="attachmentsrender" data-link="@Url.Action("AppendRecipies")">
+
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                    <p>
+                        <div class="pull-right">
+                            <button id="submitformaildietandrecipes" type="submit" class="btn btn-primary" onclick="this.style.display = 'none';">Save</button>
+                        </div>
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div hidden="hidden" id="fooddialog" deletemeallink="@Url.Action("DeleteMeal")" updatesingledatemeallink="@Url.Action("SingleDateMeal")" updatefooddataurl="@Url.Action("updatefooddata")" updatedaytotalslink="@Url.Action("updatedaytotalslink",new {dietid=Model.ID})" searchurl="@Url.Action("GetFoods")" savedetailurl="@Url.Action("SaveDetailToMeal")" dietid="@Model.ID" diettype="@Model.Type" mealid="" foodid="" mealindex="" dietdetailid="" dayindex="">
+    <div class="row">
+        <div class="col-md-5">
+            @Html.DropDownList("GroupID", null, htmlAttributes: new { @class = "form-control", @id = "groupoptionvalue" })
+        </div>
+    </div>
+    <hr />
+    <div class="row" style="padding:20px;">
+        <div style="width:8%;float:left;padding-right:5px;">
+            <input type="text" class="form-control numbertextbox" id="foodquantity" title="@Resource.Quantity" />
+        </div>
+        <div style="width:17%;float:left;padding-right:5px;">
+            <input type="text" class="form-control selectall" id="foodquantityname" title="@Resource.DietQuantityToolTip" />
+        </div>
+        <div style="width:62%;float:left;padding-right:-5px;">
+            @Html.TextBox("searchTerm", null, htmlAttributes: new { @class = "searchTerm form-control selectall", @id = "fooditemcontrol", @title = Resource.SearchFoodToolTip })
+        </div>
+        <div style="width:10%;float:left">
+            <button class="btn btn-success" onclick="savemeal()">@Resource.Save</button>
+        </div>
+    </div>
+    <div id="fooddetails">
+        @Html.Partial("updatefooddata", new nutritionoffice.Models.Food { })
+    </div>
+</div>
+
+<div id="mealnotesdialog" mealid="" mealindex="" dayindex="" data-savenotesurl="@Url.Action("SaveNotes")">
+    <textarea cols="4" rows="2" id="mealnotes" class="form-control"></textarea>
+    <hr />
+    <div class="btn btn-warning" style="float:right" onmousedown="savemealnotes()">@Resource.Save</div>
+</div>
+
+<div>
+    @Html.ActionLink(Resource.BacktoList,"Index")
+</div>

@@ -1,0 +1,5 @@
+﻿@model  DateTime?
+    @if (Model.HasValue)
+    {
+        <p>@string.Format("{0:d/M/yy}",Model.Value)</p>
+    }

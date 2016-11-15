@@ -1,0 +1,93 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.appointmentcancelation>
+
+<h3 style="text-align:center">@Resource.AppointmentsListtobeCancel</h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label(Resource.From, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-5" style="padding-right:4em;">
+                <input type="text" name="fromdate" id="fromdate" class="form-control datepicker" value="@ViewBag.FromDate" style="background-color:#fcfbad" />
+            </div>
+            @Html.Label(Resource.to, htmlAttributes: new { @class = "col-md-1" })
+            <div class="col-md-4">
+                <input type="text" name="todate" id="todate" class="form-control datepicker" value="@ViewBag.ToDate" style="background-color:#fcfbad" />
+            </div>
+        </div>
+        @Html.ValidationMessage("CustomError", new { @class = "text-danger" })
+        <div class="col-md-2">
+            <button type="submit" name="refreshdates" class="btn btn-info"><span class="glyphicon glyphicon-refresh"> Refresh</span></button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Label(Resource.MailMessage, htmlAttributes: new { @class = "col-md-1" })
+            <div class="col-md-5">
+                <textarea rows="2" cols="10" id="mailmessage" name="mailmessage" class="form-control" style="background-color:#dee0fc" placeholder="Γράψτε εδώ το μήνυμα που θέλετε αν αποσταλλεί με email"></textarea>
+            </div>
+            @Html.Label(Resource.SMSMessage, htmlAttributes: new { @class = "col-md-1" })
+            <div class="col-md-3">
+                <textarea rows="2" cols="10" id="smsmessage" name="smsmessage" class="form-control" style="background-color:#dee0fc" placeholder="Γράψτε εδώ το μήνυμα που θέλετε αν αποσταλλεί με SMS"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    if (Model != null && Model.Count() > 0)
+    {
+        <table class="table">
+            <thead style="background-color:#c4e7ff">
+                <tr>
+                    <td width="30px;" style="text-align:center;vertical-align:bottom;">Cancel</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align:center">@Resource.SendSMS</td>
+                    <td style="text-align:center">@Resource.SendEmail</td>
+                </tr>
+                <tr>
+                    <th width="30px;" style="text-align:center"><input type="checkbox" id="checkall" style="margin:0px;" checked="checked" /></th>
+                    <th>@Html.DisplayNameFor(model => model.appointment.Customer.LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.appointment.Date)</th>
+                    <th>@Html.DisplayNameFor(model => model.appointment.Notes)</th>
+                    <th>@Html.DisplayNameFor(model => model.appointment.FromTime)</th>
+                    <th width="40px;" style="text-align:center"><input type="checkbox" id="sendsmstoall" style="margin:0px;" /></th>
+                    <th width="40px;" style="text-align:center"><input type="checkbox" id="sendemailtoall" style="margin:0px;" checked="checked" /></th>
+                </tr>
+            </thead>
+
+            @for (int Index = 0; Index < Model.Count(); ++Index)
+            {
+                var item = Model.ToArray()[Index];
+                @Html.Hidden("appointments[" + Index + "].appointment.id", item.appointment.id)
+                @Html.Hidden("appointments[" + Index + "].appointment.Date", item.appointment.Date)
+                @Html.Hidden("appointments[" + Index + "].appointment.Notes", item.appointment.Notes)
+                @Html.Hidden("appointments[" + Index + "].appointment.FromTime", item.appointment.FromTime)
+                @Html.Hidden("appointments[" + Index + "].appointment.CustomerID", item.appointment.CustomerID)
+                <tr>
+                    <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].Cancel", item.Cancel, htmlAttributes: new { @class = "checkall" })</td>
+                    <td>@Html.ActionLink(item.appointment.Customer.LastName, "Edit", "Appointments", new { id = item.appointment.id }, null)</td>
+                    <td>@Html.DisplayFor(modelitem => item.appointment.Date)</td>
+                    <td>@Html.DisplayFor(modelitem => item.appointment.Notes)</td>
+                    <td>@Html.DisplayFor(modelitem => item.appointment.FromTime)</td>
+                    <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].SendSMS", item.SendSMS, htmlAttributes: new { @class = "sendsmstoall" })</td>
+                    <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].SendEmail", item.SendEmail, htmlAttributes: new { @class = "sendemailtoall" })</td>
+                </tr>
+            }
+
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="savevalues" value="@Resource.Save" class="btn btn-danger" />
+            </div>
+        </div>
+    }
+
+}
+

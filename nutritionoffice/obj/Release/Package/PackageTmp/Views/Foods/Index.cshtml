@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<nutritionoffice.Models.Food>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var orderglyph = "glyphicon glyphicon-" +( ViewBag.OrderByGreekName?"remove text-danger": "sort-by-alphabet text-success");
+}
+
+<div class="form-inline">
+    <div class="col-md-2">
+        @Html.ActionLink(Resource.CreateNewFood, "Create")
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Index",new { page=1})"><span style="color:red" class="glyphicon glyphicon-remove"></span> @Resource.ResetFilters</a>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+
+            <a href="@Url.Action("Index",new {page=1,
+                FoodCategoryID =ViewBag.FoodCategoryID,
+                GreekSearch =ViewBag.GreekSearch ,
+                EnglishSearch =ViewBag.EnglishSearch,
+                OrderByGreekName =!ViewBag.OrderByGreekName })">Αλφαβητική σειρά <span class="@orderglyph"></span></a>
+        </div>
+
+    </div>
+
+</div>
+<table class="table" saveurl="@Url.Action("UpdateFood","Foods")" deleteurl="@Url.Action("DeleteFood","Foods")" searchurl="@Url.Action("Index","Foods")">
+    @using (Html.BeginForm())
+    {
+
+        <thead>
+            <tr>
+                <th width="16%">@Html.DisplayName(Resource.FoodCategory)</th>
+                <th width="2%"></th>
+                <th width="10%">@Html.DisplayName(Resource.FoodCategoryEn)</th>
+                <th width="15%"><input type="search" class="form-control input-sm" style="background-color:#feffc2" value="@ViewBag.EnglishSearch" name="EnglishSearch" /></th>
+                <th width="5%"><button type="submit" class="btn btn-info btn-sm">?</button></th>
+                <th style="cursor:context-menu" title="@Resource.Breakfast">B</th>
+                <th style="cursor:context-menu" title="@Resource.Snack">S</th>
+                <th style="cursor:context-menu" title="@Resource.Lunch">L</th>
+                <th style="cursor:context-menu" title="@Resource.Dinner">D</th>
+                <th style="cursor:context-menu" title="@Resource.CollageneSynthesis">C</th>
+                <th style="cursor:context-menu" title="@Resource.Antioxidant">D</th>
+                <th style="cursor:context-menu" title="@Resource.Detox">A</th>
+                <th style="cursor:context-menu" title="@Resource.Diatrofogenomiki">F</th>
+                <th style="cursor:context-menu" title="@Resource.Menopause">F</th>
+                <th width="10%">@Html.DisplayName(Resource.FoodCategoryGR)</th>
+                <th width="15%"><input type="search" class="form-control input-sm" style="background-color:#feffc2" value="@ViewBag.GreekSearch" name="GreekSearch" /></th>
+                <th width="5%"><button type="submit" class="btn btn-info btn-sm">?</button></th>
+                <th>&and;</th>
+            </tr>
+        </thead>
+    }
+
+    @for (int Index = 0; Index < Model.Count(); ++Index)
+    {
+        var item = Model[Index];
+        <tr id="@item.id">
+            <td>@Html.DisplayFor(modelItem => item.FoodCategory.GreekName)</td>
+            <th><a href="@Url.Action("Edit", new { id=item.id})"><span class="glyphicon glyphicon-edit"></span></a></th>
+            <td colspan="3">@Html.TextBox("food[" + Index + "].EnglishName", item.EnglishName, htmlAttributes: new { @class = "form-control foodenglishname", title = item.EnglishName })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsBreakfast", item.IsBreakfast, htmlAttributes: new { @class = "form-control foodisbreakfast", title = "Πρωινό" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsSnack", item.IsSnack, htmlAttributes: new { @class = "form-control foodissnack", title = "Snack" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsLunch", item.IsLunch, htmlAttributes: new { @class = "form-control foodislunch", title = "Γεύμα" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsDinner", item.IsDinner, htmlAttributes: new { @class = "form-control foodisdinner", title = "Δείπνο" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsCollagene", item.IsCollagene, htmlAttributes: new { @class = "form-control foodiscollagene", title = "Σύνθεση κολλαγόνου" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsAntioxidant", item.IsAntioxidant, htmlAttributes: new { @class = "form-control foodisantioxidant", title = "Αντιοξειδωτική Δράση" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsDetox", item.IsDetox, htmlAttributes: new { @class = "form-control foodisdetox", title = "Αποτοξίνωση" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsDiatrofogenomiki", item.IsDiatrofogenomiki, htmlAttributes: new { @class = "form-control foodisdiatrofogenomiki", title = "Διατροφογενομική Φλεγμονώδης" })</td>
+            <td>@Html.CheckBox("food[" + Index + "].IsMenopause", item.IsMenopause, htmlAttributes: new { @class = "form-control foodismenopause", title = "Διατροφογενομική Φλεγμονώδης" })</td>
+            <td colspan="3">@Html.TextBox("food[" + Index + "].GreekName", item.GreekName, htmlAttributes: new { @class = "form-control foodgreekname", title = item.GreekName })</td>
+            <td>
+                <span class="glyphicon glyphicon-floppy-disk savefood" style="color:blue;cursor:pointer"> </span>
+                <span class="glyphicon glyphicon-remove-sign deletefood" style="color:red;cursor:pointer"> </span>
+            </td>
+        </tr>
+    }
+
+</table>
+@Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @Resource.of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, FoodCategoryID = ViewBag.FoodCategoryID, GreekSearch = ViewBag.GreekSearch, EnglishSearch = ViewBag.EnglishSearch, OrderByGreekName = ViewBag.OrderByGreekName }))

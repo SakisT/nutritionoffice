@@ -1,0 +1,69 @@
+﻿@model nutritionoffice.ViewModels.dietfromprototype
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resource.CreateNewDiet</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("diet.Diet.Type", Model.Diet.Type, htmlAttributes: new { @id = "diettype" })
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                @Html.DropDownList("diet.DietID", (SelectList)ViewBag.PrototypeID, " - Select Prototype - ", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diet.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EnumDropDownListFor( model => model.Diet.Type, htmlAttributes: new { @class = "form-control", @id = "diettypeid"})
+                @Html.ValidationMessageFor(model => model.Diet.Type, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Diet.DietName, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-4">
+                @Html.Editor("diet.Diet.DietName", Model.Diet.DietName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessage("diet.Diet.DietName", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diet.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("diet.Diet.CustomerID", (SelectList)ViewBag.CustomerID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessage("diet.Diet.CustomerID", htmlAttributes: new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Diet.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @*@Html.TextBox("diet.Diet.StartDate", Model.Diet.StartDate, "{0:dd/MM/yyyy}", htmlAttributes: new { @class = "form-control datepicker" })*@
+                <input type="text" name="Diet.StartDate" class="form-control datepicker" value="@Model.Diet.StartDate" style="background-color:#fcfbad" />
+                @Html.ValidationMessage("diet.Diet.StartDate", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resource.Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

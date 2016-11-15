@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "SuccessfulRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    @if (ViewBag.Logo != null)
+            {
+                string imageBase64 = Convert.ToBase64String((byte[])ViewBag.Logo);
+                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" style="width:100%" />
+    }
+    else
+    {
+        <img src="~/images/CompanyLogo/logo.jpg" style="width:100%" />
+    }
+</div>
+

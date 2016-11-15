@@ -16,7 +16,11 @@ namespace nutritionoffice
             //"~/Scripts/html2canvas.js", 
             //           "~/Scripts/canvas2image.js",
             //           "~/Scripts/base64.js",
+            bundles.UseCdn = true;
 
+            var RobotoCDN = "http://fonts.googleapis.com/css?family=Roboto";
+            bundles.Add(new StyleBundle("~/fonts", RobotoCDN));
+            //                                
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                        "~/Scripts/jquery-{version}.js",
@@ -60,7 +64,8 @@ namespace nutritionoffice
                                 "~/Content/bootstrap.css",
                                 "~/Content/fullcalendar.css",
                                 "~/Content/fullcalendar.print.css",
-                                "~/Content/Site.css"));
+                                "~/Content/Site.css"
+                               ));
 
 #if (DEBUG)
             BundleTable.EnableOptimizations = false;

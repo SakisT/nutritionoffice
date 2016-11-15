@@ -1,0 +1,12 @@
+﻿@model IEnumerable< nutritionoffice.Models.Measurement>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.RenderPartial("MeasurementsDisplay", Model );}
+
+<div>
+    @Html.ActionLink(Resource.BacktoList, "Details", "Customers", new { id = Model.FirstOrDefault().CustomerID }, null)
+</div>

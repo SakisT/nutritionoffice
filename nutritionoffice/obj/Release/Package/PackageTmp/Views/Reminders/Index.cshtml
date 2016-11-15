@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<nutritionoffice.Models.Reminder>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Resource.ListofReminders</h2>
+<p>
+    @Html.ActionLink(Resource.CreateNewReminder, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>@Html.DisplayName(Resource.DateTime)</th>
+        <th>@Html.DisplayName(Resource.Customer)</th>
+        <th>@Html.DisplayName(Resource.TargetGroupID)</th>
+        <th>@Html.DisplayName("SMS")</th>
+        <th>@Html.DisplayName("email")</th>
+        <th>@Html.DisplayName(Resource.Message)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", new { id=item.id })"><span class="glyphicon glyphicon-edit"></span></a> |
+                <a href="@Url.Action("Delete",new { id=item.id })" style="color:#ff0000"><span class="glyphicon glyphicon-trash"></span></a>
+                @if (item.MailState == nutritionoffice.Models.Reminder.ReminderState.Completed)
+                {
+                    <a href="@Url.Action("Edit", new { id=item.id })"><span class="glyphicon glyphicon-send"></span></a> 
+                }
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.OnDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.Customer.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Customer.TargetGroup.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.SendSMS)</td>
+            <td>@Html.DisplayFor(modelItem => item.SendEmail)</td>
+            <td>@Html.DisplayFor(modelItem => item.Message)</td>
+        </tr>
+    }
+
+</table>
+<br />
+@Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @Resource.of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
