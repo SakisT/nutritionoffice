@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://j2ee.netbeans.org/wsdl/sms" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" name="sms" targetNamespace="http://j2ee.netbeans.org/wsdl/sms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plnk:partnerLinkType name="sms">
+    <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+    <plnk:role name="smsPortTypeRole" portType="tns:smsPortType" />
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/sms">
+      <xsd:complexType name="ArrayOfStrings">
+        <xsd:sequence maxOccurs="unbounded">
+          <xsd:element maxOccurs="unbounded" name="recipients" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendRequestMessage">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="from" type="xsd:string" />
+    <wsdl:part name="to" type="tns:ArrayOfStrings" />
+    <wsdl:part name="text" type="xsd:string" />
+    <wsdl:part name="coding" type="xsd:string" />
+    <wsdl:part name="flash" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="sendResponseMessage">
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="queryRequestMessage">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="message_id" type="xsd:string" />
+    <wsdl:part name="recipient" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="queryResponseMessage">
+    <wsdl:part name="status" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="smsFault">
+    <wsdl:part name="output" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="smsPortType">
+    <wsdl:operation name="send">
+      <wsdl:input name="input1" message="tns:sendRequestMessage" />
+      <wsdl:output name="output1" message="tns:sendResponseMessage" />
+      <wsdl:fault name="sendFault" message="tns:smsFault" />
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <wsdl:input name="input2" message="tns:queryRequestMessage" />
+      <wsdl:output name="output2" message="tns:queryResponseMessage" />
+      <wsdl:fault name="queryFault" message="tns:smsFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="smsPortTypeBinding" type="tns:smsPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="send">
+      <soap:operation soapAction="" />
+      <wsdl:input name="input1">
+        <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:input>
+      <wsdl:output name="output1">
+        <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:output>
+      <wsdl:fault name="sendFault">
+        <soap:fault use="literal" name="sendFault" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <soap:operation soapAction="" />
+      <wsdl:input name="input2">
+        <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:input>
+      <wsdl:output name="output2">
+        <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:output>
+      <wsdl:fault name="queryFault">
+        <soap:fault use="literal" name="queryFault" namespace="http://j2ee.netbeans.org/wsdl/sms" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="smsService">
+    <wsdl:port name="smsPortTypeBindingPort" binding="tns:smsPortTypeBinding">
+      <soap:address location="http://ez4usms.com/api/soap/soap.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

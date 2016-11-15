@@ -1,0 +1,51 @@
+﻿@model nutritionoffice.Models.Food
+
+@if (Model != null)
+{
+    <div id="maindiv">
+        <h3>@Resource.EditFoodData </h3>
+        <div class="form-horizontal ">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id, htmlAttributes: new { @id = "food-id" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GreekName, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.GreekName, new { htmlAttributes = new { @id = "food-greekname", @class = "form-control", @style = "background-color:#c1fcba" } })
+                </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Equivalent, htmlAttributes: new { @class = "control-label col-md-3",@title=Resource.EquivalentToolTip })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Equivalent, new { htmlAttributes = new { @class = "form-control col-md-1 numbertextbox", @id = "food-equivalent", @style = "background-color:#c1fcba" } })
+                    </div>
+                    <table id="foodmealsoption" class="table table-condensed pull-right" style="width:40%">
+                        <thead>
+                            <tr>
+                                <th>@Resource.Breakfast</th>
+                                <th>@Resource.Snack</th>
+                                <th>@Resource.Lunch</th>
+                                <th>@Resource.Dinner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.EditorFor(modelitem => modelitem.IsBreakfast, new { htmlAttributes = new { @id = "food-isbreakfast", @class = "form-control" } })</td>
+                                <td>@Html.EditorFor(modelitem => modelitem.IsSnack, new { htmlAttributes = new { @id = "food-issnack", @class = "form-control" } })</td>
+                                <td>@Html.EditorFor(modelitem => modelitem.IsLunch, new { htmlAttributes = new { @id = "food-islunch", @class = "form-control" } })</td>
+                                <td>@Html.EditorFor(modelitem => modelitem.IsDinner, new { htmlAttributes = new { @id = "food-isdinner", @class = "form-control" } })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <a href="javascript:void(0)" class="btn btn-warning" onclick="updatefooddata(this)" style="float:right">@Resource.Update</a>
+
+        </div>
+
+    </div>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

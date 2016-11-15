@@ -1,0 +1,297 @@
+﻿@model nutritionoffice.Models.BasicQuestionnaire
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BasicQuestionnaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionnareDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionnareDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobHoursPerDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobHoursPerDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyActivityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyActivityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardioVascularProblems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardioVascularProblems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighBloodPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighBloodPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowBloodPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowBloodPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diabetes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diabetes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ηypoglycemia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ηypoglycemia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asthma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asthma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BreathingProblems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BreathingProblems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arthritis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arthritis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighCholesterol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighCholesterol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighTriglycerides)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighTriglycerides)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Allergies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Allergies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulcer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulcer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxWeightEver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxWeightEver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxWeightAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxWeightAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinWeightEver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinWeightEver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinWeightAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinWeightAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightIncreasedOnLastPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightIncreasedOnLastPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightDecreasedOnLastPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightDecreasedOnLastPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverWeightOnEarlyYears)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverWeightOnEarlyYears)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyMeals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyMeals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LackOfAppetite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LackOfAppetite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bulimia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bulimia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HungryHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HungryHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyingFruitsFrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyingFruitsFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyConsumingFruits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyConsumingFruits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyMealsOutOfHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyMealsOutOfHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyConsumingSweetsByKind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyConsumingSweetsByKind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DigestiveSystemFunctionality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DigestiveSystemFunctionality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FluidIntake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FluidIntake)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

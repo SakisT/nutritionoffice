@@ -1,0 +1,43 @@
+﻿@model PagedList.IPagedList<nutritionoffice.Models.Diet>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p></p>
+<p>
+    @Html.ActionLink(Resource.CreateNewDiet, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>@Html.DisplayName(Resource.Surname)</th>
+        <th>@Html.DisplayName(Resource.StartDate)</th>
+        <th>@Html.DisplayName(Resource.DietName)</th>
+        <th>@Html.DisplayName(Resource.Type)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", new { id=item.ID })"><span class="glyphicon glyphicon-edit" title="@Resource.EditDiet"></span></a>&nbsp;
+                <a href="@Url.Action("Details", new { id=item.ID })"><span class="glyphicon glyphicon-search" title="@Resource.DietDetails"></span></a>&nbsp;
+                <a href="@Url.Action("Delete", new { id=item.ID })"><span class="glyphicon glyphicon-remove-circle" title="@Resource.DeleteDiet"></span></a>
+            </td>
+            <td>@Html.ActionLink(item.Customer.FullName,"Details","Customers",new { id=item.CustomerID},null)</td>
+            @*<td>@Html.DisplayFor(modelItem => item.Customer.LastName)</td>*@
+            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.DietName)</td>
+            <td>@EnumHelper.GetSelectList(type: typeof(nutritionoffice.Models.Diet.DietType), value: item.Type).Where(r => r.Selected).FirstOrDefault().Text</td>
+        </tr>
+    }
+
+</table>
+<br />
+@Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @Resource.of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<nutritionoffice.Models.Food>
+
+
+@using (Html.BeginForm("List", "Foods", FormMethod.Get))
+                    {
+    <div class="input-group-sm">
+        <input autocomplete="off" style="margin-top:10px;margin-left:2px;width:450px;background:#feffa0" type="text" name="searchterms" class="sm search-query form-control col-xs-3" placeholder="@Resource.SearchNutritionByName">
+    </div>
+
+    <table class="table table-hover table-condensed">
+        @*<tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.GreekName)
+            </th>
+
+        </tr>*@
+
+        @foreach (var item in Model)
+        {
+            string ToolTipText = new nutritionoffice.ViewModels.dailytotals().GetSingleFoodData(item.id);
+            <tr>
+                <td class="singledietitemclass" data-toggle="customtooltip" title="@ToolTipText" style="cursor:context-menu">
+                    @Html.DisplayFor(modelItem => item.GreekName)
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+

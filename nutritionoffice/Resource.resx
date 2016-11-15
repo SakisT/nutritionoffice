@@ -1,0 +1,1377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Created On</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="EmergencyOrMobileNumber" xml:space="preserve">
+    <value>Emergency Or Mobile Number</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="HomeAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="IsActivefemale" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="LastChangedOn" xml:space="preserve">
+    <value>Last Changed On</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="ManSex" xml:space="preserve">
+    <value>Man</value>
+  </data>
+  <data name="MobilePhone" xml:space="preserve">
+    <value>Cell Phone</value>
+  </data>
+  <data name="OfficeAddress" xml:space="preserve">
+    <value>Office Address</value>
+  </data>
+  <data name="OfficeCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="OfficePostCode" xml:space="preserve">
+    <value>Post Code</value>
+  </data>
+  <data name="OwnersName" xml:space="preserve">
+    <value>Owner's Name</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="PostCode" xml:space="preserve">
+    <value>Post Code</value>
+  </data>
+  <data name="RecipeCategories" xml:space="preserve">
+    <value>Recipe Categories</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="SMSSign" xml:space="preserve">
+    <value>SMS Sign</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="TargetGroupID" xml:space="preserve">
+    <value>Target Group</value>
+  </data>
+  <data name="WomanSex" xml:space="preserve">
+    <value>Woman</value>
+  </data>
+  <data name="BacktoList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="BulkAppointmentCancelation" xml:space="preserve">
+    <value>Bulk Appointment Cancelation</value>
+  </data>
+  <data name="CalendarofAppointments" xml:space="preserve">
+    <value>Calendar of Appointments</value>
+  </data>
+  <data name="CreateNewAppointment" xml:space="preserve">
+    <value>Create New Appointment</value>
+  </data>
+  <data name="CreateNewCustomer" xml:space="preserve">
+    <value>Create New Customer</value>
+  </data>
+  <data name="CreateNewDiet" xml:space="preserve">
+    <value>Create New Diet</value>
+  </data>
+  <data name="CreateNewFood" xml:space="preserve">
+    <value>Create New Food</value>
+  </data>
+  <data name="CreateNewFoodCategory" xml:space="preserve">
+    <value>Create New Food Category</value>
+  </data>
+  <data name="CreateNewReminder" xml:space="preserve">
+    <value>Create New Reminder</value>
+  </data>
+  <data name="CreateNewTargetGroup" xml:space="preserve">
+    <value>Create New TargetGroup</value>
+  </data>
+  <data name="DietsPlural" xml:space="preserve">
+    <value>Diets</value>
+  </data>
+  <data name="Foods" xml:space="preserve">
+    <value>Foods</value>
+  </data>
+  <data name="ListofCustomers" xml:space="preserve">
+    <value>List of Customers</value>
+  </data>
+  <data name="ListofDiets" xml:space="preserve">
+    <value>List of Diets</value>
+  </data>
+  <data name="ListofFoodCategories" xml:space="preserve">
+    <value>List of Food Categories</value>
+  </data>
+  <data name="ListofFoods" xml:space="preserve">
+    <value>List of Foods</value>
+  </data>
+  <data name="ListofReminders" xml:space="preserve">
+    <value>List of Reminders</value>
+  </data>
+  <data name="ListofTargetGroups" xml:space="preserve">
+    <value>List of TargetGroups</value>
+  </data>
+  <data name="ReportsPlural" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="SearchbyName" xml:space="preserve">
+    <value>Search by Name</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Additional Notes</value>
+  </data>
+  <data name="Allergies" xml:space="preserve">
+    <value>Allergies</value>
+  </data>
+  <data name="Antioxidant" xml:space="preserve">
+    <value>Antioxidant</value>
+  </data>
+  <data name="AppointmentCanceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="AppointmentsCalendar" xml:space="preserve">
+    <value>Appointments Calendar</value>
+  </data>
+  <data name="AppointmentsListtobeCancel" xml:space="preserve">
+    <value>Appointments List to be Cancel</value>
+  </data>
+  <data name="Armpit" xml:space="preserve">
+    <value>Armpit</value>
+  </data>
+  <data name="Arthritis" xml:space="preserve">
+    <value>Arthritis</value>
+  </data>
+  <data name="Ash" xml:space="preserve">
+    <value>Ash (g)</value>
+  </data>
+  <data name="Asthma" xml:space="preserve">
+    <value>Asthma</value>
+  </data>
+  <data name="AverageBodyFat" xml:space="preserve">
+    <value>Average Body Fat</value>
+  </data>
+  <data name="BasicChoice" xml:space="preserve">
+    <value>Basic Choice</value>
+  </data>
+  <data name="Belly" xml:space="preserve">
+    <value>Belly</value>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="BloodPressure" xml:space="preserve">
+    <value>Blood Pressure</value>
+  </data>
+  <data name="BodyDensity" xml:space="preserve">
+    <value>Body Density</value>
+  </data>
+  <data name="BodyFat" xml:space="preserve">
+    <value>Body Fat</value>
+  </data>
+  <data name="Breakfast" xml:space="preserve">
+    <value>Breakfast</value>
+  </data>
+  <data name="BreathingProblems" xml:space="preserve">
+    <value>Breathing Problems</value>
+  </data>
+  <data name="Bulimia" xml:space="preserve">
+    <value>Bulimia?</value>
+  </data>
+  <data name="Calcium" xml:space="preserve">
+    <value>Calcium (mg)</value>
+  </data>
+  <data name="CalculationMethod" xml:space="preserve">
+    <value>Calculation Method</value>
+  </data>
+  <data name="Carbohydrates" xml:space="preserve">
+    <value>Carbohydrates (g)</value>
+  </data>
+  <data name="CardiovascularProblems" xml:space="preserve">
+    <value>Cardiovascular Problems</value>
+  </data>
+  <data name="Carotenealpha" xml:space="preserve">
+    <value>Carotene, alpha (μg)</value>
+  </data>
+  <data name="Carotenebeta" xml:space="preserve">
+    <value>Carotene, beta (μg)</value>
+  </data>
+  <data name="Chest" xml:space="preserve">
+    <value>Chest</value>
+  </data>
+  <data name="Cholesterol" xml:space="preserve">
+    <value>Cholesterol (mg)</value>
+  </data>
+  <data name="Choline" xml:space="preserve">
+    <value>Choline (mg)</value>
+  </data>
+  <data name="ClickheretoLogin" xml:space="preserve">
+    <value>Click here to Log in</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodeReturnedFromProvider" xml:space="preserve">
+    <value>Code Returned From Provider</value>
+  </data>
+  <data name="CollageneSynthesis" xml:space="preserve">
+    <value>Collagene Synthesis</value>
+  </data>
+  <data name="CompaniesPlural" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="CompanySettings" xml:space="preserve">
+    <value>Company Settings</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Copper" xml:space="preserve">
+    <value>Copper (mg)</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Createanewaccount" xml:space="preserve">
+    <value>Create a new account</value>
+  </data>
+  <data name="CreateBulkReminder" xml:space="preserve">
+    <value>Create Bulk Reminder</value>
+  </data>
+  <data name="Cryptoxanthinbeta" xml:space="preserve">
+    <value>Cryptoxanthin, beta (μg)</value>
+  </data>
+  <data name="CurrentWeek" xml:space="preserve">
+    <value>Current Week</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="CustomersList" xml:space="preserve">
+    <value>Customers List</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateofReminder" xml:space="preserve">
+    <value>Date of Reminder</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date-Tima</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="DeleteDiet" xml:space="preserve">
+    <value>Delete Diet</value>
+  </data>
+  <data name="DailyActivityDescription" xml:space="preserve">
+    <value>Description of everyday activity</value>
+  </data>
+  <data name="Detox" xml:space="preserve">
+    <value>Detox</value>
+  </data>
+  <data name="Diabetes" xml:space="preserve">
+    <value>Diabetes</value>
+  </data>
+  <data name="Diatrofogenomiki" xml:space="preserve">
+    <value>Diatrofogenomiki</value>
+  </data>
+  <data name="Diceps" xml:space="preserve">
+    <value>Diceps</value>
+  </data>
+  <data name="DietDetails" xml:space="preserve">
+    <value>Diet Details</value>
+  </data>
+  <data name="DietName" xml:space="preserve">
+    <value>Diet Name</value>
+  </data>
+  <data name="DietQuantityToolTip" xml:space="preserve">
+    <value>Quantity Unit: gr, slashes, spoons etc.</value>
+  </data>
+  <data name="Diets" xml:space="preserve">
+    <value>Diets</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>Dinner</value>
+  </data>
+  <data name="EditAppointment" xml:space="preserve">
+    <value>Edit Appointment</value>
+  </data>
+  <data name="EditCompanyData" xml:space="preserve">
+    <value>Edit Company Data</value>
+  </data>
+  <data name="EditCustomerDetails" xml:space="preserve">
+    <value>Edit Customer Details</value>
+  </data>
+  <data name="EditDiet" xml:space="preserve">
+    <value>Edit Diet</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="Energy" xml:space="preserve">
+    <value>Energy Kcal</value>
+  </data>
+  <data name="Equivalent" xml:space="preserve">
+    <value>Equivalent (gr.)</value>
+  </data>
+  <data name="ExecutionOrder" xml:space="preserve">
+    <value>Execution Order</value>
+  </data>
+  <data name="Exists" xml:space="preserve">
+    <value>Exists</value>
+  </data>
+  <data name="Explaination" xml:space="preserve">
+    <value>Explaination</value>
+  </data>
+  <data name="Fat" xml:space="preserve">
+    <value>Fat</value>
+  </data>
+  <data name="FatMono" xml:space="preserve">
+    <value>Fat Mono (g)</value>
+  </data>
+  <data name="FatPoly" xml:space="preserve">
+    <value>Fat Poly (g)</value>
+  </data>
+  <data name="FatSat" xml:space="preserve">
+    <value>Fat Sat (g)</value>
+  </data>
+  <data name="Ferrum" xml:space="preserve">
+    <value>Ferrum</value>
+  </data>
+  <data name="FiberTD" xml:space="preserve">
+    <value>Fiber TD (g)</value>
+  </data>
+  <data name="FirstAlternative" xml:space="preserve">
+    <value>First Alternative</value>
+  </data>
+  <data name="FolateDFE" xml:space="preserve">
+    <value>Folate DFE (μg)</value>
+  </data>
+  <data name="Folatefood" xml:space="preserve">
+    <value>Folate food (μg)</value>
+  </data>
+  <data name="Folatetotal" xml:space="preserve">
+    <value>Folate total (μg)</value>
+  </data>
+  <data name="Folicacid" xml:space="preserve">
+    <value>Folic acid (μg)</value>
+  </data>
+  <data name="FoodCategory" xml:space="preserve">
+    <value>Food Category</value>
+  </data>
+  <data name="FoodCategoryEn" xml:space="preserve">
+    <value>Food Category (English)</value>
+  </data>
+  <data name="FoodCategoryGR" xml:space="preserve">
+    <value>Food Category (Greek)</value>
+  </data>
+  <data name="FoodName" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="FoodNameEN" xml:space="preserve">
+    <value>Food Name (English)</value>
+  </data>
+  <data name="FoodNameGR" xml:space="preserve">
+    <value>Food Name (Greek)</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>From Time</value>
+  </data>
+  <data name="GeneralUse" xml:space="preserve">
+    <value>General Use</value>
+  </data>
+  <data name="HasCompleted" xml:space="preserve">
+    <value>HasCompleted</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="HighBloodPressure" xml:space="preserve">
+    <value>High Blood Pressure</value>
+  </data>
+  <data name="HighCholesterol" xml:space="preserve">
+    <value>High Cholesterol</value>
+  </data>
+  <data name="HighTriglycerides" xml:space="preserve">
+    <value>High Triglycerides</value>
+  </data>
+  <data name="HungryHours" xml:space="preserve">
+    <value>Hungry Hours</value>
+  </data>
+  <data name="Hypoglycemia" xml:space="preserve">
+    <value>Ηypoglycemia</value>
+  </data>
+  <data name="Iliac" xml:space="preserve">
+    <value>Iliac</value>
+  </data>
+  <data name="IngredientsList" xml:space="preserve">
+    <value>Ingredients List</value>
+  </data>
+  <data name="Iron" xml:space="preserve">
+    <value>Ferrum (mg)</value>
+  </data>
+  <data name="IsAntioxidant" xml:space="preserve">
+    <value>Antioxidant Activity</value>
+  </data>
+  <data name="IsCollagene" xml:space="preserve">
+    <value>Collagene synthesis</value>
+  </data>
+  <data name="IsDetox" xml:space="preserve">
+    <value>Detox</value>
+  </data>
+  <data name="IsDiatrofogenomiki" xml:space="preserve">
+    <value>Diatrofogenomiki Buffy</value>
+  </data>
+  <data name="IsMenopause" xml:space="preserve">
+    <value>Menopause</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="LackOfAppetite" xml:space="preserve">
+    <value>Lack Of Appetite?</value>
+  </data>
+  <data name="LipidTotal" xml:space="preserve">
+    <value>Lipid Total (g)</value>
+  </data>
+  <data name="ListOfNewCustomers" xml:space="preserve">
+    <value>List Of New Customers</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log off</value>
+  </data>
+  <data name="LowBloodPressure" xml:space="preserve">
+    <value>Low Blood Pressure</value>
+  </data>
+  <data name="LowerMean" xml:space="preserve">
+    <value>Lower Mean</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>Lunch</value>
+  </data>
+  <data name="Luteinzeaxanthin" xml:space="preserve">
+    <value>Lutein + zeaxanthin (μg)</value>
+  </data>
+  <data name="Lycopene" xml:space="preserve">
+    <value>Lycopene (μg)</value>
+  </data>
+  <data name="Magnesium" xml:space="preserve">
+    <value>Magnesium (mg)</value>
+  </data>
+  <data name="MailMessage" xml:space="preserve">
+    <value>Mail Message</value>
+  </data>
+  <data name="MailStatus" xml:space="preserve">
+    <value>Mail Status</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="Manganese" xml:space="preserve">
+    <value>Manganese (mg)</value>
+  </data>
+  <data name="MaxWeightAge" xml:space="preserve">
+    <value>Max Weight Age</value>
+  </data>
+  <data name="MaxWeightEver" xml:space="preserve">
+    <value>Max Weight Ever</value>
+  </data>
+  <data name="Measurements" xml:space="preserve">
+    <value>Measurements</value>
+  </data>
+  <data name="MeasurementsReport" xml:space="preserve">
+    <value>Measurements Report</value>
+  </data>
+  <data name="Menopause" xml:space="preserve">
+    <value>Menopause</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="NewFemale" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NewMale" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NewNeutral" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NextMonth" xml:space="preserve">
+    <value>Next Month</value>
+  </data>
+  <data name="NextWeek" xml:space="preserve">
+    <value>Next Week</value>
+  </data>
+  <data name="Niacin" xml:space="preserve">
+    <value>Niacin (mg)</value>
+  </data>
+  <data name="NumerOfDailyMeals" xml:space="preserve">
+    <value>Numer of daily meals</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="OverWeightOnEarlyYears" xml:space="preserve">
+    <value>Was you over-weight on early years?</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="Pantothenic" xml:space="preserve">
+    <value>Pantothenic (mg)</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Phosphorus" xml:space="preserve">
+    <value>Phosphorus (mg)</value>
+  </data>
+  <data name="Postpone" xml:space="preserve">
+    <value>Postpone</value>
+  </data>
+  <data name="Potassium" xml:space="preserve">
+    <value>Potassium (mg)</value>
+  </data>
+  <data name="PreviousMonth" xml:space="preserve">
+    <value>Previous Month</value>
+  </data>
+  <data name="PreviousWeek" xml:space="preserve">
+    <value>Previous Week</value>
+  </data>
+  <data name="Protein" xml:space="preserve">
+    <value>Protein (g)</value>
+  </data>
+  <data name="Quadriceps" xml:space="preserve">
+    <value>Quadriceps</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="QuantityType" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="RatioWeist" xml:space="preserve">
+    <value>Ratio Weist</value>
+  </data>
+  <data name="RecipeCategory" xml:space="preserve">
+    <value>Recipe Category</value>
+  </data>
+  <data name="RecipeName" xml:space="preserve">
+    <value>Recipe Name</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>Register as a new user</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Rememberthisbrowser" xml:space="preserve">
+    <value>Remember this browser?</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="ReminderCanceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="ResetFilters" xml:space="preserve">
+    <value>Reset Filters</value>
+  </data>
+  <data name="Retinol" xml:space="preserve">
+    <value>Retinol (μg)</value>
+  </data>
+  <data name="Riboflavin" xml:space="preserve">
+    <value>Riboflavin (mg)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SearchFoodToolTip" xml:space="preserve">
+    <value>Type at leat 4 first letters to search for a food</value>
+  </data>
+  <data name="SecondAlternative" xml:space="preserve">
+    <value>Second Alternative</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Select Customer</value>
+  </data>
+  <data name="Selenium" xml:space="preserve">
+    <value>Selenium (μg)</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Send email</value>
+  </data>
+  <data name="SendSMS" xml:space="preserve">
+    <value>Send SMS</value>
+  </data>
+  <data name="Shank" xml:space="preserve">
+    <value>Shank</value>
+  </data>
+  <data name="SMSMessage" xml:space="preserve">
+    <value>SMS Message</value>
+  </data>
+  <data name="SMSStatus" xml:space="preserve">
+    <value>SMS Status</value>
+  </data>
+  <data name="Snack" xml:space="preserve">
+    <value>Snack</value>
+  </data>
+  <data name="Sodium" xml:space="preserve">
+    <value>Sodium (mg)</value>
+  </data>
+  <data name="SortDescription" xml:space="preserve">
+    <value>Sort Description</value>
+  </data>
+  <data name="Spelter" xml:space="preserve">
+    <value>Spelter</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Statistcs" xml:space="preserve">
+    <value>Statistcs</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="STDEVBodyFat" xml:space="preserve">
+    <value>Deviation Body Fat</value>
+  </data>
+  <data name="SugarTotal" xml:space="preserve">
+    <value>Sugar Total (g)</value>
+  </data>
+  <data name="SumOfSkinFolds" xml:space="preserve">
+    <value>Sum οf Skin Folds</value>
+  </data>
+  <data name="TargetGroups" xml:space="preserve">
+    <value>Target Groups</value>
+  </data>
+  <data name="Thiamin" xml:space="preserve">
+    <value>Thiamin (mg)</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>To Time</value>
+  </data>
+  <data name="Triceps" xml:space="preserve">
+    <value>Triceps</value>
+  </data>
+  <data name="Triglycerides" xml:space="preserve">
+    <value>Triglycerides</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Ulcer" xml:space="preserve">
+    <value>Ulcer</value>
+  </data>
+  <data name="Usealocalaccounttologin" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="VisitsReport" xml:space="preserve">
+    <value>Visits Report</value>
+  </data>
+  <data name="VitaminAIU" xml:space="preserve">
+    <value>Vitamin A, IU (IU)</value>
+  </data>
+  <data name="VitaminARAE" xml:space="preserve">
+    <value>Vitamin A, RAE (μg)</value>
+  </data>
+  <data name="VitaminB12" xml:space="preserve">
+    <value>Vitamin B-12 (μg)</value>
+  </data>
+  <data name="VitaminB6" xml:space="preserve">
+    <value>Vitamin B-6 (mg)</value>
+  </data>
+  <data name="VitaminC" xml:space="preserve">
+    <value>Vitamin C (mg)</value>
+  </data>
+  <data name="VitaminD" xml:space="preserve">
+    <value>Vitamin D (μg)</value>
+  </data>
+  <data name="VitaminDIU" xml:space="preserve">
+    <value>Vitamin D, IU (IU)</value>
+  </data>
+  <data name="VitaminE" xml:space="preserve">
+    <value>Vitamin E (mg)</value>
+  </data>
+  <data name="VitaminK" xml:space="preserve">
+    <value>Vitamin K (μg)</value>
+  </data>
+  <data name="Water" xml:space="preserve">
+    <value>Water (g)</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="WeightDecreasedOnLastPeriod" xml:space="preserve">
+    <value>Did weight decreased on last period?</value>
+  </data>
+  <data name="WeightIncreasedOnLastPeriod" xml:space="preserve">
+    <value>Did weight increased on last period?</value>
+  </data>
+  <data name="WorkingHoursDaily" xml:space="preserve">
+    <value>Working Hours Daily</value>
+  </data>
+  <data name="Ypoplatios" xml:space="preserve">
+    <value>Ypoplatios</value>
+  </data>
+  <data name="Zinc" xml:space="preserve">
+    <value>Zinc (mg)</value>
+  </data>
+  <data name="EditFoodData" xml:space="preserve">
+    <value>Edit Food Data</value>
+  </data>
+  <data name="SelectPrototype" xml:space="preserve">
+    <value>- Select Prototype -</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Alcohol" xml:space="preserve">
+    <value>Alcohol</value>
+  </data>
+  <data name="Beef" xml:space="preserve">
+    <value>Beef</value>
+  </data>
+  <data name="BreakfastDescription" xml:space="preserve">
+    <value>Breakfast Description</value>
+  </data>
+  <data name="BuyingFruitsFrequency" xml:space="preserve">
+    <value>Buying Fruits Frequency</value>
+  </data>
+  <data name="Cereals" xml:space="preserve">
+    <value>Cereals</value>
+  </data>
+  <data name="Chicken" xml:space="preserve">
+    <value>Chicken</value>
+  </data>
+  <data name="CottageCheese" xml:space="preserve">
+    <value>Cottage Cheese</value>
+  </data>
+  <data name="DigestiveSystemFunctionality" xml:space="preserve">
+    <value>What is your digestive system functionality?</value>
+  </data>
+  <data name="DinnerDescription" xml:space="preserve">
+    <value>Dinner Description</value>
+  </data>
+  <data name="EveningSnackDescription" xml:space="preserve">
+    <value>Evening Snack Description</value>
+  </data>
+  <data name="FluidIntake" xml:space="preserve">
+    <value>What about Fluid Intake?</value>
+  </data>
+  <data name="Fruits" xml:space="preserve">
+    <value>Fruits</value>
+  </data>
+  <data name="Hamburger" xml:space="preserve">
+    <value>Hamburger</value>
+  </data>
+  <data name="InOilFood" xml:space="preserve">
+    <value>In Oil</value>
+  </data>
+  <data name="JunkFood" xml:space="preserve">
+    <value>Junk Food</value>
+  </data>
+  <data name="Legumes" xml:space="preserve">
+    <value>Legumes</value>
+  </data>
+  <data name="LunchDescription" xml:space="preserve">
+    <value>Lunch Description</value>
+  </data>
+  <data name="Milk" xml:space="preserve">
+    <value>Milk</value>
+  </data>
+  <data name="MinWeightAge" xml:space="preserve">
+    <value>Age of minium weight</value>
+  </data>
+  <data name="MinWeightEver" xml:space="preserve">
+    <value>Minium weight ever</value>
+  </data>
+  <data name="MorningSnackDescription" xml:space="preserve">
+    <value>Morning Snack Description</value>
+  </data>
+  <data name="Nuts" xml:space="preserve">
+    <value>Nuts</value>
+  </data>
+  <data name="Pork" xml:space="preserve">
+    <value>Pork</value>
+  </data>
+  <data name="Salads" xml:space="preserve">
+    <value>Salads</value>
+  </data>
+  <data name="Turkey" xml:space="preserve">
+    <value>Turkey</value>
+  </data>
+  <data name="WeeklyConsumingFruits" xml:space="preserve">
+    <value>Do you consuming enough fruits per week?</value>
+  </data>
+  <data name="WeeklyConsumingSweetsByKind" xml:space="preserve">
+    <value>How many and what kind of sweet do you eat per week?</value>
+  </data>
+  <data name="WeeklyMealsOutOfHome" xml:space="preserve">
+    <value>How many meals do you consuming out of home?</value>
+  </data>
+  <data name="WhiteCheese" xml:space="preserve">
+    <value>White Cheese</value>
+  </data>
+  <data name="YellowCheese" xml:space="preserve">
+    <value>Yellow Cheese</value>
+  </data>
+  <data name="Yoghurt" xml:space="preserve">
+    <value>Yoghurt</value>
+  </data>
+  <data name="CustomerID" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="LikeComments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Likes (Yes/No)</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="DailyRecall" xml:space="preserve">
+    <value>Daily Recall</value>
+  </data>
+  <data name="MealHabits" xml:space="preserve">
+    <value>Meal Habits</value>
+  </data>
+  <data name="BackToCustomersCard" xml:space="preserve">
+    <value>Back to customers card</value>
+  </data>
+  <data name="BasicQuestionnaire" xml:space="preserve">
+    <value>Basic Questionnaire</value>
+  </data>
+  <data name="MedicalHistory" xml:space="preserve">
+    <value>Medical History</value>
+  </data>
+  <data name="NutritionHistory" xml:space="preserve">
+    <value>Nutrition History</value>
+  </data>
+  <data name="CreateNewRecipeCategory" xml:space="preserve">
+    <value>Create New Recipe Category</value>
+  </data>
+  <data name="ListofRecipeCategories" xml:space="preserve">
+    <value>List of Recipe Categories</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="CategoryNewName" xml:space="preserve">
+    <value>New category name</value>
+  </data>
+  <data name="CloseForm" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CreateNewRecipe" xml:space="preserve">
+    <value>Create New Recipe</value>
+  </data>
+  <data name="ListofRecipes" xml:space="preserve">
+    <value>List of Recipes</value>
+  </data>
+  <data name="RecipeCategoryID" xml:space="preserve">
+    <value>Recipe Category</value>
+  </data>
+  <data name="ofdate" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="FatWeightRelation" xml:space="preserve">
+    <value>Fat Weight (Average)</value>
+  </data>
+  <data name="LeanWeight" xml:space="preserve">
+    <value>Lean Weight</value>
+  </data>
+  <data name="MedianBodyFat" xml:space="preserve">
+    <value>Median Body Fat</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Attatchments" xml:space="preserve">
+    <value>Attatchments</value>
+  </data>
+  <data name="DeliveryType" xml:space="preserve">
+    <value>Delivery type</value>
+  </data>
+  <data name="MessageBody" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="MessageRecipient" xml:space="preserve">
+    <value>Recipient</value>
+  </data>
+  <data name="MessageSender" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="MessageSubject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="StatusCode" xml:space="preserve">
+    <value>Status Code</value>
+  </data>
+  <data name="IsBodyHtml" xml:space="preserve">
+    <value>Html message?</value>
+  </data>
+  <data name="Diet" xml:space="preserve">
+    <value>Diet</value>
+  </data>
+  <data name="RecipientsEmail" xml:space="preserve">
+    <value>Recipient's mail</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="WeSendYouYourDiet" xml:space="preserve">
+    <value>We send you your diet</value>
+  </data>
+  <data name="A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="E" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="FoodDislikes" xml:space="preserve">
+    <value>Dilikes</value>
+  </data>
+  <data name="FoodLikes" xml:space="preserve">
+    <value>Likes</value>
+  </data>
+  <data name="EquivalentToolTip" xml:space="preserve">
+    <value>Represents how many gramms are per unit</value>
+  </data>
+  <data name="CanceledStated" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="PendingState" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="SentState" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="NextDay" xml:space="preserve">
+    <value>Next Day</value>
+  </data>
+  <data name="PreviousDay" xml:space="preserve">
+    <value>Previous Day</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="CustomersControlPanel" xml:space="preserve">
+    <value>Click here to go to customers control panel.</value>
+  </data>
+  <data name="DisplayAndEditAppointmentsData" xml:space="preserve">
+    <value>Click here to display and edit appointment's data.</value>
+  </data>
+  <data name="DisplayRemindersData" xml:space="preserve">
+    <value>Click here to display and edit reminder's data.</value>
+  </data>
+  <data name="BestWishesForYourNameDay" xml:space="preserve">
+    <value>Best Wishes For Your Name Day!</value>
+  </data>
+  <data name="DisplayOrEditReminder" xml:space="preserve">
+    <value>Display or edit reminder</value>
+  </data>
+  <data name="HappyBirthday" xml:space="preserve">
+    <value>Happy birthday to you !</value>
+  </data>
+  <data name="NoOnesNameDay" xml:space="preserve">
+    <value>No ones name day</value>
+  </data>
+  <data name="DayAfterTomorrow" xml:space="preserve">
+    <value>Day after tomorrow</value>
+  </data>
+  <data name="NoOnesBirthDay" xml:space="preserve">
+    <value>No ones birthday</value>
+  </data>
+  <data name="Tomorrow" xml:space="preserve">
+    <value>Tomorrow</value>
+  </data>
+  <data name="BirthdayCustomers" xml:space="preserve">
+    <value>Birthday Customers</value>
+  </data>
+  <data name="NameDayCustomers" xml:space="preserve">
+    <value>Nameday Customers</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="PrintableVersion" xml:space="preserve">
+    <value>Printable version</value>
+  </data>
+  <data name="Pictures" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="HomePageLogo" xml:space="preserve">
+    <value>HomePage Logo</value>
+  </data>
+  <data name="ReportBackgroundLandscape" xml:space="preserve">
+    <value>Landscape Report Background Image</value>
+  </data>
+  <data name="ReportBackgroundPortrait" xml:space="preserve">
+    <value>Portrait Report Background Image</value>
+  </data>
+  <data name="BMIValue" xml:space="preserve">
+    <value>BMI Value</value>
+  </data>
+  <data name="AgeOnMeasurement" xml:space="preserve">
+    <value>Age on Measurement Date</value>
+  </data>
+  <data name="BMI" xml:space="preserve">
+    <value>BMI</value>
+  </data>
+  <data name="BodyMassIndex" xml:space="preserve">
+    <value>Body Mass Index</value>
+  </data>
+  <data name="SevenSiteBodyDensity" xml:space="preserve">
+    <value>Body density of 7 sites</value>
+  </data>
+  <data name="SevenSiteBodyFatPercentage" xml:space="preserve">
+    <value>Body Fat % (7 site)</value>
+  </data>
+  <data name="SkinFolds" xml:space="preserve">
+    <value>Skin Folds</value>
+  </data>
+  <data name="ThreeSiteBodyDensity" xml:space="preserve">
+    <value>Body density of 3 sites</value>
+  </data>
+  <data name="ThreeSiteBodyFatPercentage" xml:space="preserve">
+    <value>Body Fat % (3 site)</value>
+  </data>
+  <data name="AgeError" xml:space="preserve">
+    <value>Four Characters (Decimal with one decimal digit) or Empty</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="FromAge" xml:space="preserve">
+    <value>Age from</value>
+  </data>
+  <data name="ValueFrom" xml:space="preserve">
+    <value>Value from</value>
+  </data>
+  <data name="ValueUnit" xml:space="preserve">
+    <value>Value Unit</value>
+  </data>
+  <data name="ValueUnitError" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>Calculations</value>
+  </data>
+  <data name="LastReminder" xml:space="preserve">
+    <value>Last Reminder</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExportTo" xml:space="preserve">
+    <value>Export to</value>
+  </data>
+  <data name="SelectFoodCategory" xml:space="preserve">
+    <value>Select Food Category</value>
+  </data>
+  <data name="SMSPassword" xml:space="preserve">
+    <value>SMS Provider login password</value>
+  </data>
+  <data name="SMSUserName" xml:space="preserve">
+    <value>SMS Provider login username</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="Euro" xml:space="preserve">
+    <value>€</value>
+  </data>
+  <data name="LastPayment" xml:space="preserve">
+    <value>Last Paid on</value>
+  </data>
+  <data name="VisitsStatistics" xml:space="preserve">
+    <value>Visit Statistics</value>
+  </data>
+  <data name="MeasurementsAfter" xml:space="preserve">
+    <value>Measurements After Period</value>
+  </data>
+  <data name="MeasurementsBefore" xml:space="preserve">
+    <value>Measurements Before Period</value>
+  </data>
+  <data name="MeasurementsInPeriod" xml:space="preserve">
+    <value>Measurements In Period</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Men</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>Women</value>
+  </data>
+  <data name="MeasurementStats" xml:space="preserve">
+    <value>Measurement Statistics</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Report Period</value>
+  </data>
+  <data name="SelectedSex" xml:space="preserve">
+    <value>Selected Sex</value>
+  </data>
+  <data name="CustomersPerTargetGroup" xml:space="preserve">
+    <value>Customers / TargetGroup</value>
+  </data>
+  <data name="AllSexes" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllTargetGroups" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="ReportData" xml:space="preserve">
+    <value>Report Data</value>
+  </data>
+  <data name="MeasurementsPerCustomer" xml:space="preserve">
+    <value>Measurements Per Customer</value>
+  </data>
+  <data name="MeasurementsPerTargetGroup" xml:space="preserve">
+    <value>Measurements / TargetGroup</value>
+  </data>
+  <data name="TotalCustomers" xml:space="preserve">
+    <value>Total Customers</value>
+  </data>
+  <data name="TotalMeasurements" xml:space="preserve">
+    <value>Total Measurements</value>
+  </data>
+  <data name="MyOffice" xml:space="preserve">
+    <value>My Office</value>
+  </data>
+  <data name="FoodComposition" xml:space="preserve">
+    <value>Food Composition</value>
+  </data>
+  <data name="SearchNutritionByName" xml:space="preserve">
+    <value>Search Nutrition By Name</value>
+  </data>
+  <data name="mnuAppointments" xml:space="preserve">
+    <value>See in agraphical all your appointments per week</value>
+  </data>
+  <data name="mnuBulkCancelAppointment" xml:space="preserve">
+    <value>Cancel all your appointments in a period and sent a cancelation message to your customers</value>
+  </data>
+  <data name="mnuCreateNewAppointment" xml:space="preserve">
+    <value>Create a new appointment</value>
+  </data>
+  <data name="mnuCreateNewCustomer" xml:space="preserve">
+    <value>Create a new customer</value>
+  </data>
+  <data name="mnuCreateNewReminder" xml:space="preserve">
+    <value>Create a new reminder</value>
+  </data>
+  <data name="mnuCreateNewTargetGroup" xml:space="preserve">
+    <value>Create a new target group</value>
+  </data>
+  <data name="mnuCustomers" xml:space="preserve">
+    <value>See a full list of your customers</value>
+  </data>
+  <data name="mnuReminders" xml:space="preserve">
+    <value>See a list of your reminders and their status (send, pending etc)</value>
+  </data>
+  <data name="mnuTargetgroups" xml:space="preserve">
+    <value>See a full list of your target groups</value>
+  </data>
+</root>

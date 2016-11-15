@@ -1,0 +1,83 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.selectablecustomer>
+
+<h4>@ViewBag.GroupName </h4>
+
+@{
+    nutritionoffice.ViewModels.selectablecustomer[] groupcustomers = Model.ToArray();
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    
+
+    <div class="row">
+        <div class="form-group">
+            <label for="message" class="col-md-1">Message</label>
+            <div class="col-md-7">
+                <textarea rows="3" cols="10" id="message" name="message" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <label for="ondate" class="col-md-1">Date to be send</label>
+        <div class="col-md-2">
+            <input type="text" id="ondate" name="ondate" class="form-control datepicker" value="@DateTime.Today.ToShortDateString()" />
+        </div>
+
+        <label for="ondate" class="col-md-1">Time to be send</label>
+        <div class="col-md-1">
+            <input type="datetime" id="ontime" name="ontime" class="form-control" value="11:00" />
+        </div>
+    </div>
+    <div class="col-md-offset-3">
+        @Html.ValidationMessage("CustomError", htmlAttributes: new { @class = "text-danger" })
+    </div>
+    
+    <br />
+
+    <table class="table">
+        <tr>
+            <th><input type="checkbox" id="checkall" checked="checked" /></th>
+            <th>@Html.DisplayNameFor(model => model.customer.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.customer.FirstName)</th>
+            <th><input type="checkbox" id="sendtoallmobiles"  style="margin:0px;" /></th>
+            <th>@Html.DisplayNameFor(model => model.customer.Mobile)</th>
+            <th><input type="checkbox" id="sendtoallemails" checked="checked" /></th>
+            <th>@Html.DisplayNameFor(model => model.customer.email)</th>
+
+        </tr>
+        @for (int Index = 0; Index < Model.Count(); ++Index)
+                {
+                    var item = groupcustomers[Index];
+
+            @Html.Hidden("groupcustomers[" + Index + "].customer.id", item.customer.id)
+            @Html.Hidden("groupcustomers[" + Index + "].customer.LastName", item.customer.LastName)
+            @Html.Hidden("groupcustomers[" + Index + "].customer.FirstName", item.customer.FirstName)
+            @Html.Hidden("groupcustomers[" + Index + "].customer.Mobile", item.customer.Mobile)
+            @Html.Hidden("groupcustomers[" + Index + "].customer.email", item.customer.email)
+            @Html.Hidden("groupcustomers[" + Index + "].customer.TargetGroupID", item.customer.TargetGroupID)
+            <tr>
+                <td>@Html.CheckBox("groupcustomers[" + Index + "].IsSelected", item.IsSelected,htmlAttributes: new { @class= "checkall" })</td>
+                <td>@Html.DisplayFor(model => item.customer.LastName)</td>
+                <td>@Html.DisplayFor(model => item.customer.FirstName)</td>
+                <td>@Html.CheckBox("groupcustomers[" + Index + "].SendSMS", item.SendSMS, htmlAttributes: new { @class="selectmobile"})</td>
+                <td>@Html.DisplayFor(model => item.customer.Mobile)</td>
+                <td>@Html.CheckBox("groupcustomers[" + Index + "].SendEmail", item.SendEmail, htmlAttributes: new { @class = "selectallemails" })</td>
+                <td>@Html.DisplayFor(model => item.customer.email)</td>
+            </tr>
+        }
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
+

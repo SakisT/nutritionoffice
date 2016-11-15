@@ -1,0 +1,51 @@
+﻿@model nutritionoffice.Models.AgeRange
+
+@{
+    ViewBag.Title = "AgeRangeCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AgeRangeCreate</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AgeRange</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(modelitem=>modelitem.CompanyID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FromAge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.FromAge, new { htmlAttributes = new { @class = "form-control numbertextbox" } })
+                @Html.ValidationMessageFor(model => model.FromAge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ToAge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ToAge, new { htmlAttributes = new { @class = "form-control numbertextbox" } })
+                @Html.ValidationMessageFor(model => model.ToAge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

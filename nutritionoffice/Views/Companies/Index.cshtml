@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<nutritionoffice.Models.Company>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th width="150px"></th>
+        <th>@Html.DisplayName(Resource.CompanyName)</th>
+        <th>@Html.DisplayName(Resource.OwnersName)</th>
+        <th>@Html.DisplayName(Resource.PhoneNumber)</th>
+        <th>@Html.DisplayName("email")</th>
+        <th>@Html.DisplayName(Resource.EmergencyOrMobileNumber)</th>
+        <th>@Html.DisplayName(Resource.OfficeCity)</th>
+        <th>@Html.DisplayName(Resource.OfficeAddress)</th>       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="javascript:void[0]" onclick="changecompany('@item.id','@Url.Action("ChangeActiveCompany")' )"><span class="glyphicon glyphicon-bookmark" style="color:#007009" title="Select"></span> </a> |
+            <a href="@Url.Action("Index","Pictures",new { id=item.id})"><span class="glyphicon glyphicon-picture" title="@Resource.Pictures"></span></a> |
+            <a href="@Url.Action("Edit",new { id=item.id})"><span class="glyphicon glyphicon-edit"  title="@Resource.Edit"></span></a> |
+            <a href="@Url.Action("Details",new { id=item.id})"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
+            <a href="@Url.Action("Delete",new { id=item.id})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Owner)</td>
+        <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+        <td>@Html.DisplayFor(modelItem => item.email)</td>
+        <td>@Html.DisplayFor(modelItem => item.EmergencyPhone)</td>
+        <td>@Html.DisplayFor(modelItem => item.City)</td>
+        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+    </tr>
+}
+
+</table>
+@Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @Resource.of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))

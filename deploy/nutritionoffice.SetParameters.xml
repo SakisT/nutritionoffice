@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="nutritionoffice" />
+  <setParameter name="DefaultConnection-Web.config Connection String" value="Data Source=.\SQLEXPRESS14;Initial Catalog=nutrdb_debug;Integrated Security=True" />
+  <setParameter name="ndbContext-Web.config Connection String" value="Data Source=.\SQLEXPRESS14;Initial Catalog=nutrdb_debug;Integrated Security=True" />
+  <setParameter name="ndbContext_DatabasePublish-Web.config Connection String" value="Data Source=.\SQLEXPRESS14;Initial Catalog=nutrdb_debug;Integrated Security=True" />
+</parameters>

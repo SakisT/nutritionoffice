@@ -1,0 +1,31 @@
+﻿@model IEnumerable<nutritionoffice.Models.Appointment>
+
+@{
+    ViewBag.Title = "Visits";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resource.VisitsReport</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Customer.FullName)</th>
+        <th>@Html.DisplayNameFor(model => model.Date)</th>
+        <th>@Html.DisplayNameFor(model => model.FromTime)</th>
+        <th>@Html.DisplayNameFor(model => model.ToTime)</th>
+        <th>@Html.DisplayNameFor(model => model.Notes)</th>
+        <th>@Html.DisplayNameFor(model => model.State)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Customer.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Date)</td>
+        <td>@Html.DisplayFor(modelItem => item.FromTime)</td>
+        <td>@Html.DisplayFor(modelItem => item.ToTime)</td>
+        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+        <td>@Html.DisplayFor(modelItem => item.State)</td>
+    </tr>
+}
+
+</table>

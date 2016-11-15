@@ -1,0 +1,449 @@
+﻿@model nutritionoffice.Models.Food
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Food</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodCategory.EnglishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodCategory.EnglishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnglishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnglishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GreekName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GreekName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSnack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSnack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Energy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Energy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protein)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protein)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carbohydrates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carbohydrates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calcium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calcium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Water)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Water)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lipid_Tot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lipid_Tot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ash)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiber_TD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiber_TD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SugarTot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SugarTot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Iron)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iron)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Magnesium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Magnesium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phosphorus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phosphorus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Potassium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Potassium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sodium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sodium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zinc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zinc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Copper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manganese)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manganese)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Selenium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Selenium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thiamin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thiamin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Riboflavin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Riboflavin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Niacin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Niacin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pantothenic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pantothenic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_B_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_B_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folate_Tot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folate_Tot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folic_acid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folic_acid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folate_food)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folate_food)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folate_DFE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folate_DFE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Choline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Choline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_B_12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_B_12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_A_IU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_A_IU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_A_RAE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_A_RAE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Retinol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Retinol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carotene_alpha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carotene_alpha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carotene_beta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carotene_beta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cryptoxanthin_beta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cryptoxanthin_beta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lycopene)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lycopene)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lutein_zeaxanthin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lutein_zeaxanthin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_E)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_E)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_D)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_D)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_D_IU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_D_IU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_K)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_K)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fat_Sat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fat_Sat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fat_Mono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fat_Mono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fat_Poly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fat_Poly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cholesterol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cholesterol)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index")
+        </div>
+    }
+</div>

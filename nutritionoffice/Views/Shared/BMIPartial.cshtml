@@ -1,0 +1,88 @@
+﻿@model IEnumerable<nutritionoffice.Models.Measurement>
+@{
+    nutritionoffice.Models.Customer customer = (ViewBag.Customer == null) ? new nutritionoffice.Models.Customer
+    {
+        Sex = nutritionoffice.Models.Customer.sex.Female,
+        BirthDate = System.DateTime.Today
+    } : (nutritionoffice.Models.Customer)ViewBag.Customer; ;
+    var BMI = new nutritionoffice.ViewModels.BMI((customer.Sex == nutritionoffice.Models.Customer.sex.Male) ?
+        nutritionoffice.ViewModels.BMI.Sex.Boy : nutritionoffice.ViewModels.BMI.Sex.Girl, new System.Drawing.Size(400, 500),
+        new System.Drawing.Printing.Margins(20, 20, 20, 20));
+
+    double currentpos = BMI.Margins.Left;
+
+
+    var t = BMI.GetCoOrdinates(0, 10);
+
+}
+
+
+
+<a id="btn-Convert-Html2Image" href="#">Download</a>
+<div class="col-md-6" id="svgContainer">
+    <svg  xmlns="http://www.w3.org/2000/svg"  version="1.1" class="chart-container" style="background-color:#f7f4da" height="@BMI.Size.Height" width="@BMI.Size.Width" id="chartcanvas">
+
+        @*<line x1="@BMI.Margins.Left" y1="@((BMI.Size.Height-BMI.Margins.Bottom-3).ToString())" x2="@(BMI.Size.Width-BMI.Margins.Right)" y2="@((BMI.Size.Height-BMI.Margins.Bottom-3).ToString())" style="stroke:#808080;stroke-width:2" /><!--Οριζόντιος άξονας-->*@
+
+        @for (int i = (int)(Math.Round( BMI.MinY,0)); i <= (int)(Math.Round( BMI.MaxY,0)); ++i)
+        {
+            var leftvalue = BMI.GetCoOrdinates(BMI.Ages.Min(), i);
+            var rightvalue = BMI.GetCoOrdinates(BMI.Ages.Max(), i);
+            
+            <g>
+                <text x="0" y="@((leftvalue[1]+5).ToString())" fill="red">@i.ToString()</text>
+                <line x1="@(leftvalue[0].ToString())" y1="@(leftvalue[1].ToString())" x2="@(rightvalue[0].ToString())" y2="@(rightvalue[1].ToString())" style="stroke:black;stroke-width:1" />
+                <text x="@((BMI.Size.Width-BMI.Margins.Right).ToString())" y="@((leftvalue[1]+5).ToString())" fill="red">@i.ToString()</text>
+            </g>
+        }
+
+        @foreach (decimal i in BMI.Ages)
+        {
+            var text = (i % 1 == 0) ? i.ToString("N0") : "";
+            string linewidth = (i % 1 == 0) ? 1.ToString("N0") : 0.2.ToString("N1");
+            var textx = (currentpos - 3).ToString();
+            string linecolor = (i % 1 == 0) ? "#0094ff" : "black";
+            string mainliney = (i % 1 == 0) ? (BMI.Size.Height - ((BMI.Margins.Bottom-2) / 1.2)).ToString() : (BMI.Size.Height - BMI.Margins.Bottom-2).ToString();
+            <g>
+                <line x1="@currentpos.ToString()" y1="@(BMI.Margins.Top.ToString())" x2="@currentpos.ToString()" y2="@mainliney" style="stroke:@linecolor;stroke-width:@linewidth" />
+                <text x="@((currentpos-4).ToString())" y="@(BMI.Size.Height.ToString())" fill="navy">@text</text>
+            </g>
+            currentpos += BMI.StepX;
+        }
+        @foreach (var line in BMI.Values[BMI.CustomerSex])
+        {
+            var LinePath = BMI.GetLinePath(BMI.CustomerSex, line.Key);
+            <g>
+                <polyline points="@LinePath" style="fill:none;stroke-dasharray:@(line.Value.StrokeData.DashArray);stroke:@(line.Value.StrokeData.Color);stroke-width:@(line.Value.StrokeData.Width)" />
+            </g>
+        }
+
+        <circle cx="@(t[0].ToString())" cy="@(t[1].ToString())" r="4" stroke="black" stroke-width="3" fill="red" title="" />
+    </svg>
+</div>
+
+<script type="text/javascript" src="~/Scripts/canvg.js"></script>
+<script>
+    
+    //$(document).ready(function () {
+    //    //$('#btn-Convert-Html2Image').on('click', function () {
+    //        var svgTags = document.querySelectorAll('#chartcanvas');
+
+    //        // Process SVG tags
+    //        for (var i = 0; i < svgTags.length; i++) {
+    //            var svgTag = svgTags[i];
+    //            var c = document.createElement('canvas');
+    //            c.width = svgTag.clientWidth;
+    //            c.height = svgTag.clientHeight;
+    //            svgTag.parentNode.insertBefore(c, svgTag);
+    //            svgTag.parentNode.removeChild(svgTag);
+    //            var div = document.createElement('div');
+    //            div.appendChild(svgTag);
+    //            canvg(c, div.innerHTML);
+    //        }
+    //    //});
+    //});
+
+
+
+</script>

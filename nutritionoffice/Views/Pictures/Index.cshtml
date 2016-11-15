@@ -1,0 +1,45 @@
+﻿@model IEnumerable<nutritionoffice.Models.Picture>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logo)
+        </th>
+  
+    </tr>
+
+@foreach (var item in Model)
+{
+    string imageBase64 = Convert.ToBase64String(item.Logo);
+    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+    
+    <tr>
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.PictureID})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+            <a href="@Url.Action("Delete",new { id=item.PictureID})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+        </td>
+        <td>
+            <img src="@imageSrc" width="100" height="20" />
+        </td>
+
+    </tr>
+}
+
+</table>

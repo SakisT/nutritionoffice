@@ -1,0 +1,32 @@
+﻿@model IEnumerable<nutritionoffice.Models.FoodCategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var CanEdit =new string[] {"Administrator","CanEdit" }.Any(r=> User.IsInRole(r));
+}
+<p></p>
+<p>
+    @Html.ActionLink(Resource.CreateNewFoodCategory, "Create")
+</p>
+    <table class="table table-condensed table-hover" style="width:50%;">
+        <tr>
+            <th width="60px;">@Resource.Actions</th>
+            <th>@Html.DisplayNameFor(model => model.EnglishName)</th>
+            <th>@Html.DisplayNameFor(model => model.GreekName)</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="background-color:@((item.Company!=null && CanEdit)?"#ffd800":"transparent")">
+                <td>
+                    <a href="@Url.Action("Edit", new { id=item.id })"><span class="glyphicon glyphicon-edit" title="Edit"></span></a> |
+                    <a href="@Url.Action("Delete", new { id=item.id })"><span class="glyphicon glyphicon-remove-circle" title="Delete"></span></a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.EnglishName)</td>
+                <td>@Html.ActionLink(item.GreekName, "Index", "Foods", new { FoodCategoryID =item.id},null)</td>
+            </tr>
+        }
+
+    </table>
+

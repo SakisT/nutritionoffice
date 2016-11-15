@@ -1,0 +1,92 @@
+﻿@model IEnumerable<nutritionoffice.ViewModels.StatisticsData.VisistsInPeriod>
+
+@{
+    ViewBag.Title = "VisitsInPeriod";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .coloncell{
+        padding:0px 15px 0px 15px;
+    }
+</style>
+
+<div>
+    <h2>@Resource.MeasurementStats</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Resource.ReportData</th>
+                <th>@Resource.SelectedSex</th>
+                <th>@Resource.CustomersPerTargetGroup</th>
+                <th>@Resource.MeasurementsPerTargetGroup</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table id="resultsanddata">
+                        <tr>
+                            <td><h4>@Resource.Period</h4></td>
+                            <td class="coloncell">:</td>
+                            <td>@ViewBag.FromDate </td>
+                            <td> - </td>
+                            <td>@ViewBag.ToDate</td>
+                        </tr>
+                        <tr>
+                            <td><h4>@Resource.TargetGroupID</h4></td>
+                            <td class="coloncell">:</td>
+                            <td colspan="3">@ViewBag.TargetGroup </td>
+                        </tr>
+                        <tr>
+                            <td><h4>@Resource.Sex : </h4></td>
+                            <td class="coloncell">:</td>
+                            <td colspan="3">@ViewBag.Sex</td>
+                        </tr>
+                        <tr>
+                            <td><h4>@Resource.TotalCustomers</h4></td>
+                            <td class="coloncell">:</td>
+                            <td>@Model.Count()</td>
+                        </tr>
+                        <tr>
+                            <td><h4>@Resource.TotalMeasurements</h4></td>
+                            <td class="coloncell">:</td>
+                            <td>@Model.Sum(r=>r.Measurements)</td>
+                        </tr>
+                        <tr>
+                            <td><h4>@Resource.MeasurementsPerCustomer</h4></td>
+                            <td class="coloncell">:</td>
+                            <td>@Model.Average(r=>r.Measurements).ToString("N1")</td>
+                        </tr>
+                    </table>
+                </td>
+                <td rowspan="4"><img src="data:image/png;base64,@ViewBag.PerSex" alt="Per Sex" /></td>
+                <td rowspan="4"><img src="data:image/png;base64,@ViewBag.CustomersPerTargetGroup" alt="Per Target Group" /></td>
+                <td rowspan="4"><img src="data:image/png;base64,@ViewBag.MeasurementsPerTargetGroup" alt="Per Target Group" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<table class="table">
+    <tr>
+        <th width="40%" class="text-left">@Resource.Customer</th>
+        <th width="20%">@Resource.TargetGroupID</th>
+        <th width="12%" class="text-center">@Resource.MeasurementsBefore</th>
+        <th width="12%" class="text-center">@Resource.MeasurementsInPeriod</th>
+        <th width="12%" class="text-center">@Resource.MeasurementsAfter</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Customer.FullName, "Details", "Customers", new { id = item.Customer.id }, htmlAttributes: new { target = "_blank" })</td>
+            <td class="text-left">@Html.DisplayName(item.Customer.TargetGroup.Name)</td>
+            <td class="text-center">@Html.DisplayName(item.MesurementsBefore.ToString())</td>
+            <td class="text-center">@Html.DisplayName(item.Measurements.ToString())</td>
+            <td class="text-center">@Html.DisplayName(item.MeasurementsAfter.ToString())</td>
+
+        </tr>
+    }
+
+</table>

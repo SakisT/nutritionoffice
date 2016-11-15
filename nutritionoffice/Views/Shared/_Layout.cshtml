@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon" />*@
+    <link rel="shortcut icon" href="https://nutritionoffice.blob.core.windows.net/files/favicon.ico" type="image/x-icon" />
+    @*<link rel="icon" href="~/images/favicon.ico" type="image/ico" />*@
+    <title>@ViewBag.Title - nutritionoffice</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+
+</head>
+<body>
+
+    @if (ViewBag.HideMenu == null || (bool)ViewBag.HideMenu == false)
+    {
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="@Url.Action("Index","Home")" class="navbar-brand" area=""><span class="glyphicon glyphicon-home" title="Home"></span> </a>
+                </div>
+                @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                {
+                    using (Html.BeginForm("Search", "Customers", FormMethod.Get))
+                    {
+                        <form class="navbar-brand navbar-search pull-left col-xs-3">
+                            <div class="input-group-sm">
+                                <input autocomplete="off" style="margin-top:10px;margin-left:2px;width:150px;background:#feffa0" type="text" name="searchString" class="sm search-query form-control col-xs-3" placeholder="@Resource.SearchbyName">
+                            </div>
+                        </form>
+                    }
+                }
+
+                <div class="navbar-collapse collapse">
+                    @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner", "CanEdit" }.Any(r => User.IsInRole(r)))
+                    {
+                        <ul class="nav navbar-nav" id="variantdatacontainer" data-homeurl="@Url.Action("Index","Home")">
+                            @if (new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                            {
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" id="layoutcompanyid" data-link="@Url.Action("GetNameDays","Home")" , data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> @Resource.MyOffice<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.Action("Index","Customers")" title="@Resource.mnuCustomers"><span class="glyphicon glyphicon-list"></span> @Resource.ListofCustomers</a></li>
+                                        <li><a href="@Url.Action("Create","Customers")" title="@Resource.mnuCreateNewCustomer"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewCustomer</a></li>
+                                        <li class="nav-divider"></li>
+                                        <li><a href="@Url.Action("Index","TargetGroups")" title="@Resource.mnuTargetgroups"><span class="glyphicon glyphicon-list"></span> @Resource.ListofTargetGroups</a></li>
+                                        <li><a href="@Url.Action("Create","TargetGroups")" title="@Resource.mnuCreateNewTargetGroup"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewTargetGroup</a></li>
+                                        <li class="nav-divider"></li>
+                                        <li><a href="@Url.Action("Index","Appointments")" title="@Resource.mnuAppointments"><span class="glyphicon glyphicon-list"></span> @Resource.CalendarofAppointments</a></li>
+                                        <li><a href="@Url.Action("Create","Appointments")" title="@Resource.mnuCreateNewAppointment"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewAppointment</a></li>
+                                        <li><a href="@Url.Action("CancelAppointments","Appointments")" title="@Resource.mnuBulkCancelAppointment"><span class="glyphicon glyphicon-remove-circle"></span> @Resource.BulkAppointmentCancelation</a></li>
+                                        <li class="nav-divider"></li>
+                                        <li><a href="@Url.Action("Index","Reminders")" title="@Resource.mnuReminders"><span class="glyphicon glyphicon-list"></span> @Resource.ListofReminders</a></li>
+                                        <li><a href="@Url.Action("Create","Reminders")" title="@Resource.mnuCreateNewReminder"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewReminder</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (new string[] { "Administrator", "Owner", "CanEdit" }.Any(r => User.IsInRole(r)))
+                            {
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-apple" title="Foods"></span> Διαιτολόγος-Διατροφολόγος<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.Action("Index","Foods")"><span class="glyphicon glyphicon-list"></span> @Resource.ListofFoods</a></li>
+                                        <li><a href="@Url.Action("Create","Foods")"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewFood</a></li>
+                                        @if (new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                                        {
+                                            <li><a href="@Url.Action("List","Foods")"><span class="glyphicon glyphicon-leaf"></span> @Resource.FoodComposition</a></li>
+                                        }
+                                        <li class="nav-divider"></li>
+                                        <li><a href="@Url.Action("Index","FoodCategories")"><span class="glyphicon glyphicon-list"></span> @Resource.ListofFoodCategories</a></li>
+                                        <li><a href="@Url.Action("Create","FoodCategories")"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewFoodCategory</a></li>
+                                        @if (new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                                        {
+                                            <li class="nav-divider"></li>
+                                            <li><a href="@Url.Action("Index","Recipes")"><span class="glyphicon glyphicon-list"></span> @Resource.ListofRecipes</a></li>
+
+                                            <li class="nav-divider"></li>
+                                            <li><a href="@Url.Action("Index","Diets")"><span class="glyphicon glyphicon-list"></span> @Resource.ListofDiets</a></li>
+                                            <li><a href="@Url.Action("Create","Diets")"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewDiet</a></li>
+                                        }
+
+                                    </ul>
+                                </li>
+                            }
+                            @if (new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                            {
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-tasks" title="Reports"></span> @Resource.ReportsPlural<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink(Resource.VisitsReport, "Visits", "Reports")</li>
+                                        <li>@Html.ActionLink(Resource.MeasurementsReport, "Measurements", "Reports")</li>
+                                        <li>@Html.ActionLink(Resource.ListOfNewCustomers, "NewCustomers", "Reports")</li>
+                                        <li>@Html.ActionLink(Resource.VisitsStatistics, "VisitsStatistics", "Reports")</li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-tasks" title="Reports"></span> @Resource.Tools<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Settings", "Index", "NutritionOfficeSettings")</li>
+                                        @if (User.IsInRole("Administrator"))
+                                        {
+                                            <li>@Html.ActionLink(Resource.CompaniesPlural, "Index", "Companies")</li>
+                                            <li>@Html.ActionLink(Resource.ManageUsers, "Index", "NutritionOfficeUsers")</li>
+                                            <li class="nav-divider"></li>
+                                            <li><a href="~/Logging/ErrorLog.txt" target="_blank">E r r o r s</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li>@Html.ActionLink(Resource.CompanySettings, "Edit", "Companies", new { id = 1 }, null)</li>
+                                        }
+                                        <li class="divider"></li>
+                                        @foreach (var i in SiteLanguages.AvailableLanguages)
+                                        {
+                                            <li>  @Html.ActionLink(i.LangFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)</li>
+                                        }
+
+                                    </ul>
+                                </li>
+                            }
+
+                            <li>
+                                @if (ViewBag.HelpFile != null)
+                    {
+                                    <a href="javascript:void[0]" data-link="@ViewBag.HelpFile" id="helplink"><span class="glyphicon glyphicon-question-sign" style="color:#0025b7;font-size:1.2em;text-shadow:2px 2px 4px #959dbd"> </span></a>
+                                }
+                            </li>
+                        </ul>
+                    }
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+        </div>
+    }
+    <div id="helpcontainer" style="margin:0px;padding:0px;overflow:hidden;">
+        <iframe src="" id="helpcontainerframe" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - nutritionoffice v.17/10/2016</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

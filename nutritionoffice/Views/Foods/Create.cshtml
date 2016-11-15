@@ -1,0 +1,403 @@
+﻿@model nutritionoffice.Models.Food
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+     
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodCategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownList("FoodCategoryID",null,Resource.SelectFoodCategory, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FoodCategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.GreekName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.GreekName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GreekName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsBreakfast, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.IsBreakfast)
+                    @Html.ValidationMessageFor(model => model.IsBreakfast, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.LabelFor(model => model.IsSnack, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.IsSnack)
+                    @Html.ValidationMessageFor(model => model.IsSnack, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.LabelFor(model => model.IsLunch, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.IsLunch)
+                    @Html.ValidationMessageFor(model => model.IsLunch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.LabelFor(model => model.IsDinner, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.IsDinner)
+                    @Html.ValidationMessageFor(model => model.IsDinner, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead style="color:navy;font-size:1.2em;background-color:#f2d9fc">
+                <tr style="text-align:center">
+                    <td width="12%">@Html.Label("Nutrient")</td>
+                    <td width="8%">@Html.Label("Value")</td>
+                    <td width="12%">@Html.Label("Nutrient")</td>
+                    <td width="8%">@Html.Label("Value")</td>
+                    <td width="12%">@Html.Label("Nutrient")</td>
+                    <td width="8%">@Html.Label("Value")</td>
+                    <td width="12%">@Html.Label("Nutrient")</td>
+                    <td width="8%">@Html.Label("Value")</td>
+                    <td width="12%">@Html.Label("Nutrient")</td>
+                    <td width="8%">@Html.Label("Value")</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Ash)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Ash, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Ash, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Calcium)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Calcium, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Calcium, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Carbohydrates)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Carbohydrates, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Carbohydrates, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Carotene_alpha)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Carotene_alpha, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Carotene_alpha, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Carotene_beta)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Carotene_beta, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Carotene_beta, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Cholesterol)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Cholesterol, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Cholesterol, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Choline)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Choline, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Choline, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Copper)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Copper, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Copper, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Cryptoxanthin_beta)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Cryptoxanthin_beta, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Cryptoxanthin_beta, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Energy)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Energy, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Energy, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Fat_Mono)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Fat_Mono, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Fat_Mono, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Fat_Poly)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Fat_Poly, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Fat_Poly, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Fat_Sat)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Fat_Sat, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Fat_Sat, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Fiber_TD)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Fiber_TD, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Fiber_TD, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Folate_DFE)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Folate_DFE, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Folate_DFE, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Folate_food)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Folate_food, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Folate_food, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Folate_Tot)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Folate_Tot, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Folate_Tot, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Folic_acid)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Folic_acid, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Folic_acid, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Iron)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Iron, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Iron, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Lipid_Tot)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Lipid_Tot, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Lipid_Tot, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Lutein_zeaxanthin)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Lutein_zeaxanthin, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Lutein_zeaxanthin, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Lycopene)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Lycopene, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Lycopene, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Magnesium)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Magnesium, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Magnesium, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Manganese)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Manganese, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Manganese, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Niacin)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Niacin, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Niacin, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Pantothenic)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Pantothenic, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Pantothenic, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Phosphorus)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Phosphorus, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Phosphorus, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Potassium)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Potassium, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Potassium, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Protein)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Protein, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Protein, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Retinol)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Retinol, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Retinol, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Riboflavin)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Riboflavin, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Riboflavin, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Selenium)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Selenium, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Selenium, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Sodium)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Sodium, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Sodium, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.SugarTot)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.SugarTot, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.SugarTot, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Thiamin)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Thiamin, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Thiamin, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_A_IU)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_A_IU, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_A_IU, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_A_RAE)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_A_RAE, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_A_RAE, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_B_12)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_B_12, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_B_12, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_B_6)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_B_6, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_B_6, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_C)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_C, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_C, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_D)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_D, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_D, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_D_IU)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_D_IU, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_D_IU, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_E)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_E, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_E, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Vitamin_K)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Vitamin_K, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Vitamin_K, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Water)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Water, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Water, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="justify">@Html.LabelFor(modelitem => modelitem.Zinc)</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Zinc, htmlAttributes: new { @class = "form-control numbertextbox" })
+                        @Html.ValidationMessageFor(model => model.Zinc, "", new { @class = "text-danger" })
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

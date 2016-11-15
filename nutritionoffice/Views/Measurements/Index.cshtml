@@ -1,0 +1,106 @@
+﻿@model IEnumerable<nutritionoffice.Models.Measurement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaistHipRatio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.triglycerides)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cholesterol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodPressure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ferrum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spelter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.e_FAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaistHipRatio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.triglycerides)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cholesterol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodPressure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ferrum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spelter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.e_FAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink(nutritionoffice.Resource.Edit, "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink(nutritionoffice.Resource.Delete, "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

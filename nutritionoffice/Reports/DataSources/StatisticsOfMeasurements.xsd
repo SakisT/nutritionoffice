@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StatisticsOfMeasurements" targetNamespace="http://tempuri.org/StatisticsOfMeasurements.xsd" xmlns:mstns="http://tempuri.org/StatisticsOfMeasurements.xsd" xmlns="http://tempuri.org/StatisticsOfMeasurements.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StatisticsOfMeasurements" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StatisticsOfMeasurements" msprop:Generator_UserDSName="StatisticsOfMeasurements">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CompanyData" msprop:Generator_TableClassName="CompanyDataDataTable" msprop:Generator_TableVarName="tableCompanyData" msprop:Generator_TablePropName="CompanyData" msprop:Generator_RowDeletingName="CompanyDataRowDeleting" msprop:Generator_RowChangingName="CompanyDataRowChanging" msprop:Generator_RowEvHandlerName="CompanyDataRowChangeEventHandler" msprop:Generator_RowDeletedName="CompanyDataRowDeleted" msprop:Generator_UserTableName="CompanyData" msprop:Generator_RowChangedName="CompanyDataRowChanged" msprop:Generator_RowEvArgName="CompanyDataRowChangeEvent" msprop:Generator_RowClassName="CompanyDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportData" msprop:Generator_TableClassName="ReportDataDataTable" msprop:Generator_TableVarName="tableReportData" msprop:Generator_TablePropName="ReportData" msprop:Generator_RowDeletingName="ReportDataRowDeleting" msprop:Generator_RowChangingName="ReportDataRowChanging" msprop:Generator_RowEvHandlerName="ReportDataRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportDataRowDeleted" msprop:Generator_UserTableName="ReportData" msprop:Generator_RowChangedName="ReportDataRowChanged" msprop:Generator_RowEvArgName="ReportDataRowChangeEvent" msprop:Generator_RowClassName="ReportDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReportFieldName" msprop:Generator_ColumnVarNameInTable="columnReportFieldName" msprop:Generator_ColumnPropNameInRow="ReportFieldName" msprop:Generator_ColumnPropNameInTable="ReportFieldNameColumn" msprop:Generator_UserColumnName="ReportFieldName" type="xs:string" minOccurs="0" />
+              <xs:element name="ReportFieldValue" msprop:Generator_ColumnVarNameInTable="columnReportFieldValue" msprop:Generator_ColumnPropNameInRow="ReportFieldValue" msprop:Generator_ColumnPropNameInTable="ReportFieldValueColumn" msprop:Generator_UserColumnName="ReportFieldValue" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StatisticsData" msprop:Generator_TableClassName="StatisticsDataDataTable" msprop:Generator_TableVarName="tableStatisticsData" msprop:Generator_TablePropName="StatisticsData" msprop:Generator_RowDeletingName="StatisticsDataRowDeleting" msprop:Generator_RowChangingName="StatisticsDataRowChanging" msprop:Generator_RowEvHandlerName="StatisticsDataRowChangeEventHandler" msprop:Generator_RowDeletedName="StatisticsDataRowDeleted" msprop:Generator_UserTableName="StatisticsData" msprop:Generator_RowChangedName="StatisticsDataRowChanged" msprop:Generator_RowEvArgName="StatisticsDataRowChangeEvent" msprop:Generator_RowClassName="StatisticsDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" type="xs:string" minOccurs="0" />
+              <xs:element name="TargetGroup" msprop:Generator_ColumnVarNameInTable="columnTargetGroup" msprop:Generator_ColumnPropNameInRow="TargetGroup" msprop:Generator_ColumnPropNameInTable="TargetGroupColumn" msprop:Generator_UserColumnName="TargetGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnPropNameInTable="SexColumn" msprop:Generator_UserColumnName="Sex" type="xs:string" minOccurs="0" />
+              <xs:element name="MeasurementsBefore" msprop:Generator_ColumnVarNameInTable="columnMeasurementsBefore" msprop:Generator_ColumnPropNameInRow="MeasurementsBefore" msprop:Generator_ColumnPropNameInTable="MeasurementsBeforeColumn" msprop:Generator_UserColumnName="MeasurementsBefore" type="xs:short" minOccurs="0" />
+              <xs:element name="Measurements" msprop:Generator_ColumnVarNameInTable="columnMeasurements" msprop:Generator_ColumnPropNameInRow="Measurements" msprop:Generator_ColumnPropNameInTable="MeasurementsColumn" msprop:Generator_UserColumnName="Measurements" type="xs:short" minOccurs="0" />
+              <xs:element name="MeasurementsAfter" msprop:Generator_ColumnVarNameInTable="columnMeasurementsAfter" msprop:Generator_ColumnPropNameInRow="MeasurementsAfter" msprop:Generator_ColumnPropNameInTable="MeasurementsAfterColumn" msprop:Generator_UserColumnName="MeasurementsAfter" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

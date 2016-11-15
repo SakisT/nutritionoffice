@@ -1,0 +1,31 @@
+﻿@model nutritionoffice.Models.Reminder
+
+@if (Model != null)
+{
+
+    var DisplayDateTime = ViewBag.DisplayDateTime;
+    var DisplayMessage = ViewBag.DisplayMessage;
+    var DisplayLink = ViewBag.DisplayLink;
+
+    string smscolor = (Model.SendSMS) ? (Model.SMSState == nutritionoffice.Models.Reminder.ReminderState.Completed) ? "green" : (Model.SMSState == nutritionoffice.Models.Reminder.ReminderState.Active) ? "blue" : "red" : "transparent";
+    string mailcolor = (Model.SendEmail) ? (Model.MailState == nutritionoffice.Models.Reminder.ReminderState.Completed) ? "green" : (Model.MailState == nutritionoffice.Models.Reminder.ReminderState.Active) ? "blue" : "red" : "transparent";
+    string smstitle = (Model.SendSMS) ? (Model.SMSState == nutritionoffice.Models.Reminder.ReminderState.Completed) ? Resource.SentState : (Model.SMSState == nutritionoffice.Models.Reminder.ReminderState.Active) ? Resource.PendingState : Resource.CanceledStated : "transparent";
+    string mailtitle = (Model.SendEmail) ? (Model.MailState == nutritionoffice.Models.Reminder.ReminderState.Completed) ? Resource.SentState : (Model.MailState == nutritionoffice.Models.Reminder.ReminderState.Active) ? Resource.PendingState : Resource.CanceledStated : "transparent";
+    <p>
+        @if (DisplayLink ?? false)
+        {
+            <a href="@Url.Action("Edit","Reminders",new { id=Model.id})" target="_blank"><span class="glyphicon glyphicon-link" title="@Resource.DisplayOrEditReminder"></span> </a>
+        }
+        @if (DisplayDateTime ?? false)
+        {
+            @Html.DisplayFor(modelitem => modelitem.OnDate)
+        }
+        <span class="glyphicon glyphicon-phone-alt" style="color:@smscolor" title="@smstitle"></span>
+        <span class="glyphicon glyphicon-envelope" style="color:@mailcolor" title="@mailtitle"></span>
+        @if (DisplayMessage ?? false)
+        {
+            @Html.DisplayFor(modelitem => modelitem.Message)
+        }
+    </p>
+
+}

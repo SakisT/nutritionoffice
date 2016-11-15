@@ -1,0 +1,93 @@
+﻿@model nutritionoffice.Models.NormalRates
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>NormalRates</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EnumDropDownListFor(model => model.Sex, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @*@Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control", type = "color" } })
+                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FromAge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.FromAge, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FromAge, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.ToAge, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ToAge, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ToAge, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.FromValue, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.FromValue, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FromValue, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.ToValue, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ToValue, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ToValue, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.ValueUnit, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.ValueUnit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ValueUnit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

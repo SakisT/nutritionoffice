@@ -1,0 +1,13 @@
+﻿@model nutritionoffice.Models.Reminder.ReminderState
+@switch (Model)
+{
+    case nutritionoffice.Models.Reminder.ReminderState.Canceled:
+        <span class="glyphicon glyphicon-remove-circle" title="@Resource.ReminderCanceled"></span>
+        break;
+    case nutritionoffice.Models.Reminder.ReminderState.Active:
+        <span class="glyphicon glyphicon-time" title="@Resource.Reminder"></span>
+        break;
+    default:
+        <span class="glyphicon glyphicon-cog"></span>
+        break;
+}

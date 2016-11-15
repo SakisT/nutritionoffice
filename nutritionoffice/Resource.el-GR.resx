@@ -1,0 +1,1371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="City" xml:space="preserve">
+    <value>Πόλη</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Εταιρία</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Ημ/νία εγγραφής</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Πελάτες</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Ημερομηνία γέννησης</value>
+  </data>
+  <data name="EmergencyOrMobileNumber" xml:space="preserve">
+    <value>Κινητό ή τηλέφωνο έκτακτης ανάγκης</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Ονοματεπώνυμο</value>
+  </data>
+  <data name="HomeAddress" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="IsActivefemale" xml:space="preserve">
+    <value>Ενεργή</value>
+  </data>
+  <data name="LastChangedOn" xml:space="preserve">
+    <value>Ημ/νία διόρθωσης</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Λογότυπο</value>
+  </data>
+  <data name="ManSex" xml:space="preserve">
+    <value>Άνδρας</value>
+  </data>
+  <data name="MobilePhone" xml:space="preserve">
+    <value>Κινητό</value>
+  </data>
+  <data name="OfficeAddress" xml:space="preserve">
+    <value>Διεύθυνση γραφείου</value>
+  </data>
+  <data name="OfficeCity" xml:space="preserve">
+    <value>Πόλη</value>
+  </data>
+  <data name="OfficePostCode" xml:space="preserve">
+    <value>Τ.Κ.</value>
+  </data>
+  <data name="OwnersName" xml:space="preserve">
+    <value>Ιδιοκτήτης</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="PostCode" xml:space="preserve">
+    <value>Τ.Κ.</value>
+  </data>
+  <data name="RecipeCategories" xml:space="preserve">
+    <value>Κατηγορίες συνταγών</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Παρατηρήσεις</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Φύλλο</value>
+  </data>
+  <data name="SMSSign" xml:space="preserve">
+    <value>Υπογραφή SMS</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Επώνυμο</value>
+  </data>
+  <data name="TargetGroupID" xml:space="preserve">
+    <value>Ομάδα πελατών</value>
+  </data>
+  <data name="WomanSex" xml:space="preserve">
+    <value>Γυναίκα</value>
+  </data>
+  <data name="BacktoList" xml:space="preserve">
+    <value>Επιστροφή</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="BulkAppointmentCancelation" xml:space="preserve">
+    <value>Ομαδική ακύρωση ραντεβού</value>
+  </data>
+  <data name="CalendarofAppointments" xml:space="preserve">
+    <value>Τα Ραντεβού μου</value>
+  </data>
+  <data name="CreateNewAppointment" xml:space="preserve">
+    <value>Δημιουργία νέου ραντεβού</value>
+  </data>
+  <data name="CreateNewCustomer" xml:space="preserve">
+    <value>Δημιουργία νέου πελάτη</value>
+  </data>
+  <data name="CreateNewDiet" xml:space="preserve">
+    <value>Δημιουργία νέας δίαιτας</value>
+  </data>
+  <data name="CreateNewFood" xml:space="preserve">
+    <value>Δημιουργία νέου τροφίμου</value>
+  </data>
+  <data name="CreateNewFoodCategory" xml:space="preserve">
+    <value>Δημιουργία νέας κατηγορίας τροφίμων</value>
+  </data>
+  <data name="CreateNewReminder" xml:space="preserve">
+    <value>Δημιουργία νέας υπενθύμισης</value>
+  </data>
+  <data name="CreateNewTargetGroup" xml:space="preserve">
+    <value>Δημιουργία νέας ομάδας πελατών</value>
+  </data>
+  <data name="DietsPlural" xml:space="preserve">
+    <value>Διαιτολόγια</value>
+  </data>
+  <data name="Foods" xml:space="preserve">
+    <value>Τροφές</value>
+  </data>
+  <data name="ListofCustomers" xml:space="preserve">
+    <value>Πελατολόγιο</value>
+  </data>
+  <data name="ListofDiets" xml:space="preserve">
+    <value>Λίστα διαιτών</value>
+  </data>
+  <data name="ListofFoodCategories" xml:space="preserve">
+    <value>Κατηγορίες τροφίμων</value>
+  </data>
+  <data name="ListofFoods" xml:space="preserve">
+    <value>Τρόφιμα</value>
+  </data>
+  <data name="ListofReminders" xml:space="preserve">
+    <value>Λίστα υπενθυμίσεων</value>
+  </data>
+  <data name="ListofTargetGroups" xml:space="preserve">
+    <value>Ομάδες πελατών</value>
+  </data>
+  <data name="ReportsPlural" xml:space="preserve">
+    <value>Αναφορές</value>
+  </data>
+  <data name="SearchbyName" xml:space="preserve">
+    <value>Αναζήτηση ονόματος</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ενεργό</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Παρατηρήσεις</value>
+  </data>
+  <data name="Allergies" xml:space="preserve">
+    <value>Αλλεργίες</value>
+  </data>
+  <data name="Antioxidant" xml:space="preserve">
+    <value>Αντιοξειδωτική</value>
+  </data>
+  <data name="AppointmentCanceled" xml:space="preserve">
+    <value>Ακυρωμένο</value>
+  </data>
+  <data name="AppointmentsCalendar" xml:space="preserve">
+    <value>Ημερολόγιο ραντεβού</value>
+  </data>
+  <data name="Armpit" xml:space="preserve">
+    <value>Μασχάλη</value>
+  </data>
+  <data name="Arthritis" xml:space="preserve">
+    <value>Αρθρίτιδες</value>
+  </data>
+  <data name="Ash" xml:space="preserve">
+    <value>Ash (g)</value>
+  </data>
+  <data name="Asthma" xml:space="preserve">
+    <value>Ασθμα</value>
+  </data>
+  <data name="AverageBodyFat" xml:space="preserve">
+    <value>Μέσο σωματικό λίπος</value>
+  </data>
+  <data name="Belly" xml:space="preserve">
+    <value>Κοιλιά</value>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>Γέννηση</value>
+  </data>
+  <data name="BloodPressure" xml:space="preserve">
+    <value>Αρτηριακή πίεση</value>
+  </data>
+  <data name="BodyDensity" xml:space="preserve">
+    <value>Πυκνότητα Σώματος</value>
+  </data>
+  <data name="BodyFat" xml:space="preserve">
+    <value>Λίπος σώματος</value>
+  </data>
+  <data name="Breakfast" xml:space="preserve">
+    <value>Πρωϊνό</value>
+  </data>
+  <data name="BreathingProblems" xml:space="preserve">
+    <value>Αναπνευστικά προβλήματα</value>
+  </data>
+  <data name="Bulimia" xml:space="preserve">
+    <value>Βουλιμία;</value>
+  </data>
+  <data name="Calcium" xml:space="preserve">
+    <value>Ασβέστιο (mg)</value>
+  </data>
+  <data name="CalculationMethod" xml:space="preserve">
+    <value>Μέθοδος μέτρησης</value>
+  </data>
+  <data name="Carbohydrates" xml:space="preserve">
+    <value>Υδατάνθρακες (g)</value>
+  </data>
+  <data name="CardiovascularProblems" xml:space="preserve">
+    <value>Καρδιαγγειακά προβλήματα</value>
+  </data>
+  <data name="Carotenealpha" xml:space="preserve">
+    <value>Carotene, alpha (μg)</value>
+  </data>
+  <data name="Carotenebeta" xml:space="preserve">
+    <value>Carotene, beta (μg)</value>
+  </data>
+  <data name="Chest" xml:space="preserve">
+    <value>Στήθος</value>
+  </data>
+  <data name="Cholesterol" xml:space="preserve">
+    <value>Cholesterol (mg)</value>
+  </data>
+  <data name="Choline" xml:space="preserve">
+    <value>Choline (mg)</value>
+  </data>
+  <data name="ClickheretoLogin" xml:space="preserve">
+    <value>Πατήστε εδώ για να συνδεθείτε</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Κωδικός</value>
+  </data>
+  <data name="CodeReturnedFromProvider" xml:space="preserve">
+    <value>Κωδικός παρόχου</value>
+  </data>
+  <data name="CollageneSynthesis" xml:space="preserve">
+    <value>Σύνθεσης κολλαγόνου</value>
+  </data>
+  <data name="CompaniesPlural" xml:space="preserve">
+    <value>Εταιρίες</value>
+  </data>
+  <data name="CompanySettings" xml:space="preserve">
+    <value>Ρυθμίσεις εταιρίας</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Επιβεβαίωση email</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Επιβεβαίωση κωδικού</value>
+  </data>
+  <data name="Copper" xml:space="preserve">
+    <value>Copper (mg)</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Δημιουργία</value>
+  </data>
+  <data name="Createanewaccount" xml:space="preserve">
+    <value>Δημιουργία νέου λογαριασμού</value>
+  </data>
+  <data name="CreateBulkReminder" xml:space="preserve">
+    <value>Δημιουργία μαζικής υπενθύμισης</value>
+  </data>
+  <data name="Cryptoxanthinbeta" xml:space="preserve">
+    <value>Cryptoxanthin, beta (μg)</value>
+  </data>
+  <data name="CurrentWeek" xml:space="preserve">
+    <value>Αυτή η εβδομάδα</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Πελάτης</value>
+  </data>
+  <data name="CustomersList" xml:space="preserve">
+    <value>Πελατολόγιο</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Ημερομηνία</value>
+  </data>
+  <data name="DateofReminder" xml:space="preserve">
+    <value>Ημερομηνία</value>
+  </data>
+  <data name="DailyActivityDescription" xml:space="preserve">
+    <value>Περιγραφή της καθημερινότητας</value>
+  </data>
+  <data name="Detox" xml:space="preserve">
+    <value>Αποτοξίνωσης</value>
+  </data>
+  <data name="Diabetes" xml:space="preserve">
+    <value>Διαβήτης (Υψηλό ζάχαρο)</value>
+  </data>
+  <data name="Diatrofogenomiki" xml:space="preserve">
+    <value>Διατροφογενομική</value>
+  </data>
+  <data name="Diceps" xml:space="preserve">
+    <value>Δικέφαλος</value>
+  </data>
+  <data name="DietName" xml:space="preserve">
+    <value>Όνομασία δίαιτας</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>Δείπνο</value>
+  </data>
+  <data name="EditAppointment" xml:space="preserve">
+    <value>Επεξεργασία ραντεβού</value>
+  </data>
+  <data name="EditCompanyData" xml:space="preserve">
+    <value>Επεξεργασία στοιχείων εταιρίας</value>
+  </data>
+  <data name="EditCustomerDetails" xml:space="preserve">
+    <value>Επεξεργασία στοιχείων πελάτη</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="Energy" xml:space="preserve">
+    <value>Θερμίδες</value>
+  </data>
+  <data name="Equivalent" xml:space="preserve">
+    <value>Ισοδύναμο (γρ.)</value>
+  </data>
+  <data name="ExecutionOrder" xml:space="preserve">
+    <value>Εκτέλεση</value>
+  </data>
+  <data name="Exists" xml:space="preserve">
+    <value>Ναι</value>
+  </data>
+  <data name="Explaination" xml:space="preserve">
+    <value>Εξήγηση</value>
+  </data>
+  <data name="Fat" xml:space="preserve">
+    <value>Λίπος</value>
+  </data>
+  <data name="FatMono" xml:space="preserve">
+    <value>Fat Mono (g)</value>
+  </data>
+  <data name="FatPoly" xml:space="preserve">
+    <value>Fat Poly (g)</value>
+  </data>
+  <data name="FatSat" xml:space="preserve">
+    <value>Fat Sat (g)</value>
+  </data>
+  <data name="Ferrum" xml:space="preserve">
+    <value>Σίδηρος</value>
+  </data>
+  <data name="FiberTD" xml:space="preserve">
+    <value>Ίνες TD (g)</value>
+  </data>
+  <data name="FolateDFE" xml:space="preserve">
+    <value>Folate DFE (μg)</value>
+  </data>
+  <data name="Folatefood" xml:space="preserve">
+    <value>Folate food (μg)</value>
+  </data>
+  <data name="Folatetotal" xml:space="preserve">
+    <value>Folate total (μg)</value>
+  </data>
+  <data name="Folicacid" xml:space="preserve">
+    <value>Folic acid (μg)</value>
+  </data>
+  <data name="FoodCategory" xml:space="preserve">
+    <value>Κατηγορία τροφίμου</value>
+  </data>
+  <data name="FoodCategoryEn" xml:space="preserve">
+    <value>Κατηγορία τροφίμων (Αγγλικά)</value>
+  </data>
+  <data name="FoodCategoryGR" xml:space="preserve">
+    <value>Κατηγορία τροφίμων (Ελληνικά)</value>
+  </data>
+  <data name="FoodName" xml:space="preserve">
+    <value>Τρόφιμο</value>
+  </data>
+  <data name="FoodNameEN" xml:space="preserve">
+    <value>Όνομα τροφίμου (Αγγλικά)</value>
+  </data>
+  <data name="FoodNameGR" xml:space="preserve">
+    <value>Όνομα τροφίμου (Ελληνικά)</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Από</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>Από</value>
+  </data>
+  <data name="GeneralUse" xml:space="preserve">
+    <value>Γενικής χρήσης</value>
+  </data>
+  <data name="HasCompleted" xml:space="preserve">
+    <value>Διεκπαιρέωμένο</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Ύψος</value>
+  </data>
+  <data name="HighBloodPressure" xml:space="preserve">
+    <value>Υψηλή πίεση</value>
+  </data>
+  <data name="HighCholesterol" xml:space="preserve">
+    <value>Υψηλή χοληστερόλη</value>
+  </data>
+  <data name="HighTriglycerides" xml:space="preserve">
+    <value>Υψηλά τριγλυκερίδια</value>
+  </data>
+  <data name="HungryHours" xml:space="preserve">
+    <value>Ποια ώρα της ημέρας νιώθετε συνήθως πεινασμένος;</value>
+  </data>
+  <data name="Hypoglycemia" xml:space="preserve">
+    <value>Υπογλυκαιμία (χαμηλό ζάχαρο)</value>
+  </data>
+  <data name="Iliac" xml:space="preserve">
+    <value>Λαγόνιος</value>
+  </data>
+  <data name="IngredientsList" xml:space="preserve">
+    <value>Λίστα υλικών</value>
+  </data>
+  <data name="Iron" xml:space="preserve">
+    <value>Σίδηρος (mg)</value>
+  </data>
+  <data name="IsAntioxidant" xml:space="preserve">
+    <value>Αντιοξειδωτική Δράση</value>
+  </data>
+  <data name="IsCollagene" xml:space="preserve">
+    <value>Σύνθεση κολλαγόνου</value>
+  </data>
+  <data name="IsDetox" xml:space="preserve">
+    <value>Αποτοξίνωση</value>
+  </data>
+  <data name="IsDiatrofogenomiki" xml:space="preserve">
+    <value>Διατροφογενομική Φλεγμονώδης</value>
+  </data>
+  <data name="IsMenopause" xml:space="preserve">
+    <value>Εμμηνόπαυσης</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Εργασία</value>
+  </data>
+  <data name="LackOfAppetite" xml:space="preserve">
+    <value>Ανορεξία;</value>
+  </data>
+  <data name="LipidTotal" xml:space="preserve">
+    <value>Λιπίδια (g)</value>
+  </data>
+  <data name="ListOfNewCustomers" xml:space="preserve">
+    <value>Λίστα νέων πελατών</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Είσοδος</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Έξοδος</value>
+  </data>
+  <data name="LowBloodPressure" xml:space="preserve">
+    <value>Χαμηλή πίεση</value>
+  </data>
+  <data name="LowerMean" xml:space="preserve">
+    <value>Κάτω μέση</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>Γεύμα</value>
+  </data>
+  <data name="Luteinzeaxanthin" xml:space="preserve">
+    <value>Lutein + zeaxanthin (μg)</value>
+  </data>
+  <data name="Lycopene" xml:space="preserve">
+    <value>Lycopene (μg)</value>
+  </data>
+  <data name="Magnesium" xml:space="preserve">
+    <value>Magnesium (mg)</value>
+  </data>
+  <data name="MailMessage" xml:space="preserve">
+    <value>Μήνυμα email</value>
+  </data>
+  <data name="MailStatus" xml:space="preserve">
+    <value>Κατάσταση email</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Διαχείρηση χρηστών</value>
+  </data>
+  <data name="Manganese" xml:space="preserve">
+    <value>Manganese (mg)</value>
+  </data>
+  <data name="MaxWeightAge" xml:space="preserve">
+    <value>Σε ποιά ηλικία;</value>
+  </data>
+  <data name="MaxWeightEver" xml:space="preserve">
+    <value>Το περισσότερο που ζυγίζατε ποτέ</value>
+  </data>
+  <data name="MeasurementsReport" xml:space="preserve">
+    <value>Αναφορά μετρήσεων</value>
+  </data>
+  <data name="Menopause" xml:space="preserve">
+    <value>Εμμηνόπαυσης</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Μήνας</value>
+  </data>
+  <data name="NextMonth" xml:space="preserve">
+    <value>Επόμενος μήνας</value>
+  </data>
+  <data name="NextWeek" xml:space="preserve">
+    <value>Επόμενη εβδομάδα</value>
+  </data>
+  <data name="Niacin" xml:space="preserve">
+    <value>Niacin (mg)</value>
+  </data>
+  <data name="NumerOfDailyMeals" xml:space="preserve">
+    <value>Αριθμός ημερήσιων γευμάτων</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>από</value>
+  </data>
+  <data name="OverWeightOnEarlyYears" xml:space="preserve">
+    <value>Αυξημένο βάρος στην παιδική ηλικία;</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Σελίδα</value>
+  </data>
+  <data name="Pantothenic" xml:space="preserve">
+    <value>Pantothenic (mg)</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Κωδικός</value>
+  </data>
+  <data name="Phosphorus" xml:space="preserve">
+    <value>Phosphorus (mg)</value>
+  </data>
+  <data name="Postpone" xml:space="preserve">
+    <value>Σε αναβολή</value>
+  </data>
+  <data name="Potassium" xml:space="preserve">
+    <value>Potassium (mg)</value>
+  </data>
+  <data name="PreviousMonth" xml:space="preserve">
+    <value>Προηγούμενος μήνας</value>
+  </data>
+  <data name="PreviousWeek" xml:space="preserve">
+    <value>Προηγούμενη εβδομάδα</value>
+  </data>
+  <data name="Protein" xml:space="preserve">
+    <value>Πρωτεΐνες (g)</value>
+  </data>
+  <data name="Quadriceps" xml:space="preserve">
+    <value>Τετρακέφαλος</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Ποσότητα</value>
+  </data>
+  <data name="QuantityType" xml:space="preserve">
+    <value>Μονάδα μέτρησης</value>
+  </data>
+  <data name="RatioWeist" xml:space="preserve">
+    <value>Αναλογία μέσης</value>
+  </data>
+  <data name="RecipeCategory" xml:space="preserve">
+    <value>Κατηγορία συνταγών</value>
+  </data>
+  <data name="RecipeName" xml:space="preserve">
+    <value>Συνταγή</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Νέος χρήστης</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>Δημιουργία νέου χρήστη</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="Rememberthisbrowser" xml:space="preserve">
+    <value>Αποθήκευση σε αυτό το φυλλομετρητή!</value>
+  </data>
+  <data name="ReminderCanceled" xml:space="preserve">
+    <value>Ακυρωμένο</value>
+  </data>
+  <data name="Retinol" xml:space="preserve">
+    <value>Retinol (μg)</value>
+  </data>
+  <data name="Riboflavin" xml:space="preserve">
+    <value>Riboflavin (mg)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Επιλέξτε πελάτη</value>
+  </data>
+  <data name="Selenium" xml:space="preserve">
+    <value>Selenium (μg)</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Αποστολή email</value>
+  </data>
+  <data name="SendSMS" xml:space="preserve">
+    <value>Αποστολή SMS</value>
+  </data>
+  <data name="Shank" xml:space="preserve">
+    <value>Γάμπα</value>
+  </data>
+  <data name="SMSMessage" xml:space="preserve">
+    <value>Μήνυμα SMS</value>
+  </data>
+  <data name="SMSStatus" xml:space="preserve">
+    <value>Κατάσταση μηνύματος</value>
+  </data>
+  <data name="Snack" xml:space="preserve">
+    <value>Snack</value>
+  </data>
+  <data name="Sodium" xml:space="preserve">
+    <value>Sodium (mg)</value>
+  </data>
+  <data name="SortDescription" xml:space="preserve">
+    <value>Σύντομη περιγραφή</value>
+  </data>
+  <data name="Spelter" xml:space="preserve">
+    <value>Ψευδάργυρος</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Από (Ημ/νία)</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="STDEVBodyFat" xml:space="preserve">
+    <value>Απόκλιση σωματικού λίπους</value>
+  </data>
+  <data name="SugarTotal" xml:space="preserve">
+    <value>Σάκχαρα (g)</value>
+  </data>
+  <data name="SumOfSkinFolds" xml:space="preserve">
+    <value>Άθροισμα Δερματοπτυχών</value>
+  </data>
+  <data name="TargetGroups" xml:space="preserve">
+    <value>Ομάδες πελατών</value>
+  </data>
+  <data name="Thiamin" xml:space="preserve">
+    <value>Thiamin (mg)</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>Έως</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Εργαλεία</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>Έως</value>
+  </data>
+  <data name="Triceps" xml:space="preserve">
+    <value>Τρικέφαλος</value>
+  </data>
+  <data name="Triglycerides" xml:space="preserve">
+    <value>Τριγλυκερίδια</value>
+  </data>
+  <data name="Ulcer" xml:space="preserve">
+    <value>Έλκος</value>
+  </data>
+  <data name="Usealocalaccounttologin" xml:space="preserve">
+    <value>Χρησιμοποιήστε ένα τοπικό λογαριασμό για να συνδεθείτε</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Χρήστης</value>
+  </data>
+  <data name="VisitsReport" xml:space="preserve">
+    <value>Επισκέψεις</value>
+  </data>
+  <data name="VitaminAIU" xml:space="preserve">
+    <value>Vitamin A, IU (IU)</value>
+  </data>
+  <data name="VitaminARAE" xml:space="preserve">
+    <value>Vitamin A, RAE (μg)</value>
+  </data>
+  <data name="VitaminB12" xml:space="preserve">
+    <value>Vitamin B-12 (μg)</value>
+  </data>
+  <data name="VitaminB6" xml:space="preserve">
+    <value>Vitamin B-6 (mg)</value>
+  </data>
+  <data name="VitaminC" xml:space="preserve">
+    <value>Vitamin C (mg)</value>
+  </data>
+  <data name="VitaminD" xml:space="preserve">
+    <value>Vitamin D (μg)</value>
+  </data>
+  <data name="VitaminDIU" xml:space="preserve">
+    <value>Vitamin D, IU (IU)</value>
+  </data>
+  <data name="VitaminE" xml:space="preserve">
+    <value>Vitamin E (mg)</value>
+  </data>
+  <data name="VitaminK" xml:space="preserve">
+    <value>Vitamin K (μg)</value>
+  </data>
+  <data name="Water" xml:space="preserve">
+    <value>Νερό (g)</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Εβδομάδα</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Βάρος</value>
+  </data>
+  <data name="WeightDecreasedOnLastPeriod" xml:space="preserve">
+    <value>Υπήρξε μείωση του βάρους τον τελευταίο καιρό;</value>
+  </data>
+  <data name="WeightIncreasedOnLastPeriod" xml:space="preserve">
+    <value>Υπήρξε αύξηση του βάρους τον τελευταίο καιρό;</value>
+  </data>
+  <data name="WorkingHoursDaily" xml:space="preserve">
+    <value>Ώρες εργασίας ημερησίως</value>
+  </data>
+  <data name="Ypoplatios" xml:space="preserve">
+    <value>Υποπλάτιος</value>
+  </data>
+  <data name="Zinc" xml:space="preserve">
+    <value>Zinc (mg)</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Ραντεβού</value>
+  </data>
+  <data name="AppointmentsListtobeCancel" xml:space="preserve">
+    <value>Λίστα ραντεβού προς ακύρωση</value>
+  </data>
+  <data name="BasicChoice" xml:space="preserve">
+    <value>Βασική επιλογή</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Ημ/νία-ώρα</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Ημέρα</value>
+  </data>
+  <data name="DeleteDiet" xml:space="preserve">
+    <value>Διαγραφή δίαιτας</value>
+  </data>
+  <data name="DietDetails" xml:space="preserve">
+    <value>Λεπτομέριες</value>
+  </data>
+  <data name="DietQuantityToolTip" xml:space="preserve">
+    <value>μονάδα μέτρησης: π.χ. γρ., φέτες, κουταλιές κλπ</value>
+  </data>
+  <data name="Diets" xml:space="preserve">
+    <value>Δίαιτες</value>
+  </data>
+  <data name="EditDiet" xml:space="preserve">
+    <value>Επεξεργασία δίαιτας</value>
+  </data>
+  <data name="FirstAlternative" xml:space="preserve">
+    <value>Πρώτη εναλλακτική</value>
+  </data>
+  <data name="Measurements" xml:space="preserve">
+    <value>Μετρήσεις</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Μήνυμα</value>
+  </data>
+  <data name="NewFemale" xml:space="preserve">
+    <value>Νέα</value>
+  </data>
+  <data name="NewMale" xml:space="preserve">
+    <value>Νέος</value>
+  </data>
+  <data name="NewNeutral" xml:space="preserve">
+    <value>Νέο</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Υπενθύμιση</value>
+  </data>
+  <data name="ResetFilters" xml:space="preserve">
+    <value>Διαγραφή όλων των φίλτρων</value>
+  </data>
+  <data name="SearchFoodToolTip" xml:space="preserve">
+    <value>πληκτρολογήστε τα πρώτα γράμματα για την αναζήτηση της τροφής.</value>
+  </data>
+  <data name="SecondAlternative" xml:space="preserve">
+    <value>Δεύτερη εναλλακτική</value>
+  </data>
+  <data name="Statistcs" xml:space="preserve">
+    <value>Στατιστικά</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+  <data name="EditFoodData" xml:space="preserve">
+    <value>Επεξεργασία στοιχείων τροφίμου</value>
+  </data>
+  <data name="SelectPrototype" xml:space="preserve">
+    <value>- Επιλογή πρωτοτύπου -</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="Alcohol" xml:space="preserve">
+    <value>Αλκοόλ</value>
+  </data>
+  <data name="Beef" xml:space="preserve">
+    <value>Μοσχάρι</value>
+  </data>
+  <data name="BreakfastDescription" xml:space="preserve">
+    <value>Πρωϊνό</value>
+  </data>
+  <data name="BuyingFruitsFrequency" xml:space="preserve">
+    <value>Αγοράζετε φρούτα - λαχανικά κάθε εβδομάδα;</value>
+  </data>
+  <data name="Cereals" xml:space="preserve">
+    <value>Δημητριακά</value>
+  </data>
+  <data name="Chicken" xml:space="preserve">
+    <value>Κοτόπουλο</value>
+  </data>
+  <data name="CottageCheese" xml:space="preserve">
+    <value>Τυρί Cottage</value>
+  </data>
+  <data name="DigestiveSystemFunctionality" xml:space="preserve">
+    <value>Λειτουργία του πεπτικού συστήματος.</value>
+  </data>
+  <data name="DinnerDescription" xml:space="preserve">
+    <value>Βραδυνό</value>
+  </data>
+  <data name="EveningSnackDescription" xml:space="preserve">
+    <value>Απογευματινό</value>
+  </data>
+  <data name="FluidIntake" xml:space="preserve">
+    <value>Λήψη υγρών;</value>
+  </data>
+  <data name="Fruits" xml:space="preserve">
+    <value>Φρούτα</value>
+  </data>
+  <data name="Hamburger" xml:space="preserve">
+    <value>Μπιφτέκι</value>
+  </data>
+  <data name="InOilFood" xml:space="preserve">
+    <value>Λαδερά</value>
+  </data>
+  <data name="JunkFood" xml:space="preserve">
+    <value>Πρόχειρο φαγητό</value>
+  </data>
+  <data name="Legumes" xml:space="preserve">
+    <value>Όσπρια</value>
+  </data>
+  <data name="LunchDescription" xml:space="preserve">
+    <value>Γεύμα</value>
+  </data>
+  <data name="Milk" xml:space="preserve">
+    <value>Γάλα</value>
+  </data>
+  <data name="MinWeightAge" xml:space="preserve">
+    <value>Σε ποιά ηλικία;</value>
+  </data>
+  <data name="MinWeightEver" xml:space="preserve">
+    <value>Το λιγότερο που ζυγίζατε ποτέ</value>
+  </data>
+  <data name="MorningSnackDescription" xml:space="preserve">
+    <value>Πρόγευμα</value>
+  </data>
+  <data name="Nuts" xml:space="preserve">
+    <value>Ξηροί καρποί</value>
+  </data>
+  <data name="Pork" xml:space="preserve">
+    <value>Χοιρινό</value>
+  </data>
+  <data name="Salads" xml:space="preserve">
+    <value>Σαλάτες</value>
+  </data>
+  <data name="Turkey" xml:space="preserve">
+    <value>Γαλοπούλα</value>
+  </data>
+  <data name="WeeklyConsumingFruits" xml:space="preserve">
+    <value>Καταναλώνετε αρκετή ποσότητα φρούτων-λαχανικών κατά τη διάρκεια της εβδομάδας;</value>
+  </data>
+  <data name="WeeklyConsumingSweetsByKind" xml:space="preserve">
+    <value>Πόσα γλυκά τρώτε κατά τη διάρκεια της εβδομάδας και τι είδους;</value>
+  </data>
+  <data name="WeeklyMealsOutOfHome" xml:space="preserve">
+    <value>Πόσα γεύματα τρώτε έξω από το σπίτι;</value>
+  </data>
+  <data name="WhiteCheese" xml:space="preserve">
+    <value>Λευκό τυρί</value>
+  </data>
+  <data name="YellowCheese" xml:space="preserve">
+    <value>Κίτρινο τυρί</value>
+  </data>
+  <data name="Yoghurt" xml:space="preserve">
+    <value>Γιαούρτι</value>
+  </data>
+  <data name="CustomerID" xml:space="preserve">
+    <value>Πελάτης</value>
+  </data>
+  <data name="LikeComments" xml:space="preserve">
+    <value>Παρατηρήσεις</value>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Αρέσει (Ναι/Όχι)</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Προτιμήσεις</value>
+  </data>
+  <data name="DailyRecall" xml:space="preserve">
+    <value>Ανάκληση 24ώρου</value>
+  </data>
+  <data name="MealHabits" xml:space="preserve">
+    <value>Συνήθειες γευμάτων</value>
+  </data>
+  <data name="BackToCustomersCard" xml:space="preserve">
+    <value>Επιστροφή στην καρτέλλα του πελάτη</value>
+  </data>
+  <data name="BasicQuestionnaire" xml:space="preserve">
+    <value>Βασικό ερωτηματολόγιο</value>
+  </data>
+  <data name="MedicalHistory" xml:space="preserve">
+    <value>Ιατρικό ιστορικό</value>
+  </data>
+  <data name="NutritionHistory" xml:space="preserve">
+    <value>Ιστορικό διατροφής</value>
+  </data>
+  <data name="CreateNewRecipeCategory" xml:space="preserve">
+    <value>Δημιουργία νέας κατηγορίας συνταγών</value>
+  </data>
+  <data name="ListofRecipeCategories" xml:space="preserve">
+    <value>Κατηγορίες συνταγών</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Κατηγορία</value>
+  </data>
+  <data name="CategoryNewName" xml:space="preserve">
+    <value>Όνομα νέας κατηγορίας</value>
+  </data>
+  <data name="CloseForm" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="CreateNewRecipe" xml:space="preserve">
+    <value>Δημιουργία νέας συνταγής</value>
+  </data>
+  <data name="ListofRecipes" xml:space="preserve">
+    <value>Λίστα συνταγών</value>
+  </data>
+  <data name="RecipeCategoryID" xml:space="preserve">
+    <value>Κατηγορία</value>
+  </data>
+  <data name="ofdate" xml:space="preserve">
+    <value>της</value>
+  </data>
+  <data name="FatWeightRelation" xml:space="preserve">
+    <value>Λίπος Βάρος (Μ.Ο.)</value>
+  </data>
+  <data name="LeanWeight" xml:space="preserve">
+    <value>Άπαχο βάρος</value>
+  </data>
+  <data name="MedianBodyFat" xml:space="preserve">
+    <value>Διάμεσος σωματικού λίπους</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Λεπτομέριες</value>
+  </data>
+  <data name="Attatchments" xml:space="preserve">
+    <value>Συννημένα</value>
+  </data>
+  <data name="DeliveryType" xml:space="preserve">
+    <value>Τρόπος αποστολής</value>
+  </data>
+  <data name="MessageBody" xml:space="preserve">
+    <value>Μήνυμα</value>
+  </data>
+  <data name="MessageRecipient" xml:space="preserve">
+    <value>Παραλήπτης</value>
+  </data>
+  <data name="MessageSender" xml:space="preserve">
+    <value>Αποστολέας</value>
+  </data>
+  <data name="MessageSubject" xml:space="preserve">
+    <value>Θέμα</value>
+  </data>
+  <data name="StatusCode" xml:space="preserve">
+    <value>Κωδικός αποστολής</value>
+  </data>
+  <data name="IsBodyHtml" xml:space="preserve">
+    <value>Μήνυμα html;</value>
+  </data>
+  <data name="Diet" xml:space="preserve">
+    <value>Δίαιτα</value>
+  </data>
+  <data name="RecipientsEmail" xml:space="preserve">
+    <value>email Παραλήπτη</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Αποστολλή</value>
+  </data>
+  <data name="WeSendYouYourDiet" xml:space="preserve">
+    <value>Σας αποστέλλουμε τη δίαιτά σας</value>
+  </data>
+  <data name="A" xml:space="preserve">
+    <value>Α</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>Β</value>
+  </data>
+  <data name="C" xml:space="preserve">
+    <value>Γ</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>Δ</value>
+  </data>
+  <data name="E" xml:space="preserve">
+    <value>Ε</value>
+  </data>
+  <data name="FoodDislikes" xml:space="preserve">
+    <value>Αποστροφές</value>
+  </data>
+  <data name="FoodLikes" xml:space="preserve">
+    <value>Αρέσκειες</value>
+  </data>
+  <data name="EquivalentToolTip" xml:space="preserve">
+    <value>Αναπαριστά τα γραμμάρια που αντιστοιχούν σε κάθε μονάδα μέτρησης.  Πχ. αν μετράμε το τρόφιμο σε κουταλιές της σούπας (κσ) και μια κσ  ζυγίζει 7 γραμμάρια τότε γράφουμε το 7, αν μετράμε σε τεμάχια και το κάθε τεμάχιο ζυγίζει 52 γραμμάρια βάζουμε το 52. Αν τέλος μετράμε σε ολόκληρες μερίδες και η κάθε μερίδα είναι 250 γραμμάρια, βάζουμε το 250.</value>
+  </data>
+  <data name="CanceledStated" xml:space="preserve">
+    <value>Ακυρώθηκε</value>
+  </data>
+  <data name="PendingState" xml:space="preserve">
+    <value>Εκκερεμεί</value>
+  </data>
+  <data name="SentState" xml:space="preserve">
+    <value>Στάλθηκε</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Ώρα</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Ηλικία</value>
+  </data>
+  <data name="NextDay" xml:space="preserve">
+    <value>Επόμενη ημέρα</value>
+  </data>
+  <data name="PreviousDay" xml:space="preserve">
+    <value>Προηγούμενη ημέρα</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Σήμερα</value>
+  </data>
+  <data name="CustomersControlPanel" xml:space="preserve">
+    <value>Πατήστε εδώ για να μεταφερθείτε στον πίνακα ελέγχου του πελάτη.</value>
+  </data>
+  <data name="DisplayAndEditAppointmentsData" xml:space="preserve">
+    <value>Πατήστε εδώ για να δείτε ή να αλλάξετε τα στοιχεία του ραντεβού.</value>
+  </data>
+  <data name="DisplayRemindersData" xml:space="preserve">
+    <value>Πατήστε εδώ για να δείτε ή να αλλάξετε τα στοιχεία της υπενθύμισης.</value>
+  </data>
+  <data name="BestWishesForYourNameDay" xml:space="preserve">
+    <value>Χρόνια πολλά για τη γιορτή σου!</value>
+  </data>
+  <data name="DisplayOrEditReminder" xml:space="preserve">
+    <value>Προβολή ή διόρθωση της υπενθύμισης</value>
+  </data>
+  <data name="HappyBirthday" xml:space="preserve">
+    <value>Χαρούμενα γεννέθλια !</value>
+  </data>
+  <data name="NoOnesNameDay" xml:space="preserve">
+    <value>Δεν γιορτάζει κανείς</value>
+  </data>
+  <data name="DayAfterTomorrow" xml:space="preserve">
+    <value>Μεθαύριο</value>
+  </data>
+  <data name="NoOnesBirthDay" xml:space="preserve">
+    <value>Δεν έχει γεννέθλια κανείς</value>
+  </data>
+  <data name="Tomorrow" xml:space="preserve">
+    <value>Αύριο</value>
+  </data>
+  <data name="BirthdayCustomers" xml:space="preserve">
+    <value>Έχουν γεννέθλια</value>
+  </data>
+  <data name="NameDayCustomers" xml:space="preserve">
+    <value>Γιορτάζουν</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Εκτύπωση</value>
+  </data>
+  <data name="PrintableVersion" xml:space="preserve">
+    <value>Εκτυπώσιμη έκδοση</value>
+  </data>
+  <data name="Pictures" xml:space="preserve">
+    <value>Εικόνες</value>
+  </data>
+  <data name="HomePageLogo" xml:space="preserve">
+    <value>Λογότυπο αρχικής</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Background Αναφοράς (Landscape)</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Background Αναφοράς (Portrait)</value>
+  </data>
+  <data name="BMIValue" xml:space="preserve">
+    <value>Τιμή BMI</value>
+  </data>
+  <data name="AgeOnMeasurement" xml:space="preserve">
+    <value>Ηλικία κατά τη μέτρηση</value>
+  </data>
+  <data name="BMI" xml:space="preserve">
+    <value>ΔΜΣ</value>
+  </data>
+  <data name="BodyMassIndex" xml:space="preserve">
+    <value>Δείκτης Μάζας Σώματος</value>
+  </data>
+  <data name="SevenSiteBodyDensity" xml:space="preserve">
+    <value>Πυκνότητα σώματος 7 σημείων</value>
+  </data>
+  <data name="SevenSiteBodyFatPercentage" xml:space="preserve">
+    <value>Σωματικό λίπος % (7 σημείων)</value>
+  </data>
+  <data name="SkinFolds" xml:space="preserve">
+    <value>Δερματοπτυχές</value>
+  </data>
+  <data name="ThreeSiteBodyDensity" xml:space="preserve">
+    <value>Πυκνότητα σώματος 3 σημείων</value>
+  </data>
+  <data name="ThreeSiteBodyFatPercentage" xml:space="preserve">
+    <value>Σωματικό λίπος % (3 σημείων)</value>
+  </data>
+  <data name="AgeError" xml:space="preserve">
+    <value>Τέσσερεις χαρακτήρες (Δεκαδικός αριθμός με ένα δεκαδικό ψηφίο) ή κενό</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Χρώμα</value>
+  </data>
+  <data name="FromAge" xml:space="preserve">
+    <value>Ηλικία από</value>
+  </data>
+  <data name="ValueFrom" xml:space="preserve">
+    <value>Τιμή από</value>
+  </data>
+  <data name="ValueUnit" xml:space="preserve">
+    <value>Μονάδα μέτρησης</value>
+  </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>Υπολογισμοί</value>
+  </data>
+  <data name="LastReminder" xml:space="preserve">
+    <value>Τελευταία υπενθύμιση</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Έξοδος</value>
+  </data>
+  <data name="ExportTo" xml:space="preserve">
+    <value>Έξοδος σε</value>
+  </data>
+  <data name="SelectFoodCategory" xml:space="preserve">
+    <value>Επιλέξτε κατηγορία</value>
+  </data>
+  <data name="SMSPassword" xml:space="preserve">
+    <value>Κωδικός χρήστη παρόχου  SMS</value>
+  </data>
+  <data name="SMSUserName" xml:space="preserve">
+    <value>Όνομα χρήστη παρόχου  SMS</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Δοκιμαστικό</value>
+  </data>
+  <data name="LastPayment" xml:space="preserve">
+    <value>Τελευταία πληρωμή</value>
+  </data>
+  <data name="VisitsStatistics" xml:space="preserve">
+    <value>Στατιστικά επισκέψεων</value>
+  </data>
+  <data name="MeasurementsAfter" xml:space="preserve">
+    <value>Μετρήσεις μετά την περίοδο</value>
+  </data>
+  <data name="MeasurementsBefore" xml:space="preserve">
+    <value>Μετρήσεις πριν την περίοδο</value>
+  </data>
+  <data name="MeasurementsInPeriod" xml:space="preserve">
+    <value>Μετρήσεις μέσα στην περίοδο</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Άνδρες</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>Γυναίκες</value>
+  </data>
+  <data name="MeasurementStats" xml:space="preserve">
+    <value>Στατιστικά μετρήσεων</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Περίοδος Αναφοράς</value>
+  </data>
+  <data name="SelectedSex" xml:space="preserve">
+    <value>Φύλλο</value>
+  </data>
+  <data name="CustomersPerTargetGroup" xml:space="preserve">
+    <value>Πελάτες / ομάδα</value>
+  </data>
+  <data name="AllSexes" xml:space="preserve">
+    <value>Όλα</value>
+  </data>
+  <data name="AllTargetGroups" xml:space="preserve">
+    <value>Όλες</value>
+  </data>
+  <data name="ReportData" xml:space="preserve">
+    <value>Στοιχεία αναφοράς</value>
+  </data>
+  <data name="MeasurementsPerCustomer" xml:space="preserve">
+    <value>Μετρήσεις ανά πελάτη</value>
+  </data>
+  <data name="MeasurementsPerTargetGroup" xml:space="preserve">
+    <value>Μετρήσεις / ομάδα</value>
+  </data>
+  <data name="TotalCustomers" xml:space="preserve">
+    <value>Σύνολο πελατών</value>
+  </data>
+  <data name="TotalMeasurements" xml:space="preserve">
+    <value>Σύνολο μετρήσεων</value>
+  </data>
+  <data name="MyOffice" xml:space="preserve">
+    <value>Το Γραφείο μου</value>
+  </data>
+  <data name="FoodComposition" xml:space="preserve">
+    <value>Σύνθεση Τροφίμων</value>
+  </data>
+  <data name="SearchNutritionByName" xml:space="preserve">
+    <value>Αναζήτηση τροφίμου με το όνομά του</value>
+  </data>
+  <data name="mnuAppointments" xml:space="preserve">
+    <value>Δείτε γραφικά όλα τα ραντεβού σας ανά εβδομάδα</value>
+  </data>
+  <data name="mnuBulkCancelAppointment" xml:space="preserve">
+    <value>Ακυρώστε όλα τα ραντεβού μιας περιόδου και ταυτόχρονα στείλτε το κατάλληλο μήνυμα στους πελάτες σας</value>
+  </data>
+  <data name="mnuCreateNewAppointment" xml:space="preserve">
+    <value>Καταχωρήστε όλα τα απιτούμενα στοιχεία για ένα νέο ραντεβού</value>
+  </data>
+  <data name="mnuCreateNewCustomer" xml:space="preserve">
+    <value>Καταχωρήστε τα στοιχεία ενός νέου πελάτη</value>
+  </data>
+  <data name="mnuCreateNewReminder" xml:space="preserve">
+    <value>Δημιουργήστε μια νέα υπενθύμιση</value>
+  </data>
+  <data name="mnuCreateNewTargetGroup" xml:space="preserve">
+    <value>Καταχωρήστε μια νέα ομάδα πελατών</value>
+  </data>
+  <data name="mnuCustomers" xml:space="preserve">
+    <value>Πλήρης λίστα των πελατών σας</value>
+  </data>
+  <data name="mnuReminders" xml:space="preserve">
+    <value>Δείτε τις τελευταίες υπενθυμίσεις που έχετε προγραμματίσει και την κατάστασή τους (εκκρεμεί, στάλθηκε κλπ)</value>
+  </data>
+  <data name="mnuTargetgroups" xml:space="preserve">
+    <value>Πλήρης λίστα των ομάδων πελατών σας</value>
+  </data>
+</root>

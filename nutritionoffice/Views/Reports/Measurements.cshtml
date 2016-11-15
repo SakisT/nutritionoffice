@@ -1,0 +1,121 @@
+﻿@model IEnumerable<nutritionoffice.Models.Measurement>
+
+@{
+    ViewBag.Title = "Measurements";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string FromDate = string.Format("{0:d/M/yyyy}", (DateTime)ViewBag.FromDate);
+    string ToDate = string.Format("{0:d/M/yyyy}", (DateTime)ViewBag.ToDate);
+}
+<style>
+    td {
+        text-align: right;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <div class="row">
+            <div class="col-xs-3">
+                <h2>Measurements</h2>
+            </div>
+            <div class="col-xs-9" style="margin-top:20px;">
+                From Date : <input type="text" value="@FromDate" name="fromdate" id="fromdate" class="form-control datepicker" style="width:100px;" /> | 
+                 To Date : <input type="text" value="@ToDate" name="todate" id="todate" class="form-control datepicker"  style="width:100px;" /> | 
+                <button type="submit" class="btn btn-info">GO</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Customer.FullName)</th>
+        <th>@Html.DisplayNameFor(model => model.Date)</th>
+        <th>@Html.DisplayNameFor(model => model.Weight)</th>
+        <th>@Html.DisplayNameFor(model => model.Fat)</th>
+        <th>@Html.DisplayNameFor(model => model.WaistHipRatio)</th>
+        <th>@Html.DisplayNameFor(model => model.triglycerides)</th>
+        <th>@Html.DisplayNameFor(model => model.cholesterol)</th>
+        <th>@Html.DisplayNameFor(model => model.BloodPressure)</th>
+        <th>@Html.DisplayNameFor(model => model.Ferrum)</th>
+        <th>@Html.DisplayNameFor(model => model.spelter)</th>
+        <th>@Html.DisplayNameFor(model => model.e_FAT)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align:left">@Html.ActionLink(item.Customer.FullName,"Details","Customers",new { id=item.CustomerID},null)</td>
+            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+            <td>@Html.DisplayFor(modelItem => item.Weight)</td>
+            <td>@Html.DisplayFor(modelItem => item.Fat)</td>
+            <td>@Html.DisplayFor(modelItem => item.WaistHipRatio)</td>
+            <td>@Html.DisplayFor(modelItem => item.triglycerides)</td>
+            <td>@Html.DisplayFor(modelItem => item.cholesterol)</td>
+            <td>@Html.DisplayFor(modelItem => item.BloodPressure)</td>
+            <td>@Html.DisplayFor(modelItem => item.Ferrum)</td>
+            <td>@Html.DisplayFor(modelItem => item.spelter)</td>
+            <td>@Html.DisplayFor(modelItem => item.e_FAT)</td>
+        </tr>
+    }
+    @if (Model.Count() > 0)
+    {
+
+        string avWeight = string.Format("{0:N1}", Model.Average(r => r.Weight));
+        string avFat = string.Format("{0:N1}", Model.Average(r => r.Fat));
+        string avRatio_Weist = string.Format("{0:N1}", Model.Average(r => r.WaistHipRatio));
+        string avtriglycerides = string.Format("{0:N1}", Model.Average(r => r.triglycerides));
+        string avCholesterols = string.Format("{0:N1}", Model.Average(r => r.cholesterol));
+        string avBloodPressure = string.Format("{0:N1}", Model.Average(r => r.BloodPressure));
+        string avFerrum = string.Format("{0:N1}", Model.Average(r => r.Ferrum));
+        string avspelter = string.Format("{0:N1}", Model.Average(r => r.spelter));
+        string sumeFat = string.Format("{0:N1}", Model.Sum(r => r.e_FAT));
+
+        string minmaxWeight = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.Weight), Model.Max(r => r.Weight));
+        string minmaxFat = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.Fat), Model.Max(r => r.Fat));
+        string minmaxWaistHipRatio = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.WaistHipRatio), Model.Max(r => r.WaistHipRatio));
+        string minmaxtriglycerides = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.triglycerides), Model.Max(r => r.triglycerides));
+        string minmaxcholesterol = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.cholesterol), Model.Max(r => r.cholesterol));
+        string minmaxBloodPressure = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.BloodPressure), Model.Max(r => r.BloodPressure));
+        string minmaxFerrum = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.Ferrum), Model.Max(r => r.Ferrum));
+        string minmaxspelter = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.spelter), Model.Max(r => r.spelter));
+        string minmaxe_FAT = string.Format("{0:n1} - {1:n1}", Model.Min(r => r.e_FAT), Model.Max(r => r.e_FAT));
+
+        <tfoot>
+            <tr style="font-weight:700;color:navy">
+                <td></td>
+                <td align="right">Averages:</td>
+                <td>@avWeight</td>
+                <td>@avFat</td>
+                <td>@avRatio_Weist</td>
+                <td>@avtriglycerides</td>
+                <td>@avCholesterols</td>
+                <td>@avBloodPressure</td>
+                <td>@avFerrum</td>
+                <td>@avspelter</td>
+                <td>@sumeFat</td>
+            </tr>
+            <tr style="font-weight:700;color:#e94709">
+                <td colspan="2" align="right">Min & Max Values:</td>
+                <td>@minmaxWeight</td>
+                <td>@minmaxFat</td>
+                <td>@minmaxWaistHipRatio</td>
+                <td>@minmaxtriglycerides</td>
+                <td>@minmaxcholesterol</td>
+                <td>@minmaxBloodPressure</td>
+                <td>@minmaxFerrum</td>
+                <td>@minmaxspelter</td>
+                <td>@minmaxe_FAT</td>
+            </tr>
+            <tr style="font-weight:900;color:#ff0000">
+                <td colspan="11" style="text-align:center">@string.Format("Total Customers : {0}, Total Measurements : {1}", Model.Select(r => r.CustomerID).Distinct().Count(), Model.Count())</td>
+            </tr>
+        </tfoot>
+    }
+
+    
+
+</table>
+@Html.ExportTo("Measurements", "Reports", new { fromdate = (DateTime)ViewBag.FromDate, todate = (DateTime)ViewBag.ToDate, print = true })

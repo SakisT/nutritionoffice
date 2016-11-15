@@ -1,0 +1,1704 @@
+﻿********** 12/06/2016 9:00:24 μμ **********
+Exception Type: System.Data.Entity.Validation.DbEntityValidationException
+Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.DbContext.SaveChangesAsync()
+   at nutritionoffice.Controllers.DietsController.<Create>d__5.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 174
+
+********** 12/06/2016 9:05:21 μμ **********
+Exception Type: System.Data.Entity.Validation.DbEntityValidationException
+Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   at System.Data.Entity.DbContext.SaveChangesAsync()
+   at nutritionoffice.Controllers.DietsController.<Create>d__5.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 174
+
+********** 16/06/2016 10:59:29 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at nutritionoffice.Controllers.DietsController.<GetFoods>d__1.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 22
+
+********** 16/06/2016 11:01:01 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at nutritionoffice.Controllers.DietsController.<GetFoods>d__1.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 22
+
+********** 19/06/2016 11:43:15 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at nutritionoffice.Controllers.DietsController.<GetFoods>d__1.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 22
+
+********** 19/06/2016 12:16:15 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at nutritionoffice.Controllers.DietsController.<GetFoods>d__1.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 22
+
+********** 19/06/2016 4:07:28 μμ **********
+Exception Type: System.Exception
+Exception: Το meal δεν υπάρχει
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.DietsController.SaveDetailToMeal(Int32 mealid, Decimal quantity, String quantitydescription, Int32 foodid, Int32 groupid, Int32 dietdetailid) in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 161
+
+********** 19/06/2016 4:07:56 μμ **********
+Exception Type: System.Exception
+Exception: Το meal δεν υπάρχει
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.DietsController.SaveDetailToMeal(Int32 mealid, Decimal quantity, String quantitydescription, Int32 foodid, Int32 groupid, Int32 dietdetailid) in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 161
+
+********** 19/06/2016 4:09:02 μμ **********
+Exception Type: System.Exception
+Exception: Το meal δεν υπάρχει
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.DietsController.SaveDetailToMeal(Int32 mealid, Decimal quantity, String quantitydescription, Int32 foodid, Int32 groupid, Int32 dietdetailid) in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 161
+
+********** 20/06/2016 2:08:27 μμ **********
+Exception Type: System.InvalidOperationException
+Exception: Collection was modified; enumeration operation may not execute.
+Source: 
+Stack Trace: 
+   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at nutritionoffice.Controllers.DietsController.<CopyMeal>d__4.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 106
+
+********** 20/06/2016 3:08:59 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 20/06/2016 3:09:30 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 20/06/2016 3:15:02 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 20/06/2016 3:15:08 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 20/06/2016 3:15:32 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 20/06/2016 3:15:44 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__3.MoveNext() in F:\MyProjects\evrostia\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 44
+
+********** 3/7/2016 8:59:36 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 47
+
+********** 03/07/2016 21:02:09 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 47
+
+********** 03/07/2016 21:37:53 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 48
+
+********** 4/7/2016 1:48:22 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 47
+
+********** 4/7/2016 1:53:18 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 47
+
+********** 05/07/2016 2:43:57 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Invalid column name 'CustomerGUID'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: CustomersController - Index
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   at nutritionoffice.Controllers.CustomersController.Index(String currentFilter, String searchString, Nullable`1 page, Nullable`1 Customertodisplay, Nullable`1 TargetGroupID) in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:line 47
+
+********** 11/08/2016 3:48:17 μμ **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+
+********** 11/08/2016 3:48:57 μμ **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+
+********** 11/08/2016 3:55:19 μμ **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: 
+Stack Trace: 
+   at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+
+********** 12/08/2016 12:43:32 μμ **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: entity
+Source: 
+Stack Trace: 
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at nutritionoffice.Controllers.DietsController.<DeleteMeal>d__4.MoveNext() in F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:line 75
+
+********** 18/08/2016 8:47:16 μμ **********
+Exception Type: System.Exception
+Exception: Food Category allready exists!
+Source: 
+Stack Trace: 
+   σε nutritionoffice.Controllers.FoodCategoriesController.<Create>d__4.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodCategoriesController.cs:γραμμή 81
+
+********** 18/08/2016 10:17:59 μμ **********
+Inner Exception Type: System.Data.Entity.Core.OptimisticConcurrencyException
+Inner Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Source: CustomersController - Edit (POST)
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Edit>d__8.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 226
+
+********** 18/08/2016 10:18:37 μμ **********
+Inner Exception Type: System.Data.Entity.Core.OptimisticConcurrencyException
+Inner Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Source: CustomersController - Edit (POST)
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Edit>d__8.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 226
+
+********** 18/08/2016 10:19:32 μμ **********
+Inner Exception Type: System.Data.Entity.Core.OptimisticConcurrencyException
+Inner Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Source: CustomersController - Edit (POST)
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Edit>d__8.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 226
+
+********** 18/08/2016 10:20:08 μμ **********
+Inner Exception Type: System.Data.Entity.Core.OptimisticConcurrencyException
+Inner Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+Exception: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+Source: CustomersController - Edit (POST)
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Edit>d__8.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 226
+
+********** 19/08/2016 10:31:34 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 89
+
+********** 19/08/2016 10:32:06 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 89
+
+********** 19/08/2016 10:32:56 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 89
+
+********** 19/08/2016 10:33:26 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 89
+
+********** 19/08/2016 10:35:00 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 89
+
+********** 19/08/2016 10:54:43 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   σε System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   σε System.Threading.Tasks.Task.Execute()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   σε System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.DietsController.<GetFoods>d__5.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\DietsController.cs:γραμμή 95
+
+********** 20/08/2016 9:41:26 μμ **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: An error occurred while updating the entries. See the inner exception for details.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: An error occurred while updating the entries. See the inner exception for details.
+Source: CustomersController - Create (POST)
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Create>d__6.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 156
+
+********** 31/08/2016 2:20:26 μμ **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: Null value for non-nullable member. Member: 'Milk'.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.RetrieveMember(IEntityStateEntry stateEntry, IExtendedDataRecord record, Boolean useCurrentValues, EntityKey key, Int32 ordinal, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.ExtractResultFromRecord(IEntityStateEntry stateEntry, Boolean isModified, IExtendedDataRecord record, Boolean useCurrentValues, UpdateTranslator translator, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.RecordConverter.ConvertStateEntryToPropagatorResult(IEntityStateEntry stateEntry, Boolean useCurrentValues, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractedStateEntry..ctor(UpdateTranslator translator, IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.LoadStateEntry(IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.PullModifiedEntriesFromStateManager()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ProduceCommands()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: Null value for non-nullable member. Member: 'Milk'.
+Source: CustomersController - Details
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε nutritionoffice.Controllers.CustomersController.<Details>d__3.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 100
+
+********** 31/08/2016 2:20:50 μμ **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: Null value for non-nullable member. Member: 'Milk'.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.RetrieveMember(IEntityStateEntry stateEntry, IExtendedDataRecord record, Boolean useCurrentValues, EntityKey key, Int32 ordinal, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.ExtractResultFromRecord(IEntityStateEntry stateEntry, Boolean isModified, IExtendedDataRecord record, Boolean useCurrentValues, UpdateTranslator translator, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.RecordConverter.ConvertStateEntryToPropagatorResult(IEntityStateEntry stateEntry, Boolean useCurrentValues, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractedStateEntry..ctor(UpdateTranslator translator, IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.LoadStateEntry(IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.PullModifiedEntriesFromStateManager()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ProduceCommands()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: Null value for non-nullable member. Member: 'Milk'.
+Source: CustomersController - Details
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε nutritionoffice.Controllers.CustomersController.<Details>d__3.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 100
+
+********** 31/08/2016 2:22:30 μμ **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: Null value for non-nullable member. Member: 'Milk'.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.RetrieveMember(IEntityStateEntry stateEntry, IExtendedDataRecord record, Boolean useCurrentValues, EntityKey key, Int32 ordinal, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractorMetadata.ExtractResultFromRecord(IEntityStateEntry stateEntry, Boolean isModified, IExtendedDataRecord record, Boolean useCurrentValues, UpdateTranslator translator, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.RecordConverter.ConvertStateEntryToPropagatorResult(IEntityStateEntry stateEntry, Boolean useCurrentValues, ModifiedPropertiesBehavior modifiedPropertiesBehavior)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.ExtractedStateEntry..ctor(UpdateTranslator translator, IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.LoadStateEntry(IEntityStateEntry stateEntry)
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.PullModifiedEntriesFromStateManager()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ProduceCommands()
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: Null value for non-nullable member. Member: 'Milk'.
+Source: CustomersController - Details
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε nutritionoffice.Controllers.CustomersController.<Details>d__3.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 100
+
+********** 01/09/2016 1:11:52 πμ **********
+Exception Type: System.FormatException
+Exception: Η συμβολοσειρά εισόδου δεν είχε τη σωστή μορφή.
+Source: 
+Stack Trace: 
+   σε System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   σε System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   σε System.Convert.ToInt32(String value)
+   σε nutritionoffice.Controllers.MeasurementsController.<>c.<Details>b__3_0(String r) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:γραμμή 79
+   σε System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   σε System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   σε System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   σε nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:γραμμή 79
+
+********** 04/09/2016 1:51:30 μμ **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: An error occurred while updating the entries. See the inner exception for details.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   σε System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Τέλος ιχνηλάτησης στοίβας από προηγούμενη θέση όπου δημιουργήθηκε μια εξαίρεση ---
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: An error occurred while updating the entries. See the inner exception for details.
+Source: CustomersController - Details
+Stack Trace: 
+   σε System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   σε System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   σε nutritionoffice.Controllers.CustomersController.<Details>d__3.MoveNext() στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\CustomersController.cs:γραμμή 150
+
+********** 05/10/2016 11:29:35 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:31:35 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:40:57 μμ **********
+Exception Type: System.NotSupportedException
+Exception: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   σε System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:42:45 μμ **********
+Exception Type: System.NotSupportedException
+Exception: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   σε System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:43:23 μμ **********
+Exception Type: System.NotSupportedException
+Exception: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   σε System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:43:59 μμ **********
+Exception Type: System.NotSupportedException
+Exception: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   σε System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   σε System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 05/10/2016 11:52:06 μμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 06/10/2016 12:02:01 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 06/10/2016 12:04:16 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 06/10/2016 12:06:57 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 06/10/2016 12:42:09 πμ **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Το χρονικό όριο εκτέλεσης εξαντλήθηκε. Η περίοδος χρονικού ορίου πέρασε πριν από την ολοκλήρωση της λειτουργίας ή ο διακομιστής δεν αποκρίνεται.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   σε System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   σε System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   σε System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   σε System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   σε System.Data.SqlClient.SqlDataReader.get_MetaData()
+   σε System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   σε System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   σε System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   σε System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   σε System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   σε System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   σε System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
+Exception: An error occurred while executing the command definition. See the inner exception for details.
+Source: 
+Stack Trace: 
+   σε System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   σε System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   σε System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   σε System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   σε System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   σε System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   σε System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   σε System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   σε PagedList.PagedList`1..ctor(IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε PagedList.PagedListExtensions.ToPagedList[T](IQueryable`1 superset, Int32 pageNumber, Int32 pageSize)
+   σε nutritionoffice.Controllers.FoodsController.Index(Nullable`1 page, Nullable`1 FoodCategoryID, String GreekSearch, String EnglishSearch, Boolean OrderByGreekName) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\FoodsController.cs:γραμμή 62
+
+********** 17/10/2016 11:34:21 μμ **********
+Exception Type: System.Exception
+Exception: Type at list one message (mail or SMS)
+Source: AppointmentsController - CancelAppointments
+Stack Trace: 
+   σε nutritionoffice.Controllers.AppointmentsController.CancelAppointments(Nullable`1 fromdate, Nullable`1 todate, IEnumerable`1 appointments) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\AppointmentsController.cs:γραμμή 348
+
+********** 17/10/2016 11:34:25 μμ **********
+Exception Type: System.Exception
+Exception: Type at list one message (mail or SMS)
+Source: AppointmentsController - CancelAppointments
+Stack Trace: 
+   σε nutritionoffice.Controllers.AppointmentsController.CancelAppointments(Nullable`1 fromdate, Nullable`1 todate, IEnumerable`1 appointments) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\AppointmentsController.cs:γραμμή 348
+
+********** 17/10/2016 11:34:41 μμ **********
+Exception Type: System.Exception
+Exception: Type at list one message (mail or SMS)
+Source: AppointmentsController - CancelAppointments
+Stack Trace: 
+   σε nutritionoffice.Controllers.AppointmentsController.CancelAppointments(Nullable`1 fromdate, Nullable`1 todate, IEnumerable`1 appointments) στο F:\MyProjects\nutritionoffice\app\nutritionoffice\nutritionoffice\Controllers\AppointmentsController.cs:γραμμή 348
+

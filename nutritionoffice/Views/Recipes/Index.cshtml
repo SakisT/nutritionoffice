@@ -1,0 +1,49 @@
+﻿@model IEnumerable<nutritionoffice.Models.Recipe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+   
+    </tr>
+
+@foreach (var item in Model)
+{
+    @Html.HiddenFor(modelItem => item.FileGuid)
+    <tr>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.id })"><span class="glyphicon glyphicon-edit"></span> </a> |
+            <a href="@Url.Action("Delete", new { id = item.id })"><span class="glyphicon glyphicon-remove-circle"></span> </a> |
+            <a href="@Url.Action("DownloadFile","Recipes", new { id=item.id})" target="_blank"><span class="glyphicon glyphicon-download"></span> </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeCategory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+    </tr>
+}
+
+</table>

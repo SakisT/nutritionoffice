@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportDataSources" targetNamespace="http://tempuri.org/ReportDataSources.xsd" xmlns:mstns="http://tempuri.org/ReportDataSources.xsd" xmlns="http://tempuri.org/ReportDataSources.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportDataSources" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportDataSources" msprop:Generator_UserDSName="ReportDataSources">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Measuremetns" msprop:Generator_TableClassName="MeasuremetnsDataTable" msprop:Generator_TableVarName="tableMeasuremetns" msprop:Generator_RowChangedName="MeasuremetnsRowChanged" msprop:Generator_TablePropName="Measuremetns" msprop:Generator_RowDeletingName="MeasuremetnsRowDeleting" msprop:Generator_RowChangingName="MeasuremetnsRowChanging" msprop:Generator_RowEvHandlerName="MeasuremetnsRowChangeEventHandler" msprop:Generator_RowDeletedName="MeasuremetnsRowDeleted" msprop:Generator_RowClassName="MeasuremetnsRow" msprop:Generator_UserTableName="Measuremetns" msprop:Generator_RowEvArgName="MeasuremetnsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="MeasurementDate" msprop:Generator_ColumnVarNameInTable="columnMeasurementDate" msprop:Generator_ColumnPropNameInRow="MeasurementDate" msprop:Generator_ColumnPropNameInTable="MeasurementDateColumn" msprop:Generator_UserColumnName="MeasurementDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_UserColumnName="Weight" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fat" msprop:Generator_ColumnVarNameInTable="columnFat" msprop:Generator_ColumnPropNameInRow="Fat" msprop:Generator_ColumnPropNameInTable="FatColumn" msprop:Generator_UserColumnName="Fat" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RatioWeist" msprop:Generator_ColumnVarNameInTable="columnRatioWeist" msprop:Generator_ColumnPropNameInRow="RatioWeist" msprop:Generator_ColumnPropNameInTable="RatioWeistColumn" msprop:Generator_UserColumnName="RatioWeist" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Triglycerides" msprop:Generator_ColumnVarNameInTable="columnTriglycerides" msprop:Generator_ColumnPropNameInRow="Triglycerides" msprop:Generator_ColumnPropNameInTable="TriglyceridesColumn" msprop:Generator_UserColumnName="Triglycerides" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cholesterol" msprop:Generator_ColumnVarNameInTable="columnCholesterol" msprop:Generator_ColumnPropNameInRow="Cholesterol" msprop:Generator_ColumnPropNameInTable="CholesterolColumn" msprop:Generator_UserColumnName="Cholesterol" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BloodPressure" msprop:Generator_ColumnVarNameInTable="columnBloodPressure" msprop:Generator_ColumnPropNameInRow="BloodPressure" msprop:Generator_ColumnPropNameInTable="BloodPressureColumn" msprop:Generator_UserColumnName="BloodPressure" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Ferrum" msprop:Generator_ColumnVarNameInTable="columnFerrum" msprop:Generator_ColumnPropNameInRow="Ferrum" msprop:Generator_ColumnPropNameInTable="FerrumColumn" msprop:Generator_UserColumnName="Ferrum" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Spelter" msprop:Generator_ColumnVarNameInTable="columnSpelter" msprop:Generator_ColumnPropNameInRow="Spelter" msprop:Generator_ColumnPropNameInTable="SpelterColumn" msprop:Generator_UserColumnName="Spelter" type="xs:decimal" minOccurs="0" />
+              <xs:element name="eFAT" msprop:Generator_ColumnVarNameInTable="columneFAT" msprop:Generator_ColumnPropNameInRow="eFAT" msprop:Generator_ColumnPropNameInTable="eFATColumn" msprop:Generator_UserColumnName="eFAT" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

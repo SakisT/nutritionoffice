@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="nutritionoffice" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\MyProjects\\nutritionoffice\\app\\nutritionoffice\\nutritionoffice\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\MyProjects\\nutritionoffice\\app\\nutritionoffice\\nutritionoffice\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:nutritionsql.database.windows.net,1433;Initial Catalog=nutrdb;Persist Security Info=False;User ID=nutritionadmin;Password=@N@tp125;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\MyProjects\\nutritionoffice\\app\\nutritionoffice\\nutritionoffice\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ndbContext-Web.config Connection String" description="" value="Data Source=tcp:nutritionsql.database.windows.net,1433;Initial Catalog=nutrdb;Persist Security Info=False;User ID=nutritionadmin;Password=@N@tp125;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\MyProjects\\nutritionoffice\\app\\nutritionoffice\\nutritionoffice\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ndbContext']/@connectionString" />
+  </parameter>
+</parameters>

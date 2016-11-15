@@ -1,0 +1,232 @@
+﻿@model nutritionoffice.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //System.Globalization.CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;// new System.Globalization.CultureInfo("el-GR");
+}
+
+<div class="row">
+    <div id="toppage" class="col-xs-6">
+        <h2><a href="@Url.Action("Edit", new { id=Model.id })">@string.Format("{0} ({1} : {2})", Model.FullName,Resource.Age,Convert.ToInt16( (DateTime.Today-Model.BirthDate).TotalDays/365))</a></h2>
+    </div>
+    <div class="col-xs-6 text-center" style="margin-top:20px;">
+        <h4><a href="@Url.Action("Index", new { TargetGroupID=Model.TargetGroupID })" >@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
+    </div>
+</div>
+
+<div id="measurementdetailview">
+
+</div>
+
+<div id="measurementsgraphview">
+    <img id="chartimage" src="" alt="SimpleChart" />
+</div>
+
+<div class="panel-group" id="accordion">
+    <!--Ραντεβού-->
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#b6ff00">
+            <div class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">@Resource.Appointments</a>
+                <biv class="col-md-3 pull-right">
+                    @Html.ActionLink(Resource.NewNeutral, "Create", "Appointments", new { CustomerID = Model.id }, htmlAttributes: new { @class = "newappointmentbutton" })
+                </biv>
+            </div>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body" style="background-color:#ecfaca">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="text-muted">
+                            <td>@Resource.Actions</td>
+                            <td>@Resource.Date</td>
+                            <td>@Resource.Status</td>
+                            <td>@Resource.Reminder</td>
+                     
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentslist" style="background-color:#caf4fa">
+                        @foreach (var appointment in Model.Appointments.OrderByDescending(r => r.Date))
+                        {
+                            string appointmentcolor = "";
+                            switch (appointment.State)
+                            {
+                                case nutritionoffice.Models.Appointment.AppointmentState.Completed:
+                                    appointmentcolor = "#fff200";
+                                    break;
+                                case nutritionoffice.Models.Appointment.AppointmentState.Canceled:
+                                    appointmentcolor = "#f8cdff";
+                                    break;
+                                case nutritionoffice.Models.Appointment.AppointmentState.Postpone:
+                                    appointmentcolor = "#caf4fa";
+                                    break;
+                                default: //active
+                                    appointmentcolor = "#b6ff00";
+                                    break;
+
+                            }
+                            <tr style="background-color:@appointmentcolor">
+                                <td>
+                                    @*@Html.ActionLink(Resource.Edit, "Edit", "Appointments", new { id = appointment.id }, null) |
+                                    @Html.ActionLink(Resource.Delete, "Delete", "Appointments", new { id = appointment.id }, null)*@
+                                    <a href="@Url.Action("Edit","Appointments",new { id=appointment.id})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Delete","Appointments",new { id=appointment.id})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+                                </td>
+                                <td>@Html.DisplayFor(modelitem => appointment.Date)</td>
+                                <td>@Html.DisplayFor(modelitem => appointment.State)</td>
+                                <td>Όχι</td>
+             
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Μετρήσεις-->
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#f192e9">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">@Resource.Measurements</a>
+                <biv class="col-md-3 pull-right">
+                    @Html.ActionLink(Resource.NewFemale, "Create", "Measurements", new { CustomerID = Model.id }, htmlAttributes: new { @class = "newmeasurementbutton", title="Καταχώρηση νέας μέτρησης" }) | 
+                    <a href="@Url.Action("Details","Measurements")" id="displaymeasurementstats" ><span class="glyphicon glyphicon-signal"></span> </a> |
+                    <a href="@Url.Action("CreateOrEdit","DailyRecalls",new { id=Model.id})" id="customerdailyrecallink"><span class="glyphicon glyphicon-time" title="Ανάκληση 24ώρου"></span> </a> |
+                    <a href="@Url.Action("CreateOrEdit","BasicQuestionnaires",new { id=Model.id})" id="customerBasicQuestionnaireslink"><span class="glyphicon glyphicon-list-alt" title="Ιατρικό ιστορικό"></span> </a> 
+                </biv>
+            </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse in">
+            <div class="panel-body" style="background-color:#ffdffc">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="text-muted">
+                            <td></td>
+                            <td width="3%">&radic;</td>
+                            <td>@Resource.Date</td>
+                            <td>e-FAT</td>
+                            <td>@Resource.Weight</td>
+                            <td>@Resource.Fat</td>
+                            <td>@Resource.RatioWeist</td>
+                            <td>@Resource.Cholesterol</td>
+                            <td>@Resource.Remarks</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Measurements.OrderBy(r=>r.Date))
+                        {
+                            string detailsTitle = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, "{0} : {1}, {2} {3} {4:ddd d/M}",Resource.Customer, item.Customer.FullName,Resource.Measurements,Resource.ofdate, item.Date);
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Edit","Measurements",new { id=item.id})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Details","Measurements",new {measurementids=item.id.ToString() })"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
+                                    <a href="@Url.Action("Delete","Measurements",new { id=item.id})"><span class="glyphicon glyphicon-remove-circle" title="Resource.Delete"></span></a>
+                                </td>
+                                <td><input type="checkbox" checked="checked" data-itemid="@item.id" class="CustomerMeasurementRow" /></td>
+                                <td>@Html.DisplayFor(modelitem => item.Date)</td>
+                                <td>@Html.DisplayFor(modelitem => item.e_FAT)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Weight)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Fat)</td>
+                                <td>@Html.DisplayFor(modelitem => item.WaistHipRatio)</td>
+                                <td>@Html.DisplayFor(modelitem => item.cholesterol)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Notes)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Δίαιτες-->
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#b4adef">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">@Resource.Diets</a>
+                <biv class="col-md-3 pull-right">
+                    @Html.ActionLink(Resource.NewFemale, "Create", "Diets", new { id = Model.id }, htmlAttributes: new { @class = "newdietbutton" })
+                </biv>
+            </h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body" style="background-color:#e9e7ff">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="text-muted">
+                            <td></td>
+                            <td width="3%">&radic;</td>
+                            <td>@Html.DisplayNameFor(modelitem=>modelitem.Diets.FirstOrDefault().StartDate)</td>
+                            <td>@Html.DisplayNameFor(modelitem=>modelitem.Diets.FirstOrDefault().Type)</td>
+                            <td>@Html.DisplayNameFor(modelitem => modelitem.Diets.FirstOrDefault().Notes)</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Diets)
+                        {
+                            //string detailsTitle = string.Format(ci, "{0} : {1}, {2} {3} {4:ddd d/M}", Resource.Customer, item.Customer.FullName, Resource.Measurements, Resource.ofdate, item.Date);
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Edit","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Details","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
+                                    <a href="@Url.Action("Delete","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+                                </td>
+                                <td><input type="checkbox" checked="checked" data-itemid="@item.ID" /></td><!-- class="CustomerMeasurementRow"-->
+                                <td>@Html.DisplayFor(modelitem => item.StartDate)</td>
+                                <td>@EnumHelper.GetSelectList(type: typeof(nutritionoffice.Models.Diet.DietType), value: item.Type).Where(r => r.Selected).FirstOrDefault().Text</td>
+                                <td>@Html.DisplayFor(modelitem => item.Notes)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Assessments -->
+    <div id="assessmentpanelid" class="panel panel-default">
+        <div class="panel-heading" style="background-color:#47c7d9">
+            <h4 class="panel-title text-center">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" style="font-size:1.2em; text-shadow:2px 2px 4px #808080"> Assessments</a>
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body" style="background-color:#caf4fa">
+               
+                
+                 <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color:#fbaa19">
+                        <h4 class="panel-title text-center">
+                            <a data-toggle="collapse" data-parent="#collapse5" href="#collapse5a" style="font-size:1.2em; text-shadow:2px 2px 4px #808080"> @Resource.DailyRecall</a>
+                        </h4>
+                    </div>
+                    <div id="collapse5a" class="panel-collapse collapse">
+                        <div class="panel-body" style="background-color:#fedb9c">
+                            @{ Html.RenderPartial("EditDailyRecall", (nutritionoffice.Models.DailyRecall)ViewBag.DailyRecall);}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color:#80d477">
+                        <h4 class="panel-title text-center">
+                            <a data-toggle="collapse" data-parent="#collapse5" href="#collapse5b" style="font-size:1.2em; text-shadow:2px 2px 4px #808080"> @Resource.BasicQuestionnaire</a>
+                        </h4>
+                    </div>
+                    <div id="collapse5b" class="panel-collapse collapse">
+                        <div class="panel-body" style="background-color:#c3febc">
+                            @{ Html.RenderPartial("EditBasicQuestionnaires", (nutritionoffice.Models.BasicQuestionnaire)ViewBag.BasicQuest);}
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+    <a href="#toppage" id="gototop"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
+</div>
+
+<p>
+    @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index", new { Customertodisplay =Model.id})
+</p>

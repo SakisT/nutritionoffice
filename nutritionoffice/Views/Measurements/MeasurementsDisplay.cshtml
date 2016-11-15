@@ -1,0 +1,122 @@
+﻿@model IEnumerable<nutritionoffice.Models.Measurement>
+
+@{ 
+    var activemeasurementids =string.Join(",", Model.Select(r => r.id).ToArray());
+}
+
+<h2>@Resource.Customer: <a href="@Url.Action("Details","Customers",new {id=Model.FirstOrDefault().CustomerID })">@Model.FirstOrDefault().Customer.FullName</a></h2>
+
+<div class="form-horizontal">
+    <div class="row">
+        <h3 class="measurementheader">@Resource.Measurements</h3>
+        <table class="table table-condensed table-hover table-bordered measurementstable">
+            <thead>
+                <tr>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.Date)</td>
+                    <td width="11%">@Html.DisplayName(Resource.AgeOnMeasurement)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.Height)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.Weight)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.cholesterol)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.triglycerides)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.BloodPressure)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.Ferrum)</td>
+                    <td width="11%">@Html.DisplayNameFor(modelitem => modelitem.spelter)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    double Age = Math.Round((item.Date - item.Customer.BirthDate).TotalDays / 365, 1);
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => item.Date)</td>
+                        <td>@Html.DisplayFor(modelitem => Age)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Height)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Weight)</td>
+                        <td>@Html.DisplayFor(modelitem => item.cholesterol)</td>
+                        <td>@Html.DisplayFor(modelitem => item.triglycerides)</td>
+                        <td>@Html.DisplayFor(modelitem => item.BloodPressure)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Ferrum)</td>
+                        <td>@Html.DisplayFor(modelitem => item.spelter)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        
+        <h3 class="measurementheader">@Resource.SkinFolds</h3>
+        <hr />
+        <table class="table table-condensed table-hover table-bordered measurementstable">
+            <thead>
+                <tr>
+                    <td>@Html.DisplayNameFor(modelitem => modelitem.Date)</td>
+                    <td width="9%">@Html.DisplayName(Resource.AgeOnMeasurement)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Chest)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Belly)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Quadriceps)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Triceps)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Diceps)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Ypoplatios)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Iliac)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Armpit)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.Shank)</td>
+                    <td width="9%">@Html.DisplayNameFor(modelitem => modelitem.LowerMean)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    double Age = Math.Round((item.Date - item.Customer.BirthDate).TotalDays / 365, 1);
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => item.Date)</td>
+                        <td>@Html.DisplayFor(modelitem => Age)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Chest)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Belly)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Quadriceps)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Triceps)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Diceps)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Ypoplatios)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Iliac)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Armpit)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Shank)</td>
+                        <td>@Html.DisplayFor(modelitem => item.LowerMean)</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr id="skinfoldfooter">
+                    <td colspan="12">Δερματοπτυχές</td>
+                </tr>
+                <tr id="skinfoldfooterheads">
+                    <td>@Html.DisplayNameFor(modelitem => modelitem.Date)</td>
+                    <td width="50px">@Html.DisplayName(Resource.AgeOnMeasurement)</td>
+                    <td>@Html.DisplayNameFor(modelitem => modelitem.Height)</td>
+                    <td>@Html.DisplayNameFor(modelitem => modelitem.Weight)</td>
+                    <td>@Html.DisplayNameFor(modelitem => modelitem.BMI)</td>
+                    <td>@Html.DisplayName(Resource.SevenSiteBodyDensity)</td>
+                    <td>@Html.DisplayName(Resource.SevenSiteBodyFatPercentage)</td>
+                    <td>@Html.DisplayName(Resource.ThreeSiteBodyDensity)</td>
+                    <td>@Html.DisplayName(Resource.ThreeSiteBodyFatPercentage)</td>
+                    <td colspan="3"></td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    double Age = Math.Round((item.Date - item.Customer.BirthDate).TotalDays / 365, 1);
+                    <tr class="skinfoldfootervalues">
+                        <td>@Html.DisplayFor(modelitem => item.Date)</td>
+                        <td>@Html.DisplayFor(modelitem => Age)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Height)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Weight)</td>
+                        <td>@Html.DisplayFor(modelitem => item.BMI)</td>
+                        <td>@Html.DisplayFor(modelitem => item.JP7.BodyDensity)</td>
+                        <td>@Html.DisplayFor(modelitem => item.JP7.BodyFat)</td>
+                        <td>@Html.DisplayFor(modelitem => item.JP3.BodyDensity)</td>
+                        <td>@Html.DisplayFor(modelitem => item.JP3.BodyFat)</td>
+                        <td colspan="3"></td>
+                    </tr>
+                }
+            </tfoot>
+        </table>
+        <br />
+   </div>
+        @Html.ExportTo("PrintOut", "Measurements", new { ids = activemeasurementids })
+</div>

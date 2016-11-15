@@ -1,0 +1,419 @@
+﻿body {
+    background: linear-gradient(to right, #e6f5ff ,#ffffff, #f0f5f5);
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+
+.datepicker {
+    width: 140px;
+    background-color: #ebfbe4;
+}
+
+.glyphicon-edit {
+    color: blue;
+}
+
+.glyphicon-remove-circle {
+    color: red;
+}
+
+.glyphicon-list {
+    color: blue;
+}
+
+.glyphicon-star-empty {
+    color: green;
+}
+
+.fixedwidth150 {
+    width: 150px;
+}
+
+.numbertextbox {
+    text-align: right;
+}
+
+.newappointmentbutton {
+    background-color: #7cad03;
+    border: solid 1px #456000;
+    border-radius: 5px;
+    padding: 1px 10px 1px 10px;
+    color: #f1f8de;
+}
+
+.newmeasurementbutton {
+    background-color: #fa2ce8;
+    border: solid 1px #ae009f;
+    border-radius: 5px;
+    padding: 1px 10px 1px 10px;
+    color: #f8cdf5;
+}
+
+.newmeasurementstatisticsbutton {
+    background-color: #fa2ce8;
+    border: solid 1px #ae009f;
+    border-radius: 5px;
+    padding: 1px 10px 1px 10px;
+    color: #f8cdf5;
+}
+
+.newdietbutton {
+    background-color: #8073f2;
+    border: solid 1px #1e05f3;
+    border-radius: 5px;
+    padding: 1px 10px 1px 10px;
+    color: #dfddef;
+}
+
+.resizable {
+    position: center;
+    width: 160px;
+    height: 60px;
+    padding: 0.1em;
+    margin-top: 0.5em;
+}
+
+    .resizable h4 {
+        text-align: left;
+        margin: 0;
+    }
+
+    .resizable h5 {
+        text-align: left;
+        margin: 0;
+    }
+
+.timebox {
+    width: 62px;
+    text-align: right;
+}
+
+.appointmentcustomer {
+    font-size: 1em;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.appointmentday {
+    float: left;
+    width: 15%;
+    margin-right: 8px;
+}
+
+.day-color-monday {
+    background: #ffcc00;
+    color: white;
+}
+
+.day-color-tuesday {
+    background: #ff3366;
+    color: white;
+}
+
+.day-color-wednesday {
+    background: #01cc01;
+    color: white;
+}
+
+.day-color-thursday {
+    background: #ff6501;
+    color: white;
+}
+
+.day-color-friday {
+    background-color: #0265ff;
+    color: white;
+}
+
+.day-color-saturday {
+    background: #6600ce;
+    color: white;
+}
+
+.day-color-sunday {
+    background: #fe0000;
+    color: white;
+}
+
+.diet-day-header {
+    float: none;
+    text-align: left;
+    font-size: 3em;
+}
+
+.daymeal {
+    float: left;
+    width: 19.5%;
+    margin-right: 5px;
+    min-height: 200px;
+    padding: 1px;
+    border-color: red;
+    border-radius: 10px;
+}
+
+.day-meal-header {
+    text-align: left;
+    opacity: 0.7;
+    font-family: Tahoma;
+    font-size: large;
+    font-style: oblique;
+    color: black;
+}
+
+.daymeal:nth-child(1) {
+    background-color: #c6ff5b;
+}
+
+.daymeal:nth-child(2) {
+    background-color: #fcd5f9;
+}
+
+.daymeal:nth-child(3) {
+    background-color: #fdff47;
+}
+
+.daymeal:nth-child(4) {
+    background-color: #97ff8b;
+}
+
+.daymeal:nth-child(5) {
+    background-color: #aae8fc;
+}
+
+.daymeal:nth-child(6) {
+    background-color: #ffcad1;
+}
+
+.searchTerm {
+    background-color: InfoBackground;
+    width: 99%;
+}
+
+.ui-autocomplete {
+    max-height: 300px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}
+
+.mealgroupcontrol {
+    border: navy solid 1px;
+    margin: 1px 1px 0px 0px;
+    border-radius: 5px;
+    padding: 0px 0px 0px 0px;
+    font-size: 0.8em;
+}
+
+.meal-quantity {
+    max-width: 25px;
+    text-align: center;
+    background-color: transparent;
+    border: green dashed 1px;
+    margin-right: 5px;
+}
+
+.diettable tr.empty {
+    max-height: 10px !important;
+    background-color: #f7f2e7;
+    /*border-bottom:2px solid white;*/
+}
+
+#sticky {
+    margin-top: 3px;
+    width: inherit;
+    z-index: 1;
+    position: fixed;
+    padding: 1em;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #73AD21;
+}
+
+.success {
+    padding: 0px 10px 0px;
+    border-radius: 10px;
+    background-color: #8fe98e;
+}
+
+#maindiv {
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px 10px 10px;
+    background-color: #bbddb7;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#foodmealsoption {
+    background: center 10px;
+}
+
+.panel-info {
+    background-color: rgba(217, 237, 247, 0.40);
+    box-shadow: 20px 20px 20px #a1afb6;
+    margin-bottom: 40px;
+}
+
+.panel-danger {
+    background-color: rgba(242, 222, 222, 0.40);
+    box-shadow: 20px 20px 20px #aea1a1;
+    margin-bottom: 40px;
+}
+
+#categoryrecipies {
+    position: fixed;
+    top: initial;
+    overflow-y: scroll;
+    overflow-x: initial;
+    height: 60%;
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.measurementstable {
+    box-shadow: 7px 7px 2px #b7bbea;
+}
+
+    .measurementstable > thead tr td {
+        vertical-align: middle;
+        text-align: center;
+        font-family: Verdana;
+        text-shadow: 2px 2px 3px #b7bbea;
+        color: #020b53;
+    }
+
+    .measurementstable > tbody tr td {
+        text-shadow: 2px 2px 3px #b7bbea;
+        text-align: right;
+        color: black;
+    }
+
+
+    .measurementstable > tfoot #skinfoldfooter > td {
+        height: 20px;
+        text-shadow: 2px 2px 3px #b7bbea;
+        font-family: Verdana;
+        color: #ae009f;
+        text-align: center;
+    }
+
+    .measurementstable > tfoot #skinfoldfooterheads > td {
+        vertical-align: middle;
+        text-align: center;
+        font-family: Verdana;
+        text-shadow: 2px 2px 3px #b7bbea;
+        color: #ae009f;
+    }
+
+.skinfoldfootervalues td {
+    text-shadow: 2px 2px 3px #b7bbea;
+    text-align: right;
+    color: black;
+}
+
+.measurementheader {
+    color: #170163;
+    text-align: center;
+    text-shadow: 2px 2px 4px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: Verdana;
+}
+
+.even-odd-table tbody tr:nth-child(odd) {
+    background: #c2c3c9;
+}
+
+.even-odd-table tbody tr:nth-child(even) {
+    background: #e6e7e8;
+}
+
+article {
+    padding-bottom: 15px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+
+    .fileUpload input.btn-upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.ExportTo label {
+    float: left;
+    margin: 7px 7px 2px 2px;
+    max-width: inherit;
+}
+
+.ExportTo select {
+    margin: 0px 7px 0px 2px;
+    float: left;
+    max-width: 120px;
+}
+
+.CompanyForm > div {
+    padding: 15px 7px 1px 0px;
+}
+
+.CompanyForm > #OwnerData {
+    background-color: #e3e4f5;
+}
+
+.CompanyForm > #ContactData {
+    background-color: #efe2ee;
+}
+
+.CompanyForm > #SMSData {
+    background-color: #e0f2ec;
+}
+
+.CompanyForm > #SMTPData {
+    background-color: #fbf6ca;
+}
+
+#gototop{
+    position:fixed;
+    bottom:10px;
+    right:20px;
+    font-size:2em;
+}
+
+#variantdatacontainer .dropdown-menu {
+    padding: 20px 0px 20px 0px;
+    border-radius: 0px 0px 10px 10px;
+    background: linear-gradient(to right,#f0f5f5 ,#ffffff,  #e6f5ff);
+    box-shadow: 15px 15px 30px #a5b2b9;
+}
+    #variantdatacontainer .dropdown-menu li {
+        text-shadow: 2px 2px 2px #9ea7ba;
+    }
+        #variantdatacontainer .dropdown-menu li:hover {
+            margin: 0px;
+        }

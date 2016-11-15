@@ -1,0 +1,217 @@
+﻿@model nutritionoffice.Models.DailyRecall
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DailyRecall</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Breakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Breakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MorningSnack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MorningSnack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EveningSnack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EveningSnack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Milk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Milk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yoghurt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yoghurt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhiteCheese)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhiteCheese)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YellowCheese)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YellowCheese)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CottageCheese)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CottageCheese)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chicken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chicken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turkey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turkey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hamburger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hamburger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InOilFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InOilFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Legumes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Legumes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cereals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cereals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nuts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nuts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alcohol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alcohol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JunkFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JunkFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salads)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salads)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fruits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fruits)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
