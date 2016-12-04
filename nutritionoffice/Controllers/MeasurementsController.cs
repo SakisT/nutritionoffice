@@ -159,6 +159,37 @@ namespace nutritionoffice.Controllers
             var bytes = chart.GetBytes("png");
             return Json(new { base64Data = Convert.ToBase64String(bytes) }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public async Task<JsonResult> GetSkinFolds(string sex,double age,
+            double abdominal,
+            double axilla,
+            double chest,
+            double subscapular,
+            double suprailiac, 
+            double thigh,
+            double tricepts
+            )
+        {
+            var threesitebodyfat = 0d;
+            var threesitebodydensity = 0d;
+            var fourssitebodyfat = 0d;
+            var foursitebodydensity = 0d;
+            var sevensitebodyfat = 0d;
+            var sevensitebodydensity = 0d;
+            double sumofskinfolds = 0d;
+            switch (sex)
+            {
+                case "man":
+                    sumofskinfolds = abdominal + tricepts + thigh + suprailiac;
+                    fourssitebodyfat = (0.29288 * sumofskinfolds) - (0.0005 * (sumofskinfolds * sumofskinfolds)) + (0.15845 * age) - 5.76377;
+
+                    break;
+                default:
+                    break;
+            }
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
         // GET: Measurements/Create
         public ActionResult Create(int? CustomerID, int? TargetGroupID)
         {
@@ -293,7 +324,7 @@ namespace nutritionoffice.Controllers
                     await db.SaveChangesAsync();
                     return RedirectToAction("Details", "Customers", new { id = measurement.CustomerID });
                 }
-                ViewBag.Customer =await db.Customers.FindAsync(measurement.CustomerID);
+                ViewBag.Customer = await db.Customers.FindAsync(measurement.CustomerID);
                 return View(measurement);
             }
             catch (Exception ex)
@@ -365,11 +396,11 @@ namespace nutritionoffice.Controllers
 
             LocalReport lr = new LocalReport();
 
-//#if DEBUG
-//            lr.ReportPath = Server.MapPath(System.IO.Path.Combine("~/Reports", "Documents", "CustomerMeasurements.rdlc"));
-//#else
+            //#if DEBUG
+            //            lr.ReportPath = Server.MapPath(System.IO.Path.Combine("~/Reports", "Documents", "CustomerMeasurements.rdlc"));
+            //#else
             lr.LoadReportDefinition(await Classes.AzureStorageClass.GetRDLC("reportdocuments", "CustomerMeasurements.rdlc"));
-//#endif
+            //#endif
 
             ReportParameterInfoCollection allparams = lr.GetParameters();
 
@@ -407,46 +438,46 @@ namespace nutritionoffice.Controllers
             var BMIValuesTable = new CustomerMeasurementsDS.BMIDataTable();
             //if (AllCustomerMeasurements.Where(r => r.Age <= 18d).Count() > 0)
             //{
-                ViewModels.BMI bmi = new ViewModels.BMI((customer.Sex == Customer.sex.Male) ? ViewModels.BMI.Sex.Boy : ViewModels.BMI.Sex.Girl, new System.Drawing.Size(), new System.Drawing.Printing.Margins());
-                var MaxAge = AllCustomerMeasurements.Max(r => r.Age);
-                var MinAge = AllCustomerMeasurements.Min(r => r.Age);
-                double AdultStartAge = (MinAge < 18d) ? 18d : MinAge - 1;
-                double AdultEndAge = MaxAge + 1;
-                double adultvalue;
-                foreach (var item in bmi.Values[bmi.CustomerSex])
+            ViewModels.BMI bmi = new ViewModels.BMI((customer.Sex == Customer.sex.Male) ? ViewModels.BMI.Sex.Boy : ViewModels.BMI.Sex.Girl, new System.Drawing.Size(), new System.Drawing.Printing.Margins());
+            var MaxAge = AllCustomerMeasurements.Max(r => r.Age);
+            var MinAge = AllCustomerMeasurements.Min(r => r.Age);
+            double AdultStartAge = (MinAge < 18d) ? 18d : MinAge - 1;
+            double AdultEndAge = MaxAge + 1;
+            double adultvalue;
+            foreach (var item in bmi.Values[bmi.CustomerSex])
+            {
+                if (MinAge < 18d)
                 {
-                    if (MinAge < 18d)
+                    for (int ageindex = 0; ageindex < bmi.Ages.Count(); ageindex += 1)
                     {
-                        for (int ageindex = 0; ageindex < bmi.Ages.Count(); ageindex += 1)
-                        {
-                            BMIValuesTable.AddBMIRow(LineIndex: item.Key,
-                                LineName: " ",
-                                Color: item.Value.StrokeData.Color,
-                                DashName: item.Value.StrokeData.DashName,
-                                Width: item.Value.StrokeData.WidthValue,
-                                Age: bmi.Ages[ageindex], Value: item.Value.Values[ageindex]);
-                        }
-                    }
-
-                    if (MaxAge > 18d)
-                    {
-
-                        if (customer.Sex == Customer.sex.Male)
-                        {
-                            adultvalue = (item.Key == 1) ? 17.5 : (item.Key == 2) ? 19.1 : (item.Key == 3) ? 25.8 : (item.Key == 4) ? 27.3 : (item.Key == 5) ? 32.3 : (item.Key == 6) ? 35 : (item.Key == 7) ? 40 : (item.Key == 8) ? 50 : 70;
-
-                        }
-                        else
-                        {
-                            adultvalue = (item.Key == 1) ? 17.5 : (item.Key == 2) ? 20.7 : (item.Key == 3) ? 26.4 : (item.Key == 4) ? 27.8 : (item.Key == 5) ? 31.1 : (item.Key == 6) ? 35 : (item.Key == 7) ? 40 : (item.Key == 8) ? 50 : 70;
-                        }
-
-                        for (double i = AdultStartAge; i <= AdultEndAge; i += 0.5d)
-                        {
-                            BMIValuesTable.AddBMIRow(LineIndex: item.Key, LineName: " ", Color: item.Value.StrokeData.Color, DashName: item.Value.StrokeData.DashName, Width: item.Value.StrokeData.WidthValue, Age: i, Value: adultvalue);
-                        }
+                        BMIValuesTable.AddBMIRow(LineIndex: item.Key,
+                            LineName: " ",
+                            Color: item.Value.StrokeData.Color,
+                            DashName: item.Value.StrokeData.DashName,
+                            Width: item.Value.StrokeData.WidthValue,
+                            Age: bmi.Ages[ageindex], Value: item.Value.Values[ageindex]);
                     }
                 }
+
+                if (MaxAge > 18d)
+                {
+
+                    if (customer.Sex == Customer.sex.Male)
+                    {
+                        adultvalue = (item.Key == 1) ? 17.5 : (item.Key == 2) ? 19.1 : (item.Key == 3) ? 25.8 : (item.Key == 4) ? 27.3 : (item.Key == 5) ? 32.3 : (item.Key == 6) ? 35 : (item.Key == 7) ? 40 : (item.Key == 8) ? 50 : 70;
+
+                    }
+                    else
+                    {
+                        adultvalue = (item.Key == 1) ? 17.5 : (item.Key == 2) ? 20.7 : (item.Key == 3) ? 26.4 : (item.Key == 4) ? 27.8 : (item.Key == 5) ? 31.1 : (item.Key == 6) ? 35 : (item.Key == 7) ? 40 : (item.Key == 8) ? 50 : 70;
+                    }
+
+                    for (double i = AdultStartAge; i <= AdultEndAge; i += 0.5d)
+                    {
+                        BMIValuesTable.AddBMIRow(LineIndex: item.Key, LineName: " ", Color: item.Value.StrokeData.Color, DashName: item.Value.StrokeData.DashName, Width: item.Value.StrokeData.WidthValue, Age: i, Value: adultvalue);
+                    }
+                }
+            }
             //}
 
 
@@ -497,8 +528,8 @@ namespace nutritionoffice.Controllers
 
             //lr.SetParameters(new ReportParameter("DietStartDate", string.Format(Thread.CurrentThread.CurrentUICulture, $"{measurement.Date:ddd d/M/yyyy}")));
 
-            string reportType =  filetype;
-            string extension =  (filetype == "IMAGE") ? "tiff" : (filetype == "PDF") ? "pdf" : (filetype == "EXCEL") ? "xls" : "doc";// (filetype != "PDF") ? "xlsx" : "pdf";// id;
+            string reportType = filetype;
+            string extension = (filetype == "IMAGE") ? "tiff" : (filetype == "PDF") ? "pdf" : (filetype == "EXCEL") ? "xls" : "doc";// (filetype != "PDF") ? "xlsx" : "pdf";// id;
             string mimeType;
             string encoding;
             string fileNameExtension;
@@ -553,9 +584,9 @@ namespace nutritionoffice.Controllers
 
             LocalReport lr = new LocalReport();
 
-//#if DEBUG
-//            lr.ReportPath = Server.MapPath(System.IO.Path.Combine("~/Reports", "Documents", "CustomerMeasurementsReport.rdlc"));
-//#else
+            //#if DEBUG
+            //            lr.ReportPath = Server.MapPath(System.IO.Path.Combine("~/Reports", "Documents", "CustomerMeasurementsReport.rdlc"));
+            //#else
             lr.LoadReportDefinition(await Classes.AzureStorageClass.GetRDLC("reportdocuments", "CustomerMeasurementsReport.rdlc"));
             //#endif
 

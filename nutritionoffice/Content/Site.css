@@ -458,3 +458,21 @@ article {
 .art-blue{
 	border-bottom:3px solid #0089d0;
 }
+.art-magenta{
+	border-bottom:3px solid #;
+}
+
+label{
+    width:120px;
+    background-color:#4fb3ff;
+    color:white;
+    border-radius:5px;
+    padding:5px 15px 7px;
+}
+
+h2{
+    font-family: 'Noto Serif', sans-serif;
+    font-weight:600;
+    color:#06008e;
+    text-shadow:2px 2px 7px #b7bbea;
+}

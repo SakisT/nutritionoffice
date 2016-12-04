@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     //System.Globalization.CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;// new System.Globalization.CultureInfo("el-GR");
 }
-
+<h2 class="text-center">@Resource.ControlPanel</h2>
 <div class="row">
     <div id="toppage" class="col-xs-6">
         <h2><a href="@Url.Action("Edit", new { id=Model.id })">@string.Format("{0} ({1} : {2})", Model.FullName,Resource.Age,Convert.ToInt16( (DateTime.Today-Model.BirthDate).TotalDays/365))</a></h2>
     </div>
     <div class="col-xs-6 text-center" style="margin-top:20px;">
-        <h4><a href="@Url.Action("Index", new { TargetGroupID=Model.TargetGroupID })" >@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
+        <h4><a href="@Url.Action("Index", new { TargetGroupID=Model.TargetGroupID })" title="@Resource.ClickHereToSeeAllNamesForThisGroup" >@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
     </div>
 </div>
 

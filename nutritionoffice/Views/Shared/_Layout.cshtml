@@ -20,7 +20,7 @@
 
     @if (ViewBag.HideMenu == null || (bool)ViewBag.HideMenu == false)
     {
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top" style="margin-top:10px;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="@Url.Action("Index","Home")" class="navbar-brand" area=""><span class="glyphicon glyphicon-home" title="Home"></span> </a>
+                    <a href="@Url.Action("Index","Home")" class="navbar-brand" area=""><span style="color:#dbba03" class="glyphicon glyphicon-home" title="Home"></span> </a>
                 </div>
                 @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
                 {
@@ -49,7 +49,7 @@
                             @if (new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
                             {
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" id="layoutcompanyid" data-link="@Url.Action("GetNameDays","Home")" , data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> @Resource.MyOffice<span class="caret"></span></a>
+                                    <a class="dropdown-toggle" id="layoutcompanyid" data-link="@Url.Action("GetNameDays","Home")" , data-toggle="dropdown" href="#"><span style="color:#ff0000" class="glyphicon glyphicon-user"></span> @Resource.MyOffice<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="@Url.Action("Index","Customers")" title="@Resource.mnuCustomers"><span class="glyphicon glyphicon-list"></span> @Resource.ListofCustomers</a></li>
                                         <li><a href="@Url.Action("Create","Customers")" title="@Resource.mnuCreateNewCustomer"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewCustomer</a></li>
@@ -69,7 +69,7 @@
                             @if (new string[] { "Administrator", "Owner", "CanEdit" }.Any(r => User.IsInRole(r)))
                             {
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-apple" title="Foods"></span> Διαιτολόγος-Διατροφολόγος<span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span style="color:#2da41a" class="glyphicon glyphicon-apple" title="Foods"></span> Διαιτολόγος-Διατροφολόγος<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="@Url.Action("Index","Foods")"><span class="glyphicon glyphicon-list"></span> @Resource.ListofFoods</a></li>
                                         <li><a href="@Url.Action("Create","Foods")"><span class="glyphicon glyphicon-star-empty"></span> @Resource.CreateNewFood</a></li>
@@ -147,6 +147,7 @@
         <iframe src="" id="helpcontainerframe" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
     </div>
     <div class="container body-content">
+        <br />
         @RenderBody()
         <hr />
         <footer>

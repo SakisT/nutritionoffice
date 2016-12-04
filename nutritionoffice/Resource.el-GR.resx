@@ -129,9 +129,6 @@
   <data name="Customers" xml:space="preserve">
     <value>Πελάτες</value>
   </data>
-  <data name="DateOfBirth" xml:space="preserve">
-    <value>Ημερομηνία γέννησης</value>
-  </data>
   <data name="EmergencyOrMobileNumber" xml:space="preserve">
     <value>Κινητό ή τηλέφωνο έκτακτης ανάγκης</value>
   </data>
@@ -214,25 +211,25 @@
     <value>Τα Ραντεβού μου</value>
   </data>
   <data name="CreateNewAppointment" xml:space="preserve">
-    <value>Δημιουργία νέου ραντεβού</value>
+    <value>Δημιουργία Νέου Ραντεβού</value>
   </data>
   <data name="CreateNewCustomer" xml:space="preserve">
-    <value>Δημιουργία νέου πελάτη</value>
+    <value>Δημιουργία Νέου Πελάτη</value>
   </data>
   <data name="CreateNewDiet" xml:space="preserve">
-    <value>Δημιουργία νέας δίαιτας</value>
+    <value>Δημιουργία Νέας Δίαιτας</value>
   </data>
   <data name="CreateNewFood" xml:space="preserve">
-    <value>Δημιουργία νέου τροφίμου</value>
+    <value>Δημιουργία Νέου Τροφίμου</value>
   </data>
   <data name="CreateNewFoodCategory" xml:space="preserve">
-    <value>Δημιουργία νέας κατηγορίας τροφίμων</value>
+    <value>Δημιουργία Νέας Κατηγορίας Τροφίμων</value>
   </data>
   <data name="CreateNewReminder" xml:space="preserve">
-    <value>Δημιουργία νέας υπενθύμισης</value>
+    <value>Δημιουργία Νέας Υπενθύμισης</value>
   </data>
   <data name="CreateNewTargetGroup" xml:space="preserve">
-    <value>Δημιουργία νέας ομάδας πελατών</value>
+    <value>Δημιουργία Νέας Ομάδας Πελατών</value>
   </data>
   <data name="DietsPlural" xml:space="preserve">
     <value>Διαιτολόγια</value>
@@ -1036,7 +1033,7 @@
     <value>Ιστορικό διατροφής</value>
   </data>
   <data name="CreateNewRecipeCategory" xml:space="preserve">
-    <value>Δημιουργία νέας κατηγορίας συνταγών</value>
+    <value>Δημιουργία Νέας Κατηγορίας Συνταγών</value>
   </data>
   <data name="ListofRecipeCategories" xml:space="preserve">
     <value>Κατηγορίες συνταγών</value>
@@ -1051,7 +1048,7 @@
     <value>Κλείσιμο</value>
   </data>
   <data name="CreateNewRecipe" xml:space="preserve">
-    <value>Δημιουργία νέας συνταγής</value>
+    <value>Δημιουργία Νέας Συνταγής</value>
   </data>
   <data name="ListofRecipes" xml:space="preserve">
     <value>Λίστα συνταγών</value>
@@ -1367,5 +1364,14 @@
   </data>
   <data name="mnuTargetgroups" xml:space="preserve">
     <value>Πλήρης λίστα των ομάδων πελατών σας</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Ημερομηνία γέννησης</value>
+  </data>
+  <data name="ClickHereToSeeAllNamesForThisGroup" xml:space="preserve">
+    <value>Πατήστε εδώ για να δείτε όλα τα ονόματα που ανήκουν σε αυτή την ομάδα</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Πίνακας Ελέγχου Πελάτη</value>
   </data>
 </root>

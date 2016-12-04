@@ -1374,4 +1374,10 @@
   <data name="mnuTargetgroups" xml:space="preserve">
     <value>See a full list of your target groups</value>
   </data>
+  <data name="ClickHereToSeeAllNamesForThisGroup" xml:space="preserve">
+    <value>Click Here To See All Names For This Group</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Customer Control Panel</value>
+  </data>
 </root>

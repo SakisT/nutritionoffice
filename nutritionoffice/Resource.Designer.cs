@@ -628,6 +628,15 @@ namespace nutritionoffice {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click Here To See All Names For This Group.
+        /// </summary>
+        public static string ClickHereToSeeAllNamesForThisGroup {
+            get {
+                return ResourceManager.GetString("ClickHereToSeeAllNamesForThisGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string CloseForm {
@@ -714,6 +723,15 @@ namespace nutritionoffice {
         public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Control Panel.
+        /// </summary>
+        public static string ControlPanel {
+            get {
+                return ResourceManager.GetString("ControlPanel", resourceCulture);
             }
         }
         
