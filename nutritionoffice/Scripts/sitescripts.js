@@ -164,7 +164,7 @@
     $(function () {
         var $HomeIndex = $('currentdatecustmersdata');
         var $company = $('#layoutcompanyid');
-        var count,tip;
+        var count, tip;
         if ($company.length !== 0) {
             $.ajax({
                 type: "POST",
@@ -399,95 +399,117 @@ $(function () {
 });
 
 $(function () {
-    var initialLocaleCode = 'en';
+    var initialLocaleCode = 'el';
+    var link = $('#calendar').data('indexlink');
+    if (link != undefined) {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,listMonth'
+            },
+            defaultDate: '2016-12-05',
+            locale: initialLocaleCode,
+            buttonIcons: false, // show the prev/next text
+            weekNumbers: false,
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            
+            events: link,
+            eventMouseover: function (calEvent) {
+                //$(this).css('color', 'red');
+                //debugger;
+            },
+            eventClick: function (calEvent, jsEvent, view) {
 
-    $('#calendar').fullCalendar({
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay,listMonth'
-        },
-        defaultDate: '2016-09-12',
-        locale: initialLocaleCode,
-        buttonIcons: false, // show the prev/next text
-        weekNumbers: true,
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-            {
-                title: 'All Day Event',
-                start: '2016-09-01'
-            },
-            {
-                title: 'Long Event',
-                start: '2016-09-07',
-                end: '2016-09-10'
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: '2016-09-09T16:00:00'
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: '2016-09-16T16:00:00'
-            },
-            {
-                title: 'Conference',
-                start: '2016-09-11',
-                end: '2016-09-13'
-            },
-            {
-                title: 'Meeting',
-                start: '2016-09-12T10:30:00',
-                end: '2016-09-12T12:30:00'
-            },
-            {
-                title: 'Lunch',
-                start: '2016-09-12T12:00:00'
-            },
-            {
-                title: 'Meeting',
-                start: '2016-09-12T14:30:00'
-            },
-            {
-                title: 'Happy Hour',
-                start: '2016-09-12T17:30:00'
-            },
-            {
-                title: 'Dinner',
-                start: '2016-09-12T20:00:00'
-            },
-            {
-                title: 'Birthday Party',
-                start: '2016-09-13T07:00:00'
-            },
-            {
-                title: 'Click for Google',
-                url: 'http://google.com/',
-                start: '2016-09-28'
+                alert('Event: ' + calEvent.title);
+
+                //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                //alert('View: ' + view.name);
+
+                //// change the border color just for fun
+                ////$(this).css('border-color', 'red');
+
             }
-        ]
-    });
+            //events: [
+            //    {
+            //        title: 'All Day Event',
+            //        start: '2016-09-01'
+            //    },
+            //    {
+            //        title: 'Long Event',
+            //        start: '2016-09-07',
+            //        end: '2016-09-10'
+            //    },
+            //    {
+            //        id: 999,
+            //        title: 'Repeating Event',
+            //        start: '2016-09-09T16:00:00'
+            //    },
+            //    {
+            //        id: 999,
+            //        title: 'Repeating Event',
+            //        start: '2016-09-16T16:00:00'
+            //    },
+            //    {
+            //        title: 'Conference',
+            //        start: '2016-09-11',
+            //        end: '2016-09-13'
+            //    },
+            //    {
+            //        title: 'Meeting',
+            //        start: '2016-09-12T10:30:00',
+            //        end: '2016-09-12T12:30:00'
+            //    },
+            //    {
+            //        title: 'Lunch',
+            //        start: '2016-09-12T12:00:00'
+            //    },
+            //    {
+            //        title: 'Meeting',
+            //        start: '2016-09-12T14:30:00'
+            //    },
+            //    {
+            //        title: 'Happy Hour',
+            //        start: '2016-09-12T17:30:00'
+            //    },
+            //    {
+            //        title: 'Dinner',
+            //        start: '2016-09-12T20:00:00'
+            //    },
+            //    {
+            //        title: 'Birthday Party',
+            //        start: '2016-09-13T07:00:00'
+            //    },
+            //    {
+            //        title: 'Click for Google',
+            //        url: 'http://google.com/',
+            //        start: '2016-09-28'
+            //    }
+            //]
+        });
+        // build the locale selector's options
+        //$.each($.fullCalendar.locales, function (localeCode) {
+        //    $('#locale-selector').append(
+        //        $('<option/>')
+        //            .attr('value', localeCode)
+        //            .prop('selected', localeCode === initialLocaleCode)
+        //            .text(localeCode)
+        //    );
+        //});
 
-    // build the locale selector's options
-    $.each($.fullCalendar.locales, function (localeCode) {
-        $('#locale-selector').append(
-            $('<option/>')
-                .attr('value', localeCode)
-                .prop('selected', localeCode === initialLocaleCode)
-                .text(localeCode)
-        );
-    });
+        // when the selected option changes, dynamically change the calendar option
+        //$('#locale-selector').on('change', function () {
+        //    if (this.value) {
+        //        $('#calendar').fullCalendar('option', 'locale', this.value);
+        //    }
+        //});
+    }
 
-    // when the selected option changes, dynamically change the calendar option
-    $('#locale-selector').on('change', function () {
-        if (this.value) {
-            $('#calendar').fullCalendar('option', 'locale', this.value);
-        }
-    });
+
+
+
 });
 
 $(function () {

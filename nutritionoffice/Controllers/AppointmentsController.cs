@@ -95,6 +95,43 @@ namespace nutritionoffice.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task< JsonResult> GetAppointmentsByDate(DateTime? date) {
+
+            try
+            {
+                int CompID = CompanyID();
+                //Αν έρθει χωρίς ημερομηνία, βάζουμε την σημερινή.
+                if (!date.HasValue) { date = DateTime.Today; }
+
+                //Αν η επιλεγμένη ημερομηνία είναι Κυριακή, παίρνουμε την αμέσως επόμενη Δευτέρα.
+                if (date.Value.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    date = date.Value.AddDays(1);
+                }
+                else
+                {
+                    date = date.Value.AddDays(1 - (int)date.Value.DayOfWeek);
+                }
+                ViewBag.date = date;
+                DateTime todate = date.Value.AddDays(6);
+
+                List<Appointment> appointments =await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate).ToListAsync();
+
+                var returnvalue = (from p in appointments select new {title=p.Customer?.FullName??"", start=p.Date.ToString("O") });
+
+                return Json(returnvalue,behavior:JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "AppointmentsController", "Index"));
+                return Json(new {error=ex.Message }, behavior: JsonRequestBehavior.AllowGet);
+            }
+
+           
+        }
+
+
         // GET: Appointments/Create
         public ActionResult Create(int? CustomerID, DateTime? datetime)
         {

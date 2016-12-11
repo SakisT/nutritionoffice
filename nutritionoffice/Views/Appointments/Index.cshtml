@@ -12,7 +12,7 @@
     int dateindex = 0;
     //System.Globalization.CultureInfo ci= (System.Globalization.CultureInfo)ViewBag.CultureInfo;
 }
-<div id="calendar"></div>
+<div id="calendar" data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")"></div>
 <div class="row">
     <div class="col-md-4">
         <h2><strong>@Resource.AppointmentsCalendar</strong></h2>
