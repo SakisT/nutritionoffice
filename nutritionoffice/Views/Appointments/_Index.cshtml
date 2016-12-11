@@ -1,0 +1,73 @@
+﻿@model IEnumerable<nutritionoffice.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DayOfWeek[] validDates = new DayOfWeek[] { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday, DayOfWeek.Saturday };
+    string[] weekdaycolor = new string[] { "#ffcc00", "#ff3366", "#01cc01", "#ff6501", "#0265ff", "#6600ce" };
+    DateTime nextweek = (DateTime)ViewBag.date.AddDays(7);
+    DateTime previousweek = (DateTime)ViewBag.date.AddDays(-7);
+    DateTime nextmonth = (DateTime)ViewBag.date.AddMonths(1);
+    DateTime previousmonth = (DateTime)ViewBag.date.AddMonths(-1);
+    int dateindex = 0;
+    //System.Globalization.CultureInfo ci= (System.Globalization.CultureInfo)ViewBag.CultureInfo;
+}
+<div id="calendar" data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")"></div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2><strong>@Resource.AppointmentsCalendar</strong></h2>
+    </div>
+    <div class="pull-right" style="padding-top:20px;padding-right:78px">
+        <div class="form-horizontal">
+            @Html.ActionLink(" ", "Index", "Appointments", new { date = previousmonth }, htmlAttributes: new { @class = "btn btn-info glyphicon glyphicon-fast-backward", data_toggle = "tooltip", title = Resource.PreviousMonth }) |
+            @Html.ActionLink(" ", "Index", "Appointments", new { date = previousweek }, htmlAttributes: new { @class = "btn btn-primary glyphicon glyphicon-step-backward", data_toggle = "tooltip", title = Resource.PreviousWeek }) |
+            @Html.ActionLink(" ", "Index", "Appointments", new { date = DateTime.Today }, htmlAttributes: new { @class = "btn btn-success glyphicon glyphicon-stop", data_toggle = "tooltip", title = Resource.CurrentWeek }) |
+            @Html.ActionLink(" ", "Index", "Appointments", new { date = nextweek }, htmlAttributes: new { @class = "btn btn-primary glyphicon glyphicon-step-forward", data_toggle = "tooltip", title = Resource.NextWeek }) |
+            @Html.ActionLink(" ", "Index", "Appointments", new { date = nextmonth }, htmlAttributes: new { @class = "btn btn-info glyphicon glyphicon-fast-forward", data_toggle = "tooltip", title = Resource.NextMonth })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in validDates)
+    {
+        DateTime weekdate = (DateTime)ViewBag.date;
+        weekdate = weekdate.AddDays(dateindex);
+
+        string dayname = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, "{0:dddd d/M}", weekdate);
+        string daycolor = weekdaycolor[(int)item - 1];
+
+        <div class="appointmentday">
+            <div id="container" class='ui-widget-content' style="height:1200px;background:@daycolor">
+                <h4 class="ui-widget-header">
+                    @Html.ActionLink(" ", "Create", new { datetime = weekdate }, htmlAttributes: new { @class = "glyphicon glyphicon-plus-sign", Style = "color:maroon" })
+                    @dayname
+                </h4>
+                @foreach (var customer in Model.OrderBy(R => R.FromTime).Where(r => r.Date.DayOfWeek == item))
+                {
+                    double opacity = (customer.id == 0) ? 0.0 : 1;
+                    string aptime = string.Format("{0} {1:H:mm}, {2} {3:H:mm}", Resource.From, customer.FromTime, Resource.to, customer.ToTime);
+                    string customername = string.Format("{0}", customer.Customer?.LastName ?? " ");
+                    <!--resizable-->
+                    <div class="ui-state-hover draggable" style="opacity:@opacity">
+                        <h5 class="headertime">@aptime</h5>
+                        <p class="ui-widget-header appointmentcustomer">@Html.ActionLink(customername, "Edit", new { id = customer.id })</p>
+                        <h6 style="color:navy;background-color:#b6ff00">@Html.DisplayFor(modelitem => customer.Notes)</h6>
+                    </div>
+                }
+            </div>
+        </div>
+        dateindex += 1;
+    }
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/moment.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/lib/jquery-ui.min.js"></script>
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <script src="~/Scripts/fullcalendar.js"></script>
+    <link href="~/Content/datepicker.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+}

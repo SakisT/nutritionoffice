@@ -19,56 +19,75 @@ namespace nutritionoffice.Controllers
         // GET: Appointments
         public ActionResult Index(DateTime? date)
         {
-            try
+            return View();
+        }
+
+        //try
+        //{
+        //    int CompID = CompanyID();
+        //    //Αν έρθει χωρίς ημερομηνία, βάζουμε την σημερινή.
+        //    if (!date.HasValue) { date = DateTime.Today; }
+
+        //    //Αν η επιλεγμένη ημερομηνία είναι Κυριακή, παίρνουμε την αμέσως επόμενη Δευτέρα.
+        //    if (date.Value.DayOfWeek == DayOfWeek.Sunday)
+        //    {
+        //        date = date.Value.AddDays(1);
+        //    }
+        //    else
+        //    {
+        //        date = date.Value.AddDays(1 - (int)date.Value.DayOfWeek);
+        //    }
+        //    ViewBag.date = date;
+        //    DateTime todate = date.Value.AddDays(6);
+
+        //    IEnumerable<Appointment> appointments = db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate);
+
+        //    int totaldays = (int)(todate - date.Value).TotalDays;
+
+        //    IEnumerable<DateTime> daterange = from int p in Enumerable.Range(0, totaldays) select date.Value.AddDays(p);
+
+        //    int appointmentdurationinminutes = 40;
+        //    foreach (DateTime d in daterange)
+        //    {
+        //        var currentdatestart = new DateTime(d.Year, d.Month, d.Day, 08, 30, 0);
+        //        var currentdateend = new DateTime(d.Year, d.Month, d.Day, 21, 00, 0);
+        //        int totaldateminutes = (int)(currentdateend - currentdatestart).TotalMinutes;
+        //        for (int Index = 0; Index < totaldateminutes; Index += appointmentdurationinminutes)
+        //        {
+        //            var refdate = currentdatestart.AddMinutes(Index);
+        //            var existingappointment = appointments.Where(r => r.FromTime < refdate && r.ToTime > refdate).FirstOrDefault();
+        //            if (existingappointment == null)
+        //            {
+        //                appointments = appointments.Concat(new Appointment[] { new Appointment { CustomerID = 0, Date = refdate, FromTime = refdate, ToTime = refdate.AddMinutes(appointmentdurationinminutes), Notes = "" } }.AsEnumerable());
+        //            }
+        //            Console.WriteLine();
+        //        }
+        //        Console.WriteLine();
+        //    }
+        //    //ViewBag.CultureInfo= System.Globalization.CultureInfo.CurrentCulture.Clone();
+        //    return View(appointments.ToList());
+        //}
+        //catch (Exception ex)
+        //{
+        //    Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "AppointmentsController", "Index"));
+        //    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+        //}
+
+        [HttpPost]
+        public async Task< ActionResult> UpdateAppointment(int id, int years, int months, int days, int starthours, int startminutes, int endhours, int endminutes) {
+                        Appointment appointment =await db.Appointments.FindAsync(id);
+            if (appointment == null)
             {
-                int CompID = CompanyID();
-                //Αν έρθει χωρίς ημερομηνία, βάζουμε την σημερινή.
-                if (!date.HasValue) { date = DateTime.Today; }
-
-                //Αν η επιλεγμένη ημερομηνία είναι Κυριακή, παίρνουμε την αμέσως επόμενη Δευτέρα.
-                if (date.Value.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    date = date.Value.AddDays(1);
-                }
-                else
-                {
-                    date = date.Value.AddDays(1 - (int)date.Value.DayOfWeek);
-                }
-                ViewBag.date = date;
-                DateTime todate = date.Value.AddDays(6);
-
-                IEnumerable<Appointment> appointments = db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate);
-
-                int totaldays = (int)(todate - date.Value).TotalDays;
-
-                IEnumerable<DateTime> daterange = from int p in Enumerable.Range(0, totaldays) select date.Value.AddDays(p);
-
-                int appointmentdurationinminutes = 40;
-                foreach (DateTime d in daterange)
-                {
-                    var currentdatestart = new DateTime(d.Year, d.Month, d.Day, 08, 30, 0);
-                    var currentdateend = new DateTime(d.Year, d.Month, d.Day, 21, 00, 0);
-                    int totaldateminutes = (int)(currentdateend - currentdatestart).TotalMinutes;
-                    for (int Index = 0; Index < totaldateminutes; Index += appointmentdurationinminutes)
-                    {
-                        var refdate = currentdatestart.AddMinutes(Index);
-                        var existingappointment = appointments.Where(r => r.FromTime < refdate && r.ToTime > refdate).FirstOrDefault();
-                        if (existingappointment == null)
-                        {
-                            appointments = appointments.Concat(new Appointment[] { new Appointment { CustomerID = 0, Date = refdate, FromTime = refdate, ToTime = refdate.AddMinutes(appointmentdurationinminutes), Notes = "" } }.AsEnumerable());
-                        }
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine();
-                }
-                //ViewBag.CultureInfo= System.Globalization.CultureInfo.CurrentCulture.Clone();
-                return View(appointments.ToList());
+                return new HttpNotFoundResult(); 
             }
-            catch (Exception ex)
-            {
-                Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "AppointmentsController", "Index"));
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+            appointment.Date = appointment.Date.AddYears(years).AddMonths(months).AddDays(days);
+            var initFromTime = appointment.FromTime.AddHours(starthours).AddMinutes(startminutes);
+            var initToTime = appointment.ToTime.AddHours(endhours).AddMinutes(endminutes);
+            appointment.FromTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initFromTime.Hour, initFromTime.Minute, 0);
+            appointment.ToTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initToTime.Hour, initToTime.Minute, 0);
+            db.Entry(appointment).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return Json(new {result="Success" },behavior:JsonRequestBehavior.AllowGet);
         }
 
         // GET: Appointments/Details/5
@@ -132,6 +151,23 @@ namespace nutritionoffice.Controllers
 
         }
 
+        public async Task< PartialViewResult> EditAppointment(int id)
+        {
+            Appointment appointment =await db.Appointments.FindAsync(id);
+            ViewBag.CustomerID = new SelectList(db.Customers.Where(r => r.CompanyID == appointment.Customer.CompanyID), "id", "FullName", appointment.CustomerID);
+            return PartialView(appointment);
+        }
+
+        [HttpPost]
+        [ActionName("EditAppointment")]
+        public async Task<ActionResult> EditAppointmentPost(int id)
+        {
+            var appointmenttoupadate = await db.Appointments.FindAsync(id);
+            if (TryUpdateModel(appointmenttoupadate, "", new string[] { "CustomerID" })){
+                await db.SaveChangesAsync();
+            }
+            return View("Index");
+        }
 
         // GET: Appointments/Create
         public ActionResult Create(int? CustomerID, DateTime? datetime)

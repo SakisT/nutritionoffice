@@ -409,12 +409,12 @@ $(function () {
                 right: 'month,agendaWeek,agendaDay,listMonth'
             },
             defaultDate: '2016-12-11',
-            columnFormat:'ddd D/M',
+            columnFormat: 'ddd D/M',
             locale: initialLocaleCode,
             buttonIcons: false, // show the prev/next text
             weekNumbers: false,
             nowIndicator: true,
-            timeFormat:'H:mm',
+            timeFormat: 'H:mm',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             eventLimit: true, // allow "more" link when too many events
@@ -430,13 +430,60 @@ $(function () {
                 //debugger;
             },
             eventClick: function (calEvent, jsEvent, view) {
-                //debugger;
+                var editlink = $('#calendar').data('editappointmentlink') + '?id=' + calEvent.id;
+                $('#modalformcontent').load(editlink, function () {
+                    $('#appointmentdatepicker').datepicker();
+                    $("#myModal").modal();
+                });
+
             },
-            eventResize:function(event, delta, revertFunc, jsEvent, ui, view) {
-                debugger;
+            eventResize: function (event, delta, revertFunc, jsEvent, ui, view) {
+                var updatelink = $('#calendar').data('updateappointmentlink');
+                $.ajax({
+                    url: updatelink,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: event.id,
+                        years: delta._data.years,
+                        months: delta._data.months,
+                        days: delta._data.days,
+                        starthours: 0,
+                        startminutes: 0,
+                        endhours: delta._data.hours,
+                        endminutes: delta._data.minutes
+                    },
+                    error: function (data, status) {
+                        alert(status.toString());
+                    },
+                    success: function (data, status) {
+                        //debugger;
+                    }
+                });
             },
             eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
-                debugger;
+                var updatelink = $('#calendar').data('updateappointmentlink');
+                $.ajax({
+                    url: updatelink,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: event.id,
+                        years: delta._data.years,
+                        months: delta._data.months,
+                        days: delta._data.days,
+                        starthours: 0,
+                        startminutes: 0,
+                        endhours: delta._data.hours,
+                        endminutes: delta._data.minutes
+                    },
+                    error: function (data, status) {
+                        alert(status.toString());
+                    },
+                    success: function (data, status) {
+                        //debugger;
+                    }
+                });
             }
         });
         //// build the locale selector's options
@@ -456,10 +503,6 @@ $(function () {
         //    }
         //});
     }
-
-
-
-
 });
 
 $(function () {

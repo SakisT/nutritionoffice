@@ -655,7 +655,7 @@
     <Content Include="Views\Appointments\Create.cshtml" />
     <Content Include="Views\Appointments\Delete.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
-    <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Appointments\_Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AppointmentState.cshtml" />
     <Content Include="Views\Measurements\Create.cshtml" />
@@ -759,6 +759,8 @@
     <Content Include="Views\Customers\EditDailyRecall.cshtml" />
     <Content Include="Views\Customers\EditBasicQuestionnaires.cshtml" />
     <Content Include="Views\BasicQuestionnaires\EditByCustomer.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Appointments\EditAppointment.cshtml" />
     <None Include="Web References\SMService\sms.wsdl" />
   </ItemGroup>
   <ItemGroup>
