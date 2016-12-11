@@ -96,7 +96,8 @@ namespace nutritionoffice.Controllers
         }
 
         [HttpGet]
-        public async Task< JsonResult> GetAppointmentsByDate(DateTime? date) {
+        public async Task<JsonResult> GetAppointmentsByDate(DateTime? date)
+        {
 
             try
             {
@@ -104,31 +105,31 @@ namespace nutritionoffice.Controllers
                 //Αν έρθει χωρίς ημερομηνία, βάζουμε την σημερινή.
                 if (!date.HasValue) { date = DateTime.Today; }
 
-                //Αν η επιλεγμένη ημερομηνία είναι Κυριακή, παίρνουμε την αμέσως επόμενη Δευτέρα.
-                if (date.Value.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    date = date.Value.AddDays(1);
-                }
-                else
-                {
-                    date = date.Value.AddDays(1 - (int)date.Value.DayOfWeek);
-                }
-                ViewBag.date = date;
                 DateTime todate = date.Value.AddDays(6);
 
-                List<Appointment> appointments =await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate).ToListAsync();
+                List<Appointment> appointments = await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate).ToListAsync();
 
-                var returnvalue = (from p in appointments select new {title=p.Customer?.FullName??"", start=p.Date.ToString("O") });
+                //var returnvalue = (from p in appointments select new {title=p.Customer?.FullName??"", start=p.Date.ToString("O") });
+                var returnvalue = (from p in appointments
+                                   let startdt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.FromTime.Hour, p.FromTime.Minute, p.FromTime.Second)
+                                   let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime.Hour, p.ToTime.Minute, p.ToTime.Second)
+                                   select new
+                                   {
+                                       id=p.id,
+                                       title = p.Customer?.FullName ?? "",
+                                       start = startdt.ToString("O"),
+                                       end = enddt.ToString("O")
+                                   });
 
-                return Json(returnvalue,behavior:JsonRequestBehavior.AllowGet);
+                return Json(returnvalue, behavior: JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "AppointmentsController", "Index"));
-                return Json(new {error=ex.Message }, behavior: JsonRequestBehavior.AllowGet);
+                return Json(new { error = ex.Message }, behavior: JsonRequestBehavior.AllowGet);
             }
 
-           
+
         }
 
 
@@ -402,7 +403,7 @@ namespace nutritionoffice.Controllers
                                         {
                                             CustomerID = existingappointment.CustomerID,
                                             MailState = Reminder.ReminderState.Active,
-                                            OnDate =Classes.SharedClass.Now().AddHours(2),
+                                            OnDate = Classes.SharedClass.Now().AddHours(2),
                                             SendEmail = true,
                                             SendSMS = false,
                                             SMSState = Reminder.ReminderState.Active,

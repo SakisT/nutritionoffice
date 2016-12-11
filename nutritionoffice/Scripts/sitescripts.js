@@ -408,88 +408,38 @@ $(function () {
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay,listMonth'
             },
-            defaultDate: '2016-12-05',
+            defaultDate: '2016-12-11',
+            columnFormat:'ddd D/M',
             locale: initialLocaleCode,
             buttonIcons: false, // show the prev/next text
             weekNumbers: false,
+            nowIndicator: true,
+            timeFormat:'H:mm',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             eventLimit: true, // allow "more" link when too many events
-            
+            slotDuration: '00:10:00',//Event timespan
+            snapDuration: '00:10:00',
+            slotLabelInterval: '00:15:00',
+            displayEventEnd: false,
+            dayClick: function (date, jsevent, view) {
+                //debugger;
+            },
             events: link,
             eventMouseover: function (calEvent) {
-                //$(this).css('color', 'red');
                 //debugger;
             },
             eventClick: function (calEvent, jsEvent, view) {
-
-                alert('Event: ' + calEvent.title);
-
-                //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                //alert('View: ' + view.name);
-
-                //// change the border color just for fun
-                ////$(this).css('border-color', 'red');
-
+                //debugger;
+            },
+            eventResize:function(event, delta, revertFunc, jsEvent, ui, view) {
+                debugger;
+            },
+            eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
+                debugger;
             }
-            //events: [
-            //    {
-            //        title: 'All Day Event',
-            //        start: '2016-09-01'
-            //    },
-            //    {
-            //        title: 'Long Event',
-            //        start: '2016-09-07',
-            //        end: '2016-09-10'
-            //    },
-            //    {
-            //        id: 999,
-            //        title: 'Repeating Event',
-            //        start: '2016-09-09T16:00:00'
-            //    },
-            //    {
-            //        id: 999,
-            //        title: 'Repeating Event',
-            //        start: '2016-09-16T16:00:00'
-            //    },
-            //    {
-            //        title: 'Conference',
-            //        start: '2016-09-11',
-            //        end: '2016-09-13'
-            //    },
-            //    {
-            //        title: 'Meeting',
-            //        start: '2016-09-12T10:30:00',
-            //        end: '2016-09-12T12:30:00'
-            //    },
-            //    {
-            //        title: 'Lunch',
-            //        start: '2016-09-12T12:00:00'
-            //    },
-            //    {
-            //        title: 'Meeting',
-            //        start: '2016-09-12T14:30:00'
-            //    },
-            //    {
-            //        title: 'Happy Hour',
-            //        start: '2016-09-12T17:30:00'
-            //    },
-            //    {
-            //        title: 'Dinner',
-            //        start: '2016-09-12T20:00:00'
-            //    },
-            //    {
-            //        title: 'Birthday Party',
-            //        start: '2016-09-13T07:00:00'
-            //    },
-            //    {
-            //        title: 'Click for Google',
-            //        url: 'http://google.com/',
-            //        start: '2016-09-28'
-            //    }
-            //]
         });
-        // build the locale selector's options
+        //// build the locale selector's options
         //$.each($.fullCalendar.locales, function (localeCode) {
         //    $('#locale-selector').append(
         //        $('<option/>')
@@ -499,7 +449,7 @@ $(function () {
         //    );
         //});
 
-        // when the selected option changes, dynamically change the calendar option
+        //// when the selected option changes, dynamically change the calendar option
         //$('#locale-selector').on('change', function () {
         //    if (this.value) {
         //        $('#calendar').fullCalendar('option', 'locale', this.value);
