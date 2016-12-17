@@ -241,6 +241,15 @@ namespace nutritionoffice {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to at.
+        /// </summary>
+        public static string At {
+            get {
+                return ResourceManager.GetString("At", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attatchments.
         /// </summary>
         public static string Attatchments {

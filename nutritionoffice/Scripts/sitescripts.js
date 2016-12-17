@@ -424,7 +424,7 @@ $(function () {
                 right: 'month,agendaWeek,agendaDay,listMonth'
             },
             theme: true,
-            defaultDate: '2016-12-11',
+            defaultDate: '2016-12-17',
             columnFormat: 'ddd D/M',
             locale: initialLocaleCode,
             buttonIcons: false, // show the prev/next text

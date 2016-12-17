@@ -68,13 +68,15 @@
                 @Html.Hidden("appointments[" + Index + "].appointment.Date", item.appointment.Date)
                 @Html.Hidden("appointments[" + Index + "].appointment.Notes", item.appointment.Notes)
                 @Html.Hidden("appointments[" + Index + "].appointment.FromTime", item.appointment.FromTime)
+                @Html.Hidden("appointments[" + Index + "].appointment.FromTime_Hour", item.appointment.FromTime_Hour)
+                @Html.Hidden("appointments[" + Index + "].appointment.FromTime_Minutes", item.appointment.FromTime_Minutes)
                 @Html.Hidden("appointments[" + Index + "].appointment.CustomerID", item.appointment.CustomerID)
                 <tr>
                     <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].Cancel", item.Cancel, htmlAttributes: new { @class = "checkall" })</td>
                     <td>@Html.ActionLink(item.appointment.Customer.LastName, "Edit", "Appointments", new { id = item.appointment.id }, null)</td>
                     <td>@Html.DisplayFor(modelitem => item.appointment.Date)</td>
                     <td>@Html.DisplayFor(modelitem => item.appointment.Notes)</td>
-                    <td>@Html.DisplayFor(modelitem => item.appointment.FromTime)</td>
+                    <td>@Html.DisplayFor(modelitem =>string.Format($"{item.appointment.FromTime_Hour:00}:{item.appointment.FromTime_Minutes:00}"))</td>
                     <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].SendSMS", item.SendSMS, htmlAttributes: new { @class = "sendsmstoall" })</td>
                     <td style="text-align:center">@Html.CheckBox("appointments[" + Index + "].SendEmail", item.SendEmail, htmlAttributes: new { @class = "sendemailtoall" })</td>
                 </tr>

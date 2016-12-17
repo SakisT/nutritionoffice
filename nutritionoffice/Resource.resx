@@ -1380,4 +1380,7 @@
   <data name="ControlPanel" xml:space="preserve">
     <value>Customer Control Panel</value>
   </data>
+  <data name="At" xml:space="preserve">
+    <value>at</value>
+  </data>
 </root>

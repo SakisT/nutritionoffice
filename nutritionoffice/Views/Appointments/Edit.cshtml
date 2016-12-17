@@ -26,25 +26,36 @@
         <div class="form-group">
             @Html.LabelFor(model => model.appointment.Date, htmlAttributes: new { @class = "control-label col-md-2 " })
             <div class="col-md-2">
-                @*@Html.EditorFor(model => model.appointment.Date, "dd/MM/yyyy", new { htmlAttributes = new { @class = "form-control datepicker ", @id = "appointmentdate" } })*@
                 <input type="text" name="appointment.Date" id="appointmentdate" class="form-control datepicker" value="@Model.appointment.Date" style="background-color:#fcfbad" />
                 @Html.ValidationMessageFor(model => model.appointment.Date, "", new { @class = "text-danger" })
             </div>
+            <div class="col-md-8">
+                <label class="control-label" style="float:left">@Resource.From</label>
+                <div class="col-md-5">
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.FromTime_Hour", (SelectList)ViewBag.FromHours, null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                    <div style="float:left;padding-top:10px">
+                        :
+                    </div>
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.FromTime_Minutes", (SelectList)ViewBag.FromMinutes, null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label" style="float:left">@Resource.to</label>
+                <div class="col-md-5">
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.ToTime_Hour", (SelectList)ViewBag.ToHours, null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                    <div style="float:left;padding-top:10px">
+                        :
+                    </div>
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.ToTime_Minutes", (SelectList)ViewBag.ToMinutes, null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
 
-            <div class="col-md-2">
-                <div class="col-md-1">
-                    @Html.LabelFor(model => model.appointment.FromTime, htmlAttributes: new { @class = "control-label"})
-                </div>
-                @Html.EditorFor(model => model.appointment.FromTime, "H:mm", new { htmlAttributes = new { @class = "form-control datetimepicker timebox col-md-offset-2 col-md-1", @id = "fromtime" } })
-                @Html.ValidationMessageFor(model => model.appointment.FromTime, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-2">
-                <div class="col-md-1 text-left">
-                    @Html.LabelFor(model => model.appointment.ToTime, htmlAttributes: new { @class = "control-label" })
-                </div>
-                @Html.EditorFor(model => model.appointment.ToTime, "H:mm", new { htmlAttributes = new { @class = "form-control datetimepicker timebox col-md-offset-2 col-md-1", @id = "totime" } })
-                @Html.ValidationMessageFor(model => model.appointment.ToTime, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">

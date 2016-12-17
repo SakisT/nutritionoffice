@@ -521,9 +521,21 @@ namespace nutritionoffice.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime FromTime { get; set; }
 
+        [Range(minimum:0, maximum:23)]
+        public int? FromTime_Hour { get; set; }
+
+        [Range(minimum: 0, maximum: 59)]
+        public int? FromTime_Minutes { get; set; }
+
         [DataType(DataType.Time), Display(ResourceType = typeof(Resource), Name = "ToTime")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime ToTime { get; set; }
+
+        [Range(minimum: 0, maximum: 23)]
+        public int? ToTime_Hour { get; set; }
+
+        [Range(minimum: 0, maximum: 59)]
+        public int? ToTime_Minutes { get; set; }
 
         [Display(ResourceType = typeof(Resource), Name = "Remarks"), DataType(DataType.MultilineText)]
         public string Notes { get; set; }
@@ -558,6 +570,12 @@ namespace nutritionoffice.Models
 
         [Display(ResourceType = typeof(Resource), Name = "DateofReminder"), DisplayFormat(DataFormatString = "{0:d/M/yyyy H:mm}", ApplyFormatInEditMode = true)]
         public DateTime OnDate { get; set; }
+
+        [Range(minimum:0, maximum:23)]
+        public int? Time_Hour { get; set; }
+
+        [Range(minimum: 0, maximum: 59)]
+        public int?  Time_Minutes { get; set; }
 
         [StringLength(25), Display(ResourceType = typeof(Resource), Name = "MobilePhone")]
         public string Mobile { get; set; }

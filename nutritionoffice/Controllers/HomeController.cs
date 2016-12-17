@@ -24,38 +24,6 @@ namespace nutritionoffice.Controllers
 
         public async Task<ActionResult> Index(int appointmentsdateoffset = 0)
         {
-
-            //EnvironmentVariableTarget target = (System.Diagnostics.Debugger.IsAttached) ? EnvironmentVariableTarget.User : EnvironmentVariableTarget.Process;
-
-            //string apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY", target);
-
-            //dynamic sg = new SendGridAPIClient(apiKey);
-
-            //Email from = new Email("Nutrition Office <tsolos_sakis@yahoo.gr>");
-            //string subject = "Hello World from the SendGrid CSharp Library!";
-            //Email to = new Email("Windows Live email <sakis.tsolos@live.com>");
-
-            //Content content = new Content("text/plain", "Hello, Email!");
-            //Mail mail = new Mail(from, subject, to, content);
-
-            //dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
-
-            //var chart = new Chart(width: 1000, height: 400, theme: ChartTheme.Vanilla3D);
-            //chart.SetXAxis("Ηλικία", min: 0, max: 19);
-            //chart.SetYAxis("BMI", min: 13, max: 19);
-            //chart.AddSeries(
-            //    name: "Men-Women", markerStep: 10,
-            //    chartType: "Pie",
-            //    xValue: new[] { "10","20"},
-            //    yValues: new[] {"30","40" });
-            //var bytes = chart.GetBytes("png");
-            //ViewBag.PieData = Convert.ToBase64String(bytes);
-
-            //var chart = new Chart(width: 50, height: 50, theme: ChartTheme.Vanilla3D);
-            //chart.AddTitle(text: "Men-Women");
-            //chart.AddSeries()
-
-
             DateTime AppointmentsDate = DateTime.Today.AddDays(appointmentsdateoffset);
             DashData Dash = new DashData();
             ViewData["appointmentsdateoffset"] = appointmentsdateoffset;
@@ -72,7 +40,7 @@ namespace nutritionoffice.Controllers
                     }
 
                     List<Customer> CompanyCustomers = db.Customers.Include("Reminders").Where(r => r.CompanyID == companyid).ToList();
-                    Dash.Appointments = (from p in db.Appointments.OrderBy(r => r.FromTime).Where(r => r.Customer.CompanyID == companyid && r.Date == AppointmentsDate)
+                    Dash.Appointments = (from p in db.Appointments.OrderBy(r => r.Date).ThenBy(r=>r.FromTime_Hour).ThenBy(r=>r.FromTime_Minutes).Where(r => r.Customer.CompanyID == companyid && r.Date == AppointmentsDate)
                                          select
 new DashData.AppointmentsView
 {

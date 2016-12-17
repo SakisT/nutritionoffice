@@ -81,11 +81,19 @@ namespace nutritionoffice.Controllers
             {
                 return new HttpNotFoundResult();
             }
+            
             appointment.Date = appointment.Date.AddYears(years).AddMonths(months).AddDays(days);
-            var initFromTime = appointment.FromTime.AddHours(starthours).AddMinutes(startminutes);
-            var initToTime = appointment.ToTime.AddHours(endhours).AddMinutes(endminutes);
-            appointment.FromTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initFromTime.Hour, initFromTime.Minute, 0);
-            appointment.ToTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initToTime.Hour, initToTime.Minute, 0);
+            DateTime fromdt = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, appointment.FromTime_Hour.GetValueOrDefault(0), appointment.FromTime_Minutes.GetValueOrDefault(0),0);
+            DateTime todt = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, appointment.ToTime_Hour.GetValueOrDefault(0), appointment.ToTime_Minutes.GetValueOrDefault(0), 0);
+
+            var initFromTime = fromdt.AddHours(starthours).AddMinutes(startminutes);
+            var initToTime = todt.AddHours(endhours).AddMinutes(endminutes);
+            //appointment.FromTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initFromTime.Hour, initFromTime.Minute, 0);
+            appointment.FromTime_Hour = initFromTime.Hour;
+            appointment.FromTime_Minutes = initFromTime.Minute;
+            //appointment.ToTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initToTime.Hour, initToTime.Minute, 0);
+            appointment.ToTime_Hour = initToTime.Hour;
+            appointment.ToTime_Minutes = initToTime.Minute;
             db.Entry(appointment).State = EntityState.Modified;
             await db.SaveChangesAsync();
             return Json(new { result = "Success" }, behavior: JsonRequestBehavior.AllowGet);
@@ -125,14 +133,16 @@ namespace nutritionoffice.Controllers
                 //Αν έρθει χωρίς ημερομηνία, βάζουμε την σημερινή.
                 if (!date.HasValue) { date = DateTime.Today; }
 
-                DateTime todate = date.Value.AddDays(6);
+                DateTime fromdate = new DateTime(date.Value.Year, date.Value.Month, 1);
 
-                List<Appointment> appointments = await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime).Where(r => r.Date >= date && r.Date <= todate).ToListAsync();
+                DateTime todate = fromdate.AddMonths(1).AddDays(-1);
+
+                List<Appointment> appointments = await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime_Hour).ThenBy(r=>r.FromTime_Minutes).Where(r => r.Date >= fromdate && r.Date <= todate).ToListAsync();
 
                 //var returnvalue = (from p in appointments select new {title=p.Customer?.FullName??"", start=p.Date.ToString("O") });
                 var returnvalue = (from p in appointments
-                                   let startdt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.FromTime.Hour, p.FromTime.Minute, p.FromTime.Second)
-                                   let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime.Hour, p.ToTime.Minute, p.ToTime.Second)
+                                   let startdt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.FromTime_Hour.GetValueOrDefault(0), p.FromTime_Minutes.GetValueOrDefault(0),0)
+                                   let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime_Hour.GetValueOrDefault(0), p.ToTime_Minutes.GetValueOrDefault(0),0)
                                    select new
                                    {
                                        id = p.id,
@@ -172,8 +182,10 @@ namespace nutritionoffice.Controllers
                 appointment = new Appointment
                 {
                     Date = datetime.Value,
-                    FromTime = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0),
-                    ToTime = new DateTime(d.Year, d.Month, d.Day, 16, 40, 0),
+                    FromTime_Hour =16,
+                    FromTime_Minutes=0,
+                    ToTime_Hour = 16,
+                    ToTime_Minutes=40,
                     State = Appointment.AppointmentState.Active
                 };
 
@@ -226,8 +238,10 @@ namespace nutritionoffice.Controllers
                 Appointment appointment = new Appointment
                 {
                     Date = datetime.Value,
-                    FromTime = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0),
-                    ToTime = new DateTime(d.Year, d.Month, d.Day, 16, 40, 0),
+                    FromTime_Hour =16,
+                    FromTime_Minutes=0,
+                    ToTime_Hour =16,
+                    ToTime_Minutes=40,
                     State = Appointment.AppointmentState.Active
                 };
 
@@ -258,6 +272,12 @@ namespace nutritionoffice.Controllers
                     SendSMS = false
                 };
 
+                ViewBag.FromHours =new SelectList( Enumerable.Range(0, 24).Select(r=>r.ToString("00")).AsEnumerable(),"16");
+                ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), "00");
+
+                ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), "16");
+                ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), "20");
+
                 return View(new appointmentreminder() { appointment = appointment, reminder = reminder });
             }
             catch (Exception ex)
@@ -281,13 +301,20 @@ namespace nutritionoffice.Controllers
                     try
                     {
                         DateTime d = appointmentreminder.appointment.Date;
-                        appointmentreminder.appointment.FromTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.FromTime.Hour, appointmentreminder.appointment.FromTime.Minute, 0);
-                        appointmentreminder.appointment.ToTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.ToTime.Hour, appointmentreminder.appointment.ToTime.Minute, 0);
-                        if ((appointmentreminder.appointment.FromTime - appointmentreminder.appointment.ToTime).TotalMinutes > 1)
+                        appointmentreminder.appointment.FromTime_Hour = appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0);
+                        appointmentreminder.appointment.FromTime_Minutes = appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0);
+                        appointmentreminder.appointment.ToTime_Hour = appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0);
+                        appointmentreminder.appointment.ToTime_Minutes = appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0);
+
+                        var fromdt = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0), appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0), 0);
+                        var todt = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0), appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0), 0);
+                        if ((fromdt - todt).TotalMinutes > 1)
                         {
                             ModelState.AddModelError(string.Empty, "Η ώρα τέλους του ραντεβού πρέπει να είναι μεταγενέστερη της ώρας έναρξης του!");
                             throw new Exception("Η ώρα αρχής δεν μπορεί να είναι μεταγενέστερη της ώρας τέλους");
                         }
+                        appointmentreminder.appointment.FromTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.FromTime_Hour.Value, appointmentreminder.appointment.FromTime_Minutes.Value, 0);
+                        appointmentreminder.appointment.ToTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.ToTime_Hour.Value, appointmentreminder.appointment.ToTime_Minutes.Value, 0);
                         db.Appointments.Add(appointmentreminder.appointment);
                         appointmentreminder.reminder.Appointment = appointmentreminder.appointment;
                         appointmentreminder.reminder.CustomerID = appointmentreminder.appointment.CustomerID;
@@ -335,6 +362,12 @@ namespace nutritionoffice.Controllers
 
                 ViewBag.CustomerName = string.Format($"{customer.LastName} {customer.FirstName}");
 
+                ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Hour.GetValueOrDefault(16).ToString("00"));
+                ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
+
+                ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Hour.GetValueOrDefault(16).ToString("00"));
+                ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Minutes.GetValueOrDefault(20).ToString("00"));
+
                 appointmentreminder appreminder = new appointmentreminder { appointment = appointment, reminder = reminder };
                 return View(appreminder);
             }
@@ -359,9 +392,13 @@ namespace nutritionoffice.Controllers
                     DateTime d = appointmentreminder.appointment.Date;
                     try
                     {
-                        appointmentreminder.appointment.FromTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.FromTime.Hour, appointmentreminder.appointment.FromTime.Minute, 0);
-                        appointmentreminder.appointment.ToTime = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.ToTime.Hour, appointmentreminder.appointment.ToTime.Minute, 0);
-                        if ((appointmentreminder.appointment.FromTime - appointmentreminder.appointment.ToTime).TotalMinutes > 1)
+                        appointmentreminder.appointment.FromTime_Hour = appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0);
+                        appointmentreminder.appointment.FromTime_Minutes = appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0);
+                        appointmentreminder.appointment.ToTime_Hour = appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0);
+                        appointmentreminder.appointment.ToTime_Minutes = appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0);
+                        var fromdt = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0), appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0), 0);
+                        var todt = new DateTime(d.Year, d.Month, d.Day, appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0), appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0), 0);
+                        if ((fromdt - todt).TotalMinutes > 1)
                         {
                             ModelState.AddModelError(string.Empty, "Η ώρα τέλους του ραντεβού πρέπει να είναι μεταγενέστερη της ώρας έναρξης του!");
                             throw new Exception("Η ώρα αρχής δεν μπορεί να είναι μεταγενέστερη της ώρας τέλους");
