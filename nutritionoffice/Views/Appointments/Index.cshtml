@@ -25,7 +25,11 @@
     </div>
 </div>
 
-<div id="calendar" data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")" data-updateappointmentlink="@Url.Action("UpdateAppointment")", data-editappointmentlink="@Url.Action("EditAppointment")"></div>
+<div id="calendar" 
+     data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")" 
+     data-updateappointmentlink="@Url.Action("UpdateAppointment")"
+     data-editappointmentlink="@Url.Action("EditAppointment")"
+     ></div>
 
 @section Scripts{
     <script src="~/Scripts/moment.js"></script>

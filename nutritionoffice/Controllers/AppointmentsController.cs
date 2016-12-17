@@ -74,11 +74,12 @@ namespace nutritionoffice.Controllers
         //}
 
         [HttpPost]
-        public async Task< ActionResult> UpdateAppointment(int id, int years, int months, int days, int starthours, int startminutes, int endhours, int endminutes) {
-                        Appointment appointment =await db.Appointments.FindAsync(id);
+        public async Task<ActionResult> UpdateAppointment(int id, int years, int months, int days, int starthours, int startminutes, int endhours, int endminutes)
+        {
+            Appointment appointment = await db.Appointments.FindAsync(id);
             if (appointment == null)
             {
-                return new HttpNotFoundResult(); 
+                return new HttpNotFoundResult();
             }
             appointment.Date = appointment.Date.AddYears(years).AddMonths(months).AddDays(days);
             var initFromTime = appointment.FromTime.AddHours(starthours).AddMinutes(startminutes);
@@ -87,7 +88,7 @@ namespace nutritionoffice.Controllers
             appointment.ToTime = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, initToTime.Hour, initToTime.Minute, 0);
             db.Entry(appointment).State = EntityState.Modified;
             await db.SaveChangesAsync();
-            return Json(new {result="Success" },behavior:JsonRequestBehavior.AllowGet);
+            return Json(new { result = "Success" }, behavior: JsonRequestBehavior.AllowGet);
         }
 
         // GET: Appointments/Details/5
@@ -134,7 +135,7 @@ namespace nutritionoffice.Controllers
                                    let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime.Hour, p.ToTime.Minute, p.ToTime.Second)
                                    select new
                                    {
-                                       id=p.id,
+                                       id = p.id,
                                        title = p.Customer?.FullName ?? "",
                                        start = startdt.ToString("O"),
                                        end = enddt.ToString("O")
@@ -151,21 +152,62 @@ namespace nutritionoffice.Controllers
 
         }
 
-        public async Task< PartialViewResult> EditAppointment(int id)
+        public async Task<PartialViewResult> EditAppointment(int id, DateTime? datetime)
         {
-            Appointment appointment =await db.Appointments.FindAsync(id);
-            ViewBag.CustomerID = new SelectList(db.Customers.Where(r => r.CompanyID == appointment.Customer.CompanyID), "id", "FullName", appointment.CustomerID);
-            return PartialView(appointment);
+            int CompID = CompanyID();
+            if (!datetime.HasValue) { datetime = DateTime.Today; }
+            if (datetime.Value.DayOfWeek == DayOfWeek.Sunday) { datetime = datetime.Value.AddDays(1); }
+            IQueryable<Customer> customerslist = db.Customers.OrderBy(r => r.LastName).ThenBy(r => r.FirstName).Where(r => r.CompanyID == CompID);
+            
+            DateTime d = datetime.Value.Date;
+
+            ViewBag.FromTime = from p in Enumerable.Range(0, 23) from t in Enumerable.Range(0, 59).Where(r=>(r%5)==0) let text = p.ToString("00") + ":" + t.ToString("00") select text;
+
+            Appointment appointment = await db.Appointments.FindAsync(id); ;
+
+            Reminder reminder;
+
+            if (appointment == null)
+            {
+                appointment = new Appointment
+                {
+                    Date = datetime.Value,
+                    FromTime = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0),
+                    ToTime = new DateTime(d.Year, d.Month, d.Day, 16, 40, 0),
+                    State = Appointment.AppointmentState.Active
+                };
+
+                DateTime reminderdate = datetime.Value.AddDays(-2).Date;
+
+                reminder = new Reminder()
+                {
+                    CustomerID = appointment.CustomerID,
+                    OnDate = new DateTime(reminderdate.Year,reminderdate.Month, reminderdate.Day, 11, 30, 0),
+                    Message = "Σας υπενθυμίζουμε το ραντεβού μας για.....",
+                    MailState = Reminder.ReminderState.Active,
+                    SendEmail = true,
+                    SendSMS = false
+                };
+            }
+            else
+            {
+                reminder = await db.Reminders.FindAsync(appointment.id);
+            }
+
+            ViewBag.CustomerID = new SelectList(customerslist, "id", "FullName", appointment.CustomerID);
+
+            return PartialView(new appointmentreminder() { appointment = appointment, reminder = reminder });
         }
 
         [HttpPost]
         [ActionName("EditAppointment")]
-        public async Task<ActionResult> EditAppointmentPost(int id)
+        public async Task<ActionResult> EditAppointmentPost(appointmentreminder appointmentreminder)
         {
-            var appointmenttoupadate = await db.Appointments.FindAsync(id);
-            if (TryUpdateModel(appointmenttoupadate, "", new string[] { "CustomerID" })){
-                await db.SaveChangesAsync();
-            }
+            //var appointmenttoupadate = await db.Appointments.FindAsync(id);
+            //if (TryUpdateModel(appointmenttoupadate, "", new string[] { "CustomerID" }))
+            //{
+             //await db.SaveChangesAsync();
+            //}
             return View("Index");
         }
 

@@ -361,6 +361,7 @@
             }
         });
     });
+
 });
 
 $(document).on('keyup', '.numbertextbox', function () {
@@ -403,11 +404,26 @@ $(function () {
     var link = $('#calendar').data('indexlink');
     if (link != undefined) {
         $('#calendar').fullCalendar({
+            customButtons: {
+                neweventbutton: {
+                    text: 'New',
+                    click: function () {
+                        var iew = $('#calendar').fullCalendar('getView');
+                        var editlink = $('#calendar').data('editappointmentlink') + '?id=0';
+                        $('#modalformcontent').load(editlink, function () {
+                            $('#appointmentdatepicker').datepicker();
+                            $('#reminderdatepicker').datepicker();
+                            $("#myModal").modal();
+                        });
+                    }
+                }
+            },
             header: {
                 left: 'prev,next today',
-                center: 'title',
+                center: 'neweventbutton title',
                 right: 'month,agendaWeek,agendaDay,listMonth'
             },
+            theme: true,
             defaultDate: '2016-12-11',
             columnFormat: 'ddd D/M',
             locale: initialLocaleCode,
@@ -503,6 +519,13 @@ $(function () {
         //    }
         //});
     }
+    //$('#helpbutton').click(function (e) {
+    //    //e.preventDefault();
+    //    //var noTime = $.fullCalendar.moment('2014-05-01');
+    //    //$('#calendar').fullCalendar('gotoDate', noTime);
+    //    var test = $('#calendar').fullCalendar('getView');
+    //    alert("The view's title is " + test.name);
+    //});
 });
 
 $(function () {

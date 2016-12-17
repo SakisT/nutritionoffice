@@ -526,6 +526,7 @@ C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\bin\ko\System.Spatia
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\bin\ru\System.Spatial.resources.dll
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.csprojResolveAssemblyReference.cache
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.Migrations.InitialCreate.resources
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.Properties.Resources.resources
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.Resource.resources
