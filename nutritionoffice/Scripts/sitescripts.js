@@ -295,7 +295,6 @@
             }
         })
     });
-
     $('#sendbasicquestlinktocustomer').on('click', function () {
         var customerid = $('#sendcustomerbasiquestlink').data('customerid');
         var mailmessagebodytext = $('#mailmessagebasicquestbodytext p').html();
@@ -362,6 +361,8 @@
         });
     });
 
+
+
 });
 
 $(document).on('keyup', '.numbertextbox', function () {
@@ -408,15 +409,12 @@ $(function () {
                 neweventbutton: {
                     text: 'New',
                     click: function () {
-                        var iew = $('#calendar').fullCalendar('getView');
-                        var editlink = $('#calendar').data('editappointmentlink') + '?id=0';
-                        $('#modalformcontent').load(editlink, function () {
-                            $('#appointmentdatepicker').datepicker($.datepicker.regional["el"]);
-                            $('#appointmentdatepicker').datepicker("option", "dateFormat", "d/m/yy");
-                            $('#reminderdatepicker').datepicker($.datepicker.regional["el"]);
-                            $('#reminderdatepicker').datepicker("option", "dateFormat", "d/m/yy");
-                            $("#myModal").modal();
-                        });
+                        var createlink = $('#calendar').data('createappointmentlink');
+                        var view = $('#calendar').fullCalendar('getView');
+                        if (view.name === "agendaDay") {
+                            createlink = createlink + "?datetime=" + $('#calendar').fullCalendar('getDate').format();
+                        }
+                        window.location = createlink;
                     }
                 }
             },
@@ -429,11 +427,22 @@ $(function () {
                 start: '10:00', // a start time (10am in this example)
                 end: '22:00', // an end time (6pm in this example)
             },
-            scrollTime:'09:00:00',
+            scrollTime: '09:00:00',
             defaultView: 'agendaWeek',
             theme: true,
-            defaultDate: '2016-12-17',
-            columnFormat: 'ddd D/M',
+            views: {
+                month: {
+                    columnFormat: 'dddd'
+                },
+                agendaWeek: {
+                    columnFormat: 'ddd D/M',
+                },
+                agendaDay: {
+                    columnFormat: 'dddd D MMMM YYYY',
+                }
+            },
+            defaultDate: $('#calendar').data('startdate'),
+            //columnFormat: 'dddd',
             locale: initialLocaleCode,
             buttonIcons: false, // show the prev/next text
             weekNumbers: false,
@@ -446,23 +455,28 @@ $(function () {
             snapDuration: '00:10:00',
             slotLabelInterval: '00:15:00',
             displayEventEnd: false,
+            //viewRender: function (view, element) {
+            //    //RefreshAppointments();
+            //},
             dayClick: function (date, jsevent, view) {
                 //debugger;
             },
-            events: link,
-            eventMouseover: function (calEvent) {
-                //debugger;
-            },
+            //events:link,
+            events: function (start, end, timezone, callback) {
+                var noTime = $('#calendar').fullCalendar('getDate').format();
+                $.ajax({
+                    url: link,
+                    data: { date: noTime },
+                    success: function(doc) {
+                        callback(doc);
+                    }
+                })},
+            //eventMouseover: function (calEvent) {
+            //    //debugger;
+            //},
             eventClick: function (calEvent, jsEvent, view) {
                 var editlink = $('#calendar').data('editappointmentlink') + '?id=' + calEvent.id;
-                $('#modalformcontent').load(editlink, function () {
-                    $('#appointmentdatepicker').datepicker($.datepicker.regional["el"]);
-                    $('#appointmentdatepicker').datepicker("option", "dateFormat", "d/m/yy");
-                    $('#reminderdatepicker').datepicker($.datepicker.regional["el"]);
-                    $('#reminderdatepicker').datepicker("option", "dateFormat", "d/m/yy");
-                    $("#myModal").modal();
-                });
-
+                window.location = editlink;
             },
             eventResize: function (event, delta, revertFunc, jsEvent, ui, view) {
                 var updatelink = $('#calendar').data('updateappointmentlink');
@@ -499,10 +513,10 @@ $(function () {
                         years: delta._data.years,
                         months: delta._data.months,
                         days: delta._data.days,
-                        starthours: 0,
-                        startminutes: 0,
-                        endhours: delta._data.hours,
-                        endminutes: delta._data.minutes
+                        starthours: delta._data.hours,
+                        startminutes: delta._data.minutes,
+                        endhours: 0,
+                        endminutes: 0
                     },
                     error: function (data, status) {
                         alert(status.toString());
@@ -529,14 +543,26 @@ $(function () {
                 $('#calendar').fullCalendar('option', 'locale', this.value);
             }
         });
+
+
     }
-    //$('#helpbutton').click(function (e) {
-    //    //e.preventDefault();
-    //    //var noTime = $.fullCalendar.moment('2014-05-01');
-    //    //$('#calendar').fullCalendar('gotoDate', noTime);
-    //    var test = $('#calendar').fullCalendar('getView');
-    //    alert("The view's title is " + test.name);
-    //});
+
+    $('.fc-prev-button').click(function (e) {
+        //var link = $('#calendar').data('indexlink');
+        //var date = $('#calendar').fullCalendar('getDate').format();
+        //var templink = link + '?datetext=' + date;
+        //$('#calendar').fullCalendar('option','events',templink);
+        //$('#calendar').fullCalendar('rerenderEvents');
+        //$('#calendar').fullCalendar('refetchEvents');
+    });
+
+    $('.fc-next-button').click(function (e) {
+        //var date = $('#calendar').fullCalendar('getDate').format();
+        //$('#calendar').fullCalendar({ events: link + '?date=' + date });
+    });
+    
+
+
 });
 
 $(function () {
@@ -964,4 +990,3 @@ function CreateBMIChart() {
         }
     });
 }
-

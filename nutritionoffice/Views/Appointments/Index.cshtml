@@ -4,27 +4,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">@Resource.EditAppointment</h4>
-                </div>
-                <div class="modal-body" id="modalformcontent" style="zoom:0.85"></div>
-                @*<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>*@
-            </div>
-
-        </div>
-    </div>
-
 
 <div id="calendar" 
      data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")" 
      data-updateappointmentlink="@Url.Action("UpdateAppointment")"
-     data-editappointmentlink="@Url.Action("EditAppointment")"
+     data-editappointmentlink="@Url.Action("Edit")"
+     data-createappointmentlink="@Url.Action("Create")"
+     data-startdate="@ViewBag.StartDate"
      ></div>
 
 @section Scripts{

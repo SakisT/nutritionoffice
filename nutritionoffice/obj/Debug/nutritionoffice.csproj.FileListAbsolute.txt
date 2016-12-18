@@ -536,4 +536,3 @@ C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\RdlCompile
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\el-GR\nutritionoffice.resources.dll
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.dll
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.pdb
-C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Debug\nutritionoffice.csprojResolveAssemblyReference.cache

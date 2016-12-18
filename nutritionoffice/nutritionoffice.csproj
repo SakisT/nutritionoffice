@@ -760,7 +760,6 @@
     <Content Include="Views\Customers\EditBasicQuestionnaires.cshtml" />
     <Content Include="Views\BasicQuestionnaires\EditByCustomer.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
-    <Content Include="Views\Appointments\EditAppointment.cshtml" />
     <None Include="Web References\SMService\sms.wsdl" />
   </ItemGroup>
   <ItemGroup>

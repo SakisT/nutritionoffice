@@ -19,6 +19,8 @@ namespace nutritionoffice.Controllers
         // GET: Appointments
         public ActionResult Index(DateTime? date)
         {
+            ViewBag.StartDate = DateTime.Today.ToString("yyyy-MM-dd");
+            if (date.HasValue) { ViewBag.StartDate = date.Value.ToString("yyyy-MM-dd"); }
             return View();
         }
 
@@ -81,9 +83,9 @@ namespace nutritionoffice.Controllers
             {
                 return new HttpNotFoundResult();
             }
-            
+
             appointment.Date = appointment.Date.AddYears(years).AddMonths(months).AddDays(days);
-            DateTime fromdt = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, appointment.FromTime_Hour.GetValueOrDefault(0), appointment.FromTime_Minutes.GetValueOrDefault(0),0);
+            DateTime fromdt = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, appointment.FromTime_Hour.GetValueOrDefault(0), appointment.FromTime_Minutes.GetValueOrDefault(0), 0);
             DateTime todt = new DateTime(appointment.Date.Year, appointment.Date.Month, appointment.Date.Day, appointment.ToTime_Hour.GetValueOrDefault(0), appointment.ToTime_Minutes.GetValueOrDefault(0), 0);
 
             var initFromTime = fromdt.AddHours(starthours).AddMinutes(startminutes);
@@ -124,9 +126,8 @@ namespace nutritionoffice.Controllers
         }
 
         [HttpGet]
-        public async Task<JsonResult> GetAppointmentsByDate(DateTime? date)
+        public async Task<JsonResult> GetAppointmentsByDate(string datetext,DateTime? date)
         {
-
             try
             {
                 int CompID = CompanyID();
@@ -137,12 +138,12 @@ namespace nutritionoffice.Controllers
 
                 DateTime todate = fromdate.AddMonths(1).AddDays(-1);
 
-                List<Appointment> appointments = await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime_Hour).ThenBy(r=>r.FromTime_Minutes).Where(r => r.Date >= fromdate && r.Date <= todate).ToListAsync();
+                List<Appointment> appointments = await db.Appointments.Include(a => a.Customer).Where(r => r.Customer.CompanyID == CompID).OrderByDescending(r => r.Date).ThenBy(r => r.FromTime_Hour).ThenBy(r => r.FromTime_Minutes).Where(r => r.Date >= fromdate && r.Date <= todate).ToListAsync();
 
                 //var returnvalue = (from p in appointments select new {title=p.Customer?.FullName??"", start=p.Date.ToString("O") });
                 var returnvalue = (from p in appointments
-                                   let startdt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.FromTime_Hour.GetValueOrDefault(0), p.FromTime_Minutes.GetValueOrDefault(0),0)
-                                   let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime_Hour.GetValueOrDefault(0), p.ToTime_Minutes.GetValueOrDefault(0),0)
+                                   let startdt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.FromTime_Hour.GetValueOrDefault(0), p.FromTime_Minutes.GetValueOrDefault(0), 0)
+                                   let enddt = new DateTime(p.Date.Year, p.Date.Month, p.Date.Day, p.ToTime_Hour.GetValueOrDefault(0), p.ToTime_Minutes.GetValueOrDefault(0), 0)
                                    select new
                                    {
                                        id = p.id,
@@ -162,71 +163,6 @@ namespace nutritionoffice.Controllers
 
         }
 
-        public async Task<PartialViewResult> EditAppointment(int id, DateTime? datetime)
-        {
-            int CompID = CompanyID();
-            if (!datetime.HasValue) { datetime = DateTime.Today; }
-            if (datetime.Value.DayOfWeek == DayOfWeek.Sunday) { datetime = datetime.Value.AddDays(1); }
-            IQueryable<Customer> customerslist = db.Customers.OrderBy(r => r.LastName).ThenBy(r => r.FirstName).Where(r => r.CompanyID == CompID);
-            
-            DateTime d = datetime.Value.Date;
-
-            ViewBag.FromTime = from p in Enumerable.Range(0, 23) from t in Enumerable.Range(0, 59).Where(r=>(r%5)==0) let text = p.ToString("00") + ":" + t.ToString("00") select text;
-
-            Appointment appointment = await db.Appointments.FindAsync(id); ;
-
-            Reminder reminder;
-
-            if (appointment == null)
-            {
-                appointment = new Appointment
-                {
-                    Date = datetime.Value,
-                    FromTime_Hour =16,
-                    FromTime_Minutes=0,
-                    ToTime_Hour = 16,
-                    ToTime_Minutes=40,
-                    State = Appointment.AppointmentState.Active
-                };
-
-                DateTime reminderdate = datetime.Value.AddDays(-2).Date;
-
-                reminder = new Reminder()
-                {
-                    CustomerID = appointment.CustomerID,
-                    OnDate = new DateTime(reminderdate.Year,reminderdate.Month, reminderdate.Day, 11, 30, 0),
-                    Message = "Σας υπενθυμίζουμε το ραντεβού μας για.....",
-                    MailState = Reminder.ReminderState.Active,
-                    SendEmail = true,
-                    SendSMS = false
-                };
-            }
-            else
-            {
-                reminder = await db.Reminders.FindAsync(appointment.id);
-            }
-            ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Hour.GetValueOrDefault(16).ToString("00"));
-            ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
-
-            ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Hour.GetValueOrDefault(16).ToString("00"));
-            ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Minutes.GetValueOrDefault(20).ToString("00"));
-            ViewBag.CustomerID = new SelectList(customerslist, "id", "FullName", appointment.CustomerID);
-            ViewBag.CustomerName = appointment.Customer.FullName;
-            return PartialView(new appointmentreminder() { appointment = appointment, reminder = reminder });
-        }
-
-        [HttpPost]
-        [ActionName("EditAppointment")]
-        public async Task<ActionResult> EditAppointmentPost(appointmentreminder appointmentreminder)
-        {
-            //var appointmenttoupadate = await db.Appointments.FindAsync(id);
-            //if (TryUpdateModel(appointmenttoupadate, "", new string[] { "CustomerID" }))
-            //{
-             //await db.SaveChangesAsync();
-            //}
-            return View("Index");
-        }
-
         // GET: Appointments/Create
         public ActionResult Create(int? CustomerID, DateTime? datetime)
         {
@@ -242,10 +178,10 @@ namespace nutritionoffice.Controllers
                 Appointment appointment = new Appointment
                 {
                     Date = datetime.Value,
-                    FromTime_Hour =16,
-                    FromTime_Minutes=0,
-                    ToTime_Hour =16,
-                    ToTime_Minutes=40,
+                    FromTime_Hour = 16,
+                    FromTime_Minutes = 0,
+                    ToTime_Hour = 16,
+                    ToTime_Minutes = 40,
                     State = Appointment.AppointmentState.Active
                 };
 
@@ -276,7 +212,7 @@ namespace nutritionoffice.Controllers
                     SendSMS = false
                 };
 
-                ViewBag.FromHours =new SelectList( Enumerable.Range(0, 24).Select(r=>r.ToString("00")).AsEnumerable(),"16");
+                ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), "16");
                 ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), "00");
 
                 ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), "16");
@@ -331,11 +267,23 @@ namespace nutritionoffice.Controllers
                     {
                         Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "AppointmentsController", "Create (POST)"));
                         ViewBag.CustomerID = new SelectList(db.Customers, "id", "LastName", appointmentreminder.appointment.CustomerID);
+
+                        ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0).ToString("00"));
+                        ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
+
+                        ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0).ToString("00"));
+                        ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0).ToString("00"));
+
                         return View(appointmentreminder);
                     }
                 }
 
                 ViewBag.CustomerID = new SelectList(db.Customers, "id", "LastName", appointmentreminder.appointment.CustomerID);
+                ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(0).ToString("00"));
+                ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
+
+                ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(0).ToString("00"));
+                ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(0).ToString("00"));
                 return View(appointmentreminder);
             }
             catch (Exception ex)
@@ -407,6 +355,8 @@ namespace nutritionoffice.Controllers
                             ModelState.AddModelError(string.Empty, "Η ώρα τέλους του ραντεβού πρέπει να είναι μεταγενέστερη της ώρας έναρξης του!");
                             throw new Exception("Η ώρα αρχής δεν μπορεί να είναι μεταγενέστερη της ώρας τέλους");
                         }
+                        appointmentreminder.appointment.FromTime = fromdt;
+                        appointmentreminder.appointment.ToTime = todt;
                     }
                     catch (Exception ex)
                     {
@@ -417,6 +367,11 @@ namespace nutritionoffice.Controllers
                     await db.SaveChangesAsync();
                     return RedirectToAction("Index", new { date = d });// RedirectToAction("Details", "Customers", new { id = appointment.CustomerID });
                 }
+                ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Hour.GetValueOrDefault(16).ToString("00"));
+                ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
+
+                ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Hour.GetValueOrDefault(16).ToString("00"));
+                ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointmentreminder.appointment.ToTime_Minutes.GetValueOrDefault(20).ToString("00"));
 
                 return View(appointmentreminder);
             }
