@@ -205,9 +205,13 @@ namespace nutritionoffice.Controllers
             {
                 reminder = await db.Reminders.FindAsync(appointment.id);
             }
+            ViewBag.FromHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Hour.GetValueOrDefault(16).ToString("00"));
+            ViewBag.FromMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.FromTime_Minutes.GetValueOrDefault(0).ToString("00"));
 
+            ViewBag.ToHours = new SelectList(Enumerable.Range(0, 24).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Hour.GetValueOrDefault(16).ToString("00"));
+            ViewBag.ToMinutes = new SelectList(Enumerable.Range(0, 59).Where(r => (r % 5) == 0).Select(r => r.ToString("00")).AsEnumerable(), appointment.ToTime_Minutes.GetValueOrDefault(20).ToString("00"));
             ViewBag.CustomerID = new SelectList(customerslist, "id", "FullName", appointment.CustomerID);
-
+            ViewBag.CustomerName = appointment.Customer.FullName;
             return PartialView(new appointmentreminder() { appointment = appointment, reminder = reminder });
         }
 

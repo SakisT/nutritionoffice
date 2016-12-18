@@ -411,8 +411,10 @@ $(function () {
                         var iew = $('#calendar').fullCalendar('getView');
                         var editlink = $('#calendar').data('editappointmentlink') + '?id=0';
                         $('#modalformcontent').load(editlink, function () {
-                            $('#appointmentdatepicker').datepicker();
-                            $('#reminderdatepicker').datepicker();
+                            $('#appointmentdatepicker').datepicker($.datepicker.regional["el"]);
+                            $('#appointmentdatepicker').datepicker("option", "dateFormat", "d/m/yy");
+                            $('#reminderdatepicker').datepicker($.datepicker.regional["el"]);
+                            $('#reminderdatepicker').datepicker("option", "dateFormat", "d/m/yy");
                             $("#myModal").modal();
                         });
                     }
@@ -423,6 +425,12 @@ $(function () {
                 center: 'neweventbutton title',
                 right: 'month,agendaWeek,agendaDay,listMonth'
             },
+            businessHours: {
+                start: '10:00', // a start time (10am in this example)
+                end: '22:00', // an end time (6pm in this example)
+            },
+            scrollTime:'09:00:00',
+            defaultView: 'agendaWeek',
             theme: true,
             defaultDate: '2016-12-17',
             columnFormat: 'ddd D/M',
@@ -448,7 +456,10 @@ $(function () {
             eventClick: function (calEvent, jsEvent, view) {
                 var editlink = $('#calendar').data('editappointmentlink') + '?id=' + calEvent.id;
                 $('#modalformcontent').load(editlink, function () {
-                    $('#appointmentdatepicker').datepicker();
+                    $('#appointmentdatepicker').datepicker($.datepicker.regional["el"]);
+                    $('#appointmentdatepicker').datepicker("option", "dateFormat", "d/m/yy");
+                    $('#reminderdatepicker').datepicker($.datepicker.regional["el"]);
+                    $('#reminderdatepicker').datepicker("option", "dateFormat", "d/m/yy");
                     $("#myModal").modal();
                 });
 
@@ -503,21 +514,21 @@ $(function () {
             }
         });
         //// build the locale selector's options
-        //$.each($.fullCalendar.locales, function (localeCode) {
-        //    $('#locale-selector').append(
-        //        $('<option/>')
-        //            .attr('value', localeCode)
-        //            .prop('selected', localeCode === initialLocaleCode)
-        //            .text(localeCode)
-        //    );
-        //});
+        $.each($.fullCalendar.locales, function (localeCode) {
+            $('#locale-selector').append(
+                $('<option/>')
+                    .attr('value', localeCode)
+                    .prop('selected', localeCode === initialLocaleCode)
+                    .text(localeCode)
+            );
+        });
 
         //// when the selected option changes, dynamically change the calendar option
-        //$('#locale-selector').on('change', function () {
-        //    if (this.value) {
-        //        $('#calendar').fullCalendar('option', 'locale', this.value);
-        //    }
-        //});
+        $('#locale-selector').on('change', function () {
+            if (this.value) {
+                $('#calendar').fullCalendar('option', 'locale', this.value);
+            }
+        });
     }
     //$('#helpbutton').click(function (e) {
     //    //e.preventDefault();
