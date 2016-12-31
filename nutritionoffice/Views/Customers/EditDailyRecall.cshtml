@@ -1,7 +1,7 @@
 ﻿@model nutritionoffice.Models.DailyRecall
 
 @{
-  string salutation = (Model.Customer.Sex == nutritionoffice.Models.Customer.sex.Male) ? "Αγαπητέ κύριε!" : "Αγαπητή κυρία!";
+    string salutation = (Model.Customer.Sex == nutritionoffice.Models.Customer.sex.Male) ? "Αγαπητέ κύριε!" : "Αγαπητή κυρία!";
 }
 <div id="sendcustomerrecalllink" data-customeremail="@Model.Customer.email" data-link="@Url.Action("SendDailyRecallByEmail", "DailyRecalls")" data-customerid="@Model.CustomerID">
     <div class="panel panel-success">
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-@using (Html.BeginForm("EditDailyRecall","Customers",FormMethod.Post))
+@using (Html.BeginForm("EditDailyRecall", "Customers", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -35,7 +35,7 @@
         <h4>@Resource.DailyRecall</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(modelitem => modelitem.id)
         @Html.HiddenFor(modelitem => modelitem.CustomerID)
 
         <div class="row">

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Mvc;
 using nutritionoffice.Models;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace nutritionoffice.Controllers
 {
@@ -127,7 +128,7 @@ namespace nutritionoffice.Controllers
                 {
                     quest = new BasicQuestionnaire
                     {
-                        CustomerID=id.Value,
+                        CustomerID = id.Value,
                         Allergies = new ExistingProblems { Exists = false },
                         Arthritis = new ExistingProblems { Exists = false },
                         Asthma = new ExistingProblems { Exists = false },
@@ -347,7 +348,7 @@ namespace nutritionoffice.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<ActionResult> EditDailyRecall(int? CustomerID)
+        public ActionResult EditDailyRecall(int? CustomerID)
         {
             if (CustomerID == null)
             {
@@ -358,26 +359,36 @@ namespace nutritionoffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
-            DailyRecall recall = await db.DailyRecalls.Where(r => r.CustomerID == CustomerID).FirstOrDefaultAsync();
+            DailyRecall recall = db.DailyRecalls.SingleOrDefault(r => r.CustomerID == CustomerID);
             if (recall == null)
             {
                 recall = new Models.DailyRecall { CustomerID = CustomerID.Value };
                 db.DailyRecalls.Add(recall);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
             return PartialView("DailyRecall", recall);
         }
 
         [HttpPost]
+        [ActionName("EditDailyRecall")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditDailyRecall([Bind(Include = "id,CustomerID,Breakfast,MorningSnack,Lunch,EveningSnack,Dinner,Milk,Yoghurt,WhiteCheese,YellowCheese,CottageCheese,Chicken,Turkey,Hamburger,Beef,Pork,InOilFood,Legumes,Cereals,Nuts,Alcohol,JunkFood,Salads,Fruits,LikeA,LikeB,LikeC,LikeD,LikeE,DislikeA,DislikeB,DislikeC,DislikeD,DislikeE,Notes")] DailyRecall dailyRecall)
+        public async Task<ActionResult> EditDailyRecallPost(int id)//[Bind(Include = "id,CustomerID,Breakfast,MorningSnack,Lunch,EveningSnack,Dinner,Milk,Yoghurt,WhiteCheese,YellowCheese,CottageCheese,Chicken,Turkey,Hamburger,Beef,Pork,InOilFood,Legumes,Cereals,Nuts,Alcohol,JunkFood,Salads,Fruits,LikeA,LikeB,LikeC,LikeD,LikeE,DislikeA,DislikeB,DislikeC,DislikeD,DislikeE,Notes")] DailyRecall dailyRecall)
         {
-            if (ModelState.IsValid)
+
+            var dailyRecall = await db.DailyRecalls.SingleOrDefaultAsync(r => r.CustomerID == id);
+            if (TryUpdateModel(dailyRecall, "",null,new string[] { "id"}))
             {
-                db.Entry(dailyRecall).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Details", "Customers", new { id = dailyRecall.CustomerID });
+                try
+                {
+                   await db.SaveChangesAsync();
+                    return RedirectToAction("Details", "Customers", new { id = dailyRecall.CustomerID });
+                }
+                catch(Exception ex)
+                {
+                    return RedirectToAction("Details", new { id = id });
+                }
             }
+
             return View(dailyRecall);
         }
 
@@ -397,14 +408,22 @@ namespace nutritionoffice.Controllers
         }
 
         [HttpPost]
+        [ActionName("EditBasicQuestionnaires")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditBasicQuestionnaires([Bind(Include = "id,CustomerID,QuestionnareDate,JobName,JobHoursPerDay,DailyActivityDescription,CardioVascularProblems,HighBloodPressure,LowBloodPressure,Diabetes,Hypoglycemia,Asthma,BreathingProblems,Arthritis,HighCholesterol,HighTriglycerides,Allergies,Ulcer,MaxWeightEver,MaxWeightAge,MinWeightEver,MinWeightAge,WeightIncreasedOnLastPeriod,WeightDecreasedOnLastPeriod,OverWeightOnEarlyYears,DailyMeals,LackOfAppetite,Bulimia,HungryHours,BuyingFruitsFrequency,WeeklyConsumingFruits,WeeklyMealsOutOfHome,WeeklyConsumingSweetsByKind,DigestiveSystemFunctionality,FluidIntake,Notes")] BasicQuestionnaire basicQuestionnaire)
+        public async Task<ActionResult> EditBasicQuestionnairesPost(int id)//[Bind(Include = "id,CustomerID,QuestionnareDate,JobName,JobHoursPerDay,DailyActivityDescription,CardioVascularProblems,HighBloodPressure,LowBloodPressure,Diabetes,Hypoglycemia,Asthma,BreathingProblems,Arthritis,HighCholesterol,HighTriglycerides,Allergies,Ulcer,MaxWeightEver,MaxWeightAge,MinWeightEver,MinWeightAge,WeightIncreasedOnLastPeriod,WeightDecreasedOnLastPeriod,OverWeightOnEarlyYears,DailyMeals,LackOfAppetite,Bulimia,HungryHours,BuyingFruitsFrequency,WeeklyConsumingFruits,WeeklyMealsOutOfHome,WeeklyConsumingSweetsByKind,DigestiveSystemFunctionality,FluidIntake,Notes")] BasicQuestionnaire basicQuestionnaire)
         {
-            if (ModelState.IsValid)
+            var basicQuestionnaire = await db.BasicQuestionnairies.SingleOrDefaultAsync(r => r.CustomerID == id);
+            if (TryUpdateModel(basicQuestionnaire, "", null, new string[] { "id" }))
             {
-                db.Entry(basicQuestionnaire).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Details", "Customers", new { id = basicQuestionnaire.CustomerID });
+                try
+                {
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Details", "Customers", new { id = basicQuestionnaire.CustomerID });
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Details", new { id = id });
+                }
             }
             return View(basicQuestionnaire);
         }
