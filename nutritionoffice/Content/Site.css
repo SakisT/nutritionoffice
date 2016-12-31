@@ -74,6 +74,14 @@
 	color: #dfddef;
 }
 
+.newpaymentbutton {
+	background-color: #de9104;
+	border: solid 1px #8d5d08;
+	border-radius: 5px;
+	padding: 1px 10px 1px 10px;
+	color: #dfddef;
+}
+
 .resizable {
 	position: center;
 	width: 160px;

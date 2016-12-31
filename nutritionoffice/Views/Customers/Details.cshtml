@@ -86,6 +86,7 @@
                     </tbody>
                 </table>
             </div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
         </div>
     </div>
     <!--Μετρήσεις-->
@@ -141,6 +142,7 @@
                     </tbody>
                 </table>
             </div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
         </div>
     </div>
     <!--Δίαιτες-->
@@ -186,12 +188,30 @@
                     </tbody>
                 </table>
             </div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
+        </div>
+    </div>
+    <!--Payments-->
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#fedb9c">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">@Resource.Payments</a>
+                <biv class="col-md-3 pull-right">
+                    @Html.ActionLink(Resource.NewFemale, "AddPayment", "Customers", new { id = Model.id }, htmlAttributes: new { @class = "newpaymentbutton" })
+                </biv>
+            </h4>
+        </div>
+        <div id="collapse6" class="panel-collapse collapse">
+            <div class="panel-body" style="background-color:#e9e7ff">
+              @{ Html.RenderPartial("PaymentsPartial",Model.Payments, new ViewDataDictionary() { { "CustomerID",Model.id.ToString() } });}
+            </div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
         </div>
     </div>
     <!--Assessments -->
     <div id="assessmentpanelid" class="panel panel-default">
         <div class="panel-heading" style="background-color:#47c7d9">
-            <h4 class="panel-title text-center">
+            <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" style="font-size:1.2em; text-shadow:2px 2px 4px #808080"> Assessments</a>
             </h4>
         </div>
@@ -209,6 +229,7 @@
                         <div class="panel-body" style="background-color:#fedb9c">
                             @{ Html.RenderPartial("EditDailyRecall", (nutritionoffice.Models.DailyRecall)ViewBag.DailyRecall);}
                         </div>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5a"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
                     </div>
                 </div>
 
@@ -222,6 +243,7 @@
                         <div class="panel-body" style="background-color:#c3febc">
                             @{ Html.RenderPartial("EditBasicQuestionnaires", (nutritionoffice.Models.BasicQuestionnaire)ViewBag.BasicQuest);}
                         </div>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5b"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
                     </div>
                 </div>              
             </div>

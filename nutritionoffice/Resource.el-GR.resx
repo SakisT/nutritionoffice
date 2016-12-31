@@ -1380,4 +1380,7 @@
   <data name="AgeInYears" xml:space="preserve">
     <value>ετών</value>
   </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Πληρωμές</value>
+  </data>
 </root>

@@ -263,6 +263,8 @@ namespace nutritionoffice.Models
 
         public virtual ICollection<Diet> Diets { get; set; }
 
+        public ICollection<Payment> Payments { get; set; }
+
     }
 
     public class BasicQuestionnaire
@@ -620,6 +622,7 @@ namespace nutritionoffice.Models
 
     public class Measurement
     {
+        [Key,Required]
         public int id { get; set; }
 
         [Display(ResourceType = typeof(Resource), Name = "Customer")]
@@ -1604,6 +1607,24 @@ namespace nutritionoffice.Models
         }
     }
 
+    public class Payment
+    {
+        [Key,Required]
+        public int id { get; set; }
+        [Required]
+        public int CustomerID  { get; set; }
+        [ForeignKey("CustomerID")]
+        public virtual Customer Customer { get; set; }
+
+        public int AA { get; set; }
+
+        public DateTime PaymentDate { get; set; }
+
+        public decimal Euro { get; set; }
+        [StringLength(40)]
+        public string Description { get; set; }
+
+    }
     public class ndbContext : DbContext
     {
         public DbSet<Company> Companies { get; set; }
@@ -1640,6 +1661,8 @@ namespace nutritionoffice.Models
         public DbSet<Picture> Pictures { get; set; }
 
         public DbSet<NormalRates> NormalRates { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<AgeRange> AgeRanges { get; set; }
 

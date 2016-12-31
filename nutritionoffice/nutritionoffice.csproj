@@ -761,6 +761,7 @@
     <Content Include="Views\BasicQuestionnaires\EditByCustomer.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
     <Content Include="Views\Customers\CustomerPartial.cshtml" />
+    <Content Include="Views\Customers\PaymentsPartial.cshtml" />
     <None Include="Web References\SMService\sms.wsdl" />
   </ItemGroup>
   <ItemGroup>

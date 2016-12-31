@@ -461,6 +461,21 @@ namespace nutritionoffice.Controllers
             }
             return View(basicQuestionnaire);
         }
+
+        public async Task<PartialViewResult> PaymentsPartial(int CustomerID)
+        {
+            var payments = db.Payments.Where(r => r.CustomerID == CustomerID);
+            return PartialView(await payments.ToListAsync());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Payments")]
+        public ActionResult PaymentsPartialPost(int id,Payment[] payments)
+        {
+
+            return RedirectToAction("Details", new { id = id });
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
