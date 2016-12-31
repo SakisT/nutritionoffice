@@ -64,6 +64,11 @@
                 @Html.EditorFor(model => model.appointment.Notes, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.appointment.Notes, "", new { @class = "text-danger" })
             </div>
+            <div class="col-md-1">
+                <input type="color" class="form-control" name="appointment.Color" value="@Model.appointment.Color"/><span class="glyphicon glyphicon-alert"></span>
+                
+            </div>
+            
         </div>
 
         

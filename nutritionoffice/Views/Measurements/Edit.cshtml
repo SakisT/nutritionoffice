@@ -18,12 +18,12 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CustomerID, null, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
+            <div class="col-md-10">
                 @if (Model.CustomerID > 0)
                 {
                     nutritionoffice.Models.Customer customer = ViewBag.Customer;
                     @Html.HiddenFor(model => Model.CustomerID)
-                    <h4>@string.Format("{0} {1}", customer.LastName, customer.FirstName)</h4>
+                    <h4>@string.Format("{0} {1}, {2} {3}", customer.LastName, customer.FirstName, Convert.ToInt16((DateTime.Today - customer.BirthDate).TotalDays / 365), Resource.AgeInYears)</h4>
                 }
                 else
                 {

@@ -30,6 +30,9 @@
                     @Html.DropDownList("appointment.CustomerID", (SelectList)ViewBag.CustomerID, Resource.SelectCustomer, htmlAttributes: new { @class = "form-control", id = "appointmentcustomer" })
                     @Html.ValidationMessageFor(model => model.appointment.CustomerID, "", new { @class = "text-danger" })
                 </div>
+                <div class="col-xs-2 col-md-1">
+                    <input type="color" class="form-control" name="appointment.Color" value="@Model.appointment.Color" />
+                </div>
             </div>
         }
         else

@@ -507,6 +507,7 @@ namespace nutritionoffice.Models
     }
     public class Appointment
     {
+        private const string DEFAULT_COLOR = "#6BA5C2";
         [Key, Required]
         public int id { get; set; }
 
@@ -553,6 +554,9 @@ namespace nutritionoffice.Models
             [Display(ResourceType = typeof(Resource), Name = "AppointmentCanceled")]
             Canceled = 16
         }
+        private string _Color = DEFAULT_COLOR;
+        [DefaultValue(DEFAULT_COLOR)]
+        public string Color { get {return _Color; } set { _Color = value; } }
     }
 
     public class Reminder

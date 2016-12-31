@@ -149,9 +149,11 @@ namespace nutritionoffice.Controllers
                                        id = p.id,
                                        title = p.Customer?.FullName ?? "",
                                        start = startdt.ToString("O"),
-                                       end = enddt.ToString("O")
+                                       end = enddt.ToString("O"),
+                                       color = p.Color
                                    });
-
+                //,color = "red"
+                // Event default color #6BA5C2
                 return Json(returnvalue, behavior: JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

@@ -281,6 +281,27 @@ namespace nutritionoffice.Controllers
 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("CustomerPartial")]
+        public async Task<ActionResult> CustomerPartialPost(int id)
+        {
+            var customer = await db.Customers.FindAsync(id);
+            if (TryUpdateModel(customer))
+            {
+                try
+                {
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Details", new { id=id});
+                }
+                catch(Exception ex)
+                {
+                    return PartialView(customer); 
+                }
+            }
+            return null;
+        }
+
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

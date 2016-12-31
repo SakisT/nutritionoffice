@@ -463,6 +463,7 @@ $(function () {
                 $('.fc-fri').css("background-color", "#AFCEFF");
                 $('.fc-sat').css("background-color", "#C293F2");
                 $('.fc-sun').css("background-color", "orange");
+                $('.fc-today').css("background-color", "#FFFFFF");
             },
             dayClick: function (date, jsevent, view) {
                 //debugger;

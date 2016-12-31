@@ -19,9 +19,12 @@ namespace nutritionoffice.Migrations
             Array.ForEach(context.Appointments.Where(r => !r.FromTime_Minutes.HasValue).ToArray(), r => r.FromTime_Minutes = r.FromTime.Minute);
             Array.ForEach(context.Appointments.Where(r => !r.ToTime_Hour.HasValue).ToArray(), r => r.ToTime_Hour = r.ToTime.Hour);
             Array.ForEach(context.Appointments.Where(r => !r.ToTime_Minutes.HasValue).ToArray(), r => r.ToTime_Minutes = r.ToTime   .Minute);
+            Array.ForEach(context.Appointments.Where(r => r.Color==null).ToArray(), r => r.Color= "#6BA5C2");
 
             Array.ForEach(context.Reminders.Where(r => !r.Time_Hour.HasValue).ToArray(), r => r.Time_Hour = r.OnDate.Hour);
             Array.ForEach(context.Reminders.Where(r => !r.Time_Minutes.HasValue).ToArray(), r => r.Time_Minutes = r.OnDate.Minute);
+
+            
 
             context.SaveChanges();
             //  This method will be called after migrating to the latest version.

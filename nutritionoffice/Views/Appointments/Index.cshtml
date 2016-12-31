@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <div id="calendar"
      data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")"
      data-updateappointmentlink="@Url.Action("UpdateAppointment")"
@@ -13,6 +15,7 @@
      data-startdate="@ViewBag.StartDate"></div>
 
 @section Scripts{
+    <script src="~/Content/Site.css"></script>
     <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/locale/el.js"></script>
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />

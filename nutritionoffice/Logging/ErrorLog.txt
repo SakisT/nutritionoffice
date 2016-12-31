@@ -2019,3 +2019,31 @@ Stack Trace:
    at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    at nutritionoffice.Controllers.AppointmentsController.<Edit>d__8.MoveNext() in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\AppointmentsController.cs:line 352
 
+********** 31/12/2016 3:58:15 μμ **********
+Exception Type: System.FormatException
+Exception: Input string was not in a correct format.
+Source: 
+Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at nutritionoffice.Controllers.MeasurementsController.<>c.<Details>b__3_0(String r) in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+
+********** 31/12/2016 3:58:22 μμ **********
+Exception Type: System.FormatException
+Exception: Input string was not in a correct format.
+Source: 
+Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at nutritionoffice.Controllers.MeasurementsController.<>c.<Details>b__3_0(String r) in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
+
