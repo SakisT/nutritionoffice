@@ -429,7 +429,7 @@ $(function () {
             },
             scrollTime: '09:00:00',
             defaultView: 'agendaWeek',
-            theme: true,
+            theme: false,
             views: {
                 month: {
                     columnFormat: 'dddd'
@@ -455,9 +455,15 @@ $(function () {
             snapDuration: '00:10:00',
             slotLabelInterval: '00:15:00',
             displayEventEnd: false,
-            //viewRender: function (view, element) {
-            //    //RefreshAppointments();
-            //},
+            viewRender: function (view, element) {
+                $('.fc-mon').css("background-color", "#FFEA94");
+                $('.fc-tue').css("background-color", "#FF9AB3");
+                $('.fc-wed').css("background-color", "#A1D5A1");
+                $('.fc-thu').css("background-color", "#FFBA8E");
+                $('.fc-fri').css("background-color", "#AFCEFF");
+                $('.fc-sat').css("background-color", "#C293F2");
+                $('.fc-sun').css("background-color", "orange");
+            },
             dayClick: function (date, jsevent, view) {
                 //debugger;
             },
@@ -544,7 +550,7 @@ $(function () {
             }
         });
 
-
+        
     }
 
     $('.fc-prev-button').click(function (e) {

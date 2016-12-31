@@ -93,6 +93,9 @@ namespace nutritionoffice.Controllers
                 {
                     return HttpNotFound();
                 }
+
+                IQueryable<TargetGroup> validtargetgroups = db.TargetGroups.Where(r => r.CompanyID == CompID);
+                ViewBag.TargetGroupID = new SelectList(validtargetgroups, "id", "Name", customer.TargetGroupID);
                 DailyRecall recall = await db.DailyRecalls.Where(r => r.CustomerID == id.Value).FirstOrDefaultAsync();
                 if (recall == null)
                 {
@@ -266,6 +269,16 @@ namespace nutritionoffice.Controllers
                 Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "CustomersController", "Edit"));
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
+        }
+
+        public async Task<PartialViewResult> CustomerPartial(int id)
+        {
+            int CompID = CompanyID();
+            IQueryable<TargetGroup> validtargetgroups = db.TargetGroups.Where(r => r.CompanyID == CompID);
+            Customer customer = await db.Customers.FindAsync(id);
+            ViewBag.TargetGroupID = new SelectList(validtargetgroups, "id", "Name", customer.TargetGroupID);
+            return PartialView(customer);
+
         }
 
         // POST: Customers/Edit/5

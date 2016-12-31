@@ -1377,4 +1377,7 @@
   <data name="At" xml:space="preserve">
     <value>στις</value>
   </data>
+  <data name="AgeInYears" xml:space="preserve">
+    <value>ετών</value>
+  </data>
 </root>

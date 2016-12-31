@@ -115,6 +115,15 @@ namespace nutritionoffice {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to years old.
+        /// </summary>
+        public static string AgeInYears {
+            get {
+                return ResourceManager.GetString("AgeInYears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Age on Measurement Date.
         /// </summary>
         public static string AgeOnMeasurement {

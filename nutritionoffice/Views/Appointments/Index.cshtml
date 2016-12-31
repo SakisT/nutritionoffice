@@ -5,16 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="calendar" 
-     data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")" 
+<div id="calendar"
+     data-indexlink="@Url.Action("GetAppointmentsByDate","Appointments")"
      data-updateappointmentlink="@Url.Action("UpdateAppointment")"
      data-editappointmentlink="@Url.Action("Edit")"
      data-createappointmentlink="@Url.Action("Create")"
-     data-startdate="@ViewBag.StartDate"
-     ></div>
+     data-startdate="@ViewBag.StartDate"></div>
 
 @section Scripts{
     <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/locale/el.js"></script>
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="~/Scripts/lib/jquery-ui.min.js"></script>
     <link href="~/Content/fullcalendar.css" rel="stylesheet" />

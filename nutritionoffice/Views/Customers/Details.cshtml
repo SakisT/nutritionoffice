@@ -7,10 +7,14 @@
 }
 <h2 class="text-center">@Resource.ControlPanel</h2>
 <div class="row">
-    <div id="toppage" class="col-xs-6">
-        <h2><a href="@Url.Action("Edit", new { id=Model.id })">@string.Format("{0} ({1} : {2})", Model.FullName,Resource.Age,Convert.ToInt16( (DateTime.Today-Model.BirthDate).TotalDays/365))</a></h2>
+    <div id="toppage" class="col-md-10">
+        @*<h2><a href="@Url.Action("Edit", new { id=Model.id })">@string.Format("{0}, {2} {1}", Model.FullName,Resource.AgeInYears,Convert.ToInt16( (DateTime.Today-Model.BirthDate).TotalDays/365))</a></h2>*@
+        <h2><a href="#customerbasicdata" data-toggle="collapse">@string.Format("{0}, {2} {1}", Model.FullName, Resource.AgeInYears, Convert.ToInt16((DateTime.Today - Model.BirthDate).TotalDays / 365))</a></h2>
+        <div class="collapse" id="customerbasicdata">
+            @{ Html.RenderPartial("CustomerPartial", Model);}
+        </div>
     </div>
-    <div class="col-xs-6 text-center" style="margin-top:20px;">
+    <div class="col-md-2 text-center" style="margin-top:20px;">
         <h4><a href="@Url.Action("Index", new { TargetGroupID=Model.TargetGroupID })" title="@Resource.ClickHereToSeeAllNamesForThisGroup" >@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
     </div>
 </div>
