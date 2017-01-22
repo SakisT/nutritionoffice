@@ -600,10 +600,10 @@ namespace nutritionoffice.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime FromTime { get; set; }
 
-        [Range(minimum: 0, maximum: 23)]
+        [Range(minimum: 0, maximum: 23),DisplayFormat(DataFormatString = "{0:00}", ApplyFormatInEditMode =true)]
         public int? FromTime_Hour { get; set; }
 
-        [Range(minimum: 0, maximum: 59)]
+        [Range(minimum: 0, maximum: 59), DisplayFormat(DataFormatString = "{0:00}", ApplyFormatInEditMode = true)]
         public int? FromTime_Minutes { get; set; }
 
         [DataType(DataType.Time), Display(ResourceType = typeof(Resource), Name = "ToTime")]

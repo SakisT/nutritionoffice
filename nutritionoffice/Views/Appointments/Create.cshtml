@@ -51,25 +51,25 @@
                 <label class="control-label" style="float:left">@Resource.From</label>
                 <div class="col-md-5">
                     <div class="col-md-5" style="float:left">
-                        @Html.DropDownList("appointment.FromTime_Hour", (SelectList)ViewBag.FromHours, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownList("appointment.FromTime_Hour", (SelectList)ViewBag.FromHours, null, htmlAttributes: new { @class = "form-control", @id = "fromtimehour" })
                     </div>
                     <div style="float:left;font-size:1.8em">
                         :
                     </div>
                     <div class="col-md-5" style="float:left">
-                        @Html.DropDownList("appointment.FromTime_Minutes", (SelectList)ViewBag.FromMinutes, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownList("appointment.FromTime_Minutes", (SelectList)ViewBag.FromMinutes, null, htmlAttributes: new { @class = "form-control", @id = "fromtimeminutes" })
                     </div>
                 </div>
                 <label class="control-label" style="float:left">@Resource.to</label>
                 <div class="col-md-5">
                     <div class="col-md-5" style="float:left">
-                        @Html.DropDownList("appointment.ToTime_Hour", (SelectList)ViewBag.ToHours, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownList("appointment.ToTime_Hour", (SelectList)ViewBag.ToHours, null, htmlAttributes: new { @class = "form-control", @id = "totimehour" })
                     </div>
                     <div style="float:left;font-size:1.8em">
                         :
                     </div>
                     <div class="col-md-5" style="float:left">
-                        @Html.DropDownList("appointment.ToTime_Minutes", (SelectList)ViewBag.ToMinutes, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownList("appointment.ToTime_Minutes", (SelectList)ViewBag.ToMinutes, null, htmlAttributes: new { @class = "form-control", @id = "totimeminutes" })
                     </div>
                 </div>
             </div>

@@ -10,9 +10,12 @@
         event.preventDefault();
         $(this).select();
     });
-    $('#appointmentdate').on('change', function () {
-        var newdatestring = $(this).val();
-        $('#appointmentmessage').val('Σας υπενθυμίζουμε το ραντεβού μας για ' + newdatestring + ' στις ' + $('#fromtime').val());
+
+    $(document).on('change', ['#appointmentdate','#fromtimehour','#fromtimeminutes'], function () {
+        var newdatestring = $('#appointmentdate').val();
+
+        $('#appointmentmessage').val('Σας υπενθυμίζουμε το ραντεβού μας για ' + newdatestring + ' ' + $('#fromtimehour').val() + ':' + $('#fromtimeminutes').val());
+
         var parts = newdatestring.split('/');
         var newrealdate = new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
         var timepart = $("#remindon").val().split(' ')[1];

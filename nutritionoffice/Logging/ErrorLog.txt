@@ -2047,3 +2047,10 @@ Stack Trace:
    at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
    at nutritionoffice.Controllers.MeasurementsController.<Details>d__3.MoveNext() in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\MeasurementsController.cs:line 79
 
+********** 22/01/2017 10:40:39 μμ **********
+Exception Type: System.Exception
+Exception: Η ώρα αρχής δεν μπορεί να είναι μεταγενέστερη της ώρας τέλους
+Source: AppointmentsController - Create (POST)
+Stack Trace: 
+   at nutritionoffice.Controllers.AppointmentsController.<Create>d__6.MoveNext() in C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\Controllers\AppointmentsController.cs:line 257
+

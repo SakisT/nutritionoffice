@@ -471,7 +471,7 @@ article {
 }
 
 #calendar .fc-today {
-    background-color:red;
+	background-color:red;
 }
 h2{
 	font-family: 'Noto Serif', sans-serif;
@@ -481,6 +481,6 @@ h2{
 }
 
 .calendarcss{
-    color:yellow;
+	color:yellow;
 }
 

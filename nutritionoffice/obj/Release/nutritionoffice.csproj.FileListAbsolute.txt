@@ -541,3 +541,4 @@ C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Release\el-GR\nu
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Release\nutritionoffice.dll
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Release\nutritionoffice.pdb
 C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Release\nutritionoffice.XmlSerializers.dll
+C:\Users\sakis\Source\Repos\nutritionoffice\nutritionoffice\obj\Release\nutritionoffice.csprojResolveAssemblyReference.cache
