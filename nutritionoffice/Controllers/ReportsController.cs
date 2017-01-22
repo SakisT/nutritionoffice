@@ -9,6 +9,8 @@ using nutritionoffice.ViewModels;
 using System.Collections.Generic;
 using Microsoft.Reporting.WebForms;
 using System.Data.Entity.SqlServer;
+using System.IO;
+using System.Collections;
 //using System.Web.Helpers;
 //using System.Web.UI.DataVisualization.Charting;
 
@@ -75,6 +77,86 @@ namespace nutritionoffice.Controllers
             List<Customer> _customers = await db.Customers.OrderByDescending(r => r.CreatedOn).Where(r => r.CreatedOn.HasValue && r.CreatedOn <= ToDate && r.CreatedOn >= FromDate && r.CompanyID == CompID).ToListAsync();
             List<ViewModels.selectablecustomer> customers = (from p in _customers select new selectablecustomer { customer = p, IsSelected = true }).ToList();
             return View(customers);
+        }
+
+      
+
+
+
+        public async Task<ActionResult> Customers(int CompanyID, int? TargetGroupID, string Filter, string filetype)
+        {
+            IQueryable<Customer> customers = db.Customers.OrderBy(r => r.LastName).ThenBy(r => r.FirstName).Where(r => r.CompanyID == CompanyID);
+
+            if (TargetGroupID.HasValue && TargetGroupID.Value != 0)
+            {
+                customers = customers.Where(r => r.TargetGroupID == TargetGroupID.Value);
+            }
+            if (!string.IsNullOrEmpty(Filter))
+            {
+                customers = customers.Where(r => r.LastName.ToLower().Contains(Filter.ToLower()) | r.FirstName.ToLower().Contains(Filter.ToLower()));
+            }
+            LocalReport lr = new LocalReport();
+
+
+//#if DEBUG
+//            lr.ReportPath = Server.MapPath(Path.Combine("~/Reports", "Documents", "CustomersList.rdlc"));
+//#else
+            lr.LoadReportDefinition(await Classes.AzureStorageClass.GetRDLC("reportdocuments", "CustomersList.rdlc"));
+//#endif
+
+            ReportDataSource rd = new ReportDataSource("CustomersDS", (from p in customers
+                                                                       select new
+                                                                       {
+                                                                           LastName = p.LastName,
+                                                                           FirstName = p.FirstName,
+                                                                           BirthDate = p.BirthDate,
+                                                                           Sex = (p.Sex == Customer.sex.Female) ? "Γυναίκα" : "Άνδρας",
+                                                                           Phone = p.Phone,
+                                                                           Mobile = p.Mobile,
+                                                                           email = p.email,
+                                                                           Facebook = p.Facebook,
+                                                                           City = p.City,
+                                                                           Address = p.Address,
+                                                                           PostCode = p.PostCode,
+                                                                           Notes = p.Notes.Replace("\r\n"," ")
+                                                                       }).ToList());
+
+            lr.DataSources.Add(rd);
+
+            // lr.Refresh();
+            //lr.SetParameters(new ReportParameter("ReportHeader", String.Format("Περίοδος επισκέψεων από {0:d/M/yyyy} έως {1:d/M/yyyy}", FromDate, ToDate)));
+
+            string reportType = filetype;
+            string extension = (filetype == "IMAGE") ? "tiff" : (filetype == "PDF") ? "pdf" : (filetype == "EXCEL") ? "xls" : "doc";
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + reportType + "</OutputFormat>" +
+            "  <PageWidth>11.692in</PageWidth>" +
+            "  <PageHeight>8.267in</PageHeight>" +
+            "  <MarginTop>0.3cm</MarginTop>" +
+            "  <MarginLeft>0.4cm</MarginLeft>" +
+            "  <MarginRight>0.4cm</MarginRight>" +
+            "  <MarginBottom>0.3cm</MarginBottom>" +
+            "</DeviceInfo>";
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderBytes;
+
+            renderBytes = lr.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderBytes, mimeType, string.Format("Customers List.{0}", extension));
         }
 
         public async Task<ActionResult> Measurements(DateTime? fromdate, DateTime? todate, bool print = false, string filetype = "IMAGE")
@@ -155,6 +237,7 @@ namespace nutritionoffice.Controllers
             return File(renderBytes, mimeType, string.Format("Report Period {0:yyyy-MM-dd} - {1:yyyy-MM-dd}.{2}", FromDate, ToDate, extension));
         }
 
+
         public ActionResult VisitsStatistics()
         {
             int companyid = CompanyID();
@@ -233,13 +316,13 @@ namespace nutritionoffice.Controllers
                 ViewBag.PerSex = PerSexChart.ImageString;
 
                 var CustomersPerTargetGroupValues = (from p in data
-                                            group p by new { p.TargetGroup } into g
-                                            select new Classes.ChartClass.KeyValue
-                                            {
-                                                LabelText = g.Count().ToString(),
-                                                LegentText = g.Key.TargetGroup,
-                                                Value = g.Count()
-                                            }).ToArray();
+                                                     group p by new { p.TargetGroup } into g
+                                                     select new Classes.ChartClass.KeyValue
+                                                     {
+                                                         LabelText = g.Count().ToString(),
+                                                         LegentText = g.Key.TargetGroup,
+                                                         Value = g.Count()
+                                                     }).ToArray();
 
                 var CustomersPerTargetChart = new Classes.ChartClass(System.Web.UI.DataVisualization.Charting.SeriesChartType.Pie, CustomersPerTargetGroupValues);
                 ViewBag.CustomersPerTargetGroup = CustomersPerTargetChart.ImageString;
@@ -250,15 +333,15 @@ namespace nutritionoffice.Controllers
                 //}
 
                 Classes.ChartClass.KeyValue[] MeasurementsPerTargetGroupValues = (from p in data
-                                                     group p by new { p.TargetGroup } into g
-                                                     select new Classes.ChartClass.KeyValue
-                                                     {
-                                                         LabelText = g.Sum(r=>r.Measurements).ToString(),
-                                                         LegentText = g.Key.TargetGroup,
-                                                         Value = g.Sum(r => r.Measurements)
-                                                     }).ToArray();
+                                                                                  group p by new { p.TargetGroup } into g
+                                                                                  select new Classes.ChartClass.KeyValue
+                                                                                  {
+                                                                                      LabelText = g.Sum(r => r.Measurements).ToString(),
+                                                                                      LegentText = g.Key.TargetGroup,
+                                                                                      Value = g.Sum(r => r.Measurements)
+                                                                                  }).ToArray();
 
-               
+
                 var MeasurementsPerTargetChart = new Classes.ChartClass(System.Web.UI.DataVisualization.Charting.SeriesChartType.Pie, MeasurementsPerTargetGroupValues);
                 ViewBag.MeasurementsPerTargetGroup = MeasurementsPerTargetChart.ImageString;
                 return View(data);

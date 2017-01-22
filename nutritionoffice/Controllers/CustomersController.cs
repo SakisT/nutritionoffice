@@ -31,6 +31,7 @@ namespace nutritionoffice.Controllers
                     searchString = currentFilter;
                 }
                 int CompID = CompanyID();
+                ViewBag.CompanyID = CompID;
                 ViewBag.CurrentFilter = searchString;
                 ViewBag.TargetGroupID = TargetGroupID;
 
@@ -61,6 +62,8 @@ namespace nutritionoffice.Controllers
             try
             {
                 int CompID = CompanyID();
+                ViewBag.CompanyID = CompID;
+                ViewBag.CurrentFilter = searchString;
                 var customers = db.Customers.Include(c => c.TargetGroup).OrderBy(r => new { r.LastName, r.FirstName }).Where(r => r.CompanyID == CompID && (r.LastName.Contains(searchString) | r.FirstName.Contains(searchString)));
                 if (customers.Count() == 1)
                 {
@@ -96,6 +99,7 @@ namespace nutritionoffice.Controllers
 
                 IQueryable<TargetGroup> validtargetgroups = db.TargetGroups.Where(r => r.CompanyID == CompID);
                 ViewBag.TargetGroupID = new SelectList(validtargetgroups, "id", "Name", customer.TargetGroupID);
+                ViewBag.CompanyID = CompID;
                 DailyRecall recall = await db.DailyRecalls.Where(r => r.CustomerID == id.Value).FirstOrDefaultAsync();
                 if (recall == null)
                 {

@@ -284,6 +284,11 @@
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SurveysController.cs" />
+    <Compile Include="Reports\DataSources\CustomersDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomersDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CustomHelpers\CustomHelpers.cs" />
     <Compile Include="Reports\DataSources\CustomerMeasurementsDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -429,6 +434,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="Reports\DataSources\CustomerMeasurementsDS.xsc">
       <DependentUpon>CustomerMeasurementsDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSources\CustomersDS.xsc">
+      <DependentUpon>CustomersDS.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSources\CustomersDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomersDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reports\DataSources\CustomersDS.xss">
+      <DependentUpon>CustomersDS.xsd</DependentUpon>
     </Content>
     <None Include="Reports\DataSources\CustomerMeasurementsDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -799,6 +815,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Reports\Documents\CustomerMeasurements.rdlc" />
+    <EmbeddedResource Include="Reports\Documents\CustomersList.rdlc" />
     <EmbeddedResource Include="Reports\Documents\StatisticsOfMeasurements.rdlc" />
     <EmbeddedResource Include="Resource.el-GR.resx">
       <SubType>Designer</SubType>
