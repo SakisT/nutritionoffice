@@ -1,0 +1,63 @@
+﻿@model nutritionoffice.ViewModels.SurveyView
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lastquestionindex = 0;
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Survey</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(modelitem=>modelitem.Survey.id)
+        @Html.HiddenFor(modelitem => modelitem.Survey.CompanyID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Survey.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Survey.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Survey.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Survey.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Survey.IsActive)
+                    @Html.ValidationMessageFor(model => model.Survey.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div id="questionscontainer">
+            @for (int i = 0; i < Model.Questions.Count(); i++)
+            {
+                var question = Model.Questions.ToArray()[i];
+                Html.RenderPartial("_QuestionViewPartial", question,new ViewDataDictionary { { "QuestionIndex",i.ToString()} });
+                lastquestionindex = i;
+            }
+        </div>
+        <div id="lastquestiondataholder" data-lastquestionindex="@lastquestionindex"></div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

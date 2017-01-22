@@ -20,11 +20,11 @@ namespace nutritionoffice
         protected void Application_BeginRequest()
         {
             var currentCulture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
-            currentCulture.NumberFormat.NumberDecimalSeparator = ".";
-            currentCulture.NumberFormat.NumberGroupSeparator = "";
-            currentCulture.NumberFormat.CurrencyDecimalSeparator = ".";
-            currentCulture.DateTimeFormat.ShortDatePattern = "d/M/yyyy";
-            currentCulture.DateTimeFormat.ShortTimePattern = "HH:mm";
+            //currentCulture.NumberFormat.NumberDecimalSeparator = ".";
+            //currentCulture.NumberFormat.NumberGroupSeparator = "";
+            //currentCulture.NumberFormat.CurrencyDecimalSeparator = ".";
+            //currentCulture.DateTimeFormat.ShortDatePattern = "d/M/yyyy";
+            //currentCulture.DateTimeFormat.ShortTimePattern = "HH:mm";
 
             Thread.CurrentThread.CurrentCulture = currentCulture;
 

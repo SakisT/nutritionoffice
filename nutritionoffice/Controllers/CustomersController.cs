@@ -155,6 +155,7 @@ namespace nutritionoffice.Controllers
                     await db.SaveChangesAsync();
                 }
                 ViewBag.BasicQuest = quest;
+                await db.Entry(customer).Collection(r => r.Payments).LoadAsync();
                 return View(customer);
             }
             catch (Exception ex)
@@ -292,11 +293,11 @@ namespace nutritionoffice.Controllers
                 try
                 {
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Details", new { id=id});
+                    return RedirectToAction("Details", new { id = id });
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    return PartialView(customer); 
+                    return PartialView(customer);
                 }
             }
             return null;
@@ -410,14 +411,14 @@ namespace nutritionoffice.Controllers
         {
 
             var dailyRecall = await db.DailyRecalls.SingleOrDefaultAsync(r => r.CustomerID == id);
-            if (TryUpdateModel(dailyRecall, "",null,new string[] { "id"}))
+            if (TryUpdateModel(dailyRecall, "", null, new string[] { "id" }))
             {
                 try
                 {
-                   await db.SaveChangesAsync();
+                    await db.SaveChangesAsync();
                     return RedirectToAction("Details", "Customers", new { id = dailyRecall.CustomerID });
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return RedirectToAction("Details", new { id = id });
                 }
@@ -462,19 +463,15 @@ namespace nutritionoffice.Controllers
             return View(basicQuestionnaire);
         }
 
-        public async Task<PartialViewResult> PaymentsPartial(int CustomerID)
-        {
-            var payments = db.Payments.Where(r => r.CustomerID == CustomerID);
-            return PartialView(await payments.ToListAsync());
-        }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ActionName("Payments")]
-        public ActionResult PaymentsPartialPost(int id,Payment[] payments)
+        public async Task<PartialViewResult> AddPayment(int customerid, DateTime date, decimal euro, string description = "")
         {
-
-            return RedirectToAction("Details", new { id = id });
+            var customer = await db.Customers.FindAsync(customerid);
+            Payment payment = new Payment { CustomerID = customerid, Euro = euro, Description = description, PaymentDate = date };
+            db.Payments.Add(payment);
+            await db.SaveChangesAsync();
+            db.Entry(customer).Collection(r => r.Payments).Load();
+            return PartialView("_PaymentsPartial", customer.Payments.ToList());
         }
         protected override void Dispose(bool disposing)
         {

@@ -115,7 +115,81 @@ namespace nutritionoffice.Models
         public virtual Picture Picture { get; set; }
 
         public virtual ICollection<AgeRange> AgeRanges { get; set; }
+
+        public virtual ICollection<Survey> Surveys { get; set; }
     }
+
+    #region Survey
+    public class Survey
+    {
+        [Key, Required]
+        public int id { get; set; }
+        [Required]
+        public int CompanyID { get; set; }
+        [ForeignKey("CompanyID")]
+        public virtual Company Company { get; set; }
+
+        public string Title { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public virtual ICollection<Question> Questions { get; set; }
+    }
+
+    public class Question
+    {
+        [Key, Required]
+        public int id { get; set; }
+        [Required]
+        public int SurveyID { get; set; }
+        [ForeignKey("SurveyID ")]
+        public virtual Survey Survey { get; set; }
+        public string Text { get; set; }
+        public QuestionType Type { get; set; }
+        public enum QuestionType
+        {
+            YesOrNo = 2,
+            Stars = 4,
+            Freetext = 8
+        }
+
+        public virtual ICollection<QuestionAnswer> QuestionAnswers { get; set; }
+    }
+
+    public class QuestionAnswer
+    {
+        [Key, Required]
+        public int id { get; set; }
+        [Required]
+        public int QuestionID { get; set; }
+        [ForeignKey("QuestionID ")]
+        public virtual Question Question { get; set; }
+
+        public int? Score { get; set; }
+
+        public string AnswerText { get; set; }
+
+    }
+
+    public class SurveyResult
+    {
+        [Key, Required]
+        public int id { get; set; }
+        [Required]
+        public int QuestionAnswerID { get; set; }
+        [ForeignKey("QuestionAnswerID ")]
+        public virtual QuestionAnswer QuestionAnswer { get; set; }
+
+        public int CustomerID { get; set; }
+        [ForeignKey("CustomerID")]
+        public virtual Customer Customer { get; set; }
+
+        public bool BooleanResult { get; set; }
+        public int StarResult { get; set; }
+        public string TextResult { get; set; }
+
+    }
+    #endregion
 
     public class Picture
     {
@@ -264,6 +338,8 @@ namespace nutritionoffice.Models
         public virtual ICollection<Diet> Diets { get; set; }
 
         public ICollection<Payment> Payments { get; set; }
+
+        public virtual ICollection<SurveyResult> SurveyResults { get; set; }
 
     }
 
@@ -524,7 +600,7 @@ namespace nutritionoffice.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime FromTime { get; set; }
 
-        [Range(minimum:0, maximum:23)]
+        [Range(minimum: 0, maximum: 23)]
         public int? FromTime_Hour { get; set; }
 
         [Range(minimum: 0, maximum: 59)]
@@ -558,7 +634,7 @@ namespace nutritionoffice.Models
         }
         private string _Color = DEFAULT_COLOR;
         [DefaultValue(DEFAULT_COLOR)]
-        public string Color { get {return _Color; } set { _Color = value; } }
+        public string Color { get { return _Color; } set { _Color = value; } }
     }
 
     public class Reminder
@@ -577,11 +653,11 @@ namespace nutritionoffice.Models
         [Display(ResourceType = typeof(Resource), Name = "DateofReminder"), DisplayFormat(DataFormatString = "{0:d/M/yyyy H:mm}", ApplyFormatInEditMode = true)]
         public DateTime OnDate { get; set; }
 
-        [Range(minimum:0, maximum:23)]
+        [Range(minimum: 0, maximum: 23)]
         public int? Time_Hour { get; set; }
 
         [Range(minimum: 0, maximum: 59)]
-        public int?  Time_Minutes { get; set; }
+        public int? Time_Minutes { get; set; }
 
         [StringLength(25), Display(ResourceType = typeof(Resource), Name = "MobilePhone")]
         public string Mobile { get; set; }
@@ -622,7 +698,7 @@ namespace nutritionoffice.Models
 
     public class Measurement
     {
-        [Key,Required]
+        [Key, Required]
         public int id { get; set; }
 
         [Display(ResourceType = typeof(Resource), Name = "Customer")]
@@ -1609,10 +1685,10 @@ namespace nutritionoffice.Models
 
     public class Payment
     {
-        [Key,Required]
+        [Key, Required]
         public int id { get; set; }
         [Required]
-        public int CustomerID  { get; set; }
+        public int CustomerID { get; set; }
         [ForeignKey("CustomerID")]
         public virtual Customer Customer { get; set; }
 
@@ -1666,6 +1742,13 @@ namespace nutritionoffice.Models
 
         public DbSet<AgeRange> AgeRanges { get; set; }
 
+        public DbSet<Survey> Surveys { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+
+        public DbSet<SurveyResult> SurveyResults { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().HasRequired(r => r.TargetGroup).WithMany().WillCascadeOnDelete(false);
@@ -1685,7 +1768,8 @@ namespace nutritionoffice.Models
             modelBuilder.Entity<Food>().Property(m => m.Fat_Sat).HasPrecision(10, 3);
             modelBuilder.Entity<Food>().Property(m => m.Fat_Mono).HasPrecision(10, 3);
             modelBuilder.Entity<Food>().Property(m => m.Fat_Poly).HasPrecision(10, 3);
-
+            //modelBuilder.Entity<SurveyResult>().HasRequired(m => m.Customer).WithMany(r => r.SurveyResults).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Customer>().HasMany(r => r.SurveyResults).WithRequired(r => r.Customer).WillCascadeOnDelete(false);
         }
     }
 }

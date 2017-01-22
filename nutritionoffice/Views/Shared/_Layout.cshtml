@@ -20,7 +20,7 @@
 
     @if (ViewBag.HideMenu == null || (bool)ViewBag.HideMenu == false)
     {
-        <div class="navbar navbar-default navbar-fixed-top" style="margin-top:10px;">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:10px;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -102,6 +102,8 @@
                                         <li>@Html.ActionLink(Resource.MeasurementsReport, "Measurements", "Reports")</li>
                                         <li>@Html.ActionLink(Resource.ListOfNewCustomers, "NewCustomers", "Reports")</li>
                                         <li>@Html.ActionLink(Resource.VisitsStatistics, "VisitsStatistics", "Reports")</li>
+                                        <li class="divider"></li>
+                                        <li>@Html.ActionLink("Surveys","Index","Surveys")</li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">

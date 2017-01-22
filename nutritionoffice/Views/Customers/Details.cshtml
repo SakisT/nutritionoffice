@@ -8,14 +8,57 @@
 <h2 class="text-center">@Resource.ControlPanel</h2>
 <div class="row">
     <div id="toppage" class="col-md-10">
-        @*<h2><a href="@Url.Action("Edit", new { id=Model.id })">@string.Format("{0}, {2} {1}", Model.FullName,Resource.AgeInYears,Convert.ToInt16( (DateTime.Today-Model.BirthDate).TotalDays/365))</a></h2>*@
         <h2><a href="#customerbasicdata" data-toggle="collapse">@string.Format("{0}, {2} {1}", Model.FullName, Resource.AgeInYears, Convert.ToInt16((DateTime.Today - Model.BirthDate).TotalDays / 365))</a></h2>
         <div class="collapse" id="customerbasicdata">
             @{ Html.RenderPartial("CustomerPartial", Model);}
         </div>
     </div>
     <div class="col-md-2 text-center" style="margin-top:20px;">
-        <h4><a href="@Url.Action("Index", new { TargetGroupID=Model.TargetGroupID })" title="@Resource.ClickHereToSeeAllNamesForThisGroup" >@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
+        <h4><a href="@Url.Action("Index", new { TargetGroupID = Model.TargetGroupID })" title="@Resource.ClickHereToSeeAllNamesForThisGroup">@string.Format("{0}", Model.TargetGroup.Name)</a></h4>
+    </div>
+</div>
+
+<div id="dataholder" data-customerid="@Model.id"></div>
+<!-- Modal -->
+<div id="paymentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#fbc86c">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@Resource.Payments</h4>
+            </div>
+       
+                <div class="modal-body" style="background-color:#ffefd2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="#paymentdateid" class="col-md-2">@Resource.Date</label>
+                            <div class="col-md-2">
+                                <input type="text" class="datepicker form-control" value="@DateTime.Today" id="paymentdateid" />
+                            </div>
+
+                            <div class="col-lg-offset-2 col-md-2">
+                                <input type="text" class="numbertextbox form-control" id="paymenteuroid">
+                            </div>
+                            <label for="#paymenteuroid">&euro;</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="#paymentddescriptionid" class="col-md-2">@Resource.SortDescription</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="paymentddescriptionid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer small" style="background-color:#fbc86c">
+                    <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal" id="savenewpayment">Save</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            
+
+        </div>
+
     </div>
 </div>
 
@@ -47,7 +90,7 @@
                             <td>@Resource.Date</td>
                             <td>@Resource.Status</td>
                             <td>@Resource.Reminder</td>
-                     
+
                         </tr>
                     </thead>
                     <tbody id="appointmentslist" style="background-color:#caf4fa">
@@ -73,14 +116,14 @@
                             <tr style="background-color:@appointmentcolor">
                                 <td>
                                     @*@Html.ActionLink(Resource.Edit, "Edit", "Appointments", new { id = appointment.id }, null) |
-                                    @Html.ActionLink(Resource.Delete, "Delete", "Appointments", new { id = appointment.id }, null)*@
-                                    <a href="@Url.Action("Edit","Appointments",new { id=appointment.id})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
-                                    <a href="@Url.Action("Delete","Appointments",new { id=appointment.id})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+                                        @Html.ActionLink(Resource.Delete, "Delete", "Appointments", new { id = appointment.id }, null)*@
+                                    <a href="@Url.Action("Edit", "Appointments", new { id = appointment.id })"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Delete", "Appointments", new { id = appointment.id })"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
                                 </td>
                                 <td>@Html.DisplayFor(modelitem => appointment.Date)</td>
                                 <td>@Html.DisplayFor(modelitem => appointment.State)</td>
                                 <td>Όχι</td>
-             
+
                             </tr>
                         }
                     </tbody>
@@ -95,10 +138,10 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">@Resource.Measurements</a>
                 <biv class="col-md-3 pull-right">
-                    @Html.ActionLink(Resource.NewFemale, "Create", "Measurements", new { CustomerID = Model.id }, htmlAttributes: new { @class = "newmeasurementbutton", title="Καταχώρηση νέας μέτρησης" }) | 
-                    <a href="@Url.Action("Details","Measurements")" id="displaymeasurementstats" ><span class="glyphicon glyphicon-signal"></span> </a> |
-                    <a href="@Url.Action("CreateOrEdit","DailyRecalls",new { id=Model.id})" id="customerdailyrecallink"><span class="glyphicon glyphicon-time" title="Ανάκληση 24ώρου"></span> </a> |
-                    <a href="@Url.Action("CreateOrEdit","BasicQuestionnaires",new { id=Model.id})" id="customerBasicQuestionnaireslink"><span class="glyphicon glyphicon-list-alt" title="Ιατρικό ιστορικό"></span> </a> 
+                    @Html.ActionLink(Resource.NewFemale, "Create", "Measurements", new { CustomerID = Model.id }, htmlAttributes: new { @class = "newmeasurementbutton", title = "Καταχώρηση νέας μέτρησης" }) |
+                    <a href="@Url.Action("Details", "Measurements")" id="displaymeasurementstats"><span class="glyphicon glyphicon-signal"></span> </a> |
+                    <a href="@Url.Action("CreateOrEdit", "DailyRecalls", new { id = Model.id })" id="customerdailyrecallink"><span class="glyphicon glyphicon-time" title="Ανάκληση 24ώρου"></span> </a> |
+                    <a href="@Url.Action("CreateOrEdit", "BasicQuestionnaires", new { id = Model.id })" id="customerBasicQuestionnaireslink"><span class="glyphicon glyphicon-list-alt" title="Ιατρικό ιστορικό"></span> </a>
                 </biv>
             </h4>
         </div>
@@ -119,14 +162,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Measurements.OrderBy(r=>r.Date))
+                        @foreach (var item in Model.Measurements.OrderBy(r => r.Date))
                         {
-                            string detailsTitle = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, "{0} : {1}, {2} {3} {4:ddd d/M}",Resource.Customer, item.Customer.FullName,Resource.Measurements,Resource.ofdate, item.Date);
+                            string detailsTitle = string.Format(System.Threading.Thread.CurrentThread.CurrentCulture, "{0} : {1}, {2} {3} {4:ddd d/M}", Resource.Customer, item.Customer.FullName, Resource.Measurements, Resource.ofdate, item.Date);
                             <tr>
                                 <td>
-                                    <a href="@Url.Action("Edit","Measurements",new { id=item.id})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
-                                    <a href="@Url.Action("Details","Measurements",new {measurementids=item.id.ToString() })"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
-                                    <a href="@Url.Action("Delete","Measurements",new { id=item.id})"><span class="glyphicon glyphicon-remove-circle" title="Resource.Delete"></span></a>
+                                    <a href="@Url.Action("Edit", "Measurements", new { id = item.id })"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Details", "Measurements", new { measurementids = item.id.ToString() })"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
+                                    <a href="@Url.Action("Delete", "Measurements", new { id = item.id })"><span class="glyphicon glyphicon-remove-circle" title="Resource.Delete"></span></a>
                                 </td>
                                 <td><input type="checkbox" checked="checked" data-itemid="@item.id" class="CustomerMeasurementRow" /></td>
                                 <td>@Html.DisplayFor(modelitem => item.Date)</td>
@@ -162,10 +205,10 @@
                         <tr class="text-muted">
                             <td></td>
                             <td width="3%">&radic;</td>
-                            <td>@Html.DisplayNameFor(modelitem=>modelitem.Diets.FirstOrDefault().StartDate)</td>
-                            <td>@Html.DisplayNameFor(modelitem=>modelitem.Diets.FirstOrDefault().Type)</td>
+                            <td>@Html.DisplayNameFor(modelitem => modelitem.Diets.FirstOrDefault().StartDate)</td>
+                            <td>@Html.DisplayNameFor(modelitem => modelitem.Diets.FirstOrDefault().Type)</td>
                             <td>@Html.DisplayNameFor(modelitem => modelitem.Diets.FirstOrDefault().Notes)</td>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -174,9 +217,9 @@
                             //string detailsTitle = string.Format(ci, "{0} : {1}, {2} {3} {4:ddd d/M}", Resource.Customer, item.Customer.FullName, Resource.Measurements, Resource.ofdate, item.Date);
                             <tr>
                                 <td>
-                                    <a href="@Url.Action("Edit","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
-                                    <a href="@Url.Action("Details","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
-                                    <a href="@Url.Action("Delete","Diets",new { id=item.ID})"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
+                                    <a href="@Url.Action("Edit", "Diets", new { id = item.ID })"><span class="glyphicon glyphicon-edit" title="@Resource.Edit"></span></a> |
+                                    <a href="@Url.Action("Details", "Diets", new { id = item.ID })"><span class="glyphicon glyphicon-search" title="@Resource.Details"></span></a> |
+                                    <a href="@Url.Action("Delete", "Diets", new { id = item.ID })"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
                                 </td>
                                 <td><input type="checkbox" checked="checked" data-itemid="@item.ID" /></td><!-- class="CustomerMeasurementRow"-->
                                 <td>@Html.DisplayFor(modelitem => item.StartDate)</td>
@@ -197,13 +240,17 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">@Resource.Payments</a>
                 <biv class="col-md-3 pull-right">
-                    @Html.ActionLink(Resource.NewFemale, "AddPayment", "Customers", new { id = Model.id }, htmlAttributes: new { @class = "newpaymentbutton" })
+                    <button type="button" class="newpaymentbutton" data-toggle="modal" data-target="#paymentModal">@Resource.NewFemale</button>
                 </biv>
             </h4>
         </div>
         <div id="collapse6" class="panel-collapse collapse">
             <div class="panel-body" style="background-color:#e9e7ff">
-              @{ Html.RenderPartial("PaymentsPartial",Model.Payments, new ViewDataDictionary() { { "CustomerID",Model.id.ToString() } });}
+                <table class="table table-condensed" id="paymentscontainer" data-url="@Url.Action("AddPayment")">
+                    @{ Html.RenderPartial("_PaymentsPartial", Model.Payments.AsEnumerable(), new ViewDataDictionary() { });}
+                </table>
+
+
             </div>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
         </div>
@@ -217,9 +264,9 @@
         </div>
         <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body" style="background-color:#caf4fa">
-               
-                
-                 <div class="panel panel-default">
+
+
+                <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#fbaa19">
                         <h4 class="panel-title text-center">
                             <a data-toggle="collapse" data-parent="#collapse5" href="#collapse5a" style="font-size:1.2em; text-shadow:2px 2px 4px #808080"> @Resource.DailyRecall</a>
@@ -245,7 +292,7 @@
                         </div>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse5b"><span class="glyphicon glyphicon-circle-arrow-up"></span> </a>
                     </div>
-                </div>              
+                </div>
             </div>
         </div>
     </div>
@@ -253,5 +300,5 @@
 </div>
 
 <p>
-    @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index", new { Customertodisplay =Model.id})
+    @Html.ActionLink(nutritionoffice.Resource.BacktoList, "Index", new { Customertodisplay = Model.id })
 </p>

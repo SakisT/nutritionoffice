@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(document).on('ready', function () {
     $('.ExportToButton').on('click', function () {
         var parent = $(this).parents('.ExportTo').find('select option:selected');
         var link = $(this).data('link');
@@ -361,7 +361,21 @@
         });
     });
 
-
+    $('#savenewpayment').on('click', function () {
+        var link = $('#paymentscontainer').data('url');
+        var customerid = $('#dataholder').data('customerid');
+        var date = $('#paymentdateid').val();
+        var euro = $('#paymenteuroid').val();
+        var description = $('#paymentddescriptionid').val();
+        $.ajax({
+            url: link,
+            method:"POST",
+            data: { customerid: customerid,date:date, euro:euro, description:description },
+            success: function (data) {
+                $('#paymentscontainer').load(data);
+            }
+        });
+    });
 
 });
 
@@ -474,10 +488,11 @@ $(function () {
                 $.ajax({
                     url: link,
                     data: { date: noTime },
-                    success: function(doc) {
+                    success: function (doc) {
                         callback(doc);
                     }
-                })},
+                })
+            },
             //eventMouseover: function (calEvent) {
             //    //debugger;
             //},
@@ -551,7 +566,7 @@ $(function () {
             }
         });
 
-        
+
     }
 
     $('.fc-prev-button').click(function (e) {
@@ -567,7 +582,7 @@ $(function () {
         //var date = $('#calendar').fullCalendar('getDate').format();
         //$('#calendar').fullCalendar({ events: link + '?date=' + date });
     });
-    
+
 
 
 });

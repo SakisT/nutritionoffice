@@ -283,6 +283,7 @@
     <Compile Include="Controllers\NutritionOfficeSettingsController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
+    <Compile Include="Controllers\SurveysController.cs" />
     <Compile Include="CustomHelpers\CustomHelpers.cs" />
     <Compile Include="Reports\DataSources\CustomerMeasurementsDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -366,6 +367,7 @@
     <Compile Include="ViewModels\dietdetails.cs" />
     <Compile Include="ViewModels\partialusers.cs" />
     <Compile Include="ViewModels\selectablecustomer.cs" />
+    <Compile Include="ViewModels\SurveyView.cs" />
     <Compile Include="ViewModels\StatisticsData.cs" />
     <Compile Include="Web References\SMService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -761,7 +763,12 @@
     <Content Include="Views\BasicQuestionnaires\EditByCustomer.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
     <Content Include="Views\Customers\CustomerPartial.cshtml" />
-    <Content Include="Views\Customers\PaymentsPartial.cshtml" />
+    <Content Include="Views\Surveys\Create.cshtml" />
+    <Content Include="Views\Surveys\Delete.cshtml" />
+    <Content Include="Views\Surveys\Edit.cshtml" />
+    <Content Include="Views\Surveys\Index.cshtml" />
+    <Content Include="Views\Surveys\AddQuestionView.cshtml" />
+    <Content Include="Views\Customers\_PaymentsPartial.cshtml" />
     <None Include="Web References\SMService\sms.wsdl" />
   </ItemGroup>
   <ItemGroup>
