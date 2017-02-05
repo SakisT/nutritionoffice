@@ -10,7 +10,15 @@
 <h2>@Resource.CustomersList</h2>
 
 <p>
-    <a href="@Url.Action("Create", new { TargetGroupID = ViewBag.TargetGroupID })">@Resource.CreateNewCustomer</span></a>
+    <div class="form-group">
+        <div class="col-md-8">
+            <a href="@Url.Action("Create", new { TargetGroupID = ViewBag.TargetGroupID })">@Resource.CreateNewCustomer</a>
+        </div>
+        <div class="col-md-4">
+            @Html.ExportTo("Customers", "Reports", new {CompanyID= ViewBag.CompanyID, TargetGroupID = ViewBag.TargetGroupID,Filter= ViewBag.CurrentFilter })
+        </div>
+    </div> 
+    
 </p>
 <table class="table">
     <tr>
@@ -35,7 +43,7 @@
                 <a href="@Url.Action("Delete", new { id=item.id })"><span class="glyphicon glyphicon-remove-circle" title="@Resource.Delete"></span></a>
             }
         </td>
-        <td>@Html.ActionLink(LastName, "Details", new { id = item.id },htmlAttributes: new { })</td>
+        <td>@Html.ActionLink(LastName, "Details", new { id = item.id },htmlAttributes: new { @title=Resource.CustomersControlPanel })</td>
         <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
         <td>@Html.DisplayFor(modelItem => item.TargetGroup.Name)</td>
         <td>@Html.DisplayFor(modelItem => Age, new { title=item.BirthDate.ToShortDateString()})</td>

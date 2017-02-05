@@ -30,6 +30,9 @@
                     @Html.DropDownList("appointment.CustomerID", (SelectList)ViewBag.CustomerID, Resource.SelectCustomer, htmlAttributes: new { @class = "form-control", id = "appointmentcustomer" })
                     @Html.ValidationMessageFor(model => model.appointment.CustomerID, "", new { @class = "text-danger" })
                 </div>
+                <div class="col-xs-2 col-md-1">
+                    <input type="color" class="form-control" name="appointment.Color" value="@Model.appointment.Color" />
+                </div>
             </div>
         }
         else
@@ -37,41 +40,50 @@
             @Html.HiddenFor(model => model.appointment.CustomerID)
         }
 
-<!-- Appointment Date And Time -->
+        <!-- Appointment Date And Time -->
         <div class="form-group">
             @Html.LabelFor(model => model.appointment.Date, htmlAttributes: new { @class = "control-label col-md-2 " })
-
             <div class="col-md-2">
-                @*@Html.EditorFor(model => model.appointment.Date, "dd/MM/yyyy", new { htmlAttributes = new { @class = "form-control datepicker ", id = "appointmentdate" } })*@
                 <input type="text" name="appointment.Date" id="appointmentdate" class="form-control datepicker" value="@Model.appointment.Date" style="background-color:#fcfbad" />
                 @Html.ValidationMessageFor(model => model.appointment.Date, "", new { @class = "text-danger" })
             </div>
-
-            <div class="col-md-2">
-                <div class="col-md-1">
-                    @Html.LabelFor(model => model.appointment.FromTime, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-8">
+                <label class="control-label" style="float:left">@Resource.From</label>
+                <div class="col-md-5">
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.FromTime_Hour", (SelectList)ViewBag.FromHours, null, htmlAttributes: new { @class = "form-control", @id = "fromtimehour" })
+                    </div>
+                    <div style="float:left;font-size:1.8em">
+                        :
+                    </div>
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.FromTime_Minutes", (SelectList)ViewBag.FromMinutes, null, htmlAttributes: new { @class = "form-control", @id = "fromtimeminutes" })
+                    </div>
                 </div>
-                @Html.EditorFor(model => model.appointment.FromTime, "H:mm", new { htmlAttributes = new { @class = "form-control datetimepicker timebox col-md-offset-2 col-md-1", @id="fromtime" } })
-                @Html.ValidationMessageFor(model => model.appointment.FromTime, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="col-md-2">
-                <div class="col-md-1 text-left">
-                    @Html.LabelFor(model => model.appointment.ToTime, htmlAttributes: new { @class = "control-label" })
+                <label class="control-label" style="float:left">@Resource.to</label>
+                <div class="col-md-5">
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.ToTime_Hour", (SelectList)ViewBag.ToHours, null, htmlAttributes: new { @class = "form-control", @id = "totimehour" })
+                    </div>
+                    <div style="float:left;font-size:1.8em">
+                        :
+                    </div>
+                    <div class="col-md-5" style="float:left">
+                        @Html.DropDownList("appointment.ToTime_Minutes", (SelectList)ViewBag.ToMinutes, null, htmlAttributes: new { @class = "form-control", @id = "totimeminutes" })
+                    </div>
                 </div>
-                @Html.EditorFor(model => model.appointment.ToTime, "H:mm", new { htmlAttributes = new { @class = "form-control datetimepicker timebox col-md-offset-2 col-md-1", @id="totime" } })
-                @Html.ValidationMessageFor(model => model.appointment.ToTime, "", new { @class = "text-danger" })
             </div>
+            
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.appointment.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-xs-10 col-md-5">
-                @Html.EditorFor(model => model.appointment.Notes, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.EditorFor(model => model.appointment.Notes, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.appointment.Notes, "", new { @class = "text-danger" })
             </div>
         </div>
-       
+
         <div class="form-group">
             @Html.LabelFor(model => model.reminder.Message, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-xs-10 col-md-3">
@@ -115,7 +127,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-xs-10 col-md-5">
-                <input type="submit" value="@Resource.Create" class="btn btn-default" />
+                <input type="submit" value="@Resource.Create" class="btn btn-warning" />
             </div>
         </div>
     </div>

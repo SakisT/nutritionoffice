@@ -23,24 +23,35 @@
         <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:10px;">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="float:left">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a href="@Url.Action("Index","Home")" class="navbar-brand" area=""><span style="color:#dbba03" class="glyphicon glyphicon-home" title="Home"></span> </a>
-                </div>
-                @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
-                {
-                    using (Html.BeginForm("Search", "Customers", FormMethod.Get))
+                    @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
                     {
-                        <form class="navbar-brand navbar-search pull-left col-xs-3">
-                            <div class="input-group-sm">
-                                <input autocomplete="off" style="margin-top:10px;margin-left:2px;width:150px;background:#feffa0" type="text" name="searchString" class="sm search-query form-control col-xs-3" placeholder="@Resource.SearchbyName">
-                            </div>
-                        </form>
+                        using (Html.BeginForm("Search", "Customers", FormMethod.Get,htmlAttributes:new { @style="float:left"}))
+                        {
+                            <form class="navbar-brand navbar-search pull-left col-xs-3">
+                                <div class="input-group-sm">
+                                    <input autocomplete="off" style="margin-top:10px;margin-left:2px;width:150px;background:#feffa0" type="text" name="searchString" class="sm search-query form-control col-xs-3" placeholder="@Resource.SearchbyName">
+                                </div>
+                            </form>
+                        }
                     }
-                }
+                </div>
+                @*@if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner" }.Any(r => User.IsInRole(r)))
+                    {
+                        using (Html.BeginForm("Search", "Customers", FormMethod.Get))
+                        {
+                            <form class="navbar-brand navbar-search pull-left col-xs-3">
+                                <div class="input-group-sm">
+                                    <input autocomplete="off" style="margin-top:10px;margin-left:2px;width:150px;background:#feffa0" type="text" name="searchString" class="sm search-query form-control col-xs-3" placeholder="@Resource.SearchbyName">
+                                </div>
+                            </form>
+                        }
+                    }*@
 
                 <div class="navbar-collapse collapse">
                     @if (User.Identity.IsAuthenticated && new string[] { "Administrator", "Owner", "CanEdit" }.Any(r => User.IsInRole(r)))
@@ -103,7 +114,7 @@
                                         <li>@Html.ActionLink(Resource.ListOfNewCustomers, "NewCustomers", "Reports")</li>
                                         <li>@Html.ActionLink(Resource.VisitsStatistics, "VisitsStatistics", "Reports")</li>
                                         <li class="divider"></li>
-                                        <li>@Html.ActionLink("Surveys","Index","Surveys")</li>
+                                        <li>@Html.ActionLink("Surveys", "Index", "Surveys")</li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -153,7 +164,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - nutritionoffice v.15/11/2016</p>
+            <p>&copy; @DateTime.Now.Year - nutritionoffice v.5/2/2017</p>
         </footer>
     </div>
 

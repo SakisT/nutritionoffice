@@ -12,7 +12,7 @@ namespace nutritionoffice.CustomHelpers
 
             string linktext = "<div class='form-group ExportTo'>" +
                   "<label for='exprttoselect' style='margin-top:7px'>" + Resource.ExportTo + "</label>" +
-                  "<button data-link='#' class='btn btn-primary ExportToButton'><span class='glyphicon glyphicon-export'></span> " + Resource.Export + "</button>" +
+                  "<button data-link='#' class='btn btn-primary btn-xs ExportToButton'><span class='glyphicon glyphicon-export'></span> " + Resource.Export + "</button>" +
                   "<select class='form-control'>" +
                   "<option value='EXCEL'>Excel</option>" +
                   "<option selected='selected' value='WORD'>Word</option>" +

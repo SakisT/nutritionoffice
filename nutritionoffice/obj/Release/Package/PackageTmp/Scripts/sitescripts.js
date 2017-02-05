@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(document).on('ready', function () {
     $('.ExportToButton').on('click', function () {
         var parent = $(this).parents('.ExportTo').find('select option:selected');
         var link = $(this).data('link');
@@ -10,9 +10,12 @@
         event.preventDefault();
         $(this).select();
     });
-    $('#appointmentdate').on('change', function () {
-        var newdatestring = $(this).val();
-        $('#appointmentmessage').val('Σας υπενθυμίζουμε το ραντεβού μας για ' + newdatestring + ' στις ' + $('#fromtime').val());
+
+    $(document).on('change', ['#appointmentdate','#fromtimehour','#fromtimeminutes'], function () {
+        var newdatestring = $('#appointmentdate').val();
+
+        $('#appointmentmessage').val('Σας υπενθυμίζουμε το ραντεβού μας για ' + newdatestring + ' ' + $('#fromtimehour').val() + ':' + $('#fromtimeminutes').val());
+
         var parts = newdatestring.split('/');
         var newrealdate = new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
         var timepart = $("#remindon").val().split(' ')[1];
@@ -164,7 +167,7 @@
     $(function () {
         var $HomeIndex = $('currentdatecustmersdata');
         var $company = $('#layoutcompanyid');
-        var count,tip;
+        var count, tip;
         if ($company.length !== 0) {
             $.ajax({
                 type: "POST",
@@ -295,7 +298,6 @@
             }
         })
     });
-
     $('#sendbasicquestlinktocustomer').on('click', function () {
         var customerid = $('#sendcustomerbasiquestlink').data('customerid');
         var mailmessagebodytext = $('#mailmessagebasicquestbodytext p').html();
@@ -361,6 +363,23 @@
             }
         });
     });
+
+    $('#savenewpayment').on('click', function () {
+        var link = $('#paymentscontainer').data('url');
+        var customerid = $('#dataholder').data('customerid');
+        var date = $('#paymentdateid').val();
+        var euro = $('#paymenteuroid').val();
+        var description = $('#paymentddescriptionid').val();
+        $.ajax({
+            url: link,
+            method:"POST",
+            data: { customerid: customerid,date:date, euro:euro, description:description },
+            success: function (data) {
+                $('#paymentscontainer').load(data);
+            }
+        });
+    });
+
 });
 
 $(document).on('keyup', '.numbertextbox', function () {
@@ -399,95 +418,176 @@ $(function () {
 });
 
 $(function () {
-    var initialLocaleCode = 'en';
-
-    $('#calendar').fullCalendar({
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay,listMonth'
-        },
-        defaultDate: '2016-09-12',
-        locale: initialLocaleCode,
-        buttonIcons: false, // show the prev/next text
-        weekNumbers: true,
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-            {
-                title: 'All Day Event',
-                start: '2016-09-01'
+    var initialLocaleCode = 'el';
+    var link = $('#calendar').data('indexlink');
+    if (link != undefined) {
+        $('#calendar').fullCalendar({
+            customButtons: {
+                neweventbutton: {
+                    text: 'New',
+                    click: function () {
+                        var createlink = $('#calendar').data('createappointmentlink');
+                        var view = $('#calendar').fullCalendar('getView');
+                        if (view.name === "agendaDay") {
+                            createlink = createlink + "?datetime=" + $('#calendar').fullCalendar('getDate').format();
+                        }
+                        window.location = createlink;
+                    }
+                }
             },
-            {
-                title: 'Long Event',
-                start: '2016-09-07',
-                end: '2016-09-10'
+            header: {
+                left: 'prev,next today',
+                center: 'neweventbutton title',
+                right: 'month,agendaWeek,agendaDay,listMonth'
             },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: '2016-09-09T16:00:00'
+            businessHours: {
+                start: '10:00', // a start time (10am in this example)
+                end: '22:00', // an end time (6pm in this example)
             },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: '2016-09-16T16:00:00'
+            scrollTime: '09:00:00',
+            defaultView: 'agendaWeek',
+            theme: false,
+            views: {
+                month: {
+                    columnFormat: 'dddd'
+                },
+                agendaWeek: {
+                    columnFormat: 'ddd D/M',
+                },
+                agendaDay: {
+                    columnFormat: 'dddd D MMMM YYYY',
+                }
             },
-            {
-                title: 'Conference',
-                start: '2016-09-11',
-                end: '2016-09-13'
+            defaultDate: $('#calendar').data('startdate'),
+            //columnFormat: 'dddd',
+            locale: initialLocaleCode,
+            buttonIcons: false, // show the prev/next text
+            weekNumbers: false,
+            nowIndicator: true,
+            timeFormat: 'H:mm',
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            slotDuration: '00:10:00',//Event timespan
+            snapDuration: '00:10:00',
+            slotLabelInterval: '00:15:00',
+            displayEventEnd: false,
+            viewRender: function (view, element) {
+                $('.fc-mon').css("background-color", "#FFEA94");
+                $('.fc-tue').css("background-color", "#FF9AB3");
+                $('.fc-wed').css("background-color", "#A1D5A1");
+                $('.fc-thu').css("background-color", "#FFBA8E");
+                $('.fc-fri').css("background-color", "#AFCEFF");
+                $('.fc-sat').css("background-color", "#C293F2");
+                $('.fc-sun').css("background-color", "orange");
+                $('.fc-today').css("background-color", "#FFFFFF");
             },
-            {
-                title: 'Meeting',
-                start: '2016-09-12T10:30:00',
-                end: '2016-09-12T12:30:00'
+            dayClick: function (date, jsevent, view) {
+                //debugger;
             },
-            {
-                title: 'Lunch',
-                start: '2016-09-12T12:00:00'
+            //events:link,
+            events: function (start, end, timezone, callback) {
+                var noTime = $('#calendar').fullCalendar('getDate').format();
+                $.ajax({
+                    url: link,
+                    data: { date: noTime },
+                    success: function (doc) {
+                        callback(doc);
+                    }
+                })
             },
-            {
-                title: 'Meeting',
-                start: '2016-09-12T14:30:00'
+            //eventMouseover: function (calEvent) {
+            //    //debugger;
+            //},
+            eventClick: function (calEvent, jsEvent, view) {
+                var editlink = $('#calendar').data('editappointmentlink') + '?id=' + calEvent.id;
+                window.location = editlink;
             },
-            {
-                title: 'Happy Hour',
-                start: '2016-09-12T17:30:00'
+            eventResize: function (event, delta, revertFunc, jsEvent, ui, view) {
+                var updatelink = $('#calendar').data('updateappointmentlink');
+                $.ajax({
+                    url: updatelink,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: event.id,
+                        years: delta._data.years,
+                        months: delta._data.months,
+                        days: delta._data.days,
+                        starthours: 0,
+                        startminutes: 0,
+                        endhours: delta._data.hours,
+                        endminutes: delta._data.minutes
+                    },
+                    error: function (data, status) {
+                        alert(status.toString());
+                    },
+                    success: function (data, status) {
+                        //debugger;
+                    }
+                });
             },
-            {
-                title: 'Dinner',
-                start: '2016-09-12T20:00:00'
-            },
-            {
-                title: 'Birthday Party',
-                start: '2016-09-13T07:00:00'
-            },
-            {
-                title: 'Click for Google',
-                url: 'http://google.com/',
-                start: '2016-09-28'
+            eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
+                var updatelink = $('#calendar').data('updateappointmentlink');
+                $.ajax({
+                    url: updatelink,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: event.id,
+                        years: delta._data.years,
+                        months: delta._data.months,
+                        days: delta._data.days,
+                        starthours: delta._data.hours,
+                        startminutes: delta._data.minutes,
+                        endhours: 0,
+                        endminutes: 0
+                    },
+                    error: function (data, status) {
+                        alert(status.toString());
+                    },
+                    success: function (data, status) {
+                        //debugger;
+                    }
+                });
             }
-        ]
+        });
+        //// build the locale selector's options
+        $.each($.fullCalendar.locales, function (localeCode) {
+            $('#locale-selector').append(
+                $('<option/>')
+                    .attr('value', localeCode)
+                    .prop('selected', localeCode === initialLocaleCode)
+                    .text(localeCode)
+            );
+        });
+
+        //// when the selected option changes, dynamically change the calendar option
+        $('#locale-selector').on('change', function () {
+            if (this.value) {
+                $('#calendar').fullCalendar('option', 'locale', this.value);
+            }
+        });
+
+
+    }
+
+    $('.fc-prev-button').click(function (e) {
+        //var link = $('#calendar').data('indexlink');
+        //var date = $('#calendar').fullCalendar('getDate').format();
+        //var templink = link + '?datetext=' + date;
+        //$('#calendar').fullCalendar('option','events',templink);
+        //$('#calendar').fullCalendar('rerenderEvents');
+        //$('#calendar').fullCalendar('refetchEvents');
     });
 
-    // build the locale selector's options
-    $.each($.fullCalendar.locales, function (localeCode) {
-        $('#locale-selector').append(
-            $('<option/>')
-                .attr('value', localeCode)
-                .prop('selected', localeCode === initialLocaleCode)
-                .text(localeCode)
-        );
+    $('.fc-next-button').click(function (e) {
+        //var date = $('#calendar').fullCalendar('getDate').format();
+        //$('#calendar').fullCalendar({ events: link + '?date=' + date });
     });
 
-    // when the selected option changes, dynamically change the calendar option
-    $('#locale-selector').on('change', function () {
-        if (this.value) {
-            $('#calendar').fullCalendar('option', 'locale', this.value);
-        }
-    });
+
+
 });
 
 $(function () {
@@ -915,4 +1015,3 @@ function CreateBMIChart() {
         }
     });
 }
-

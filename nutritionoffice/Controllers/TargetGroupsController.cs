@@ -20,9 +20,9 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            int CompID = CompanyID();
-            List<TargetGroup> companytargetgroups = await db.TargetGroups.Where(r => r.CompanyID == CompID).ToListAsync();
-            return View(companytargetgroups);
+                int CompID = CompanyID();
+                List<TargetGroup> companytargetgroups = await db.TargetGroups.Where(r => r.CompanyID == CompID).ToListAsync();
+                return View(companytargetgroups);
             }
             catch (Exception ex)
             {
@@ -40,14 +40,14 @@ namespace nutritionoffice.Controllers
             }
             try
             {
-            int CompID = CompanyID();
-            TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
-            if (targetGroup == null || targetGroup.CompanyID!=CompID)
-            {
-                return HttpNotFound();
-            }
-            
-            return View(targetGroup);
+                int CompID = CompanyID();
+                TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
+                if (targetGroup == null || targetGroup.CompanyID != CompID)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(targetGroup);
             }
             catch (Exception ex)
             {
@@ -61,9 +61,9 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            int CompID = CompanyID();
-            TargetGroup targetgroup = new TargetGroup { IsActive = true, CompanyID=CompID };
-            return View(targetgroup);
+                int CompID = CompanyID();
+                TargetGroup targetgroup = new TargetGroup { IsActive = true, CompanyID = CompID };
+                return View(targetgroup);
             }
             catch (Exception ex)
             {
@@ -81,14 +81,14 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            if (ModelState.IsValid)
-            {
-                db.TargetGroups.Add(targetGroup);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.TargetGroups.Add(targetGroup);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
 
-            return View(targetGroup);
+                return View(targetGroup);
             }
             catch (Exception ex)
             {
@@ -106,13 +106,13 @@ namespace nutritionoffice.Controllers
             }
             try
             {
-        int CompID = CompanyID();
-            TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
-            if (targetGroup == null || targetGroup.CompanyID!=CompID)
-            {
-                return HttpNotFound();
-            }
-            return View(targetGroup);
+                int CompID = CompanyID();
+                TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
+                if (targetGroup == null || targetGroup.CompanyID != CompID)
+                {
+                    return HttpNotFound();
+                }
+                return View(targetGroup);
             }
             catch (Exception ex)
             {
@@ -130,13 +130,13 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            if (ModelState.IsValid)
-            {
-                db.Entry(targetGroup).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(targetGroup);
+                if (ModelState.IsValid)
+                {
+                    db.Entry(targetGroup).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(targetGroup);
             }
             catch (Exception ex)
             {
@@ -154,13 +154,13 @@ namespace nutritionoffice.Controllers
             }
             try
             {
-            int CompID = CompanyID();
-            TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
-            if (targetGroup == null || targetGroup.CompanyID!=CompID)
-            {
-                return HttpNotFound();
-            }
-            return View(targetGroup);
+                int CompID = CompanyID();
+                TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
+                if (targetGroup == null || targetGroup.CompanyID != CompID)
+                {
+                    return HttpNotFound();
+                }
+                return View(targetGroup);
             }
             catch (Exception ex)
             {
@@ -176,10 +176,10 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
-            db.TargetGroups.Remove(targetGroup);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+                TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
+                db.TargetGroups.Remove(targetGroup);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -192,22 +192,22 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-            int CompID = CompanyID();
-            TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
+                int CompID = CompanyID();
+                TargetGroup targetGroup = await db.TargetGroups.FindAsync(id);
 
-            if (targetGroup == null || targetGroup.CompanyID != CompID)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.GroupName = string.Format($"Create Bulk Reminder for group '{targetGroup.Name}'");
+                if (targetGroup == null || targetGroup.CompanyID != CompID)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.GroupName = string.Format($"Create Bulk Reminder for group '{targetGroup.Name}'");
 
-            List<ViewModels.selectablecustomer> groupcustomers = await (from Customer p in db.Customers.Where(r => r.TargetGroupID == id) select new ViewModels.selectablecustomer { customer = p, IsSelected = true }).ToListAsync();
+                List<ViewModels.selectablecustomer> groupcustomers = await (from Customer p in db.Customers.Where(r => r.TargetGroupID == id) select new ViewModels.selectablecustomer { customer = p, IsSelected = true }).ToListAsync();
 
-            return View(groupcustomers);
+                return View(groupcustomers);
             }
             catch (Exception ex)
             {
-                Classes.ErrorHandler.LogException(ex,string.Format("{0} - {1}", "TargetGroupsController","ListGroupCustomerToSendReminder"));
+                Classes.ErrorHandler.LogException(ex, string.Format("{0} - {1}", "TargetGroupsController", "ListGroupCustomerToSendReminder"));
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
@@ -216,49 +216,49 @@ namespace nutritionoffice.Controllers
         {
             try
             {
-if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    if (Request["message"] == null) { throw new Exception("Fill out message text!"); }
-                    string Message = Request["message"].ToString();
-                    if (string.IsNullOrEmpty(Message)) { throw new Exception(string.Format("Message is Empty !!!", "")); }
-                    
-                    string ondatestring = Request["ondate"].ToString();
-                    DateTime OnDate;
-                    if (!DateTime.TryParse(ondatestring,out OnDate)) { throw new Exception(String.Format("{0} is not a valid Date", ondatestring)); }
-
-                    string OnTime = Request["ontime"].ToString();
-                    System.Text.RegularExpressions.Regex Rule = new System.Text.RegularExpressions.Regex("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
-                    if (!Rule.IsMatch(OnTime)) { throw new Exception(string.Format("{0} is not a valid time", OnTime)); }
-                    string[] TimeParts = OnTime.Split(':').ToArray();
-                    int CompID = CompanyID();
-                    DateTime SentDateTime = new DateTime(OnDate.Year, OnDate.Month, OnDate.Day, Convert.ToInt32(TimeParts[0]), Convert.ToInt32(TimeParts[1]),0);
-                    foreach (ViewModels.selectablecustomer item in groupcustomers.Where(r=>r.IsSelected==true))
+                    try
                     {
-                        Customer customer = db.Customers.Find(item.customer.id);
-                        if (customer != null && customer.CompanyID==CompID)
+                        if (Request["message"] == null) { throw new Exception("Fill out message text!"); }
+                        string Message = Request["message"].ToString();
+                        if (string.IsNullOrEmpty(Message)) { throw new Exception(string.Format("Message is Empty !!!", "")); }
+
+                        string ondatestring = Request["ondate"].ToString();
+                        DateTime OnDate;
+                        if (!DateTime.TryParse(ondatestring, out OnDate)) { throw new Exception(String.Format("{0} is not a valid Date", ondatestring)); }
+
+                        string OnTime = Request["ontime"].ToString();
+                        System.Text.RegularExpressions.Regex Rule = new System.Text.RegularExpressions.Regex("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+                        if (!Rule.IsMatch(OnTime)) { throw new Exception(string.Format("{0} is not a valid time", OnTime)); }
+                        string[] TimeParts = OnTime.Split(':').ToArray();
+                        int CompID = CompanyID();
+                        DateTime SentDateTime = new DateTime(OnDate.Year, OnDate.Month, OnDate.Day, Convert.ToInt32(TimeParts[0]), Convert.ToInt32(TimeParts[1]), 0);
+                        foreach (ViewModels.selectablecustomer item in groupcustomers.Where(r => r.IsSelected == true))
                         {
-                            if ((item.SendEmail && !string.IsNullOrEmpty(item.customer.email)) | (item.SendSMS && !string.IsNullOrEmpty(item.customer.Mobile)))
+                            Customer customer = db.Customers.Find(item.customer.id);
+                            if (customer != null && customer.CompanyID == CompID)
                             {
-                                Reminder newreminder = new Reminder { CustomerID = customer.id, Message = Message, OnDate = SentDateTime, SendSMS = item.SendSMS, SendEmail = item.SendEmail, MailState = Reminder.ReminderState.Active, Mobile = customer.Mobile ?? "", email = customer.email ?? "" };
-                                db.Reminders.Add(newreminder);
-                                Console.WriteLine();
+                                if ((item.SendEmail && !string.IsNullOrEmpty(item.customer.email)) | (item.SendSMS && !string.IsNullOrEmpty(item.customer.Mobile)))
+                                {
+                                    Reminder newreminder = new Reminder { CustomerID = customer.id, Message = Message, OnDate = SentDateTime, SMSState = Reminder.ReminderState.Active, SendSMS = item.SendSMS, SendEmail = item.SendEmail, MailState = Reminder.ReminderState.Active, Mobile = customer.Mobile ?? "", email = customer.email ?? "" };
+                                    db.Reminders.Add(newreminder);
+                                    Console.WriteLine();
+                                }
                             }
                         }
+                        db.SaveChanges();
+                        return RedirectToAction("Index", "Reminders", null);
                     }
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Reminders", null);
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("CustomError",string.Format($"Error : {ex.Message}"));
-                }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("CustomError", string.Format($"Error : {ex.Message}"));
+                    }
 
-            }
-            TargetGroup targetgroup = await db.TargetGroups.FindAsync(groupcustomers.FirstOrDefault().customer.TargetGroupID);
-            ViewBag.GroupName = targetgroup.Name;
-            return View(groupcustomers);
+                }
+                TargetGroup targetgroup = await db.TargetGroups.FindAsync(groupcustomers.FirstOrDefault().customer.TargetGroupID);
+                ViewBag.GroupName = targetgroup.Name;
+                return View(groupcustomers);
             }
             catch (Exception ex)
             {

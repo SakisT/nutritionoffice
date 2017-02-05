@@ -364,8 +364,16 @@ namespace nutritionoffice.Controllers
                                 diet.Diet.DietDailyMeals.Add(new DietDailyMeal { DayIndex = d, MealIndex = m, Diet = diet.Diet, DietDetails = new List<DietDetail>() });
                             }
                         }
+                        try
+                        {
                         await db.SaveChangesAsync();
                         newdietid = diet.Diet.ID;
+                        }
+                        catch(Exception ex1)
+                        {
+                            Console.WriteLine();
+                        }
+
                     }
 
                     
@@ -380,7 +388,6 @@ namespace nutritionoffice.Controllers
             }
             catch (Exception ex)
             {
-                Classes.ErrorHandler.LogException(ex, "");
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
